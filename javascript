@@ -26,13 +26,27 @@ const translations = {
         },
         footerText: "© 2025 Matej Martinović | Alle Rechte vorbehalten.",
         githubLink: "GitHub"
+    },
+    hr: {
+        aboutMe: "O meni",
+        projectsHeading: "Projekti",
+        contactMe: "Kontaktirajte me",
+        contactText: "Slobodno me kontaktirajte putem kontakt forme ili mojih društvenih mreža.",
+        contactForm: {
+            name: "Vaše ime",
+            email: "Vaša e-mail adresa",
+            message: "Vaša poruka",
+            sendMessage: "Pošaljite poruku"
+        },
+        footerText: "© 2025 Matej Martinović | Sva prava pridržana.",
+        githubLink: "GitHub"
     }
 };
 
 let currentLang = 'en';
 
 document.getElementById('lang-toggle').addEventListener('click', function() {
-    currentLang = currentLang === 'en' ? 'de' : 'en';
+    currentLang = currentLang === 'en' ? 'de' : currentLang === 'de' ? 'hr' : 'en';
     updateContent();
 });
 
