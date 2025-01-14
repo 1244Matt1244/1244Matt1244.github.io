@@ -1,36 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Matej Martinović</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Matej Martinović - Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 2em 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        section {
+            padding: 2em 5%;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        /* About Me Section */
+        .about-me {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 2em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2em;
+        }
+
+        .about-me p {
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+
+        .project {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            padding: 1em;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+            display: block;
+            margin-top: 1em;
+        }
+
+        /* Contact Section */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5em;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .projects {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hello, I am Matej Martinović, a passionate developer!</p>
-    </header>
 
-    <section id="about-me">
-        <h2>About Me</h2>
-        <p>I am a passionate and dedicated full-stack developer with a diverse portfolio that spans across web development, data analysis, and cloud infrastructure. I specialize in building dynamic, responsive user interfaces with React, while also creating robust backend systems using modern technologies and frameworks. With a strong foundation in SQL and cloud technologies, I excel at delivering scalable and efficient solutions. Throughout my career, I have worked on a wide range of projects, from interactive web applications to data-driven solutions and cloud-based services. My goal is to always learn, adapt, and deliver high-quality results that meet the needs of users and clients alike.</p>
-    </section>
+<header>
+    <h1>Welcome to My Portfolio</h1>
+    <p>Hello, I am Matej Martinović, a passionate developer!</p>
+</header>
 
-    <section id="my-projects">
-        <h2>My Projects</h2>
-        <div id="projects-list">
-            <!-- Projects will be populated here dynamically -->
-        </div>
-    </section>
+<section class="about-me">
+    <h2>About Me</h2>
+    <p>I am a passionate and dedicated full-stack developer with a diverse portfolio that spans across web development, data analysis, and cloud infrastructure. I specialize in building dynamic, responsive user interfaces with React, while also creating robust backend systems using modern technologies and frameworks. With a strong foundation in SQL and cloud technologies, I excel at delivering scalable and efficient solutions. Throughout my career, I have worked on a wide range of projects, from interactive web applications to data-driven solutions and cloud-based services. My goal is to always learn, adapt, and deliver high-quality results that meet the needs of users and clients alike.</p>
+</section>
 
-    <footer>
-        <p>Contact me at: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
-    </footer>
+<section class="projects">
+    <h2>My Projects</h2>
 
-    <script src="script.js"></script>
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/1244Matt1244.github.io" target="_blank">1244Matt1244.github.io</a></h3>
+        <p>Personal Portfolio Website</p>
+    </div>
+
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/azure_project" target="_blank">azure_project</a></h3>
+        <p>Cloud DevOps assignment</p>
+    </div>
+
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/maze_escape" target="_blank">maze_escape</a></h3>
+        <p>Backend: Java Project</p>
+    </div>
+
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">qrcode_generator</a></h3>
+        <p>QR Code Generator</p>
+    </div>
+
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/rest_api" target="_blank">rest_api</a></h3>
+        <p>REST API for managing user accounts</p>
+    </div>
+
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">small_guestbook_application</a></h3>
+        <p>A simple PHP project</p>
+    </div>
+
+    <!-- Add more projects here -->
+</section>
+
+<footer>
+    <p>Contact me at: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
+</footer>
+
 </body>
-
 </html>
