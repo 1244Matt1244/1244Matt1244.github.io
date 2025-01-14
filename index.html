@@ -348,6 +348,9 @@
     </div>
 </div>
 
+<!-- Language Switch Button -->
+<button id="lang-toggle">Switch Language</button>
+
 <section id="contact" class="contact">
     <h2>Contact Me</h2>
     <div class="contact-text">Feel free to reach out...</div>
@@ -357,7 +360,6 @@
         <textarea name="message" placeholder="Your Message"></textarea>
         <button type="submit">Send Message</button>
     </form>
-
 </section>
 
 <footer>
@@ -411,29 +413,31 @@
         }
     };
 
-    let currentLang = 'en';
+    let currentLang = 'en'; // Default language
 
+    // Event listener for switching languages
     document.getElementById('lang-toggle').addEventListener('click', function() {
+        // Cycle through languages (en -> de -> hr -> en)
         currentLang = currentLang === 'en' ? 'de' : currentLang === 'de' ? 'hr' : 'en';
         updateContent();
     });
 
+    // Function to update page content based on the selected language
     function updateContent() {
-        document.querySelector('h2#about').textContent = translations[currentLang].aboutMe;
-        document.querySelector('section#projects h2').textContent = translations[currentLang].projectsHeading;
-        document.querySelector('section#contact h2').textContent = translations[currentLang].contactMe;
-        document.querySelector('section#contact .contact-text').textContent = translations[currentLang].contactText;
+        document.querySelector('h2').textContent = translations[currentLang].contactMe;
+        document.querySelector('.contact-text').textContent = translations[currentLang].contactText;
 
-        const contactForm = document.querySelector('section#contact .contact-form');
+        const contactForm = document.querySelector('.contact-form');
         contactForm.querySelector('input[name="name"]').placeholder = translations[currentLang].contactForm.name;
         contactForm.querySelector('input[name="email"]').placeholder = translations[currentLang].contactForm.email;
         contactForm.querySelector('textarea[name="message"]').placeholder = translations[currentLang].contactForm.message;
         contactForm.querySelector('button[type="submit"]').textContent = translations[currentLang].contactForm.sendMessage;
 
         document.querySelector('footer p').textContent = translations[currentLang].footerText;
-        document.querySelector('footer .github-link').textContent = translations[currentLang].githubLink;
+        document.querySelector('.github-link').textContent = translations[currentLang].githubLink;
     }
 
+    // Initialize content in the default language (en)
     updateContent();
 </script>
 
