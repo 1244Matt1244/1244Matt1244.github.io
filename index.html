@@ -3,185 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Matej Martinović</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #2C3E50;
-            color: white;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        header {
-            background-color: #2980B9;
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-        section {
-            padding: 20px;
-        }
-        h1, h2 {
-            color: #ECF0F1;
-        }
-        .contact-form input, .contact-form textarea, .contact-form button {
-            padding: 10px;
-            margin: 10px 0;
-            width: 100%;
-            border: 2px solid #2980B9;
-            border-radius: 5px;
-            background-color: #34495E;
-            color: white;
-        }
-        .contact-form button {
-            background-color: #2980B9;
-            color: white;
-            cursor: pointer;
-            border: none;
-        }
-        .contact-form button:hover {
-            background-color: #1D6F8C;
-        }
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .project {
-            background-color: #34495E;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        .tech-stack {
-            background-color: #16A085;
-            color: white;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        #clock, #calendar {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #2980B9;
-            color: white;
-        }
-    </style>
+    <title>Matej's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/22.4.7/i18next.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/146/three.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
+        <h1>Matej's Portfolio</h1>
+        <div id="clock"></div>
+        <div id="language-selector">
+            <button onclick="changeLanguage('en')">English</button>
+            <button onclick="changeLanguage('de')">Deutsch</button>
+            <button onclick="changeLanguage('hr')">Hrvatski</button>
+            <button onclick="changeLanguage('es')">Español</button>
+            <button onclick="changeLanguage('fr')">Français</button>
+        </div>
     </header>
 
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>Geometrical Task</h3>
-                <a href="https://github.com/1244Matt1244/python_geometrical_task" target="_blank">View Project</a>
+    <main>
+        <section id="projects">
+            <h2 data-i18n="projects.title">Projects</h2>
+            <div class="project" id="project1">
+                <h3>MTG Backend Service Assignment 🃏</h3>
+                <p data-i18n="projects.mtg">A project to manage Magic: The Gathering cards and traffic cameras.</p>
             </div>
-            <div class="project">
-                <h3>QGIS Project</h3>
-                <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank">View Project</a>
+            <div class="project" id="project2">
+                <h3>Small Guestbook Application 📖</h3>
+                <p data-i18n="projects.guestbook">A PHP-based guestbook with user authentication and database interaction.</p>
             </div>
-            <div class="project">
-                <h3>MTG Backend Service</h3>
-                <a href="https://github.com/1244Matt1244/MTG_Backend_Service_Assignment" target="_blank">View Project</a>
+            <div class="project" id="project3">
+                <h3>Credit Card Fraud Detection 💳</h3>
+                <p data-i18n="projects.fraud">A Flask app using Random Forest Classifier for fraud detection.</p>
             </div>
-            <div class="project">
-                <h3>REST API</h3>
-                <a href="https://github.com/1244Matt1244/rest_api" target="_blank">View Project</a>
+            <div class="project" id="project4">
+                <h3>Bank System ERP 🏦</h3>
+                <p data-i18n="projects.erp">A .NET Framework project integrating data repositories and Excel.</p>
             </div>
-            <div class="project">
-                <h3>Azure Project</h3>
-                <a href="https://github.com/1244Matt1244/azure_project" target="_blank">View Project</a>
+            <div class="project" id="project5">
+                <h3>QGIS Python Project 🌍</h3>
+                <p data-i18n="projects.qgis">A Python project to enhance geographic data visualization in QGIS.</p>
             </div>
-            <div class="project">
-                <h3>Bank System ERP</h3>
-                <a href="https://github.com/1244Matt1244/bank_system_ERP" target="_blank">View Project</a>
+            <div class="project" id="project6">
+                <h3>HA Master-Slave with Redis 🔄</h3>
+                <p data-i18n="projects.redis">A high availability setup using Redis for database tasks.</p>
             </div>
-            <div class="project">
-                <h3>Small Guestbook Application</h3>
-                <a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">View Project</a>
+            <div class="project" id="project7">
+                <h3>REST API 🌐</h3>
+                <p data-i18n="projects.restapi">A project focusing on advanced REST API development.</p>
             </div>
-            <div class="project">
-                <h3>Credit Card Fraud Detection</h3>
-                <a href="https://github.com/1244Matt1244/credit_card_fraud_detection" target="_blank">View Project</a>
+            <div class="project" id="project8">
+                <h3>QR Code Generator 🔳</h3>
+                <p data-i18n="projects.qrcode">Generate QR codes with embedded logos for branding.</p>
             </div>
-            <div class="project">
-                <h3>HA Master-Slave Redis</h3>
-                <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db" target="_blank">View Project</a>
+            <div class="project" id="project9">
+                <h3>Azure Project ☁️</h3>
+                <p data-i18n="projects.azure">A project leveraging Azure services for cloud-based solutions.</p>
             </div>
-            <div class="project">
-                <h3>QR Code Generator</h3>
-                <a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Go Web App</h3>
-                <a href="https://github.com/1244Matt1244/myapp" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>PHP Web Application</h3>
-                <a href="https://github.com/1244Matt1244/php_web_app" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Node.js Backend Service</h3>
-                <a href="https://github.com/1244Matt1244/node_backend_service" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Data Science Project</h3>
-                <a href="https://github.com/1244Matt1244/data_science_project" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Machine Learning with Python</h3>
-                <a href="https://github.com/1244Matt1244/machine_learning_python" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Excel Integration C# Project</h3>
-                <a href="https://github.com/1244Matt1244/excel_integration_csharp" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>OpenStack Cloud Project</h3>
-                <a href="https://github.com/1244Matt1244/openstack_cloud_project" target="_blank">View Project</a>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section id="tech-stack" class="tech-stack">
-        <h2>Technologies I Use</h2>
-        <p><strong>Frontend:</strong> React, JavaScript, HTML, CSS</p>
-        <p><strong>Backend:</strong> Node.js, TypeScript, Go, Java, PHP, C#</p>
-        <p><strong>Database:</strong> SQL, NoSQL, MariaDB, PostgreSQL</p>
-        <p><strong>Cloud:</strong> Azure, OpenStack</p>
-        <p><strong>DevOps:</strong> Terraform, Kubernetes</p>
-        <p><strong>Data Science:</strong> Python, Scikit-learn</p>
-    </section>
-
-    <section id="calendar" style="text-align: center; padding: 20px;">
-        <h2>Current Time and Date</h2>
-        <div id="clock"></div>
-        <div id="calendar"></div>
-    </section>
-
-    <section id="contact" style="text-align: center; padding: 20px;">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out to me for collaboration, questions, or inquiries!</p>
-        <form class="contact-form" id="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="button" onclick="sendEmail()">Send Message</button>
-        </form>
-    </section>
-
-    <div class="footer">
-        <p>&copy; 2025 Matej Martinović. All rights reserved.</p>
-    </div>
+    <footer>
+        <p>&copy; 2025 Matej. All Rights Reserved.</p>
+    </footer>
 
     <script>
+        const translations = {
+            en: {
+                "projects.title": "Projects",
+                "projects.mtg": "A project to manage Magic: The Gathering cards and traffic cameras.",
+                "projects.guestbook": "A PHP-based guestbook with user authentication and database interaction.",
+                "projects.fraud": "A Flask app using Random Forest Classifier for fraud detection.",
+                "projects.erp": "A .NET Framework project integrating data repositories and Excel.",
+                "projects.qgis": "A Python project to enhance geographic data visualization in QGIS.",
+                "projects.redis": "A high availability setup using Redis for database tasks.",
+                "projects.restapi": "A project focusing on advanced REST API development.",
+                "projects.qrcode": "Generate QR codes with embedded logos for branding.",
+                "projects.azure": "A project leveraging Azure services for cloud-based solutions."
+            },
+            de: {
+                "projects.title": "Projekte",
+                "projects.mtg": "Ein Projekt zur Verwaltung von Magic: The Gathering-Karten und Verkehrskameras.",
+                "projects.guestbook": "Ein PHP-basiertes Gästebuch mit Benutzerauthentifizierung und Datenbankinteraktion.",
+                "projects.fraud": "Eine Flask-App mit Random Forest Classifier zur Betrugserkennung.",
+                "projects.erp": "Ein .NET Framework-Projekt zur Integration von Datenrepositories und Excel.",
+                "projects.qgis": "Ein Python-Projekt zur Verbesserung der geografischen Datenvisualisierung in QGIS.",
+                "projects.redis": "Ein hochverfügbares Setup mit Redis für Datenbankaufgaben.",
+                "projects.restapi": "Ein Projekt mit Schwerpunkt auf fortgeschrittener REST-API-Entwicklung.",
+                "projects.qrcode": "QR-Codes mit eingebetteten Logos für Branding generieren.",
+                "projects.azure": "Ein Projekt, das Azure-Dienste für cloudbasierte Lösungen nutzt."
+            },
+            hr: {
+                "projects.title": "Projekti",
+                "projects.mtg": "Projekt za upravljanje Magic: The Gathering kartama i prometnim kamerama.",
+                "projects.guestbook": "PHP aplikacija za knjigu gostiju s autentifikacijom korisnika i interakcijom s bazom podataka.",
+                "projects.fraud": "Flask aplikacija s Random Forest Classifier za otkrivanje prijevara.",
+                "projects.erp": ".NET Framework projekt za integraciju podataka i Excela.",
+                "projects.qgis": "Python projekt za poboljšanje vizualizacije geografskih podataka u QGIS-u.",
+                "projects.redis": "Postavka visoke dostupnosti pomoću Redis-a za zadatke baze podataka.",
+                "projects.restapi": "Projekt usmjeren na napredni razvoj REST API-ja.",
+                "projects.qrcode": "Generirajte QR kodove s ugrađenim logotipima za brendiranje.",
+                "projects.azure": "Projekt koji koristi Azure usluge za cloud rješenja."
+            },
+            es: {
+                "projects.title": "Proyectos",
+                "projects.mtg": "Un proyecto para gestionar cartas de Magic: The Gathering y cámaras de tráfico.",
+                "projects.guestbook": "Un libro de visitas basado en PHP con autenticación de usuario e interacción con bases de datos.",
+                "projects.fraud": "Una aplicación Flask que utiliza Random Forest Classifier para la detección de fraudes.",
+                "projects.erp": "Un proyecto de .NET Framework que integra repositorios de datos y Excel.",
+                "projects.qgis": "Un proyecto en Python para mejorar la visualización de datos geográficos en QGIS.",
+                "projects.redis": "Una configuración de alta disponibilidad utilizando Redis para tareas de bases de datos.",
+                "projects.restapi": "Un proyecto centrado en el desarrollo avanzado de REST API.",
+                "projects.qrcode": "Genera códigos QR con logotipos integrados para el branding.",
+                "projects.azure": "Un proyecto que aprovecha los servicios de Azure para soluciones en la nube."
+            },
+            fr: {
+                "projects.title": "Projets",
+                "projects.mtg": "Un projet pour gérer les cartes Magic: The Gathering et les caméras de circulation.",
+                "projects.guestbook": "Un livre d'or basé sur PHP avec authentification utilisateur et interaction avec la base de données.",
+                "projects.fraud": "Une application Flask utilisant Random Forest Classifier pour la détection de fraudes.",
+                "projects.erp": "Un projet .NET Framework intégrant des dépôts de données et Excel.",
+                "projects.qgis": "Un projet Python pour améliorer la visualisation des données géographiques dans QGIS.",
+                "projects.redis": "Une configuration haute disponibilité utilisant Redis pour les tâches de bases de données.",
+                "projects.restapi": "Un projet axé sur le développement avancé d'API REST.",
+                "projects.qrcode": "Générez des codes QR avec des logos intégrés pour le branding.",
+                "projects.azure": "Un projet tirant parti des services Azure pour des solutions cloud."
+            }
+        };
+
+        function changeLanguage(lang) {
+            i18next.init({
+                lng: lang,
+                resources: translations
+            }, function(err, t) {
+                if (err) return console.error(err);
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    el.textContent = t(el.getAttribute('data-i18n'));
+                });
+            });
+        }
+
         function updateClock() {
             const now = new Date();
-            document.getElementBy
+            const formattedTime = now.toLocaleTimeString();
+            document.getElementById('clock').textContent = formattedTime;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+        changeLanguage('en');
+    </script>
+</body>
+</html>
