@@ -188,7 +188,24 @@
         });
 
         function changeLanguage(language) {
-            // Implement language change functionality here
+            const texts = {
+                en: {
+                    about: "Hi! I'm Matej Martinović, a passionate and versatile software engineer...",
+                    projects: "Here is a selection of the projects I have worked on...",
+                },
+                hr: {
+                    about: "Bok! Ja sam Matej Martinović, strastveni i svestrani softverski inženjer...",
+                    projects: "Ovdje je izbor projekata na kojima sam radio...",
+                },
+                de: {
+                    about: "Hallo! Ich bin Matej Martinović, ein leidenschaftlicher und vielseitiger Softwareingenieur...",
+                    projects: "Hier ist eine Auswahl der Projekte, an denen ich gearbeitet habe...",
+                },
+            };
+
+            const languageTexts = texts[language];
+            document.querySelector("#about p").innerText = languageTexts.about;
+            document.querySelector("#projects p").innerText = languageTexts.projects;
         }
 
         setInterval(function () {
@@ -214,16 +231,13 @@
     <select id="language-select" onchange="changeLanguage(this.value)">
         <option value="en">English</option>
         <option value="hr">Croatian</option>
-        <!-- Add more languages as needed -->
+        <option value="de">German</option>
     </select>
 </div>
 
 <section id="about" class="about">
     <h2>About Me</h2>
-    <p>Hi! I'm Matej Martinović (he/him), a passionate and versatile software engineer with extensive experience in both frontend and backend development. I specialize in building efficient, scalable, and reliable systems, with a deep understanding of a wide range of technologies. Whether it’s developing complex web applications, working with cloud infrastructures (like Azure and OpenStack), or leveraging DevOps practices to streamline development and deployment workflows, I am driven by the challenge of solving real-world problems.</p>
-    <p>Over the years, I have worked on projects spanning various domains, from data analysis and machine learning to cloud computing and system architecture. I have a strong command of multiple programming languages such as JavaScript, TypeScript, Python, Go, Java, PHP, C#, and PowerShell. Additionally, I am proficient in tools like Terraform, Docker, Kubernetes, and CI/CD pipelines, enabling me to deliver robust and efficient solutions. I am passionate about continuous learning and staying up-to-date with emerging technologies. Whether it's data-driven development or exploring new cloud solutions, I enjoy tackling challenges that expand my skillset.</p>
-    <p>My goal is to create innovative software that drives impactful changes while optimizing workflows, improving performance, and enhancing user experiences.</p>
-    <p>If you're looking for a dedicated developer who thrives in dynamic environments and is always ready to learn and adapt, feel free to explore my work below or get in touch!</p>
+    <p>Hi! I'm Matej Martinović (he/him), a passionate and versatile software engineer...</p>
 </section>
 
 <section id="projects" class="projects">
@@ -241,36 +255,69 @@
         </div>
         <div class="project-card">
             <h3>small_guestbook_application</h3>
-            <p>A simple guestbook application with user authentication and database interaction.</p>
+            <p><strong>Backend:</strong> PHP Project - A guestbook application for recording user comments using PHP and MySQL.</p>
             <a href="https://github.com/1244Matt1244/small_guestbook_application">GitHub Repository</a>
         </div>
-    </div>
-
-    <div class="figma-canvas">
-        <h3>UI/UX Designs</h3>
-        <a href="https://www.figma.com/file/your-figma-file">View Designs</a>
+        <div class="project-card">
+            <h3>credit_card_fraud_detection</h3>
+            <p><strong>Machine Learning:</strong> Detecting fraudulent credit card transactions using Random Forest Classifier.</p>
+            <a href="https://github.com/1244Matt1244/credit_card_fraud_detection">GitHub Repository</a>
+        </div>
+        <div class="project-card">
+            <h3>bank_system_ERP</h3>
+            <p><strong>C#/.NET:</strong> ERP system for managing bank data and operations using C# and Excel integration.</p>
+            <a href="https://github.com/1244Matt1244/bank_system_ERP">GitHub Repository</a>
+        </div>
+        <div class="project-card">
+            <h3>qgis_project_python</h3>
+            <p><strong>Python/QGIS:</strong> A Python-based project for geospatial data analysis in QGIS.</p>
+            <a href="https://github.com/1244Matt1244/qgis_project_python">GitHub Repository</a>
+        </div>
+        <div class="project-card">
+            <h3>ha_master_slave_redis</h3>
+            <p><strong>Redis:</strong> High Availability setup for Redis in a master-slave configuration.</p>
+            <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db">GitHub Repository</a>
+        </div>
     </div>
 </section>
 
 <section id="contact" class="contact">
     <h2>Contact Me</h2>
-
-    <form class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+    <div class="contact-form">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea placeholder="Your Message"></textarea>
+        <button>Send Message</button>
         <div class="status-message"></div>
-    </form>
+    </div>
+</section>
+
+<section class="figma-canvas">
+    <h2>Figma Canvas</h2>
+    <iframe src="https://www.figma.com/file/..." width="100%" height="400px"></iframe>
+</section>
+
+<section class="tech-stack">
+    <h2>My Tech Stack</h2>
+    <ul>
+        <li>Java</li>
+        <li>Python</li>
+        <li>PHP</li>
+        <li>C#</li>
+        <li>Machine Learning (Random Forest)</li>
+        <li>SQL</li>
+        <li>Redis</li>
+        <li>HTML/CSS/JS</li>
+    </ul>
 </section>
 
 <section class="clock-calendar">
-    <p class="time"></p>
-    <p class="date"></p>
+    <div class="time"></div>
+    <div class="date"></div>
 </section>
 
 <footer class="footer">
-    <p>&copy; 2025 Matej Martinović. All Rights Reserved.</p>
+    <p>Copyright © 2025 | Matej Martinović</p>
 </footer>
 
 </body>
