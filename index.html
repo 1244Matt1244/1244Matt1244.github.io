@@ -3,135 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matej Martinović | Portfolio</title>
+    <meta name="description" content="Portfolio of Matej Martinović - Software Engineer. Projects, Contact, About Me, and more.">
+    <meta name="keywords" content="software engineer, portfolio, GitHub, projects, cloud computing, DevOps, machine learning, web development">
+    <meta name="author" content="Matej Martinović">
+    <title>Matej Martinović - Portfolio</title>
+
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Matej Martinović - Portfolio">
+    <meta property="og:description" content="Portfolio of software engineer Matej Martinović, showcasing various projects and skills.">
+    <meta property="og:image" content="your-image-url.jpg">
+    <meta property="og:url" content="https://1244Matt1244.github.io">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+
+    <!-- SEO Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- Cherry Blossom Background and Aesthetic -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('https://example.com/real-cherry-blossom-tree.jpg') no-repeat center center fixed;
-            background-size: cover;
-            background-color: #f0f4f8;
-            color: white;
-            transition: background-color 1s ease-in-out, color 1s ease-in-out;
+            background-color: #F8F0F1;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
         }
 
         header {
+            background-color: #FFCDD2;
+            padding: 10px 0;
             text-align: center;
-            padding: 50px 0;
-            animation: fadeIn 3s ease-in-out;
         }
 
-        h1 {
-            font-size: 3em;
-            color: #b3d9ff;
+        h1, h2 {
+            color: #D32F2F;
         }
 
-        p {
-            font-size: 1.5em;
-            color: #d6e7ff;
+        .navbar {
+            background-color: #F06292;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            border-radius: 5px;
         }
 
-        #clock {
-            font-size: 1.5em;
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
         }
 
-        #calendar {
-            font-size: 1.2em;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            color: #d6e7ff;
+        .projects, .about, .contact {
+            margin: 30px 0;
         }
 
-        .projects {
-            margin-top: 50px;
+        .project-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
         }
 
-        .project {
-            background-color: rgba(0, 0, 0, 0.5);
-            margin: 15px;
-            padding: 20px 15px;
-            width: 250px;
-            height: 230px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
-            transition: transform 0.3s, box-shadow 0.3s;
-            overflow: hidden;
-        }
-
-        .project:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.8);
-        }
-
-        .project h3 {
-            color: #e6f7ff;
-            font-size: 1.1em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .project a {
-            display: inline-block;
-            margin-top: 10px;
-            color: #ffb3b3;
-            text-decoration: none;
-            font-size: 1.0em;
-            font-weight: bold;
-            border: 2px solid #ffb3b3;
-            padding: 8px 15px;
+        .project-card {
+            background-color: #ffffff;
+            border: 1px solid #f0f0f0;
+            padding: 15px;
+            margin: 10px;
             border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            width: 45%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .project a:hover {
-            background-color: #ffb3b3;
-            color: black;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .tech-stack {
-            margin-top: 50px;
-            padding: 20px;
+        .footer {
             text-align: center;
-        }
-
-        .tech-stack h2 {
-            font-size: 2em;
-            color: #ffb3b3;
-        }
-
-        .tech-stack p {
-            font-size: 1.3em;
-            color: #d6e7ff;
-        }
-
-        .contact-form {
-            margin-top: 50px;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 15px;
-            width: 60%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            background-color: #FFCDD2;
+            border-top: 2px solid #D32F2F;
         }
 
         .contact-form input, .contact-form textarea {
@@ -139,124 +94,139 @@
             padding: 10px;
             margin: 10px 0;
             border-radius: 5px;
-            border: 1px solid #ffb3b3;
-            background-color: #333;
-            color: white;
-            font-size: 1.1em;
+            border: 1px solid #ddd;
         }
 
         .contact-form button {
+            background-color: #D32F2F;
+            color: white;
             padding: 10px 20px;
-            background-color: #ffb3b3;
             border: none;
             border-radius: 5px;
-            font-size: 1.2em;
-            color: black;
             cursor: pointer;
         }
 
         .contact-form button:hover {
-            background-color: #ff8080;
+            background-color: #C2185B;
+        }
+
+        .search-bar {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 60%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
         }
     </style>
+
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hello, I am Matej Martinović, a developer!</p>
-        <div id="clock"></div>
-        <div id="calendar"></div>
-    </header>
 
-    <section id="about-me" style="text-align: center; padding: 20px;">
-        <h2>About Me</h2>
-        <p>Hi! I'm a passionate and versatile software engineer with extensive experience in both frontend and backend development...</p>
-        <p>My goal is to create innovative software that drives impactful changes while optimizing workflows, improving performance, and enhancing user experiences...</p>
-    </section>
+<header>
+    <h1>Matej Martinović - Software Engineer</h1>
+    <div class="navbar">
+        <a href="#about">About Me</a>
+        <a href="#projects">My Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#search">Search</a>
+    </div>
+</header>
 
-    <section id="view-projects" style="text-align: center; padding: 20px;">
-        <h2>Explore My Projects</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>maze_escape</h3>
-                <a href="https://github.com/1244Matt1244/maze_escape" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>openstack_terraform_generator</h3>
-                <a href="https://github.com/1244Matt1244/openstack_terraform_generator" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>qrcode_generator</h3>
-                <a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>rest_api</h3>
-                <a href="https://github.com/1244Matt1244/rest_api" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>small_guestbook_application</h3>
-                <a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>credit_card_fraud_detection</h3>
-                <a href="https://github.com/1244Matt1244/credit_card_fraud_detection" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>bank_system_erp</h3>
-                <a href="https://github.com/1244Matt1244/bank_system_erp" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>qgis_project_python</h3>
-                <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>ha_master_slave_and_some_tasks_around_redis-db</h3>
-                <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>azure_project</h3>
-                <a href="https://github.com/1244Matt1244/azure_project" target="_blank">View Project</a>
-            </div>
+<section id="about" class="about">
+    <h2>About Me</h2>
+    <p>Hi! I'm Matej Martinović (he/him), a passionate and versatile software engineer with extensive experience in both frontend and backend development. I specialize in building efficient, scalable, and reliable systems, with a deep understanding of a wide range of technologies. Whether it’s developing complex web applications, working with cloud infrastructures (like Azure and OpenStack), or leveraging DevOps practices to streamline development and deployment workflows, I am driven by the challenge of solving real-world problems.</p>
+    <p>Over the years, I have worked on projects spanning various domains, from data analysis and machine learning to cloud computing and system architecture. I have a strong command of multiple programming languages such as JavaScript, TypeScript, Python, Go, Java, PHP, C#, and PowerShell. Additionally, I am proficient in tools like Terraform, Docker, Kubernetes, and CI/CD pipelines, enabling me to deliver robust and efficient solutions. I am passionate about continuous learning and staying up-to-date with emerging technologies. Whether it's data-driven development or exploring new cloud solutions, I enjoy tackling challenges that expand my skillset.</p>
+</section>
+
+<section id="projects" class="projects">
+    <h2>My Projects</h2>
+
+    <div class="search-bar" id="search">
+        <input type="text" placeholder="Search for a project...">
+    </div>
+
+    <div class="project-list">
+        <div class="project-card">
+            <h3>maze_escape</h3>
+            <p><strong>Backend:</strong> Java Project - A maze generation and solving backend system developed using Java.</p>
         </div>
-    </section>
-
-    <section id="tech-stack" class="tech-stack">
-        <h2>Technologies I Use</h2>
-        <div>
-            <p><strong>Frontend:</strong> React, JavaScript, HTML, CSS</p>
-            <p><strong>Backend:</strong> Node.js, TypeScript, Go, Java, PHP, C#</p>
-            <p><strong>Database:</strong> SQL, NoSQL, MariaDB, PostgreSQL</p>
-            <p><strong>Cloud:</strong> Azure, OpenStack</p>
-            <p><strong>DevOps:</strong> Terraform, Kubernetes</p>
+        <div class="project-card">
+            <h3>openstack_terraform_generator</h3>
+            <p><strong>Language:</strong> Python - A tool for generating Terraform configuration files for OpenStack resources.</p>
         </div>
-    </section>
+        <div class="project-card">
+            <h3>azure_project</h3>
+            <p><strong>Cloud DevOps Assignment (PowerShell):</strong> A cloud-based DevOps solution for managing Azure infrastructure, including deployment scripts and management tools.</p>
+        </div>
+        <div class="project-card">
+            <h3>qrcode_generator</h3>
+            <p><strong>Language:</strong> Python - A Python project that generates QR codes with customizable data and settings.</p>
+        </div>
+        <div class="project-card">
+            <h3>rest_api</h3>
+            <p><strong>Technologies:</strong> TypeScript, Node.js, Fastify, TypeORM - A REST API built using Fastify for managing user accounts and delivering metrics.</p>
+        </div>
+        <div class="project-card">
+            <h3>small_guestbook_application</h3>
+            <p><strong>Technologies:</strong> PHP, MySQL - A small guestbook application allowing user authentication, input validation, and message storage in a MySQL database.</p>
+        </div>
+        <div class="project-card">
+            <h3>bank_system_ERP</h3>
+            <p><strong>Technologies:</strong> C# (.NET Framework), Excel VBA - A banking system with ERP features, integrating Excel for reporting and user interface.</p>
+        </div>
+        <div class="project-card">
+            <h3>qgis_project_python</h3>
+            <p><strong>Technologies:</strong> Python, QGIS - A GIS project using Python for spatial data analysis and automation tasks in QGIS.</p>
+        </div>
+        <div class="project-card">
+            <h3>ha_master_slave_and_some_tasks_around_redis-db</h3>
+            <p><strong>Technologies:</strong> Redis, Python - A project to explore high-availability setups using Redis master-slave replication and related tasks for data management.</p>
+        </div>
+        <div class="project-card">
+            <h3>MTG_Backend_Service_Assignment</h3>
+            <p><strong>Technologies:</strong> Go, PostgreSQL - A backend service for Magic: The Gathering card management, with functionalities to fetch and handle card data.</p>
+        </div>
+        <div class="project-card">
+            <h3>camera_service</h3>
+            <p><strong>Technologies:</strong> Go, PostgreSQL - A service for managing traffic camera data, with spatial queries for retrieving cameras within a given radius.</p>
+        </div>
+        <div class="project-card">
+            <h3>rest_api</h3>
+            <p><strong>Technologies:</strong> Node.js, Express - A REST API for managing various resources, including security features and integration with external services.</p>
+        </div>
+    </div>
+</section>
 
-    <section id="contact" style="text-align: center; padding: 20px;">
-        <h2>Contact Me</h2>
-        <form class="contact-form" method="POST" action="mailto:your-email@example.com">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+<section id="contact" class="contact">
+    <h2>Contact</h2>
+    <form class="contact-form" action="https://formspree.io/f/mjvwdple" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-    <script>
-        // Clock
-        function updateClock() {
-            const now = new Date();
-            const clock = document.getElementById('clock');
-            clock.innerHTML = now.toLocaleTimeString();
-        }
-        setInterval(updateClock, 1000);
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-        // Calendar
-        function updateCalendar() {
-            const now = new Date();
-            const calendar = document.getElementById('calendar');
-            calendar.innerHTML = now.toLocaleDateString();
-        }
-        setInterval(updateCalendar, 1000);
-    </script>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2025 Matej Martinović</p>
+    <p>Connect with me on <a href="https://www.linkedin.com/in/matejmartinovic/">LinkedIn</a></p>
+</footer>
+
+<!-- Email.js Integration -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    emailjs.init("user_yourEmailJSUserID");
+</script>
+
 </body>
 </html>
