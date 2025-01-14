@@ -4,55 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Matej Martinović - Portfolio</title>
+    <title>Matej Martinović | Portfolio</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: url('https://www.w3schools.com/w3images/cherryblossoms.jpg') no-repeat center center fixed;
+            padding: 0;
+            background: url('https://example.com/cherry-blossom.jpg') no-repeat center center fixed;
             background-size: cover;
-            color: #fff;
+            color: white;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        .projects {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .project {
+            background-color: rgba(0, 0, 0, 0.5);
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            border-radius: 10px;
             text-align: center;
         }
-        header {
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        header h1 {
-            font-size: 40px;
-            margin: 0;
-        }
-        header p {
-            font-size: 20px;
-            margin: 10px 0;
-        }
-        .clock {
-            font-size: 24px;
-            margin-top: 20px;
+
+        .project a {
+            color: white;
+            text-decoration: none;
             font-weight: bold;
         }
-        section {
-            margin: 50px 20px;
-        }
-        .projects ul {
-            list-style: none;
-            padding: 0;
-        }
-        .projects li {
-            margin: 10px 0;
-        }
-        .projects a {
-            color: #ffcc00;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .projects a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 30px;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
+
+        #clock {
+            font-size: 1.5em;
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
     </style>
 </head>
@@ -60,52 +58,99 @@
     <header>
         <h1>Welcome to My Portfolio</h1>
         <p>Hello, I am Matej Martinović, a passionate developer!</p>
-        <div class="clock" id="clock"></div>
+        <div id="clock"></div>
     </header>
 
-    <section class="about-me">
-        <h2>About Me</h2>
-        <p>I am a passionate and dedicated full-stack developer with a diverse portfolio that spans across web development, data analysis, and cloud infrastructure. I specialize in building dynamic, responsive user interfaces with React, while also creating robust backend systems using modern technologies and frameworks. With a strong foundation in SQL and cloud technologies, I excel at delivering scalable and efficient solutions. Throughout my career, I have worked on a wide range of projects, from interactive web applications to data-driven solutions and cloud-based services. My goal is to always learn, adapt, and deliver high-quality results that meet the needs of users and clients alike.</p>
-    </section>
-
     <section class="projects">
-        <h2>My Projects</h2>
-        <ul>
-            <li><a href="https://github.com/1244Matt1244/1244Matt1244.github.io" target="_blank">Personal Portfolio Website</a></li>
-            <li><a href="https://github.com/1244Matt1244/azure_project" target="_blank">Cloud DevOps Assignment</a></li>
-            <li><a href="https://github.com/1244Matt1244/backend_service_assignment" target="_blank">Backend Service Assignment</a></li>
-            <li><a href="https://github.com/1244Matt1244/bank_system_ERP" target="_blank">Bank System ERP</a></li>
-            <li><a href="https://github.com/1244Matt1244/credit_card_fraud_detection" target="_blank">Credit Card Fraud Detection</a></li>
-            <li><a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db" target="_blank">HA Master Slave Redis</a></li>
-            <li><a href="https://github.com/1244Matt1244/hello_fastify" target="_blank">Hello Fastify</a></li>
-            <li><a href="https://github.com/1244Matt1244/maze_escape" target="_blank">Maze Escape</a></li>
-            <li><a href="https://github.com/1244Matt1244/openstack_terraform_generator" target="_blank">OpenStack Terraform Generator</a></li>
-            <li><a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">QR Code Generator</a></li>
-            <li><a href="https://github.com/1244Matt1244/rest_api" target="_blank">REST API</a></li>
-            <li><a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">Small Guestbook Application</a></li>
-        </ul>
+        <div class="project">
+            <h3>1244Matt1244.github.io</h3>
+            <a href="https://github.com/1244Matt1244/1244Matt1244.github.io" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Azure Project</h3>
+            <a href="https://github.com/1244Matt1244/azure_project" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Backend Service Assignment</h3>
+            <a href="https://github.com/1244Matt1244/backend_service_assignment" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Bank System ERP</h3>
+            <a href="https://github.com/1244Matt1244/bank_system_ERP" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Character Frequency Counter</h3>
+            <a href="https://github.com/1244Matt1244/character_frequency_counter" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Credit Card Fraud Detection</h3>
+            <a href="https://github.com/1244Matt1244/credit_card_fraud_detection" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Enhanced Python Code with Turtle Graphics</h3>
+            <a href="https://github.com/1244Matt1244/enhanced_python-code_with_turtle_graphics.py" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>HA Master Slave and Redis Tasks</h3>
+            <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Hello Fastify</h3>
+            <a href="https://github.com/1244Matt1244/hello_fastify" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Maze Escape</h3>
+            <a href="https://github.com/1244Matt1244/maze_escape" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>OpenStack Terraform Generator</h3>
+            <a href="https://github.com/1244Matt1244/openstack_terraform_generator" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Password Generator</h3>
+            <a href="https://github.com/1244Matt1244/password_generator" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Python Geometrical Task</h3>
+            <a href="https://github.com/1244Matt1244/python_geometrical_task" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>QGIS Project (Python)</h3>
+            <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>QR Code Generator</h3>
+            <a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Quiz Game</h3>
+            <a href="https://github.com/1244Matt1244/quiz_game" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>REST API</h3>
+            <a href="https://github.com/1244Matt1244/rest_api" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>Small Guestbook Application</h3>
+            <a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <h3>SQL Learning Materials Scripts</h3>
+            <a href="https://github.com/1244Matt1244/sql_learning_materials_scripts" target="_blank">View Project</a>
+        </div>
     </section>
-
-    <footer>
-        <p>Contact me at: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
-    </footer>
 
     <script>
-        // Clock Functionality
         function updateClock() {
-            var now = new Date();
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
-            var seconds = now.getSeconds();
-
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-
-            var timeString = hours + ":" + minutes + ":" + seconds;
-            document.getElementById('clock').innerHTML = timeString;
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').innerHTML = `${hours}:${minutes}:${seconds}`;
         }
 
         setInterval(updateClock, 1000);
+        updateClock(); // Initial call to show clock right away
     </script>
 </body>
 </html>
