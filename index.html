@@ -5,54 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matej Martinović | Portfolio</title>
     <style>
-        /* Apply the cherry blossom background */
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             color: #333;
+            margin: 0;
+            padding: 0;
             text-align: center;
-            padding: 50px;
             background: url('https://your-image-url.com/cherry-blossom.jpg') no-repeat center center fixed;
             background-size: cover;
-        }
-        header {
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            background-color: rgba(255, 255, 255, 0.8); /* Slight white overlay for readability */
-            padding: 40px;
-            border-radius: 10px;
+            overflow: hidden;
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 50px;
         }
         .icon {
-            font-size: 50px;
+            font-size: 60px;
             background-color: #4CAF50;
             color: white;
-            padding: 10px;
+            padding: 15px;
             border-radius: 50%;
             margin-bottom: 20px;
         }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        /* Projects Section */
         .projects {
-            margin-top: 40px;
+            width: 90%;
+            max-width: 1000px;
             text-align: left;
-            background-color: rgba(255, 255, 255, 0.8);
             padding: 30px;
-            border-radius: 10px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
         }
         .project {
-            margin: 15px 0;
+            margin: 20px 0;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+        .project:hover {
+            transform: translateX(10px);
+        }
+        h3 {
+            color: #4CAF50;
+            font-size: 1.5em;
+            margin-bottom: 5px;
         }
         a {
             color: #4CAF50;
             text-decoration: none;
+            font-size: 1.1em;
         }
-        h1, p {
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            font-size: 1.1em;
             color: #333;
         }
-        h2 {
+        footer a {
             color: #4CAF50;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Clock Styles */
+        .clock {
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -60,7 +109,7 @@
     <header>
         <div class="icon">MM</div>
         <h1>Welcome to My Portfolio</h1>
-        <p>I am a passionate and dedicated full-stack developer with experience in web development, data analysis, and cloud infrastructure.</p>
+        <p>I am a passionate full-stack developer with experience in web development, data analysis, and cloud infrastructure. Explore my projects and feel free to get in touch!</p>
     </header>
 
     <section class="projects">
@@ -74,28 +123,8 @@
             <p>Cloud DevOps assignment using Azure technologies.</p>
         </div>
         <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/backend_service_assignment">Backend Service Assignment</a></h3>
-            <p>No description available.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/bank_system_ERP">Bank System ERP</a></h3>
-            <p>No description available.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/character_frequency_counter">Character Frequency Counter</a></h3>
-            <p>No description available.</p>
-        </div>
-        <div class="project">
             <h3><a href="https://github.com/1244Matt1244/credit_card_fraud_detection">Credit Card Fraud Detection</a></h3>
-            <p>An example of a credit card fraud detection system using Python and the Scikit-learn library.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/enhanced_python-code_with_turtle_graphics.py">Enhanced Python Code with Turtle Graphics</a></h3>
-            <p>No description available.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db">HA Master Slave Redis DB</a></h3>
-            <p>Scripts and resources for local Kubernetes setup, services, and data for development purposes.</p>
+            <p>An example of a fraud detection system using Python and Scikit-learn.</p>
         </div>
         <div class="project">
             <h3><a href="https://github.com/1244Matt1244/hello_fastify">Hello Fastify</a></h3>
@@ -105,46 +134,29 @@
             <h3><a href="https://github.com/1244Matt1244/maze_escape">Maze Escape</a></h3>
             <p>Backend: Java Project.</p>
         </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/openstack_terraform_generator">OpenStack Terraform Generator</a></h3>
-            <p>No description available.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/password_generator">Password Generator</a></h3>
-            <p>No description available.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/python_geometrical_task">Python Geometrical Task</a></h3>
-            <p>No description available.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/qgis_project_python">QGIS Project Python</a></h3>
-            <p>Boulder dimensions project.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/qrcode_generator">QR Code Generator</a></h3>
-            <p>No description available.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/quiz_game">Quiz Game</a></h3>
-            <p>No description available.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/rest_api">Rest API</a></h3>
-            <p>A task to develop a REST API for managing user accounts and delivering metrics using TypeScript, NodeJS, Fastify, TypeORM, MariaDB, and JWT.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/small_guestbook_application">Small Guestbook Application</a></h3>
-            <p>A simple PHP project.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/1244Matt1244/sql_learning_materials_scripts">SQL Learning Materials Scripts</a></h3>
-            <p>No description available.</p>
-        </div>
+        <!-- Add more projects here as needed -->
     </section>
+
+    <div class="clock" id="clock"></div>
 
     <footer>
         <p>Contact me at: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
     </footer>
+
+    <script>
+        // Function to update clock
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const date = now.toDateString();
+            document.getElementById('clock').innerHTML = `${date} - ${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update clock every second
+        setInterval(updateClock, 1000);
+        updateClock();  // Initial call to display the clock immediately
+    </script>
 </body>
 </html>
