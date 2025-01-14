@@ -3,153 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matej Martinović - Portfolio</title>
+    <title>Matej Martinović | Portfolio</title>
     <style>
-        /* General Styles */
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
             color: #333;
             margin: 0;
             padding: 0;
+            text-align: center;
+            background: url('https://your-image-url.com/cherry-blossom.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
-
         header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 50px;
+        }
+        .icon {
+            font-size: 60px;
             background-color: #4CAF50;
             color: white;
-            text-align: center;
-            padding: 2em 0;
+            padding: 15px;
+            border-radius: 50%;
+            margin-bottom: 20px;
         }
-
-        header h1 {
-            margin: 0;
-        }
-
-        section {
-            padding: 2em 5%;
-        }
-
-        h2 {
+        h1 {
             color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
         }
-
-        /* About Me Section */
-        .about-me {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 2em;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2em;
+        p {
+            color: #555;
+            font-size: 1.2em;
+            margin-bottom: 30px;
         }
-
-        .about-me p {
-            line-height: 1.6;
-        }
-
         /* Projects Section */
         .projects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-around;
+            width: 90%;
+            max-width: 1000px;
+            text-align: left;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
         }
-
         .project {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 250px;
-            text-align: center;
-            padding: 1em;
+            margin: 20px 0;
+            padding: 10px;
             transition: transform 0.3s ease;
         }
-
         .project:hover {
-            transform: translateY(-10px);
+            transform: translateX(10px);
         }
-
-        .project a {
-            text-decoration: none;
+        h3 {
             color: #4CAF50;
-            font-weight: bold;
-            display: block;
-            margin-top: 1em;
+            font-size: 1.5em;
+            margin-bottom: 5px;
         }
-
-        /* Contact Section */
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Footer */
         footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1.5em;
+            margin-top: 50px;
+            font-size: 1.1em;
+            color: #333;
         }
-
         footer a {
             color: #4CAF50;
             text-decoration: none;
-            font-weight: bold;
         }
-
-        /* Responsive Layout */
-        @media (max-width: 768px) {
-            .projects {
-                flex-direction: column;
-                align-items: center;
-            }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Clock Styles */
+        .clock {
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="icon">MM</div>
+        <h1>Welcome to My Portfolio</h1>
+        <p>I am a passionate full-stack developer with experience in web development, data analysis, and cloud infrastructure. Explore my projects and feel free to get in touch!</p>
+    </header>
 
-<header>
-    <h1>Welcome to My Portfolio</h1>
-    <p>Hello, I am Matej Martinović, a passionate developer!</p>
-</header>
+    <section class="projects">
+        <h2>My Projects</h2>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/1244Matt1244.github.io">1244Matt1244.github.io</a></h3>
+            <p>Personal Portfolio Website</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/azure_project">Azure Project</a></h3>
+            <p>Cloud DevOps assignment using Azure technologies.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/backend_service_assignment">Backend Service Assignment</a></h3>
+            <p>No description available.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/bank_system_ERP">Bank System ERP</a></h3>
+            <p>No description available.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/character_frequency_counter">Character Frequency Counter</a></h3>
+            <p>No description available.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/credit_card_fraud_detection">Credit Card Fraud Detection</a></h3>
+            <p>An example of a fraud detection system using Python and Scikit-learn.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/enhanced_python-code_with_turtle_graphics">Enhanced Python Code with Turtle Graphics</a></h3>
+            <p>No description available.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db">HA Master-Slave and Some Tasks Around Redis-DB</a></h3>
+            <p>Goal of this task is to create scripts and resources enabling local Kubernetes, required services, and data for development purposes.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/hello_fastify">Hello Fastify</a></h3>
+            <p>A Fastify "hello world" template with tests.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/maze_escape">Maze Escape</a></h3>
+            <p>Backend: Java Project.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/openstack_terraform_generator">OpenStack Terraform Generator</a></h3>
+            <p>No description available.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/password_generator">Password Generator</a></h3>
+            <p>No description available.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/python_geometrical_task">Python Geometrical Task</a></h3>
+            <p>No description available.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/qgis_project_python">QGIS Project Python</a></h3>
+            <p>Boulder dimensions.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/qrcode_generator">QRCode Generator</a></h3>
+            <p>No description available.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/quiz_game">Quiz Game</a></h3>
+            <p>No description available.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/rest_api">REST API</a></h3>
+            <p>The task is to develop a REST API for managing user accounts and delivering metrics using TypeScript, NodeJS, Fastify, TypeORM, MariaDB, and JWT.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/small_guestbook_application">Small Guestbook Application</a></h3>
+            <p>A simple PHP project.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://github.com/1244Matt1244/sql_learning_materials_scripts">SQL Learning Materials Scripts</a></h3>
+            <p>No description available.</p>
+        </div>
+    </section>
 
-<section class="about-me">
-    <h2>About Me</h2>
-    <p>I am a passionate and dedicated full-stack developer with a diverse portfolio that spans across web development, data analysis, and cloud infrastructure. I specialize in building dynamic, responsive user interfaces with React, while also creating robust backend systems using modern technologies and frameworks. With a strong foundation in SQL and cloud technologies, I excel at delivering scalable and efficient solutions. Throughout my career, I have worked on a wide range of projects, from interactive web applications to data-driven solutions and cloud-based services. My goal is to always learn, adapt, and deliver high-quality results that meet the needs of users and clients alike.</p>
-</section>
+    <div class="clock" id="clock"></div>
 
-<section class="projects">
-    <h2>My Projects</h2>
+    <footer>
+        <p>Contact me at: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
+    </footer>
 
-    <div class="project">
-        <h3><a href="https://github.com/1244Matt1244/1244Matt1244.github.io" target="_blank">1244Matt1244.github.io</a></h3>
-        <p>Personal Portfolio Website</p>
-    </div>
+    <script>
+        // Function to update clock
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const date = now.toDateString();
+            document.getElementById('clock').innerHTML = `${date} - ${hours}:${minutes}:${seconds}`;
+        }
 
-    <div class="project">
-        <h3><a href="https://github.com/1244Matt1244/azure_project" target="_blank">azure_project</a></h3>
-        <p>Cloud DevOps assignment</p>
-    </div>
-
-    <div class="project">
-        <h3><a href="https://github.com/1244Matt1244/maze_escape" target="_blank">maze_escape</a></h3>
-        <p>Backend: Java Project</p>
-    </div>
-
-    <div class="project">
-        <h3><a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">qrcode_generator</a></h3>
-        <p>QR Code Generator</p>
-    </div>
-
-    <div class="project">
-        <h3><a href="https://github.com/1244Matt1244/rest_api" target="_blank">rest_api</a></h3>
-        <p>REST API for managing user accounts</p>
-    </div>
-
-    <div class="project">
-        <h3><a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">small_guestbook_application</a></h3>
-        <p>A simple PHP project</p>
-    </div>
-
-    <!-- Add more projects here -->
-</section>
-
-<footer>
-    <p>Contact me at: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
-</footer>
-
+        // Update clock every second
+        setInterval(updateClock, 1000);
+        updateClock();  // Initial call to display the clock immediately
+    </script>
 </body>
 </html>
