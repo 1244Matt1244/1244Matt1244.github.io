@@ -1,111 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1244Matt1244.github.io - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="1244Matt1244's Portfolio showcasing projects, skills, and contact details.">
+    <title>1244Matt1244 Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for improved typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <!-- Main Header -->
-    <header>
-      <h1>Welcome to my portfolio!</h1>
-      <p>Discover my projects and skills in various technologies.</p>
+    <!-- Header Section with Hero Image -->
+    <header class="hero">
+        <div class="overlay">
+            <div class="hero-content">
+                <h1>Welcome to my Portfolio!</h1>
+                <p>Discover my projects, skills, and experience in a variety of technologies.</p>
+                <a href="#about" class="cta-btn">Learn More About Me</a>
+            </div>
+        </div>
     </header>
 
-    <!-- Calendar Clock -->
-    <section id="clock">
-      <div class="date" id="date"></div>
-      <div class="time" id="time"></div>
+    <!-- About Me Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I'm a passionate developer with experience in backend, frontend, and full-stack technologies. 
+                I enjoy solving complex problems and building scalable applications. 
+                I'm always eager to learn new tools and languages to enhance my skill set.
+            </p>
+            <div class="skills">
+                <h3>Skills</h3>
+                <ul>
+                    <li>Backend: Go, Python, C#</li>
+                    <li>Frontend: HTML, CSS, JavaScript, React</li>
+                    <li>Databases: PostgreSQL, MySQL, Redis</li>
+                    <li>Cloud: AWS, Azure, Docker, Kubernetes</li>
+                    <li>Tools: Git, Terraform, Jenkins, Nginx</li>
+                    <li>Languages: English, Croatian, German</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <!-- Cherry Blossom Background -->
-    <section class="cherry-blossom-background">
-      <div class="projects-section">
-        <h2>My Projects</h2>
-        <div class="projects-grid">
-          <!-- Project List -->
-          <div class="project-card">
-            <h3>1244Matt1244.github.io</h3>
-            <p>Personal Portfolio Website - HTML, CSS, JavaScript</p>
-          </div>
-          <div class="project-card">
-            <h3>maze_escape</h3>
-            <p>Backend: Java Project</p>
-          </div>
-          <div class="project-card">
-            <h3>openstack_terraform_generator</h3>
-            <p>Python - Terraform configuration for OpenStack</p>
-          </div>
-          <div class="project-card">
-            <h3>azure_project</h3>
-            <p>Cloud DevOps Assignment (PowerShell)</p>
-          </div>
-          <div class="project-card">
-            <h3>qrcode_generator</h3>
-            <p>Python - QR Code Generator</p>
-          </div>
-          <div class="project-card">
-            <h3>rest_api</h3>
-            <p>TypeScript, Node.js, Fastify, TypeORM</p>
-          </div>
-          <div class="project-card">
-            <h3>ha_master_slave_and_some_tasks_around_redis-db</h3>
-            <p>Shell - Redis for Kubernetes</p>
-          </div>
-          <div class="project-card">
-            <h3>qgis_project_python</h3>
-            <p>Python, QGIS - Geographic Data Analysis</p>
-          </div>
-          <div class="project-card">
-            <h3>bank_system_ERP</h3>
-            <p>C# - ERP System for Banking</p>
-          </div>
-          <div class="project-card">
-            <h3>credit_card_fraud_detection</h3>
-            <p>Python, Scikit-learn - Fraud Detection</p>
-          </div>
-          <div class="project-card">
-            <h3>small_guestbook_application</h3>
-            <p>PHP - Simple Guestbook</p>
-          </div>
-          <div class="project-card">
-            <h3>backend_service_assignment</h3>
-            <p>Go - Backend Service for Cameras & MTG Cards</p>
-          </div>
-          <div class="project-card">
-            <h3>sql_learning_materials_scripts</h3>
-            <p>SQL - Learning Scripts</p>
-          </div>
-          <div class="project-card">
-            <h3>enhanced_python-code_with_turtle_graphics</h3>
-            <p>Python - Turtle Graphics Visualization</p>
-          </div>
-          <div class="project-card">
-            <h3>character_frequency_counter</h3>
-            <p>Python - Count Character Frequencies</p>
-          </div>
-          <div class="project-card">
-            <h3>python_geometrical_task</h3>
-            <p>Python - Geometric Task Solver</p>
-          </div>
-          <div class="project-card">
-            <h3>password_generator</h3>
-            <p>HTML - Secure Password Generator</p>
-          </div>
-          <div class="project-card">
-            <h3>quiz_game</h3>
-            <p>JavaScript - Quiz Game</p>
-          </div>
-          <div class="project-card">
-            <h3>hello_fastify</h3>
-            <p>Node.js, Fastify - Hello World Template</p>
-          </div>
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="job">
+                <h3>Backend Developer | Company A</h3>
+                <p>June 2023 - Present</p>
+                <ul>
+                    <li>Developed RESTful APIs using Go and Python.</li>
+                    <li>Worked with PostgreSQL and Redis for data storage and caching.</li>
+                    <li>Implemented microservices architecture with Docker and Kubernetes.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3>Frontend Developer | Company B</h3>
+                <p>Jan 2021 - May 2023</p>
+                <ul>
+                    <li>Built dynamic user interfaces using React and JavaScript.</li>
+                    <li>Ensured responsive designs with CSS3 and Flexbox.</li>
+                    <li>Integrated third-party APIs and handled client-side routing.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3>Intern | Company C</h3>
+                <p>Summer 2020</p>
+                <ul>
+                    <li>Assisted in developing a customer-facing web application in PHP.</li>
+                    <li>Worked with MySQL databases and REST APIs for internal tools.</li>
+                </ul>
+            </div>
         </div>
-      </div>
     </section>
-  </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <p>Here are some of my latest projects showcasing different skills:</p>
+            <div class="project-list">
+                <div class="project">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>A modern portfolio built with HTML, CSS, and JavaScript to showcase my skills and projects.</p>
+                    <a href="https://github.com/1244Matt1244/1244Matt1244.github.io" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Maze Escape Game (Java)</h3>
+                    <p>A maze game created using Java and Swing for the graphical interface.</p>
+                    <a href="https://github.com/1244Matt1244/maze_escape" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>OpenStack Terraform Generator (Python)</h3>
+                    <p>A tool that helps to automate the generation of Terraform scripts for OpenStack deployments.</p>
+                    <a href="https://github.com/1244Matt1244/openstack_terraform_generator" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Azure Project (PowerShell)</h3>
+                    <p>A script to automate Azure infrastructure provisioning with PowerShell and Azure CLI.</p>
+                    <a href="https://github.com/1244Matt1244/azure_project" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>QR Code Generator (Python)</h3>
+                    <p>Generate dynamic QR codes with customizable designs, built in Python.</p>
+                    <a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>REST API (TypeScript)</h3>
+                    <p>A simple REST API built with TypeScript and Node.js for managing resources.</p>
+                    <a href="https://github.com/1244Matt1244/rest_api" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>HA Master-Slave Redis Setup (Shell)</h3>
+                    <p>A setup for high availability in Redis using master-slave replication and Redis Sentinel.</p>
+                    <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>QGIS Project (Python)</h3>
+                    <p>A GIS-based Python project for data visualization and spatial analysis using QGIS.</p>
+                    <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Bank System ERP (C#)</h3>
+                    <p>An ERP system for managing a bank's operations, including customer data and transactions.</p>
+                    <a href="https://github.com/1244Matt1244/bank_system_ERP" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Credit Card Fraud Detection (Python)</h3>
+                    <p>A machine learning project using Random Forest to detect fraudulent credit card transactions.</p>
+                    <a href="https://github.com/1244Matt1244/credit_card_fraud_detection" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Guestbook Application (PHP)</h3>
+                    <p>A web-based guestbook application with user authentication and input validation in PHP.</p>
+                    <a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you have any questions or want to discuss potential collaborations, feel free to reach out!</p>
+            <form action="mailto:matt123.3a@gmail.com" method="post" enctype="text/plain">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>Contact: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
+            <div class="social">
+                <a href="https://github.com/1244Matt1244" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/matejmartinovic/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Clock Section -->
+    <section id="clock" class="clock">
+        <div class="container">
+            <h2>Current Time</h2>
+            <p id="time"></p>
+        </div>
+    </section>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
 </body>
 </html>
