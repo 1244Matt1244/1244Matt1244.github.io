@@ -1,289 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com ajax.googleapis.com;">
-  <title>Matej Martinović's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matej Martinović - Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-  <style>
-    /* Reset styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 2em 0;
+        }
 
-    /* General body and background styles */
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1550594783-f87990a5b262'); /* Cherry Blossom background */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      font-family: 'Arial', sans-serif;
-      color: #fff;
-      overflow: hidden;
-      background-repeat: no-repeat;
-    }
+        header h1 {
+            margin: 0;
+        }
 
-    /* Sway animation for elements */
-    @keyframes sway {
-      0% { transform: translateX(0); }
-      50% { transform: translateX(-10px); }
-      100% { transform: translateX(0); }
-    }
+        section {
+            padding: 2em 5%;
+        }
 
-    /* Apply the sway effect */
-    .swaying {
-      animation: sway 5s ease-in-out infinite;
-    }
+        h2 {
+            color: #333;
+        }
 
-    /* Header */
-    .header {
-      padding: 50px;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
+        /* About Me Section */
+        .about-me {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 2em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2em;
+        }
 
-    .header h1 {
-      font-size: 3em;
-      color: #fff;
-    }
+        .about-me p {
+            line-height: 1.6;
+        }
 
-    .header h2 {
-      font-size: 1.5em;
-      color: #ddd;
-    }
+        /* Projects Section */
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
 
-    /* Main content section */
-    .main-content {
-      position: relative;
-      z-index: 2;
-      padding: 20px;
-      text-align: center;
-    }
+        .project {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            padding: 1em;
+            transition: transform 0.3s ease;
+        }
 
-    /* Projects section */
-    .projects {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 20px;
-    }
+        .project:hover {
+            transform: translateY(-10px);
+        }
 
-    .projects ul {
-      list-style-type: none;
-      text-align: left;
-    }
+        .project a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+            display: block;
+            margin-top: 1em;
+        }
 
-    .projects li {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      width: 250px;
-      text-align: center;
-    }
+        /* Contact Section */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5em;
+        }
 
-    .projects a {
-      color: #00bcd4;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    .projects a:hover {
-      text-decoration: underline;
-    }
-
-    /* Contact section */
-    .contact {
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .contact p {
-      font-size: 1.2em;
-    }
-
-    .contact a {
-      color: #00bcd4;
-      text-decoration: none;
-    }
-
-    /* Calendar and clock styles */
-    .calendar, .clock {
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      margin-top: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    #clock {
-      font-size: 2em;
-      color: white;
-    }
-
-    #calendar-container {
-      font-size: 1.2em;
-      color: white;
-    }
-
-    /* Dynamic background and effects */
-    .dynamic-background {
-      background: url('https://example.com/dynamic-cherry-blossom.jpg') no-repeat center center fixed;
-      background-size: cover;
-      transition: background 0.5s ease;
-    }
-  </style>
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .projects {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
-<body class="dynamic-background">
-  <div class="header">
-    <h1>Welcome to My Portfolio!</h1>
-    <h2>Discover my projects and skills in various technologies</h2>
-  </div>
+<body>
 
-  <div class="main-content">
-    <div class="projects">
-      <h3>My Projects</h3>
-      <ul>
-        <li>
-          <a href="https://github.com/1244Matt1244/1244Matt1244.github.io">1244Matt1244.github.io</a>
-          - Personal portfolio website showcasing various projects and skills.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/maze_escape">maze_escape</a>
-          - Java-based maze generation and solving backend system.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/openstack_terraform_generator">openstack_terraform_generator</a>
-          - Python tool to generate Terraform configurations for OpenStack.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/azure_project">azure_project</a>
-          - Cloud DevOps solution for managing Azure infrastructure.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/qrcode_generator">qrcode_generator</a>
-          - Python project for generating customizable QR codes.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/rest_api">rest_api</a>
-          - TypeScript & Node.js Fastify REST API for user management.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db">ha_master_slave_and_some_tasks_around_redis-db</a>
-          - Shell project focused on Redis for Kubernetes environments.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/qgis_project_python">qgis_project_python</a>
-          - Python project for geographic data processing with QGIS.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/bank_system_ERP">bank_system_ERP</a>
-          - C#-based ERP system for managing banking operations.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/credit_card_fraud_detection">credit_card_fraud_detection</a>
-          - Python-based fraud detection system using Scikit-learn.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/small_guestbook_application">small_guestbook_application</a>
-          - Simple PHP-based guestbook application for user entries.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/backend_service_assignment">backend_service_assignment</a>
-          - Go-based backend service for camera and MTG card handling.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/sql_learning_materials_scripts">sql_learning_materials_scripts</a>
-          - A collection of SQL learning scripts.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/enhanced_python-code_with_turtle_graphics">enhanced_python-code_with_turtle_graphics</a>
-          - Python code with Turtle graphics for visual representations.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/character_frequency_counter">character_frequency_counter</a>
-          - Python program to count character frequency in text.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/python_geometrical_task">python_geometrical_task</a>
-          - Python script for geometric calculations.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/password_generator">password_generator</a>
-          - Simple password generator using HTML and JavaScript.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/quiz_game">quiz_game</a>
-          - JavaScript-based quiz game to test knowledge on various topics.
-        </li>
-        <li>
-          <a href="https://github.com/1244Matt1244/hello_fastify">hello_fastify</a>
-          - Fastify "Hello World" template with tests.
-        </li>
-      </ul>
+<header>
+    <h1>Welcome to My Portfolio</h1>
+    <p>Hello, I am Matej Martinović, a passionate developer!</p>
+</header>
+
+<section class="about-me">
+    <h2>About Me</h2>
+    <p>I am a passionate and dedicated full-stack developer with a diverse portfolio that spans across web development, data analysis, and cloud infrastructure. I specialize in building dynamic, responsive user interfaces with React, while also creating robust backend systems using modern technologies and frameworks. With a strong foundation in SQL and cloud technologies, I excel at delivering scalable and efficient solutions. Throughout my career, I have worked on a wide range of projects, from interactive web applications to data-driven solutions and cloud-based services. My goal is to always learn, adapt, and deliver high-quality results that meet the needs of users and clients alike.</p>
+</section>
+
+<section class="projects">
+    <h2>My Projects</h2>
+
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/1244Matt1244.github.io" target="_blank">1244Matt1244.github.io</a></h3>
+        <p>Personal Portfolio Website</p>
     </div>
 
-    <div class="contact">
-      <h3>Contact Me</h3>
-      <p>Email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/matej-martinović-140750265" target="_blank">My LinkedIn</a></p>
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/azure_project" target="_blank">azure_project</a></h3>
+        <p>Cloud DevOps assignment</p>
     </div>
 
-    <div class="calendar">
-      <div id="calendar-container">
-        <h3>Live Calendar</h3>
-        <div id="calendar"></div>
-      </div>
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/maze_escape" target="_blank">maze_escape</a></h3>
+        <p>Backend: Java Project</p>
     </div>
 
-    <div class="clock">
-      <div id="clock"></div>
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">qrcode_generator</a></h3>
+        <p>QR Code Generator</p>
     </div>
-  </div>
 
-  <script>
-    // Function to display live clock
-    function updateClock() {
-      const clockElement = document.getElementById('clock');
-      const now = new Date();
-      const hours = now.getHours().toString().padStart(2, '0');
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      const seconds = now.getSeconds().toString().padStart(2, '0');
-      clockElement.textContent = `${hours}:${minutes}:${seconds}`;
-    }
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/rest_api" target="_blank">rest_api</a></h3>
+        <p>REST API for managing user accounts</p>
+    </div>
 
-    // Update clock every second
-    setInterval(updateClock, 1000);
+    <div class="project">
+        <h3><a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">small_guestbook_application</a></h3>
+        <p>A simple PHP project</p>
+    </div>
 
-    // Calendar rendering
-    const calendarElement = document.getElementById('calendar');
-    const date = new Date();
-    calendarElement.textContent = date.toLocaleDateString('en-GB', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
+    <!-- Add more projects here -->
+</section>
 
-    // Background image change on scroll (optional)
-    window.addEventListener('scroll', () => {
-      const bgElement = document.querySelector('.dynamic-background');
-      if (window.scrollY > 50) {
-        bgElement.style.backgroundImage = "url('https://images.unsplash.com/photo-1550594783-f87990a5b262')";
-      } else {
-        bgElement.style.backgroundImage = "url('https://example.com/dynamic-cherry-blossom.jpg')";
-      }
-    });
-  </script>
+<footer>
+    <p>Contact me at: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
+</footer>
+
 </body>
 </html>
