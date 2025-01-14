@@ -1,0 +1,45 @@
+/* General styling for the clock and calendar section */
+.clock-calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5; /* Light background for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 300px; /* Limit the width for a compact view */
+    margin: 20px auto; /* Centered in the middle of the page */
+}
+
+/* Styling for time display */
+.clock-calendar .time {
+    font-size: 3rem;  /* Larger font for the time */
+    font-weight: bold;
+    color: #333; /* Dark text color for time */
+    margin-bottom: 10px;
+}
+
+/* Styling for date display */
+.clock-calendar .date {
+    font-size: 1.2rem;  /* Smaller font for date */
+    color: #666; /* Lighter color for the date */
+    font-style: italic;
+}
+
+/* Optional: Add a hover effect for the whole section */
+.clock-calendar:hover {
+    background-color: #eaeaea; /* Lighten the background on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Make the shadow more prominent */
+}
+
+/* Add media query for responsiveness */
+@media (max-width: 600px) {
+    .clock-calendar {
+        max-width: 90%; /* Make the section responsive on smaller screens */
+    }
+
+    .clock-calendar .time {
+        font-size: 2.5rem; /* Adjust time size on small screens */
+    }
+}
