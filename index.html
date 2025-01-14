@@ -6,35 +6,33 @@
     <meta name="description" content="Portfolio of Matej Martinović - Software Engineer. Projects, Contact, About Me, and more.">
     <meta name="keywords" content="software engineer, portfolio, GitHub, projects, cloud computing, DevOps, machine learning, web development">
     <meta name="author" content="Matej Martinović">
-    <title>Matej Martinović - Portfolio</title>
-
-    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
     <meta property="og:title" content="Matej Martinović - Portfolio">
     <meta property="og:description" content="Portfolio of software engineer Matej Martinović, showcasing various projects and skills.">
     <meta property="og:image" content="your-image-url.jpg">
     <meta property="og:url" content="https://1244Matt1244.github.io">
-
-    <!-- Favicon -->
+    <title>Matej Martinović - Portfolio</title>
+    
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
 
-    <!-- SEO Tags -->
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-
-    <!-- Cherry Blossom Background and Aesthetic -->
     <style>
         body {
-            background-color: #F8F0F1;
+            background: linear-gradient(90deg, #F8BBD0, #FF8A80);
+            background-size: 400% 400%;
+            animation: gradient 120s ease infinite;
             font-family: 'Open Sans', sans-serif;
             color: #333;
             line-height: 1.6;
             padding: 20px;
+        }
+
+        @keyframes gradient {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
         }
 
         header {
@@ -62,14 +60,26 @@
             font-size: 18px;
         }
 
+        .language-menu {
+            margin: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .language-menu select {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
         .projects, .about, .contact {
             margin: 30px 0;
         }
 
         .project-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .project-card {
@@ -78,8 +88,13 @@
             padding: 15px;
             margin: 10px;
             border-radius: 5px;
-            width: 45%;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: #D32F2F;
+            font-weight: bold;
         }
 
         .footer {
@@ -110,6 +125,11 @@
             background-color: #C2185B;
         }
 
+        .contact-form .status-message {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
         .search-bar {
             margin: 20px 0;
             text-align: center;
@@ -121,25 +141,89 @@
             border-radius: 5px;
             border: 1px solid #ddd;
         }
+
+        .figma-canvas {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .tech-stack {
+            margin: 20px 0;
+        }
+
+        .clock-calendar {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .clock-calendar .time, .clock-calendar .date {
+            font-size: 1.5rem;
+            color: #D32F2F;
+        }
+
+        .smooth-transition {
+            transition: all 0.3s ease-in-out;
+        }
     </style>
 
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init("user_yourEmailJSUserID");
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const statusMessage = document.querySelector('.status-message');
+            const form = document.querySelector('.contact-form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
+                    .then(() => {
+                        statusMessage.innerText = 'Message sent successfully!';
+                        statusMessage.style.color = 'green';
+                    }, (error) => {
+                        statusMessage.innerText = 'Failed to send message. Please try again later.';
+                        statusMessage.style.color = 'red';
+                    });
+            });
+        });
+
+        function changeLanguage(language) {
+            // Implement language change functionality here
+        }
+
+        setInterval(function () {
+            const now = new Date();
+            document.querySelector('.clock-calendar .time').innerText = now.toLocaleTimeString();
+            document.querySelector('.clock-calendar .date').innerText = now.toLocaleDateString();
+        }, 1000);
+    </script>
 </head>
 <body>
 
 <header>
     <h1>Matej Martinović - Software Engineer</h1>
-    <div class="navbar">
+    <nav class="navbar">
         <a href="#about">About Me</a>
         <a href="#projects">My Projects</a>
         <a href="#contact">Contact</a>
         <a href="#search">Search</a>
-    </div>
+    </nav>
 </header>
+
+<div class="language-menu">
+    <select id="language-select" onchange="changeLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="hr">Croatian</option>
+        <!-- Add more languages as needed -->
+    </select>
+</div>
 
 <section id="about" class="about">
     <h2>About Me</h2>
     <p>Hi! I'm Matej Martinović (he/him), a passionate and versatile software engineer with extensive experience in both frontend and backend development. I specialize in building efficient, scalable, and reliable systems, with a deep understanding of a wide range of technologies. Whether it’s developing complex web applications, working with cloud infrastructures (like Azure and OpenStack), or leveraging DevOps practices to streamline development and deployment workflows, I am driven by the challenge of solving real-world problems.</p>
     <p>Over the years, I have worked on projects spanning various domains, from data analysis and machine learning to cloud computing and system architecture. I have a strong command of multiple programming languages such as JavaScript, TypeScript, Python, Go, Java, PHP, C#, and PowerShell. Additionally, I am proficient in tools like Terraform, Docker, Kubernetes, and CI/CD pipelines, enabling me to deliver robust and efficient solutions. I am passionate about continuous learning and staying up-to-date with emerging technologies. Whether it's data-driven development or exploring new cloud solutions, I enjoy tackling challenges that expand my skillset.</p>
+    <p>My goal is to create innovative software that drives impactful changes while optimizing workflows, improving performance, and enhancing user experiences.</p>
+    <p>If you're looking for a dedicated developer who thrives in dynamic environments and is always ready to learn and adapt, feel free to explore my work below or get in touch!</p>
 </section>
 
 <section id="projects" class="projects">
@@ -153,80 +237,82 @@
         <div class="project-card">
             <h3>maze_escape</h3>
             <p><strong>Backend:</strong> Java Project - A maze generation and solving backend system developed using Java.</p>
-        </div>
-        <div class="project-card">
-            <h3>openstack_terraform_generator</h3>
-            <p><strong>Language:</strong> Python - A tool for generating Terraform configuration files for OpenStack resources.</p>
-        </div>
-        <div class="project-card">
-            <h3>azure_project</h3>
-            <p><strong>Cloud DevOps Assignment (PowerShell):</strong> A cloud-based DevOps solution for managing Azure infrastructure, including deployment scripts and management tools.</p>
-        </div>
-        <div class="project-card">
-            <h3>qrcode_generator</h3>
-            <p><strong>Language:</strong> Python - A Python project that generates QR codes with customizable data and settings.</p>
-        </div>
-        <div class="project-card">
-            <h3>rest_api</h3>
-            <p><strong>Technologies:</strong> TypeScript, Node.js, Fastify, TypeORM - A REST API built using Fastify for managing user accounts and delivering metrics.</p>
+            <a href="https://github.com/1244Matt1244/maze_escape">GitHub Repository</a>
         </div>
         <div class="project-card">
             <h3>small_guestbook_application</h3>
-            <p><strong>Technologies:</strong> PHP, MySQL - A small guestbook application allowing user authentication, input validation, and message storage in a MySQL database.</p>
+            <p><strong>Backend:</strong> PHP, MySQL - A guestbook application with user authentication and input validation.</p>
+            <a href="https://github.com/1244Matt1244/small_guestbook_application">GitHub Repository</a>
+        </div>
+        <div class="project-card">
+            <h3>credit_card_fraud_detection</h3>
+            <p><strong>Machine Learning:</strong> Python, Flask - A fraud detection system using machine learning (Random Forest Classifier).</p>
+            <a href="https://github.com/1244Matt1244/credit_card_fraud_detection">GitHub Repository</a>
         </div>
         <div class="project-card">
             <h3>bank_system_ERP</h3>
-            <p><strong>Technologies:</strong> C# (.NET Framework), Excel VBA - A banking system with ERP features, integrating Excel for reporting and user interface.</p>
+            <p><strong>Backend:</strong> C# (.NET Framework), Excel VBA - A banking system ERP with Excel integration and user interface.</p>
+            <a href="https://github.com/1244Matt1244/bank_system_ERP">GitHub Repository</a>
         </div>
         <div class="project-card">
             <h3>qgis_project_python</h3>
-            <p><strong>Technologies:</strong> Python, QGIS - A GIS project using Python for spatial data analysis and automation tasks in QGIS.</p>
+            <p><strong>Python:</strong> QGIS - A project involving geospatial data processing and automation.</p>
+            <a href="https://github.com/1244Matt1244/qgis_project_python">GitHub Repository</a>
         </div>
         <div class="project-card">
             <h3>ha_master_slave_and_some_tasks_around_redis-db</h3>
-            <p><strong>Technologies:</strong> Redis, Python - A project to explore high-availability setups using Redis master-slave replication and related tasks for data management.</p>
-        </div>
-        <div class="project-card">
-            <h3>MTG_Backend_Service_Assignment</h3>
-            <p><strong>Technologies:</strong> Go, PostgreSQL - A backend service for Magic: The Gathering card management, with functionalities to fetch and handle card data.</p>
-        </div>
-        <div class="project-card">
-            <h3>camera_service</h3>
-            <p><strong>Technologies:</strong> Go, PostgreSQL - A service for managing traffic camera data, with spatial queries for retrieving cameras within a given radius.</p>
+            <p><strong>Backend:</strong> Redis, HA - A project for high availability with Redis, including master-slave replication.</p>
+            <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db">GitHub Repository</a>
         </div>
         <div class="project-card">
             <h3>rest_api</h3>
-            <p><strong>Technologies:</strong> Node.js, Express - A REST API for managing various resources, including security features and integration with external services.</p>
+            <p><strong>Backend:</strong> Go, PostgreSQL - A REST API backend developed with Go and PostgreSQL for data management.</p>
+            <a href="https://github.com/1244Matt1244/rest_api">GitHub Repository</a>
+        </div>
+        <div class="project-card">
+            <h3>qrcode_generator</h3>
+            <p><strong>Frontend:</strong> HTML, JavaScript - A tool for generating QR codes with the option to embed logos in the center.</p>
+            <a href="https://github.com/1244Matt1244/qrcode_generator">GitHub Repository</a>
         </div>
     </div>
 </section>
 
 <section id="contact" class="contact">
     <h2>Contact</h2>
-    <form class="contact-form" action="https://formspree.io/f/mjvwdple" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
+    <form class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
         <button type="submit">Send Message</button>
+        <p class="status-message"></p>
     </form>
 </section>
 
-<footer class="footer">
-    <p>&copy; 2025 Matej Martinović</p>
-    <p>Connect with me on <a href="https://www.linkedin.com/in/matejmartinovic/">LinkedIn</a></p>
-</footer>
+<section class="clock-calendar">
+    <div class="time"></div>
+    <div class="date"></div>
+</section>
 
-<!-- Email.js Integration -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    emailjs.init("user_yourEmailJSUserID");
-</script>
+<section class="tech-stack">
+    <h3>Technologies I've Worked With</h3>
+    <ul>
+        <li>JavaScript, TypeScript, Node.js, React</li>
+        <li>Python, Django, Flask</li>
+        <li>Go, Rust</li>
+        <li>SQL, PostgreSQL, MongoDB, Redis</li>
+        <li>Docker, Kubernetes, Terraform</li>
+        <li>AWS, Azure</li>
+    </ul>
+</section>
+
+<section class="figma-canvas">
+    <h3>Figma Canvas</h3>
+    <a href="https://www.figma.com" target="_blank">Open Figma</a>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2025 Matej Martinović. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
