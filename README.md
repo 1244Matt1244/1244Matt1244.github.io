@@ -1,11 +1,8 @@
 # 1244Matt1244.github.io  
-**Personal Portfolio Website**  
-
-Welcome to the portfolio of **Matej Martinović** (he/him), a dedicated programmer with a diverse portfolio of projects in **web development**, **data analysis**, and **cloud infrastructure**. This portfolio showcases a variety of projects across different programming languages and technologies.
 
 ## About Me
 
-I am a passionate developer experienced in building robust solutions in both the frontend and backend. My projects reflect my knowledge in a range of technologies such as **JavaScript**, **TypeScript**, **Python**, **Go**, **Java**, **PHP**, **C#**, **PowerShell**, **Terraform**, and cloud technologies like **Azure** and **OpenStack**. I also have a strong background in **data analysis** and **DevOps** practices. Feel free to explore my work and get in touch!
+Hi! I'm Matej Martinović (he/him), a passionate and versatile software engineer with extensive experience in both frontend and backend development. I specialize in building efficient, scalable, and reliable systems, with a deep understanding of a wide range of technologies. Whether it’s developing complex web applications, working with cloud infrastructures (like Azure and OpenStack), or leveraging DevOps practices to streamline development and deployment workflows, I am driven by the challenge of solving real-world problems. Over the years, I have worked on projects spanning various domains, from data analysis and machine learning to cloud computing and system architecture. I have a strong command of multiple programming languages such as JavaScript, TypeScript, Python, Go, Java, PHP, C#, and PowerShell. Additionally, I am proficient in tools like Terraform, Docker, Kubernetes, and CI/CD pipelines, enabling me to deliver robust and efficient solutions. I am passionate about continuous learning and staying up-to-date with emerging technologies. Whether it's data-driven development or exploring new cloud solutions, I enjoy tackling challenges that expand my skillset. My goal is to create innovative software that drives impactful changes while optimizing workflows, improving performance, and enhancing user experiences. If you're looking for a dedicated developer who thrives in dynamic environments and is always ready to learn and adapt, feel free to explore my work below or get in touch!
 
 ## My Projects
 
