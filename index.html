@@ -1,76 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>1244Matt1244.github.io</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1244Matt1244.github.io - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-
+  <div class="container">
+    <!-- Main Header -->
     <header>
-        1244Matt1244.github.io
+      <h1>Welcome to my portfolio!</h1>
+      <p>Discover my projects and skills in various technologies.</p>
     </header>
 
-    <div class="projects-container">
-        <!-- Project 1 -->
-        <div class="project-box">
-            <img src="https://img.icons8.com/ios/50/000000/portfolio.png" alt="Portfolio Icon">
-            <a href="https://github.com/1244Matt1244/1244Matt1244.github.io" target="_blank" class="project-name">Personal Portfolio Website</a>
-        </div>
-        <!-- Project 2 -->
-        <div class="project-box">
-            <img src="https://img.icons8.com/ios/50/000000/terraform.png" alt="Terraform Icon">
-            <a href="https://github.com/1244Matt1244/azure_project" target="_blank" class="project-name">Azure Project</a>
-        </div>
-        <!-- Project 3 -->
-        <div class="project-box">
-            <img src="https://img.icons8.com/ios/50/000000/sql.png" alt="SQL Icon">
-            <a href="https://github.com/1244Matt1244/database_project" target="_blank" class="project-name">Database Project</a>
-        </div>
-        <!-- Project 4 -->
-        <div class="project-box">
-            <img src="https://img.icons8.com/ios/50/000000/csharp.png" alt="C# Icon">
-            <a href="https://github.com/1244Matt1244/csharp_project" target="_blank" class="project-name">C# Project</a>
-        </div>
-        <!-- Project 5 -->
-        <div class="project-box">
-            <img src="https://img.icons8.com/ios/50/000000/python.png" alt="Python Icon">
-            <a href="https://github.com/1244Matt1244/python_project" target="_blank" class="project-name">Python Project</a>
-        </div>
-        <!-- Project 6 -->
-        <div class="project-box">
-            <img src="https://img.icons8.com/ios/50/000000/javascript.png" alt="JavaScript Icon">
-            <a href="https://github.com/1244Matt1244/javascript_project" target="_blank" class="project-name">JavaScript Project</a>
-        </div>
-        <!-- Project 7 -->
-        <div class="project-box">
-            <img src="https://img.icons8.com/ios/50/000000/php.png" alt="PHP Icon">
-            <a href="https://github.com/1244Matt1244/php_project" target="_blank" class="project-name">PHP Project</a>
-        </div>
-        <!-- Project 8 -->
-        <div class="project-box">
-            <img src="https://img.icons8.com/ios/50/000000/react-native.png" alt="React Icon">
-            <a href="https://github.com/1244Matt1244/react_project" target="_blank" class="project-name">React Project</a>
-        </div>
-        <!-- Project 9 -->
-        <div class="project-box">
-            <img src="https://img.icons8.com/ios/50/000000/java.png" alt="Java Icon">
-            <a href="https://github.com/1244Matt1244/java_project" target="_blank" class="project-name">Java Project</a>
-        </div>
-        <!-- Add more project boxes here if necessary -->
-    </div>
+    <!-- Calendar Clock -->
+    <section id="clock">
+      <div class="date" id="date"></div>
+      <div class="time" id="time"></div>
+    </section>
 
-    <div class="calendar">
-        <p>Current Date & Time:</p>
-        <div class="clock" id="clock"></div>
-    </div>
-
-    <footer>
-        <p>Contact me at: matt123.3a@gmail.com</p>
-    </footer>
-
-    <script src="script.js"></script>
+    <!-- Cherry Blossom Background -->
+    <section class="cherry-blossom-background">
+      <div class="projects-section">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+          <!-- Project List -->
+          <div class="project-card">
+            <h3>1244Matt1244.github.io</h3>
+            <p>Personal Portfolio Website - HTML, CSS, JavaScript</p>
+          </div>
+          <div class="project-card">
+            <h3>maze_escape</h3>
+            <p>Backend: Java Project</p>
+          </div>
+          <div class="project-card">
+            <h3>openstack_terraform_generator</h3>
+            <p>Python - Terraform configuration for OpenStack</p>
+          </div>
+          <div class="project-card">
+            <h3>azure_project</h3>
+            <p>Cloud DevOps Assignment (PowerShell)</p>
+          </div>
+          <div class="project-card">
+            <h3>qrcode_generator</h3>
+            <p>Python - QR Code Generator</p>
+          </div>
+          <div class="project-card">
+            <h3>rest_api</h3>
+            <p>TypeScript, Node.js, Fastify, TypeORM</p>
+          </div>
+          <div class="project-card">
+            <h3>ha_master_slave_and_some_tasks_around_redis-db</h3>
+            <p>Shell - Redis for Kubernetes</p>
+          </div>
+          <div class="project-card">
+            <h3>qgis_project_python</h3>
+            <p>Python, QGIS - Geographic Data Analysis</p>
+          </div>
+          <div class="project-card">
+            <h3>bank_system_ERP</h3>
+            <p>C# - ERP System for Banking</p>
+          </div>
+          <div class="project-card">
+            <h3>credit_card_fraud_detection</h3>
+            <p>Python, Scikit-learn - Fraud Detection</p>
+          </div>
+          <div class="project-card">
+            <h3>small_guestbook_application</h3>
+            <p>PHP - Simple Guestbook</p>
+          </div>
+          <div class="project-card">
+            <h3>backend_service_assignment</h3>
+            <p>Go - Backend Service for Cameras & MTG Cards</p>
+          </div>
+          <div class="project-card">
+            <h3>sql_learning_materials_scripts</h3>
+            <p>SQL - Learning Scripts</p>
+          </div>
+          <div class="project-card">
+            <h3>enhanced_python-code_with_turtle_graphics</h3>
+            <p>Python - Turtle Graphics Visualization</p>
+          </div>
+          <div class="project-card">
+            <h3>character_frequency_counter</h3>
+            <p>Python - Count Character Frequencies</p>
+          </div>
+          <div class="project-card">
+            <h3>python_geometrical_task</h3>
+            <p>Python - Geometric Task Solver</p>
+          </div>
+          <div class="project-card">
+            <h3>password_generator</h3>
+            <p>HTML - Secure Password Generator</p>
+          </div>
+          <div class="project-card">
+            <h3>quiz_game</h3>
+            <p>JavaScript - Quiz Game</p>
+          </div>
+          <div class="project-card">
+            <h3>hello_fastify</h3>
+            <p>Node.js, Fastify - Hello World Template</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
