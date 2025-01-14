@@ -1,186 +1,221 @@
-but include all parts from <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Matej Martinović</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #2C3E50;
-            color: white;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        header {
-            background-color: #2980B9;
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-        section {
-            padding: 20px;
-        }
-        h1, h2 {
-            color: #ECF0F1;
-        }
-        .contact-form input, .contact-form textarea, .contact-form button {
-            padding: 10px;
-            margin: 10px 0;
-            width: 100%;
-            border: 2px solid #2980B9;
-            border-radius: 5px;
-            background-color: #34495E;
-            color: white;
-        }
-        .contact-form button {
-            background-color: #2980B9;
-            color: white;
-            cursor: pointer;
-            border: none;
-        }
-        .contact-form button:hover {
-            background-color: #1D6F8C;
-        }
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .project {
-            background-color: #34495E;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        .tech-stack {
-            background-color: #16A085;
-            color: white;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        #clock, #calendar {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #2980B9;
-            color: white;
-        }
-    </style>
+    <title>Matej Martinović Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("YOUR_EMAILJS_USER_ID");
+        })();
+    </script>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
+    <header class="header">
+        <div class="container">
+            <h1>Matej Martinović</h1>
+            <p>Software Engineer | Full-Stack Developer | Cloud Enthusiast</p>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#timeline">Career Timeline</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>Geometrical Task</h3>
-                <a href="https://github.com/1244Matt1244/python_geometrical_task" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>QGIS Project</h3>
-                <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>MTG Backend Service</h3>
-                <a href="https://github.com/1244Matt1244/MTG_Backend_Service_Assignment" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>REST API</h3>
-                <a href="https://github.com/1244Matt1244/rest_api" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Azure Project</h3>
-                <a href="https://github.com/1244Matt1244/azure_project" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Bank System ERP</h3>
-                <a href="https://github.com/1244Matt1244/bank_system_ERP" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Small Guestbook Application</h3>
-                <a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Credit Card Fraud Detection</h3>
-                <a href="https://github.com/1244Matt1244/credit_card_fraud_detection" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>HA Master-Slave Redis</h3>
-                <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>QR Code Generator</h3>
-                <a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Go Web App</h3>
-                <a href="https://github.com/1244Matt1244/myapp" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>PHP Web Application</h3>
-                <a href="https://github.com/1244Matt1244/php_web_app" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Node.js Backend Service</h3>
-                <a href="https://github.com/1244Matt1244/node_backend_service" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Data Science Project</h3>
-                <a href="https://github.com/1244Matt1244/data_science_project" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Machine Learning with Python</h3>
-                <a href="https://github.com/1244Matt1244/machine_learning_python" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>Excel Integration C# Project</h3>
-                <a href="https://github.com/1244Matt1244/excel_integration_csharp" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <h3>OpenStack Cloud Project</h3>
-                <a href="https://github.com/1244Matt1244/openstack_cloud_project" target="_blank">View Project</a>
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Hi! I'm Matej Martinović, a passionate and versatile software engineer with extensive experience in both frontend and backend development. I specialize in building efficient, scalable, and reliable systems.</p>
+            <p>With expertise in multiple programming languages, cloud infrastructures, and DevOps practices, I enjoy solving complex problems and delivering impactful solutions.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="images/maze_escape.jpg" alt="Maze Escape Project">
+                    <h3>Maze Escape</h3>
+                    <p>Backend system for maze generation and solving, developed using Java.</p>
+                    <ul>
+                        <li>Dynamic maze generation algorithm.</li>
+                        <li>Implemented shortest-path solutions using A* algorithm.</li>
+                        <li>Deployed on AWS with CI/CD pipeline.</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <img src="images/openstack.jpg" alt="OpenStack Terraform Generator">
+                    <h3>OpenStack Terraform Generator</h3>
+                    <p>A Python tool for generating Terraform configuration files for OpenStack resources.</p>
+                    <ul>
+                        <li>Streamlined infrastructure deployment process.</li>
+                        <li>Supported multi-region setups.</li>
+                        <li>Enhanced user experience with CLI and YAML configuration options.</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <img src="images/azure_project.jpg" alt="Azure Project">
+                    <h3>Azure Project</h3>
+                    <p>Cloud-based DevOps solution for managing Azure infrastructure with deployment scripts.</p>
+                    <ul>
+                        <li>Integrated Terraform for Infrastructure-as-Code (IaC).</li>
+                        <li>Automated resource scaling with Azure Functions.</li>
+                        <li>Monitored using Azure Monitor and Log Analytics.</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <img src="images/qrcode_generator.jpg" alt="QR Code Generator">
+                    <h3>QR Code Generator</h3>
+                    <p>A Python project that generates QR codes with customizable data and settings.</p>
+                    <ul>
+                        <li>Supported embedded logos and colors.</li>
+                        <li>Optimized for high-resolution print quality.</li>
+                        <li>Integrated with Flask for web-based usage.</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <img src="images/rest_api.jpg" alt="REST API">
+                    <h3>REST API</h3>
+                    <p>REST API built using Fastify and TypeORM for managing user accounts and delivering metrics.</p>
+                    <ul>
+                        <li>Implemented JWT-based authentication.</li>
+                        <li>Enabled CRUD operations with seamless database interaction.</li>
+                        <li>Designed scalable architecture for high traffic.</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <img src="images/bank_system.jpg" alt="Bank System ERP">
+                    <h3>Bank System ERP</h3>
+                    <p>An ERP system for managing banking operations and services, built using C#.</p>
+                    <ul>
+                        <li>Integrated financial reporting module.</li>
+                        <li>Optimized transaction processing workflows.</li>
+                        <li>Implemented role-based access controls.</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <img src="images/credit_card_fraud.jpg" alt="Credit Card Fraud Detection">
+                    <h3>Credit Card Fraud Detection</h3>
+                    <p>Credit card fraud detection system implemented using Python and Scikit-learn.</p>
+                    <ul>
+                        <li>Utilized Random Forest for high-accuracy predictions.</li>
+                        <li>Analyzed transaction data with exploratory data analysis.</li>
+                        <li>Visualized results with Matplotlib and Seaborn.</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <img src="images/small_guestbook.jpg" alt="Small Guestbook Application">
+                    <h3>Small Guestbook Application</h3>
+                    <p>A simple PHP-based guestbook application to collect user entries.</p>
+                    <ul>
+                        <li>Implemented form validation and security measures.</li>
+                        <li>Designed responsive user interface.</li>
+                        <li>Stored data efficiently using MySQL.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="tech-stack" class="tech-stack">
-        <h2>Technologies I Use</h2>
-        <p><strong>Frontend:</strong> React, JavaScript, HTML, CSS</p>
-        <p><strong>Backend:</strong> Node.js, TypeScript, Go, Java, PHP, C#</p>
-        <p><strong>Database:</strong> SQL, NoSQL, MariaDB, PostgreSQL</p>
-        <p><strong>Cloud:</strong> Azure, OpenStack</p>
-        <p><strong>DevOps:</strong> Terraform, Kubernetes</p>
-        <p><strong>Data Science:</strong> Python, Scikit-learn</p>
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>Frontend: React, JavaScript, HTML, CSS</li>
+                <li>Backend: Node.js, TypeScript, Go, Java, PHP, C#</li>
+                <li>Database: SQL, NoSQL, MariaDB, PostgreSQL</li>
+                <li>Cloud: Azure, OpenStack</li>
+                <li>DevOps: Terraform, Kubernetes</li>
+                <li>Data Science: Python, Scikit-learn</li>
+            </ul>
+        </div>
     </section>
 
-    <section id="calendar" style="text-align: center; padding: 20px;">
-        <h2>Current Time and Date</h2>
-        <div id="clock"></div>
-        <div id="calendar"></div>
+    <section id="achievements" class="achievements-section">
+        <div class="container">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Certified Kubernetes Administrator (CKA).</li>
+                <li>Microsoft Azure Fundamentals (AZ-900).</li>
+                <li>Winner of Hackathon 2023 - Cloud Solutions Track.</li>
+                <li>Published articles on DevOps and Cloud Computing.</li>
+            </ul>
+        </div>
     </section>
 
-    <section id="contact" style="text-align: center; padding: 20px;">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out to me for collaboration, questions, or inquiries!</p>
-        <form class="contact-form" id="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="button" onclick="sendEmail()">Send Message</button>
-        </form>
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <h2>Career Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-event">
+                    <h3>2025</h3>
+                    <p>Joined as Senior Software Engineer at TechCorp.</p>
+                </div>
+                <div class="timeline-event">
+                    <h3>2023</h3>
+                    <p>Completed Master's Degree in Computer Science.</p>
+                </div>
+                <div class="timeline-event">
+                    <h3>2021</h3>
+                    <p>Started career as a Junior Developer at Innovatech.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <div class="footer">
-        <p>&copy; 2025 Matej Martinović. All rights reserved.</p>
-    </div>
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out for collaboration or inquiries.</p>
+            <form id="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Matej Martinović. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        function updateClock() {
-            const now = new Date();
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const serviceID = "default_service";
+            const templateID = "template_contact";
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    alert("Message sent successfully!");
+                }, (err) => {
+                    alert("Failed to send message. Please try again later.");
+                    console.error(err);
+                });
+        });
+    </script>
+</body>
+
+</html>
