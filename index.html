@@ -1,162 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Matej Martinović's personal portfolio showcasing my skills and projects.">
-  <title>Matej Martinović - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="scripts.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Matej Martinović</h1>
-      <p>Software Engineer</p>
-      <nav>
-        <ul>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <div id="container">
+        <!-- Hero Section -->
+        <section id="hero">
+            <div id="hero-content">
+                <h1>Welcome to My Portfolio</h1>
+                <p>Discover my projects and skills in various technologies.</p>
+            </div>
+        </section>
 
-  <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>
-        Hi! I'm Matej Martinović (he/him), a passionate and versatile software engineer with extensive experience in both frontend and backend development. I specialize in building efficient, scalable, and reliable systems...
-      </p>
-    </div>
-  </section>
+        <!-- About Me Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi! I'm Matej Martinović, a passionate and versatile software engineer...</p>
+        </section>
 
-  <section id="projects">
-    <div class="container">
-      <h2>My Projects</h2>
-      <div class="project-list">
-        <div class="project-item">
-          <a href="https://github.com/1244Matt1244/maze_escape" class="project-link">
-            <img src="icons/java-icon.png" alt="Java Project Icon" class="project-icon">
-            <h3>maze_escape</h3>
-            <p>Backend: Java Project</p>
-            <span class="free-to-use">Free to Use</span>
-          </a>
-        </div>
-        <div class="project-item">
-          <a href="https://github.com/1244Matt1244/openstack_terraform_generator" class="project-link">
-            <img src="icons/python-icon.png" alt="Python Project Icon" class="project-icon">
-            <h3>openstack_terraform_generator</h3>
-            <p>Python</p>
-            <span class="free-to-use">Free to Use</span>
-          </a>
-        </div>
-        <div class="project-item">
-          <a href="https://github.com/1244Matt1244/small_guestbook_application" class="project-link">
-            <img src="icons/php-icon.png" alt="PHP Project Icon" class="project-icon">
-            <h3>small_guestbook_application</h3>
-            <p>PHP, MySQL</p>
-            <span class="free-to-use">Free to Use</span>
-          </a>
-        </div>
-        <div class="project-item">
-          <a href="https://github.com/1244Matt1244/qgis_project_python" class="project-link">
-            <img src="icons/python-icon.png" alt="Python Project Icon" class="project-icon">
-            <h3>qgis_project_python</h3>
-            <p>Python for QGIS</p>
-            <span class="free-to-use">Free to Use</span>
-          </a>
-        </div>
-        <div class="project-item">
-          <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db" class="project-link">
-            <img src="icons/redis-icon.png" alt="Redis Project Icon" class="project-icon">
-            <h3>ha_master_slave_and_some_tasks_around_redis-db</h3>
-            <p>Redis</p>
-            <span class="free-to-use">Free to Use</span>
-          </a>
-        </div>
-        <div class="project-item">
-          <a href="https://github.com/1244Matt1244/rest_api" class="project-link">
-            <img src="icons/rest-api-icon.png" alt="REST API Project Icon" class="project-icon">
-            <h3>rest_api</h3>
-            <p>Backend: REST API</p>
-            <span class="free-to-use">Free to Use</span>
-          </a>
-        </div>
-        <div class="project-item">
-          <a href="https://github.com/1244Matt1244/qrcode_generator" class="project-link">
-            <img src="icons/qrcode-icon.png" alt="QR Code Generator Icon" class="project-icon">
-            <h3>qrcode_generator</h3>
-            <p>QR Code Generator with logo embedding</p>
-            <span class="free-to-use">Free to Use</span>
-          </a>
-        </div>
-        <div class="project-item">
-          <a href="https://github.com/1244Matt1244/azure_project" class="project-link">
-            <img src="icons/azure-icon.png" alt="Azure Project Icon" class="project-icon">
-            <h3>azure_project</h3>
-            <p>Cloud Infrastructure (Azure)</p>
-            <span class="free-to-use">Free to Use</span>
-          </a>
-        </div>
-        <div class="project-item">
-          <a href="https://github.com/1244Matt1244/bank_system_erp" class="project-link">
-            <img src="icons/csharp-icon.png" alt="C# Project Icon" class="project-icon">
-            <h3>bank_system_erp</h3>
-            <p>C# .NET Framework, Excel Integration</p>
-            <span class="free-to-use">Free to Use</span>
-          </a>
-        </div>
-        <div class="project-item">
-          <a href="https://github.com/1244Matt1244/credit_card_fraud_detection" class="project-link">
-            <img src="icons/flask-icon.png" alt="Flask Project Icon" class="project-icon">
-            <h3>credit_card_fraud_detection</h3>
-            <p>Machine Learning (Random Forest Classifier)</p>
-            <span class="free-to-use">Free to Use</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="project-list">
+                <!-- Maze Escape -->
+                <div class="project-card">
+                    <h3><a href="https://github.com/1244Matt1244/maze_escape">Maze Escape</a></h3>
+                    <p>A backend system developed using Java for maze generation and solving.</p>
+                </div>
+                <!-- OpenStack Terraform Generator -->
+                <div class="project-card">
+                    <h3><a href="https://github.com/1244Matt1244/openstack_terraform_generator">OpenStack Terraform Generator</a></h3>
+                    <p>A tool for generating Terraform config files for OpenStack resources.</p>
+                </div>
+                <!-- Other Projects -->
+                <div class="project-card">
+                    <h3><a href="https://github.com/1244Matt1244/small_guestbook_application">Small Guestbook Application</a></h3>
+                    <p>User authentication, input validation, and database interaction with MySQL.</p>
+                </div>
+                <div class="project-card">
+                    <h3><a href="https://github.com/1244Matt1244/qrcode_generator">QR Code Generator</a></h3>
+                    <p>Generate QR codes with customizable logos and styles.</p>
+                </div>
+                <div class="project-card">
+                    <h3><a href="https://github.com/1244Matt1244/rest_api">REST API</a></h3>
+                    <p>Developed using Flask for creating RESTful APIs with integrated authentication and validation.</p>
+                </div>
+                <div class="project-card">
+                    <h3><a href="https://github.com/1244Matt1244/azure_project">Azure Project</a></h3>
+                    <p>Managed Azure cloud services for an enterprise-scale application.</p>
+                </div>
+                <!-- Add more projects if needed -->
+            </div>
+        </section>
 
-  <section id="clock">
-    <div class="container">
-      <h2>Cher Blossom Clock</h2>
-      <div id="clock-container"></div> <!-- React Component will be injected here -->
-    </div>
-  </section>
+        <!-- Calendar and Clock Section -->
+        <section id="calendar-clock">
+            <div id="calendar">
+                <h3>Current Date: <span id="current-date"></span></h3>
+                <p>Today: <span id="day"></span>, <span id="month"></span></p>
+            </div>
+            <div id="clock">
+                <h3>Current Time: <span id="current-time"></span></h3>
+            </div>
+        </section>
 
-  <section id="contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>Feel free to reach out via email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
-      <p>Or connect with me on <a href="https://www.linkedin.com/in/matej-martinović-140750265">LinkedIn</a>.</p>
-      
-      <!-- Contact Form -->
-      <form action="mailto:matt123.3a@gmail.com" method="POST" enctype="multipart/form-data">
-        <div>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit">Send Message</button>
-      </form>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/matej-martinović-140750265">Matej Martinović</a></p>
+        </section>
     </div>
-  </section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Matej Martinović. All rights reserved.</p>
-    </div>
-  </footer>
-
+    <script src="scripts.js"></script>
 </body>
 </html>
