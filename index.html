@@ -3,128 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matej Martinović - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Matej Martinović | Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://example.com/real-cherry-blossom-tree.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: #f0f4f8;
+            color: white;
+            transition: background-color 1s ease-in-out, color 1s ease-in-out;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 0;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #b3d9ff;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #d6e7ff;
+        }
+
+        #clock {
+            font-size: 1.5em;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        #calendar {
+            font-size: 1.2em;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            color: #d6e7ff;
+        }
+
+        .projects {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .project {
+            background-color: rgba(0, 0, 0, 0.5);
+            margin: 15px;
+            padding: 20px 15px;
+            width: 250px;
+            height: 230px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        .project h3 {
+            color: #e6f7ff;
+            font-size: 1.1em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .project a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ffb3b3;
+            text-decoration: none;
+            font-size: 1.0em;
+            font-weight: bold;
+            border: 2px solid #ffb3b3;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .project a:hover {
+            background-color: #ffb3b3;
+            color: black;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .tech-stack {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tech-stack h2 {
+            font-size: 2em;
+            color: #ffb3b3;
+        }
+
+        .tech-stack p {
+            font-size: 1.3em;
+            color: #d6e7ff;
+        }
+
+        .contact-form {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            width: 60%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ffb3b3;
+            background-color: #333;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #ffb3b3;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            color: black;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #ff8080;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Matej Martinović</h1>
-            <p>Software Engineer | Full Stack Developer</p>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hello, I am Matej Martinović, a developer!</p>
+        <div id="clock"></div>
+        <div id="calendar"></div>
     </header>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Hi! I'm Matej Martinović (he/him), a passionate and versatile software engineer with extensive experience in both frontend and backend development. My expertise includes building efficient, scalable, and reliable systems across a wide range of technologies, including cloud infrastructures and DevOps practices. I thrive on solving real-world problems and creating impactful software solutions.</p>
-        </div>
+    <section id="about-me" style="text-align: center; padding: 20px;">
+        <h2>About Me</h2>
+        <p>Hi! I'm a passionate and versatile software engineer with extensive experience in both frontend and backend development...</p>
+        <p>My goal is to create innovative software that drives impactful changes while optimizing workflows, improving performance, and enhancing user experiences...</p>
     </section>
 
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects">
-                <div class="project">
-                    <h3>maze_escape</h3>
-                    <p>Backend: Java Project. A maze generation and solving backend system developed using Java.</p>
-                </div>
-                <div class="project">
-                    <h3>openstack_terraform_generator</h3>
-                    <p>Python: A tool for generating Terraform configuration files for OpenStack resources.</p>
-                </div>
-                <div class="project">
-                    <h3>azure_project</h3>
-                    <p>Cloud DevOps Assignment (PowerShell): A cloud-based DevOps solution for managing Azure infrastructure.</p>
-                </div>
-                <div class="project">
-                    <h3>qrcode_generator</h3>
-                    <p>Python: Generates QR codes with customizable data and settings, including embedded logos.</p>
-                </div>
-                <div class="project">
-                    <h3>rest_api</h3>
-                    <p>TypeScript | Node.js | Fastify | TypeORM: A REST API for managing user accounts and delivering metrics.</p>
-                </div>
-                <div class="project">
-                    <h3>ha_master_slave_and_some_tasks_around_redis-db</h3>
-                    <p>Shell: Scripts and resources for local Kubernetes environments with Redis as a service.</p>
-                </div>
-                <div class="project">
-                    <h3>qgis_project_python</h3>
-                    <p>Python | QGIS: Processes and analyzes geographic data using QGIS.</p>
-                </div>
-                <div class="project">
-                    <h3>bank_system_ERP</h3>
-                    <p>C#: ERP system for managing banking operations and services.</p>
-                </div>
-                <div class="project">
-                    <h3>credit_card_fraud_detection</h3>
-                    <p>Python: Credit card fraud detection using Scikit-learn.</p>
-                </div>
-                <div class="project">
-                    <h3>small_guestbook_application</h3>
-                    <p>PHP: A simple guestbook application to collect user entries.</p>
-                </div>
-                <div class="project">
-                    <h3>backend_service_assignment</h3>
-                    <p>Go: Handles data for cameras and MTG cards.</p>
-                </div>
-                <div class="project">
-                    <h3>sql_learning_materials_scripts</h3>
-                    <p>SQL: A collection of SQL scripts for learning and practicing queries.</p>
-                </div>
+    <section id="view-projects" style="text-align: center; padding: 20px;">
+        <h2>Explore My Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>maze_escape</h3>
+                <a href="https://github.com/1244Matt1244/maze_escape" target="_blank">View Project</a>
+            </div>
+            <div class="project">
+                <h3>openstack_terraform_generator</h3>
+                <a href="https://github.com/1244Matt1244/openstack_terraform_generator" target="_blank">View Project</a>
+            </div>
+            <div class="project">
+                <h3>qrcode_generator</h3>
+                <a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">View Project</a>
+            </div>
+            <div class="project">
+                <h3>rest_api</h3>
+                <a href="https://github.com/1244Matt1244/rest_api" target="_blank">View Project</a>
             </div>
         </div>
     </section>
 
-    <section id="skills">
-        <div class="container">
-            <h2>Technologies I Use</h2>
-            <ul class="skills">
-                <li>Frontend: React, JavaScript, HTML, CSS</li>
-                <li>Backend: Node.js, TypeScript, Go, Java, PHP, C#</li>
-                <li>Database: SQL, NoSQL, MariaDB, PostgreSQL</li>
-                <li>Cloud: Azure, OpenStack</li>
-                <li>DevOps: Terraform, Kubernetes</li>
-                <li>Data Science: Python, Scikit-learn</li>
-            </ul>
+    <section id="tech-stack" class="tech-stack">
+        <h2>Technologies I Use</h2>
+        <div>
+            <p><strong>Frontend:</strong> React, JavaScript, HTML, CSS</p>
+            <p><strong>Backend:</strong> Node.js, TypeScript, Go, Java, PHP, C#</p>
+            <p><strong>Database:</strong> SQL, NoSQL, MariaDB, PostgreSQL</p>
+            <p><strong>Cloud:</strong> Azure, OpenStack</p>
+            <p><strong>DevOps:</strong> Terraform, Kubernetes</p>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <form id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
-                <button type="submit">Send</button>
-            </form>
-        </div>
+    <section id="contact" style="text-align: center; padding: 20px;">
+        <h2>Contact Me</h2>
+        <form class="contact-form" method="POST" action="mailto:your-email@example.com">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Matej Martinović. All rights reserved.</p>
-        </div>
-    </footer>
+    <script>
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            const clock = document.getElementById('clock');
+            clock.innerHTML = now.toLocaleTimeString();
+        }
+        setInterval(updateClock, 1000);
 
-    <script src="script.js"></script>
+        // Calendar
+        function updateCalendar() {
+            const now = new Date();
+            const calendar = document.getElementById('calendar');
+            calendar.innerHTML = now.toLocaleDateString();
+        }
+        setInterval(updateCalendar, 1000);
+    </script>
 </body>
 </html>
