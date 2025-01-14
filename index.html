@@ -4,242 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Matej Martinović | Portfolio</title>
+    <title>1244Matt1244.github.io</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('https://example.com/japanese-cherry-blossom-spring.jpg') no-repeat center center fixed;
+            background: url('https://www.w3schools.com/w3images/cherryblossom.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
-            transition: background-color 1s ease-in-out, color 1s ease-in-out;
+            margin: 0;
+            padding: 0;
+            text-align: center;
         }
 
         header {
-            text-align: center;
-            padding: 50px 0;
-            animation: fadeIn 3s ease-in-out;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            font-size: 36px;
+            color: #FFD700;
         }
 
-        h1 {
-            font-size: 3em;
-            color: #ffb3b3;
-        }
-
-        p {
-            font-size: 1.5em;
-            color: #ffcccc;
-        }
-
-        #clock {
-            font-size: 1.5em;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        #calendar {
-            font-size: 1.2em;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            color: #ffcccc;
-        }
-
-        .projects {
-            margin-top: 50px;
+        .projects-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: center;
+            margin-top: 30px;
         }
 
-        .project {
-            background-color: rgba(0, 0, 0, 0.5);
-            margin: 20px;
-            padding: 20px;
+        .project-box {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin: 10px;
+            padding: 15px;
             width: 250px;
-            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
         }
 
-        .project:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.8);
+        .project-box:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.4);
         }
 
-        .project h3 {
-            color: #ffe6e6;
-            font-size: 1.5em;
+        .project-box img {
+            width: 50px;
+            height: 50px;
         }
 
-        .project a {
-            display: inline-block;
+        .project-name {
             margin-top: 10px;
-            color: #ffb3b3;
-            text-decoration: none;
-            font-size: 1.1em;
+            font-size: 20px;
+            color: #FFD700;
+        }
+
+        .calendar {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .calendar p {
+            font-size: 20px;
+        }
+
+        .clock {
+            font-size: 30px;
             font-weight: bold;
-            border: 2px solid #ffb3b3;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
         }
 
-        .project a:hover {
-            background-color: #ffb3b3;
-            color: black;
-        }
-
-        /* Animation for fade-in effect */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        /* Dynamic Background Color Effects */
-        @keyframes colorChange {
-            0% {
-                background-color: #f5d0c5; /* Soft peach color */
-            }
-            50% {
-                background-color: #f0a6ca; /* Soft pink */
-            }
-            100% {
-                background-color: #f5d0c5;
-            }
-        }
-
-        .dynamic-background {
-            animation: colorChange 5s infinite ease-in-out;
-        }
-
-        /* Dragon Ball Sign */
-        #dragonBallSign {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 80px;
-            height: 80px;
-            background: url('https://example.com/dragon-ball-sign.png') no-repeat center center;
-            background-size: contain;
-        }
-
-        .projects h2 {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 2em;
-            color: #ffb3b3;
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
-<body class="dynamic-background">
+<body>
+
     <header>
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hello, I am Matej Martinović, a passionate developer!</p>
-        <div id="clock"></div>
-        <div id="calendar"></div>
+        1244Matt1244.github.io
     </header>
 
-    <!-- Dragon Ball Sign -->
-    <div id="dragonBallSign"></div>
-
-    <!-- Project Section -->
-    <div class="projects">
-        <h2>My Projects</h2>
-        <div class="project">
-            <h3>1244Matt1244.github.io</h3>
-            <a href="https://github.com/1244Matt1244/1244Matt1244.github.io" target="_blank">View Project</a>
+    <div class="projects-container">
+        <div class="project-box">
+            <img src="https://img.icons8.com/ios/50/000000/portfolio.png" alt="Portfolio Icon">
+            <a href="https://github.com/1244Matt1244/1244Matt1244.github.io" target="_blank" class="project-name">Personal Portfolio Website</a>
         </div>
-        <div class="project">
-            <h3>azure_project</h3>
-            <a href="https://github.com/1244Matt1244/azure_project" target="_blank">View Project</a>
+        <div class="project-box">
+            <img src="https://img.icons8.com/ios/50/000000/terraform.png" alt="Azure Project">
+            <a href="https://github.com/1244Matt1244/azure_project" target="_blank" class="project-name">Azure Project</a>
         </div>
-        <div class="project">
-            <h3>backend_service_assignment</h3>
-            <a href="https://github.com/1244Matt1244/backend_service_assignment" target="_blank">View Project</a>
+        <div class="project-box">
+            <img src="https://img.icons8.com/ios/50/000000/go.png" alt="Backend Service Assignment">
+            <a href="https://github.com/1244Matt1244/backend_service_assignment" target="_blank" class="project-name">Backend Service Assignment</a>
         </div>
-        <div class="project">
-            <h3>bank_system_ERP</h3>
-            <a href="https://github.com/1244Matt1244/bank_system_ERP" target="_blank">View Project</a>
+        <div class="project-box">
+            <img src="https://img.icons8.com/ios/50/000000/microsoft-sql-server.png" alt="Bank System ERP">
+            <a href="https://github.com/1244Matt1244/bank_system_ERP" target="_blank" class="project-name">Bank System ERP</a>
         </div>
-        <div class="project">
-            <h3>character_frequency_counter</h3>
-            <a href="https://github.com/1244Matt1244/character_frequency_counter" target="_blank">View Project</a>
+        <div class="project-box">
+            <img src="https://img.icons8.com/ios/50/000000/python.png" alt="Credit Card Fraud Detection">
+            <a href="https://github.com/1244Matt1244/credit_card_fraud_detection" target="_blank" class="project-name">Credit Card Fraud Detection</a>
         </div>
-        <div class="project">
-            <h3>credit_card_fraud_detection</h3>
-            <a href="https://github.com/1244Matt1244/credit_card_fraud_detection" target="_blank">View Project</a>
+        <div class="project-box">
+            <img src="https://img.icons8.com/ios/50/000000/qr-code.png" alt="QR Code Generator">
+            <a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank" class="project-name">QR Code Generator</a>
         </div>
-        <div class="project">
-            <h3>enhanced_python-code_with_turtle_graphics.py</h3>
-            <a href="https://github.com/1244Matt1244/enhanced_python-code_with_turtle_graphics.py" target="_blank">View Project</a>
+        <div class="project-box">
+            <img src="https://img.icons8.com/ios/50/000000/api.png" alt="REST API">
+            <a href="https://github.com/1244Matt1244/rest_api" target="_blank" class="project-name">REST API</a>
         </div>
-        <div class="project">
-            <h3>ha_master_slave_and_some_tasks_around_redis-db</h3>
-            <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db" target="_blank">View Project</a>
+        <div class="project-box">
+            <img src="https://img.icons8.com/ios/50/000000/robot.png" alt="Maze Escape">
+            <a href="https://github.com/1244Matt1244/maze_escape" target="_blank" class="project-name">Maze Escape</a>
         </div>
-        <div class="project">
-            <h3>hello_fastify</h3>
-            <a href="https://github.com/1244Matt1244/hello_fastify" target="_blank">View Project</a>
-        </div>
-        <div class="project">
-            <h3>maze_escape</h3>
-            <a href="https://github.com/1244Matt1244/maze_escape" target="_blank">View Project</a>
-        </div>
-        <div class="project">
-            <h3>openstack_terraform_generator</h3>
-            <a href="https://github.com/1244Matt1244/openstack_terraform_generator" target="_blank">View Project</a>
-        </div>
-        <div class="project">
-            <h3>password_generator</h3>
-            <a href="https://github.com/1244Matt1244/password_generator" target="_blank">View Project</a>
-        </div>
-        <div class="project">
-            <h3>python_geometrical_task</h3>
-            <a href="https://github.com/1244Matt1244/python_geometrical_task" target="_blank">View Project</a>
-        </div>
-        <div class="project">
-            <h3>qgis_project_python</h3>
-            <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank">View Project</a>
-        </div>
-        <div class="project">
-            <h3>qrcode_generator</h3>
-            <a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">View Project</a>
-        </div>
-        <div class="project">
-            <h3>quiz_game</h3>
-            <a href="https://github.com/1244Matt1244/quiz_game" target="_blank">View Project</a>
-        </div>
-        <div class="project">
-            <h3>rest_api</h3>
-            <a href="https://github.com/1244Matt1244/rest_api" target="_blank">View Project</a>
-        </div>
-        <div class="project">
-            <h3>small_guestbook_application</h3>
-            <a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">View Project</a>
-        </div>
-        <div class="project">
-            <h3>sql_learning_materials_scripts</h3>
-            <a href="https://github.com/1244Matt1244/sql_learning_materials_scripts" target="_blank">View Project</a>
+        <div class="project-box">
+            <img src="https://img.icons8.com/ios/50/000000/redis.png" alt="Master-Slave Redis">
+            <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db" target="_blank" class="project-name">Master-Slave Redis</a>
         </div>
     </div>
 
+    <div class="calendar">
+        <p>Current Date & Time:</p>
+        <div class="clock" id="clock"></div>
+    </div>
+
+    <footer>
+        <p>Contact me at: matt123.3a@gmail.com</p>
+    </footer>
+
     <script>
+        // Dynamic clock
         function updateClock() {
             const now = new Date();
             const hours = now.getHours().toString().padStart(2, '0');
             const minutes = now.getMinutes().toString().padStart(2, '0');
             const seconds = now.getSeconds().toString().padStart(2, '0');
-            document.getElementById("clock").innerHTML = `${hours}:${minutes}:${seconds}`;
+            const date = now.toLocaleDateString();
+
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} | ${date}`;
         }
+
         setInterval(updateClock, 1000);
+        updateClock();
     </script>
 </body>
 </html>
