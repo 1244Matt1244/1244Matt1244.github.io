@@ -34,7 +34,7 @@ Here is a selection of the projects I have worked on:
    *TypeScript | Node.js | Fastify | TypeORM*  
    A REST API built using Fastify for managing user accounts and delivering metrics. Built using TypeScript and Node.js.
 
-### 6. **[ha_master_slave_and_some_tasks_around_redis-db](https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db)**  
+### 6. **[ha-master-slave-setup-with-redis-db](https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db)**  
    *Shell*  
    A project focused on creating scripts and resources for local Kubernetes environments with Redis as a service.
 
