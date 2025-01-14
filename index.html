@@ -69,11 +69,6 @@
             background-color: #2980B9;
             color: white;
         }
-        #world-map {
-            width: 100%;
-            height: 300px;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -171,20 +166,14 @@
         <div id="calendar"></div>
     </section>
 
-    <!-- Interactive World Map -->
-    <section id="world-map-section">
-        <h2>Explore the World</h2>
-        <div id="world-map"></div>
-    </section>
-
     <section id="contact" style="text-align: center; padding: 20px;">
         <h2>Contact Me</h2>
         <p>Feel free to reach out to me for collaboration, questions, or inquiries!</p>
-        <form class="contact-form" method="POST" action="mailto:your-email@example.com" onsubmit="return validateForm()">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+        <form class="contact-form" id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="button" onclick="sendEmail()">Send Message</button>
         </form>
     </section>
 
@@ -195,37 +184,4 @@
     <script>
         function updateClock() {
             const now = new Date();
-            document.getElementById('clock').innerHTML = now.toLocaleTimeString();
-            document.getElementById('calendar').innerHTML = now.toLocaleDateString();
-        }
-        setInterval(updateClock, 1000);
-
-        // World Map Integration
-        function initMap() {
-            const map = L.map('world-map').setView([51.505, -0.09], 2); // Starting point and zoom level
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-        }
-        initMap();
-
-        // Contact Form Validation
-        function validateForm() {
-            const name = document.querySelector('[name="name"]').value;
-            const email = document.querySelector('[name="email"]').value;
-            const message = document.querySelector('[name="message"]').value;
-
-            if (!name || !email || !message) {
-                alert('All fields are required!');
-                return false;
-            }
-            alert('Message sent successfully!');
-            return true;
-        }
-    </script>
-
-    <!-- Include Leaflet for the World Map -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-</body>
-</html>
+            document.getElementBy
