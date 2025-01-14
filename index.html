@@ -13,37 +13,23 @@
             background: url('https://example.com/cherry-blossom.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
+            transition: background-color 1s ease-in-out, color 1s ease-in-out;
         }
 
         header {
             text-align: center;
             padding: 50px 0;
+            animation: fadeIn 3s ease-in-out;
         }
 
         h1 {
             font-size: 3em;
+            color: #ffb3b3;
         }
 
-        .projects {
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .project {
-            background-color: rgba(0, 0, 0, 0.5);
-            margin: 10px;
-            padding: 20px;
-            width: 200px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .project a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
+        p {
+            font-size: 1.5em;
+            color: #ffcccc;
         }
 
         #clock {
@@ -52,9 +38,83 @@
             top: 20px;
             right: 20px;
         }
+
+        .projects {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .project {
+            background-color: rgba(0, 0, 0, 0.5);
+            margin: 20px;
+            padding: 20px;
+            width: 250px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        .project h3 {
+            color: #ffe6e6;
+            font-size: 1.5em;
+        }
+
+        .project a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ffb3b3;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: 2px solid #ffb3b3;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .project a:hover {
+            background-color: #ffb3b3;
+            color: black;
+        }
+
+        /* Animation for fade-in effect */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Dynamic Background Color Effects */
+        @keyframes colorChange {
+            0% {
+                background-color: #f5d0c5; /* Soft peach color */
+            }
+            50% {
+                background-color: #f0a6ca; /* Soft pink */
+            }
+            100% {
+                background-color: #f5d0c5;
+            }
+        }
+
+        .dynamic-background {
+            animation: colorChange 5s infinite ease-in-out;
+        }
+
     </style>
 </head>
-<body>
+<body class="dynamic-background">
     <header>
         <h1>Welcome to My Portfolio</h1>
         <p>Hello, I am Matej Martinović, a passionate developer!</p>
