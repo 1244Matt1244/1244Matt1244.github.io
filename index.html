@@ -12,6 +12,7 @@
             padding: 0;
             background: url('https://example.com/real-cherry-blossom-tree.jpg') no-repeat center center fixed;
             background-size: cover;
+            background-color: #f0f4f8; /* Blue Cherry Blossom Touch */
             color: white;
             transition: background-color 1s ease-in-out, color 1s ease-in-out;
         }
@@ -24,12 +25,12 @@
 
         h1 {
             font-size: 3em;
-            color: #ffb3b3;
+            color: #b3d9ff; /* Light Blue for titles */
         }
 
         p {
             font-size: 1.5em;
-            color: #ffcccc;
+            color: #d6e7ff;
         }
 
         #clock {
@@ -44,7 +45,7 @@
             position: absolute;
             top: 60px;
             right: 20px;
-            color: #ffcccc;
+            color: #d6e7ff;
         }
 
         .projects {
@@ -57,12 +58,14 @@
         .project {
             background-color: rgba(0, 0, 0, 0.5);
             margin: 15px;
-            padding: 15px;
-            width: 200px;
+            padding: 20px 15px;
+            width: 250px;
+            height: 230px;
             border-radius: 15px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
             transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden; /* To prevent text overflow */
         }
 
         .project:hover {
@@ -71,8 +74,11 @@
         }
 
         .project h3 {
-            color: #ffe6e6;
-            font-size: 1.3em;
+            color: #e6f7ff; /* Light blue color for project titles */
+            font-size: 1.1em;
+            overflow: hidden;
+            text-overflow: ellipsis; /* Avoid title overflow */
+            white-space: nowrap;
         }
 
         .project a {
@@ -99,18 +105,6 @@
             }
             100% {
                 opacity: 1;
-            }
-        }
-
-        @keyframes colorChange {
-            0% {
-                background-color: #f5d0c5;
-            }
-            50% {
-                background-color: #f0a6ca;
-            }
-            100% {
-                background-color: #f5d0c5;
             }
         }
 
@@ -153,6 +147,22 @@
         .contact-form button:hover {
             background-color: #ff8080;
         }
+
+        .tech-stack {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tech-stack h2 {
+            font-size: 2em;
+            color: #ffb3b3;
+        }
+
+        .tech-stack p {
+            font-size: 1.3em;
+            color: #d6e7ff;
+        }
     </style>
 </head>
 <body class="dynamic-background">
@@ -173,6 +183,7 @@
     <section id="view-projects" style="text-align: center; padding: 20px;">
         <h2>Explore My Projects</h2>
         <div class="projects">
+            <!-- All project cards here -->
             <div class="project">
                 <h3>maze_escape</h3>
                 <a href="https://github.com/1244Matt1244/maze_escape" target="_blank">View Project</a>
@@ -233,6 +244,18 @@
                 <h3>python_geometrical_task</h3>
                 <a href="https://github.com/1244Matt1244/python_geometrical_task" target="_blank">View Project</a>
             </div>
+        </div>
+    </section>
+
+    <section id="tech-stack" class="tech-stack">
+        <h2>Technologies I Use</h2>
+        <div>
+            <p><strong>Frontend:</strong> React, JavaScript, HTML, CSS</p>
+            <p><strong>Backend:</strong> Node.js, TypeScript, Go, Java, PHP, C#</p>
+            <p><strong>Database:</strong> SQL, NoSQL, MariaDB, PostgreSQL</p>
+            <p><strong>Cloud:</strong> Azure, OpenStack</p>
+            <p><strong>DevOps:</strong> Terraform, Kubernetes</p>
+            <p><strong>Data Science:</strong> Python, Scikit-learn</p>
         </div>
     </section>
 
