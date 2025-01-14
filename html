@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-language Site</title>
+</head>
+<body>
+    <button id="lang-toggle">Change Language</button>
+
+    <section id="about">
+        <h2>About Me</h2>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-text">Feel free to reach out...</div>
+        <div class="contact-form">
+            <input type="text" name="name" placeholder="Your Name">
+            <input type="email" name="email" placeholder="Your Email">
+            <textarea name="message" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Matej Martinović | All rights reserved.</p>
+        <a href="#" class="github-link">GitHub</a>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                aboutMe: "About Me",
+                projectsHeading: "Projects",
+                contactMe: "Contact Me",
+                contactText: "Feel free to reach out to me through the contact form below or via my social media channels.",
+                contactForm: {
+                    name: "Your Name",
+                    email: "Your Email",
+                    message: "Your Message",
+                    sendMessage: "Send Message"
+                },
+                footerText: "© 2025 Matej Martinović | All rights reserved.",
+                githubLink: "GitHub"
+            },
+            de: {
+                aboutMe: "Über mich",
+                projectsHeading: "Projekte",
+                contactMe: "Kontaktieren Sie mich",
+                contactText: "Zögern Sie nicht, mich über das Kontaktformular oder über meine Social-Media-Kanäle zu erreichen.",
+                contactForm: {
+                    name: "Ihr Name",
+                    email: "Ihre E-Mail",
+                    message: "Ihre Nachricht",
+                    sendMessage: "Nachricht senden"
+                },
+                footerText: "© 2025 Matej Martinović | Alle Rechte vorbehalten.",
+                githubLink: "GitHub"
+            },
+            hr: {
+                aboutMe: "O meni",
+                projectsHeading: "Projekti",
+                contactMe: "Kontaktirajte me",
+                contactText: "Slobodno me kontaktirajte putem kontakt forme ili mojih društvenih mreža.",
+                contactForm: {
+                    name: "Vaše ime",
+                    email: "Vaša e-mail adresa",
+                    message: "Vaša poruka",
+                    sendMessage: "Pošaljite poruku"
+                },
+                footerText: "© 2025 Matej Martinović | Sva prava pridržana.",
+                githubLink: "GitHub"
+            }
+        };
+
+        let currentLang = 'en';
+
+        document.getElementById('lang-toggle').addEventListener('click', function() {
+            currentLang = currentLang === 'en' ? 'de' : currentLang === 'de' ? 'hr' : 'en';
+            updateContent();
+        });
+
+        function updateContent() {
+            document.querySelector('h2#about').textContent = translations[currentLang].aboutMe;
+            document.querySelector('section#projects h2').textContent = translations[currentLang].projectsHeading;
+            document.querySelector('section#contact h2').textContent = translations[currentLang].contactMe;
+            document.querySelector('section#contact .contact-text').textContent = translations[currentLang].contactText;
+
+            const contactForm = document.querySelector('section#contact .contact-form');
+            contactForm.querySelector('input[name="name"]').placeholder = translations[currentLang].contactForm.name;
+            contactForm.querySelector('input[name="email"]').placeholder = translations[currentLang].contactForm.email;
+            contactForm.querySelector('textarea[name="message"]').placeholder = translations[currentLang].contactForm.message;
+            contactForm.querySelector('button[type="submit"]').textContent = translations[currentLang].contactForm.sendMessage;
+
+            document.querySelector('footer .footer p').textContent = translations[currentLang].footerText;
+            document.querySelector('footer .github-link').textContent = translations[currentLang].githubLink;
+        }
+
+        updateContent();
+    </script>
+</body>
+</html>
