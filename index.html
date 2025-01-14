@@ -1,82 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matej Martinović's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <style>
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: url('https://example.com/cherry-blossom-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+    }
+
+    .header {
+      padding: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .header h1 {
+      font-size: 3em;
+      color: #fff;
+    }
+
+    .header h2 {
+      font-size: 1.5em;
+      color: #ddd;
+    }
+
+    .projects, .contact {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      margin-top: 20px;
+    }
+
+    .projects ul {
+      list-style-type: none;
+      text-align: left;
+    }
+
+    .projects li {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .projects a {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .projects a:hover {
+      text-decoration: underline;
+    }
+
+    .contact p {
+      font-size: 1.2em;
+    }
+
+    .contact a {
+      color: #00bcd4;
+      text-decoration: none;
+    }
+
+    .calendar {
+      background: rgba(0, 0, 0, 0.7);
+      margin-top: 20px;
+      padding: 20px;
+    }
+
+    /* Clock styles */
+    #clock {
+      font-size: 2em;
+      color: white;
+    }
+
+    #calendar-container {
+      font-size: 1.2em;
+      color: white;
+    }
+
+    /* Dynamic background and effects */
+    .dynamic-background {
+      background: url('https://example.com/dynamic-cherry-blossom.jpg') no-repeat center center fixed;
+      background-size: cover;
+      transition: background 0.5s ease;
+    }
+  </style>
 </head>
-<body>
-    <div id="container">
-        <!-- Hero Section -->
-        <section id="hero">
-            <div id="hero-content">
-                <h1>Welcome to My Portfolio</h1>
-                <p>Discover my projects and skills in various technologies.</p>
-            </div>
-        </section>
+<body class="dynamic-background">
+  <div class="header">
+    <h1>Welcome to My Portfolio!</h1>
+    <h2>Discover my projects and skills in various technologies</h2>
+  </div>
 
-        <!-- About Me Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hi! I'm Matej Martinović, a passionate and versatile software engineer...</p>
-        </section>
+  <div class="projects">
+    <h3>My Projects</h3>
+    <ul>
+      <!-- Include all the projects dynamically here -->
+      <li>
+        <a href="https://github.com/1244Matt1244/1244Matt1244.github.io">1244Matt1244.github.io</a>
+        - Personal portfolio website showcasing various projects and skills.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/maze_escape">maze_escape</a>
+        - Java-based maze generation and solving backend system.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/openstack_terraform_generator">openstack_terraform_generator</a>
+        - Python tool to generate Terraform configurations for OpenStack.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/azure_project">azure_project</a>
+        - Cloud DevOps solution for managing Azure infrastructure.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/qrcode_generator">qrcode_generator</a>
+        - Python project for generating customizable QR codes.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/rest_api">rest_api</a>
+        - TypeScript & Node.js Fastify REST API for user management.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/ha_master_slave_and_some_tasks_around_redis-db">ha_master_slave_and_some_tasks_around_redis-db</a>
+        - Shell project focused on Redis for Kubernetes environments.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/qgis_project_python">qgis_project_python</a>
+        - Python project for geographic data processing with QGIS.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/bank_system_ERP">bank_system_ERP</a>
+        - C#-based ERP system for managing banking operations.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/credit_card_fraud_detection">credit_card_fraud_detection</a>
+        - Python-based fraud detection system using Scikit-learn.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/small_guestbook_application">small_guestbook_application</a>
+        - Simple PHP-based guestbook application for user entries.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/backend_service_assignment">backend_service_assignment</a>
+        - Go-based backend service for camera and MTG card handling.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/sql_learning_materials_scripts">sql_learning_materials_scripts</a>
+        - A collection of SQL learning scripts.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/enhanced_python-code_with_turtle_graphics">enhanced_python-code_with_turtle_graphics</a>
+        - Python code with Turtle graphics for visual representations.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/character_frequency_counter">character_frequency_counter</a>
+        - Python program to count character frequency in text.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/python_geometrical_task">python_geometrical_task</a>
+        - Python script for geometric calculations.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/password_generator">password_generator</a>
+        - Simple password generator using HTML and JavaScript.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/quiz_game">quiz_game</a>
+        - JavaScript-based quiz game to test knowledge on various topics.
+      </li>
+      <li>
+        <a href="https://github.com/1244Matt1244/hello_fastify">hello_fastify</a>
+        - Fastify "Hello World" template with tests.
+      </li>
+    </ul>
+  </div>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="project-list">
-                <!-- Maze Escape -->
-                <div class="project-card">
-                    <h3><a href="https://github.com/1244Matt1244/maze_escape">Maze Escape</a></h3>
-                    <p>A backend system developed using Java for maze generation and solving.</p>
-                </div>
-                <!-- OpenStack Terraform Generator -->
-                <div class="project-card">
-                    <h3><a href="https://github.com/1244Matt1244/openstack_terraform_generator">OpenStack Terraform Generator</a></h3>
-                    <p>A tool for generating Terraform config files for OpenStack resources.</p>
-                </div>
-                <!-- Other Projects -->
-                <div class="project-card">
-                    <h3><a href="https://github.com/1244Matt1244/small_guestbook_application">Small Guestbook Application</a></h3>
-                    <p>User authentication, input validation, and database interaction with MySQL.</p>
-                </div>
-                <div class="project-card">
-                    <h3><a href="https://github.com/1244Matt1244/qrcode_generator">QR Code Generator</a></h3>
-                    <p>Generate QR codes with customizable logos and styles.</p>
-                </div>
-                <div class="project-card">
-                    <h3><a href="https://github.com/1244Matt1244/rest_api">REST API</a></h3>
-                    <p>Developed using Flask for creating RESTful APIs with integrated authentication and validation.</p>
-                </div>
-                <div class="project-card">
-                    <h3><a href="https://github.com/1244Matt1244/azure_project">Azure Project</a></h3>
-                    <p>Managed Azure cloud services for an enterprise-scale application.</p>
-                </div>
-                <!-- Add more projects if needed -->
-            </div>
-        </section>
+  <div class="contact">
+    <h3>Contact Me</h3>
+    <p>Email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/matej-martinović-140750265" target="_blank">My LinkedIn</a></p>
+  </div>
 
-        <!-- Calendar and Clock Section -->
-        <section id="calendar-clock">
-            <div id="calendar">
-                <h3>Current Date: <span id="current-date"></span></h3>
-                <p>Today: <span id="day"></span>, <span id="month"></span></p>
-            </div>
-            <div id="clock">
-                <h3>Current Time: <span id="current-time"></span></h3>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/matej-martinović-140750265">Matej Martinović</a></p>
-        </section>
+  <div class="calendar">
+    <div id="calendar-container">
+      <h3>Live Calendar</h3>
+      <div id="calendar"></div>
     </div>
+  </div>
 
-    <script src="scripts.js"></script>
+  <div class="clock">
+    <h3>Live Clock</h3>
+    <div id="clock"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Dynamic Cherry Blossom Background
+    setInterval(function () {
+      $('body').toggleClass('dynamic-background');
+    }, 5000); // Toggle background every 5 seconds
+
+    // Live Clock
+    function updateClock() {
+      const date = new Date();
+      const time = date.toLocaleTimeString();
+      document.getElementById('clock').innerText = time;
+    }
+
+    setInterval(updateClock, 1000); // Update clock every second
+
+    // Calendar (using JavaScript to show current month and date)
+    function updateCalendar() {
+      const today = new Date();
+      const month = today.toLocaleString('default', { month: 'long' });
+      const date = today.getDate();
+      const year = today.getFullYear();
+      document.getElementById('calendar').innerHTML = `${month} ${date}, ${year}`;
+    }
+
+    updateCalendar(); // Update on page load
+  </script>
 </body>
 </html>
