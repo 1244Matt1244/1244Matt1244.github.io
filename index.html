@@ -310,9 +310,6 @@
     document.getElementById("blackBackgroundBtn").addEventListener("click", switchToBlack);
 </script>
 
-<button id="switchBackgroundBtn" class="switch-background-btn">Switch to Gradient Background</button>
-<button id="blackBackgroundBtn" class="black-background-btn">Switch to Black Background</button>
-
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         emailjs.init("user_yourEmailJSUserID");
@@ -334,6 +331,14 @@
             });
         });
 
+        <div class="language-menu">
+    <select id="language-select" onchange="changeLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="de">German</option>
+        <option value="hr">Croatian</option>
+    </select>
+</div>
+        
         function changeLanguage(language) {
             const texts = {
                 en: {
@@ -419,14 +424,6 @@
     <h2>Search</h2>
     <input type="text" placeholder="Search for a project...">
 </section>
-
-<div class="language-menu">
-    <select id="language-select" onchange="changeLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="de">German</option>
-        <option value="hr">Croatian</option>
-    </select>
-</div>
 
     <div id="project-list">
         <ul id="projects-list">
