@@ -516,9 +516,97 @@
 <!-- Clock Section -->
 <div id="clock" class="clock-section">
     <i class="fas fa-clock"></i> 
-    <span id="time"></span> | 
+    <span id="time"></span> |
     <span id="date"></span>
 </div>
+
+<div id="calendar" class="calendar-section">
+    <div id="calendar-header">
+        <button id="prev-month">←</button>
+        <span id="month-year"></span>
+        <button id="next-month">→</button>
+    </div>
+    <table id="calendar-table">
+        <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+        <tbody id="calendar-body"></tbody>
+    </table>
+</div>
+
+<script>
+// Update the clock every second
+function updateClock() {
+    const time = new Date().toLocaleTimeString();
+    const date = new Date().toLocaleDateString();
+    document.querySelector('#time').textContent = time;
+    document.querySelector('#date').textContent = date;
+}
+
+// Initialize and update the calendar for the current month
+let currentDate = new Date();
+
+function updateCalendar() {
+    const month = currentDate.getMonth();
+    const year = currentDate.getFullYear();
+    document.getElementById('month-year').textContent = `${currentDate.toLocaleString('default', { month: 'long' })} ${year}`;
+
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const daysInMonth = lastDay.getDate();
+
+    const calendarBody = document.getElementById('calendar-body');
+    calendarBody.innerHTML = ''; // Clear previous calendar
+
+    // Add empty cells before the first day of the month
+    let dayOfWeek = firstDay.getDay();
+    let row = document.createElement('tr');
+    for (let i = 0; i < dayOfWeek; i++) {
+        row.appendChild(document.createElement('td'));
+    }
+
+    // Add the days of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+        if (row.children.length === 7) {
+            calendarBody.appendChild(row);
+            row = document.createElement('tr');
+        }
+        const cell = document.createElement('td');
+        cell.textContent = day;
+        row.appendChild(cell);
+    }
+
+    // Add the last row if needed
+    if (row.children.length > 0) {
+        calendarBody.appendChild(row);
+    }
+}
+
+// Switch to the previous month
+document.getElementById('prev-month').addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    updateCalendar();
+});
+
+// Switch to the next month
+document.getElementById('next-month').addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    updateCalendar();
+});
+
+// Initialize the clock and calendar
+updateClock();
+updateCalendar();
+setInterval(updateClock, 1000); // Update the clock every second
+</script>
 
 <!-- Add FontAwesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -567,14 +655,14 @@
     margin-right: 10px;
 }
 
-  /* Tech Stack Section Styling */
+/* Tech Stack Section Styling */
 .tech-stack {
     text-align: center;
     margin: 40px 0;
 }
 
 .tech-stack h2 {
-    font-size: 2rem;
+    font-size: 1.8rem; /* Slightly smaller heading */
     margin-bottom: 20px;
 }
 
@@ -582,8 +670,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Adds spacing between items */
-    flex-wrap: wrap; /* Allows items to wrap to the next row if necessary */
+    gap: 15px; /* Reduced gap */
     max-width: 100%; /* Ensures it doesn't exceed available space */
     box-sizing: border-box; /* Prevents overflow */
 }
@@ -591,12 +678,12 @@
 .tech-item {
     margin: 10px;
     text-align: center;
-    font-size: 1.2rem;
-    width: 150px; /* Ensures items don't become too large */
+    font-size: 1rem; /* Reduced font size */
+    width: 120px; /* Reduced width */
 }
 
 .tech-item i {
-    font-size: 2rem;
+    font-size: 1.5rem; /* Reduced icon size */
     margin-bottom: 5px;
 }
 </style>
