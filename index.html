@@ -226,6 +226,18 @@
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
     emailjs.init("user_yourEmailJSUserID");
+
+    // Language change functionality (simple example)
+    document.getElementById('language').addEventListener('change', function() {
+        const selectedLanguage = this.value;
+        if (selectedLanguage === 'hr') {
+            alert('Hrvatski language selected');
+        } else if (selectedLanguage === 'de') {
+            alert('Deutsch language selected');
+        } else {
+            alert('English language selected');
+        }
+    });
 </script>
 
 </body>
