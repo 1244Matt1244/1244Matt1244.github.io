@@ -62,6 +62,12 @@
             font-size: 18px;
         }
 
+        .language-selector {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
         .projects, .about, .contact {
             margin: 30px 0;
         }
@@ -121,6 +127,13 @@
             border-radius: 5px;
             border: 1px solid #ddd;
         }
+
+        .language-selector select {
+            padding: 5px;
+            background-color: #FFCDD2;
+            border: 1px solid #D32F2F;
+            border-radius: 5px;
+        }
     </style>
 
 </head>
@@ -132,113 +145,98 @@
         <a href="#about">About Me</a>
         <a href="#projects">My Projects</a>
         <a href="#contact">Contact</a>
-        <a href="#search">Search</a>
+    </div>
+    <div class="language-selector">
+        <label for="language">Language: </label>
+        <select id="language">
+            <option value="en">English</option>
+            <option value="hr">Hrvatski</option>
+            <option value="de">Deutsch</option>
+        </select>
     </div>
 </header>
 
 <section id="about" class="about">
     <h2>About Me</h2>
-    <p>Hi! I'm Matej Martinović (he/him), a passionate and versatile software engineer with extensive experience in both frontend and backend development. I specialize in building efficient, scalable, and reliable systems, with a deep understanding of a wide range of technologies. Whether it’s developing complex web applications, working with cloud infrastructures (like Azure and OpenStack), or leveraging DevOps practices to streamline development and deployment workflows, I am driven by the challenge of solving real-world problems.</p>
-    <p>Over the years, I have worked on projects spanning various domains, from data analysis and machine learning to cloud computing and system architecture. I have a strong command of multiple programming languages such as JavaScript, TypeScript, Python, Go, Java, PHP, C#, and PowerShell. Additionally, I am proficient in tools like Terraform, Docker, Kubernetes, and CI/CD pipelines, enabling me to deliver robust and efficient solutions. I am passionate about continuous learning and staying up-to-date with emerging technologies. Whether it's data-driven development or exploring new cloud solutions, I enjoy tackling challenges that expand my skillset.</p>
+    <p>Hi! I'm Matej Martinović (he/him), a passionate and versatile software engineer with extensive experience in both frontend and backend development...</p>
 </section>
 
 <section id="projects" class="projects">
     <h2>My Projects</h2>
 
-    <div class="search-bar" id="search">
-        <input type="text" placeholder="Search for a project...">
-    </div>
-
     <div class="project-list">
         <div class="project-card">
+            <img src="maze_escape-thumbnail.jpg" alt="maze_escape" style="width: 100%; height: auto;">
             <h3>maze_escape</h3>
             <p><strong>Backend:</strong> Java Project - A maze generation and solving backend system developed using Java.</p>
         </div>
         <div class="project-card">
+            <img src="openstack_terraform_generator-thumbnail.jpg" alt="openstack_terraform_generator" style="width: 100%; height: auto;">
             <h3>openstack_terraform_generator</h3>
             <p><strong>Language:</strong> Python - A tool for generating Terraform configuration files for OpenStack resources.</p>
         </div>
         <div class="project-card">
+            <img src="azure_project-thumbnail.jpg" alt="azure_project" style="width: 100%; height: auto;">
             <h3>azure_project</h3>
             <p><strong>Cloud DevOps Assignment (PowerShell):</strong> A cloud-based DevOps solution for managing Azure infrastructure, including deployment scripts and management tools.</p>
         </div>
         <div class="project-card">
+            <img src="qrcode_generator-thumbnail.jpg" alt="qrcode_generator" style="width: 100%; height: auto;">
             <h3>qrcode_generator</h3>
             <p><strong>Language:</strong> Python - A Python project that generates QR codes with customizable data and settings.</p>
         </div>
         <div class="project-card">
+            <img src="rest_api-thumbnail.jpg" alt="rest_api" style="width: 100%; height: auto;">
             <h3>rest_api</h3>
-            <p><strong>Technologies:</strong> TypeScript, Node.js, Fastify, TypeORM - A REST API built using Fastify for managing user accounts and delivering metrics.</p>
+            <p><strong>TypeScript | Node.js | Fastify | TypeORM:</strong> A REST API built using Fastify for managing user accounts and delivering metrics.</p>
         </div>
         <div class="project-card">
-            <h3>small_guestbook_application</h3>
-            <p><strong>Technologies:</strong> PHP, MySQL - A small guestbook application allowing user authentication, input validation, and message storage in a MySQL database.</p>
+            <img src="ha-master-slave-setup-with-redis-db-thumbnail.jpg" alt="ha-master-slave-setup-with-redis-db" style="width: 100%; height: auto;">
+            <h3>ha-master-slave-setup-with-redis-db</h3>
+            <p><strong>Shell:</strong> A project focused on creating scripts and resources for local Kubernetes environments with Redis as a service.</p>
         </div>
         <div class="project-card">
-            <h3>bank_system_ERP</h3>
-            <p><strong>Technologies:</strong> C# (.NET Framework), Excel VBA - A banking system with ERP features, integrating Excel for reporting and user interface.</p>
-        </div>
-        <div class="project-card">
+            <img src="qgis_project_python-thumbnail.jpg" alt="qgis_project_python" style="width: 100%; height: auto;">
             <h3>qgis_project_python</h3>
-            <p><strong>Technologies:</strong> Python, QGIS - A GIS project using Python for spatial data analysis and automation tasks in QGIS.</p>
+            <p><strong>Python | QGIS:</strong> A Python project used for processing and analyzing geographic data, focusing on Boulder dimensions using QGIS.</p>
         </div>
         <div class="project-card">
-            <h3>ha_master_slave_and_some_tasks_around_redis-db</h3>
-            <p><strong>Technologies:</strong> Redis, Python - A project to explore high-availability setups using Redis master-slave replication and related tasks for data management.</p>
+            <img src="bank_system_ERP-thumbnail.jpg" alt="bank_system_ERP" style="width: 100%; height: auto;">
+            <h3>bank_system_ERP</h3>
+            <p><strong>C#:</strong> An ERP system for managing banking operations and services, built using C#.</p>
         </div>
         <div class="project-card">
-            <h3>MTG_Backend_Service_Assignment</h3>
-            <p><strong>Technologies:</strong> Go, PostgreSQL - A backend service for Magic: The Gathering card management, with functionalities to fetch and handle card data.</p>
+            <img src="credit_card_fraud_detection-thumbnail.jpg" alt="credit_card_fraud_detection" style="width: 100%; height: auto;">
+            <h3>credit_card_fraud_detection</h3>
+            <p><strong>Python:</strong> A credit card fraud detection system implemented using the Scikit-learn library in Python.</p>
         </div>
         <div class="project-card">
-            <h3>camera_service</h3>
-            <p><strong>Technologies:</strong> Go, PostgreSQL - A service for managing traffic camera data, with spatial queries for retrieving cameras within a given radius.</p>
+            <img src="small_guestbook_application-thumbnail.jpg" alt="small_guestbook_application" style="width: 100%; height: auto;">
+            <h3>small_guestbook_application</h3>
+            <p><strong>PHP:</strong> A simple PHP-based guestbook application to collect user entries.</p>
         </div>
         <div class="project-card">
-            <h3>rest_api</h3>
-            <p><strong>Technologies:</strong> Node.js, Express - A REST API for managing various resources, including security features and integration with external services.</p>
+            <img src="backend_service_assignment-thumbnail.jpg" alt="backend_service_assignment" style="width: 100%; height: auto;">
+            <h3>Backend Service Assignment</h3>
+            <p><strong>Go:</strong> A backend service that processes and serves MTG cards and camera data.</p>
         </div>
     </div>
 </section>
 
 <section id="contact" class="contact">
     <h2>Contact</h2>
-    <form class="contact-form" action="https://formspree.io/f/mjvwdple" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
+    <p>If you'd like to get in touch, please feel free to send me a message!</p>
+    <form class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
     </form>
 </section>
 
 <footer class="footer">
-    <p>&copy; 2025 Matej Martinović</p>
-    <p>Connect with me on <a href="https://www.linkedin.com/in/matejmartinovic/">LinkedIn</a></p>
+    <p>&copy; 2025 Matej Martinović. All rights reserved.</p>
 </footer>
-
-<!-- Email.js Integration -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    emailjs.init("user_yourEmailJSUserID");
-
-    // Language change functionality (simple example)
-    document.getElementById('language').addEventListener('change', function() {
-        const selectedLanguage = this.value;
-        if (selectedLanguage === 'hr') {
-            alert('Hrvatski language selected');
-        } else if (selectedLanguage === 'de') {
-            alert('Deutsch language selected');
-        } else {
-            alert('English language selected');
-        }
-    });
-</script>
 
 </body>
 </html>
