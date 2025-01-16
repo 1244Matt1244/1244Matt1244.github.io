@@ -290,12 +290,6 @@
        </p>
 </section>
 
-<section id="contact" class="contact-info">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/matej-martinović-140750265" target="_blank">Matej Martinović</a></p>
-</section>
-
 <section id="search" class="search-bar">
     <h2>Below, you’ll find a selection of my projects, ranging from robust data-driven APIs to sophisticated tools for automating deployment processes and managing infrastructure at scale.</h2>
 </section>
@@ -419,12 +413,26 @@
 <!-- Language Switch Button -->
 <button id="lang-toggle">Switch Language</button>
 
+<section id="contact" class="contact-info">
+    <h2>Contact</h2>
+    <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <p>Email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
+    </div>
+    <div class="contact-item">
+        <i class="fab fa-linkedin"></i>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/matej-martinović-140750265" target="_blank">Matej Martinović</a></p>
+    </div>
+</section> 
+
 <section id="connect" class="connect">
     <h2>Connect with Me</h2>
     <p>If you'd like to connect or collaborate, feel free to reach out through my professional social media profiles or via email.</p>
     
     <div class="social-links">
-        <a href="https://github.com/1244Matt1244" target="_blank" class="social-icon">GitHub</a>
+        <a href="https://github.com/1244Matt1244" target="_blank" class="social-icon">
+            <i class="fab fa-github"></i> GitHub
+        </a>
     </div>
     
     <p>You can also reach me by email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
@@ -434,6 +442,12 @@
     <p>© 2025 Matej Martinović | All rights reserved.</p>
 </footer>
 
+<!-- Language Switch Button -->
+<button id="lang-toggle">Switch Language</button>
+
+<!-- Add FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 <script>
     const translations = {
         en: {
@@ -467,9 +481,100 @@
     }
 </script>
 
-    // Initialize content in the default language (en)
-    updateContent();
-</script>
+<!-- Initialize content in the default language (en) -->
+<script>updateContent();</script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: #333;
+    }
+
+    .contact-info, .connect {
+        margin: 2rem auto;
+        padding: 2rem;
+        max-width: 600px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info p, .connect p {
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .contact-item {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-item i, .social-icon i {
+        margin-right: 0.5rem;
+        color: #0073b1; /* LinkedIn color */
+        font-size: 1.5rem;
+    }
+
+    .contact-item a, .social-icon {
+        text-decoration: none;
+        color: #0073b1; /* LinkedIn color */
+        font-weight: bold;
+    }
+
+    .contact-item a:hover, .social-icon:hover {
+        color: #005582;
+    }
+
+    .social-links {
+        margin-top: 1rem;
+    }
+
+    .social-icon {
+        display: inline-block;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        border: 2px solid #0073b1;
+        border-radius: 5px;
+        color: #0073b1;
+        text-decoration: none;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+        background-color: #0073b1;
+        color: white;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+    #lang-toggle {
+        margin-top: 2rem;
+        background-color: #0073b1;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #lang-toggle:hover {
+        background-color: #005582;
+    }
+</style>
+
 
 <section class="tech-stack" style="padding: 20px;">
     <h2 style="text-align: center; font-family: 'Roboto', sans-serif;">Tech Stack</h2>
