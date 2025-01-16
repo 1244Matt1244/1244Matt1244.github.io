@@ -27,7 +27,7 @@
             color: #333;
             line-height: 1.6;
             padding: 20px;
-            transition: background-color 0.3s ease;
+            transition: background 1s ease;
         }
 
         @keyframes gradient {
@@ -312,55 +312,58 @@
 </head>
 <body>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        emailjs.init("user_yourEmailJSUserID");
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const statusMessage = document.querySelector('.status-message');
-            const form = document.querySelector('.contact-form');
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
-                    .then(() => {
-                        statusMessage.innerText = 'Message sent successfully!';
-                        statusMessage.style.color = 'green';
-                    }, (error) => {
-                        statusMessage.innerText = 'Failed to send message. Please try again later.';
-                        statusMessage.style.color = 'red';
-                    });
-            });
+    <!-- Switch Background Buttons -->
+    <button id="switchBackgroundBtn" class="switch-background-btn">Switch to Gradient</button>
+    <button id="blackBackgroundBtn" class="black-background-btn">Switch to Black</button>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    emailjs.init("user_yourEmailJSUserID");
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const statusMessage = document.querySelector('.status-message');
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
+                .then(() => {
+                    statusMessage.innerText = 'Message sent successfully!';
+                    statusMessage.style.color = 'green';
+                }, (error) => {
+                    statusMessage.innerText = 'Failed to send message. Please try again later.';
+                    statusMessage.style.color = 'red';
+                });
         });
+    });
 
-        function changeLanguage(language) {
-            const texts = {
-                en: {
-                    about: "Hi! I'm Matej Martinović, a passionate and versatile software engineer...",
-                    projects: "Here is a selection of the projects I have worked on...",
-                },
-                de: {
-                    about: "Hallo! Ich bin Matej Martinović, ein leidenschaftlicher und vielseitiger Softwareingenieur...",
-                    projects: "Hier ist eine Auswahl der Projekte, an denen ich gearbeitet habe...",
-                },   
-                hr: {
-                    about: "Bok! Ja sam Matej Martinović, strastveni i svestrani softverski inženjer...",
-                    projects: "Ovdje je izbor projekata na kojima sam radio...",
-                },
-              
-            };
+    function changeLanguage(language) {
+        const texts = {
+            en: {
+                about: "Hi! I'm Matej Martinović, a passionate and versatile software engineer...",
+                projects: "Here is a selection of the projects I have worked on...",
+            },
+            de: {
+                about: "Hallo! Ich bin Matej Martinović, ein leidenschaftlicher und vielseitiger Softwareingenieur...",
+                projects: "Hier ist eine Auswahl der Projekte, an denen ich gearbeitet habe...",
+            },
+            hr: {
+                about: "Bok! Ja sam Matej Martinović, strastveni i svestrani softverski inženjer...",
+                projects: "Ovdje je izbor projekata na kojima sam radio...",
+            },
+        };
 
-            const languageTexts = texts[language];
-            document.querySelector("#about p").innerText = languageTexts.about;
-            document.querySelector("#projects p").innerText = languageTexts.projects;
-        }
+        const languageTexts = texts[language];
+        document.querySelector("#about p").innerText = languageTexts.about;
+        document.querySelector("#projects p").innerText = languageTexts.projects;
+    }
 
-        setInterval(function () {
-            const now = new Date();
-            document.querySelector('.clock-calendar .time').innerText = now.toLocaleTimeString();
-            document.querySelector('.clock-calendar .date').innerText = now.toLocaleDateString();
-        }, 1000);
-    </script>
+    setInterval(function () {
+        const now = new Date();
+        document.querySelector('.clock-calendar .time').innerText = now.toLocaleTimeString();
+        document.querySelector('.clock-calendar .date').innerText = now.toLocaleDateString();
+    }, 1000);
+</script>
 </head>
 <body>
 
@@ -382,8 +385,8 @@
         document.body.classList.toggle('alternative-background');
     });
 </script>
-    
-        <div class="language-menu">
+
+<div class="language-menu">
     <select id="language-select" onchange="changeLanguage(this.value)">
         <option value="en">English</option>
         <option value="de">German</option>
@@ -427,28 +430,28 @@
     <input type="text" placeholder="Search for a project...">
 </section>
 
-    <div id="project-list">
-        <ul id="projects-list">
-            <li>maze_escape</li>
-            <li>openstack_terraform_generator</li>
-            <li>azure_project</li>
-            <li>qrcode_generator</li>
-            <li>rest_api</li>
-            <li>ha-master-slave-setup-with-redis-db</li>
-            <li>qgis_project_python</li>
-            <li>bank_system_ERP</li>
-            <li>credit_card_fraud_detection</li>
-            <li>small_guestbook_application</li>
-            <li>backend_service_assignment</li>
-            <li>sql_learning_materials_scripts</li>
-            <li>enhanced_python-code_with_turtle_graphics.py</li>
-            <li>character_frequency_counter</li>
-            <li>python_geometrical_task</li>
-            <li>password_generator</li>
-            <li>quiz_game</li>
-            <li>hello_fastify</li>
-        </ul>
-    </div>
+<div id="project-list">
+    <ul id="projects-list">
+        <li>maze_escape</li>
+        <li>openstack_terraform_generator</li>
+        <li>azure_project</li>
+        <li>qrcode_generator</li>
+        <li>rest_api</li>
+        <li>ha-master-slave-setup-with-redis-db</li>
+        <li>qgis_project_python</li>
+        <li>bank_system_ERP</li>
+        <li>credit_card_fraud_detection</li>
+        <li>small_guestbook_application</li>
+        <li>backend_service_assignment</li>
+        <li>sql_learning_materials_scripts</li>
+        <li>enhanced_python-code_with_turtle_graphics.py</li>
+        <li>character_frequency_counter</li>
+        <li>python_geometrical_task</li>
+        <li>password_generator</li>
+        <li>quiz_game</li>
+        <li>hello_fastify</li>
+    </ul>
+</div>
 
 <div class="project-list">
     <div class="project-card">
@@ -498,135 +501,10 @@
     </div>
     <div class="project-card">
         <h3>small_guestbook_application</h3>
-        <p><strong>PHP:</strong> A simple PHP-based guestbook application to collect user entries.</p>
+        <p><strong>PHP:</strong> A small guestbook application for user interactions and messages.</p>
         <a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>backend_service_assignment</h3>
-        <p><strong>Go:</strong> A backend service for handling data related to cameras and MTG cards, built using Go.</p>
-        <a href="https://github.com/1244Matt1244/Dev-Assignment" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>sql_learning_materials_scripts</h3>
-        <p><strong>SQL:</strong> A collection of SQL scripts for learning and practicing various SQL queries and database concepts.</p>
-        <a href="https://github.com/1244Matt1244/sql_learning_materials_scripts" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>enhanced_python-code_with_turtle_graphics.py</h3>
-        <p><strong>Python:</strong> A Python script using Turtle graphics to create visual representations of algorithms and geometric shapes.</p>
-        <a href="https://github.com/1244Matt1244/enhanced_python-code_with_turtle_graphics.py" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>character_frequency_counter</h3>
-        <p><strong>Python:</strong> A Python program that counts the frequency of characters in a given string or file.</p>
-        <a href="https://github.com/1244Matt1244/character_frequency_counter" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>python_geometrical_task</h3>
-        <p><strong>Python:</strong> A Python script that solves geometric tasks such as area and perimeter calculations.</p>
-        <a href="https://github.com/1244Matt1244/python_geometrical_task" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>password_generator</h3>
-        <p><strong>HTML:</strong> A simple HTML page that generates secure random passwords.</p>
-        <a href="https://github.com/1244Matt1244/password_generator" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>quiz_game</h3>
-        <p><strong>JavaScript:</strong> A quiz game built using JavaScript where users can test their knowledge on various topics.</p>
-        <a href="https://github.com/1244Matt1244/quiz_game" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>hello_fastify</h3>
-        <p><strong>Node.js | Fastify:</strong> A Fastify "hello world" template with tests, forked from mcollina's repository.</p>
-        <a href="https://github.com/1244Matt1244/hello_fastify" target="_blank">GitHub Repository</a>
     </div>
 </div>
 
-<!-- Language Switch Button -->
-<button id="lang-toggle">Switch Language</button>
-
-<section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <div class="contact-text">Feel free to reach out...</div>
-    <form class="contact-form">
-        <input type="text" name="name" placeholder="Your Name">
-        <input type="email" name="email" placeholder="Your Email">
-        <textarea name="message" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-</section>
-
-<footer>
-    <p>© 2025 Matej Martinović | All rights reserved.</p>
-    <a href="#" class="github-link">GitHub</a>
-</footer>
-
-<section id="contact" class="contact">
-    <h2 id="contact-me-title">Contact Me</h2>
-    <div id="contact-text" class="contact-text">Feel free to reach out to me through the contact form below or via my social media channels.</div>
-    <form class="contact-form">
-        <input type="text" name="name" placeholder="Your Name">
-        <input type="email" name="email" placeholder="Your Email">
-        <textarea name="message" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-</section>
-
-<footer>
-    <p id="footer-text">© 2025 Matej Martinović | All rights reserved.</p>
-    <a href="https://github.com/1244Matt1244" class="github-link" id="github-link">GitHub</a>
-</footer>
-
-
-    let currentLang = 'en'; // Default language
-
-    // Event listener for switching languages
-    document.getElementById('lang-toggle').addEventListener('click', function() {
-        // Cycle through languages (en -> de -> hr -> en)
-        currentLang = currentLang === 'en' ? 'de' : currentLang === 'de' ? 'hr' : 'en';
-        updateContent();
-    });
-
-    // Function to update page content based on the selected language
-    function updateContent() {
-        document.querySelector('h2').textContent = translations[currentLang].contactMe;
-        document.querySelector('.contact-text').textContent = translations[currentLang].contactText;
-
-        const contactForm = document.querySelector('.contact-form');
-        contactForm.querySelector('input[name="name"]').placeholder = translations[currentLang].contactForm.name;
-        contactForm.querySelector('input[name="email"]').placeholder = translations[currentLang].contactForm.email;
-        contactForm.querySelector('textarea[name="message"]').placeholder = translations[currentLang].contactForm.message;
-        contactForm.querySelector('button[type="submit"]').textContent = translations[currentLang].contactForm.sendMessage;
-
-        document.querySelector('footer p').textContent = translations[currentLang].footerText;
-        document.querySelector('.github-link').textContent = translations[currentLang].githubLink;
-    }
-
-    // Initialize content in the default language (en)
-    updateContent();
-</script>
-
-<section class="tech-stack">
-    <h2>Tech Stack</h2>
-    <p>Languages and technologies I work with:</p>
-    <ul>
-        <li>Java</li>
-        <li>Python</li>
-        <li>Go</li>
-        <li>JavaScript</li>
-        <li>SQL</li>
-        <li>PHP</li>
-        <li>Machine Learning</li>
-        <li>Docker</li>
-        <li>Cloud Computing (AWS, GCP)</li>
-    </ul>
-</section>
-
-<section class="clock-calendar">
-    <div class="time"></div>
-    <div class="date"></div>
-</section>
-
 </body>
-</html>  
+</html>
