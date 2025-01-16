@@ -525,59 +525,80 @@
 
 <style>
     /* Style for the language switcher */
-    .language-switcher {
-        display: flex;
-        justify-content: center;
-        margin: 20px 0;
-    }
-    .lang-btn {
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-    .lang-btn:hover {
-        background-color: #0056b3;
-    }
+  .language-switcher {
+    position: fixed;  /* Fix it to the top-right corner */
+    top: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Ensure it stays above other elements */
+}
 
-    /* Clock Section Styling */
-    .clock-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-        font-size: 18px;
-    }
-    .clock-section i {
-        margin-right: 10px;
-    }
+.lang-btn {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px; /* Smaller font size */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for better visibility */
+}
 
-    /* Tech Stack Section Styling */
-    .tech-stack {
-        text-align: center;
-        margin: 40px 0;
-    }
-    .tech-stack h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-    }
-    .tech-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .tech-item {
-        margin: 10px;
-        text-align: center;
-        font-size: 1.2rem;
-    }
-    .tech-item i {
-        font-size: 2rem;
-        margin-bottom: 5px;
-    }
+.lang-btn:hover {
+    background-color: #0056b3;
+}
+/* Clock Section Styling */
+.clock-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 18px;
+    position: fixed; /* Fix the clock section */
+    bottom: 20px; /* Position it at the bottom of the page */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+    z-index: 10; /* Ensure it stays above other elements */
+}
+
+.clock-section i {
+    margin-right: 10px;
+}
+
+  /* Tech Stack Section Styling */
+.tech-stack {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.tech-stack h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Adds spacing between items */
+    flex-wrap: wrap; /* Allows items to wrap to the next row if necessary */
+    max-width: 100%; /* Ensures it doesn't exceed available space */
+    box-sizing: border-box; /* Prevents overflow */
+}
+
+.tech-item {
+    margin: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 150px; /* Ensures items don't become too large */
+}
+
+.tech-item i {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
 </style>
 
 <script>
