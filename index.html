@@ -409,8 +409,10 @@
         <a href="https://github.com/1244Matt1244/hello_fastify" target="_blank">GitHub Repository</a>
     </div>
     
-<!-- Language Switch Button -->
-<button id="lang-toggle">Switch Language</button>
+<!-- Language Switch Bar -->
+<div class="language-switcher">
+    <button id="lang-toggle" class="lang-btn">Switch Language</button>
+</div>
 
 <section id="contact" class="contact-info">
     <h2>Contact Me</h2>
@@ -428,77 +430,14 @@
         <p>GitHub: <a href="https://github.com/1244Matt1244" target="_blank">1244Matt1244</a></p>
     </div>
 
-    <p>If you'd like to connect or collaborate, feel free to reach out through my professional social media profiles or via email.</p>
+    <p class="connect-text">If you'd like to connect or collaborate, feel free to reach out through my professional social media profiles or via email.</p>
     <footer>
-        <p>© 2025 Matej Martinović | All rights reserved.</p>
+        <p class="footer-text">© 2025 Matej Martinović | All rights reserved.</p>
     </footer>
 </section>
 
-<!-- Display Time -->
-<div id="clock">
-    <i class="fas fa-clock"></i> <span id="time"></span>
-</div>
-
-<!-- Add FontAwesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-<script>
-    const translations = {
-        en: {
-            connectHeading: "Connect with Me",
-            connectText: "Feel free to reach out to me through my professional social media profiles or email.",
-            footerText: "© 2025 Matej Martinović | All rights reserved.",
-            githubLink: "GitHub"
-        },
-        de: {
-            connectHeading: "Verbinde dich mit mir",
-            connectText: "Zögern Sie nicht, mich über meine professionellen Social-Media-Profile oder per E-Mail zu erreichen.",
-            footerText: "© 2025 Matej Martinović | Alle Rechte vorbehalten.",
-            githubLink: "GitHub"
-        },
-        hr: {
-            connectHeading: "Povežite se sa mnom",
-            connectText: "Slobodno me kontaktirajte putem mojih profesionalnih društvenih mreža ili e-maila.",
-            footerText: "© 2025 Matej Martinović | Sva prava pridržana.",
-            githubLink: "GitHub"
-        }
-    };
-
-    let currentLang = 'en'; // Default language
-
-    // Function to update content when language changes
-    function updateContent() {
-        document.querySelector('#contact h2').textContent = translations[currentLang].connectHeading;
-        document.querySelector('#contact p').textContent = translations[currentLang].connectText;
-        document.querySelector('footer p').textContent = translations[currentLang].footerText;
-        document.querySelector('.github-link').textContent = translations[currentLang].githubLink;
-    }
-
-    // Function to update the clock
-    function updateClock() {
-        const time = new Date().toLocaleTimeString();
-        document.querySelector('#time').textContent = time;
-    }
-
-    // Language switch button functionality
-    document.getElementById('lang-toggle').addEventListener('click', () => {
-        if (currentLang === 'en') {
-            currentLang = 'de';
-        } else if (currentLang === 'de') {
-            currentLang = 'hr';
-        } else {
-            currentLang = 'en';
-        }
-        updateContent();
-    });
-
-    // Initialize content in the default language (en)
-    updateContent();
-    setInterval(updateClock, 1000); // Update the clock every second
-</script>
-
-<style>
- <section id="tech-stack" class="tech-stack">
+<!-- Tech Stack Section -->
+<section id="tech-stack" class="tech-stack">
     <h2>Tech Stack</h2>
     <p>Languages and technologies I work with:</p>
     
@@ -574,72 +513,134 @@
     </div>
 </section>
 
+<!-- Clock Section -->
+<div id="clock" class="clock-section">
+    <i class="fas fa-clock"></i> 
+    <span id="time"></span> | 
+    <span id="date"></span>
+</div>
+
 <!-- Add FontAwesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        color: #333;
-    }
-
-    h2 {
-        font-size: 2rem;
-        color: #333;
-        margin-bottom: 1rem;
-    }
-
-    .tech-stack {
-        margin: 2rem auto;
-        padding: 2rem;
-        max-width: 900px;
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .tech-stack p {
-        font-size: 1.2rem;
-        color: #555;
-        margin-bottom: 1.5rem;
-    }
-
-    .tech-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 1rem;
-    }
-
-    .tech-item {
+    /* Style for the language switcher */
+    .language-switcher {
         display: flex;
-        align-items: center;
         justify-content: center;
-        background: #e0e0e0;
-        padding: 10px;
-        border-radius: 8px;
+        margin: 20px 0;
+    }
+    .lang-btn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .lang-btn:hover {
+        background-color: #0056b3;
+    }
+
+    /* Clock Section Styling */
+    .clock-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        font-size: 18px;
+    }
+    .clock-section i {
+        margin-right: 10px;
+    }
+
+    /* Tech Stack Section Styling */
+    .tech-stack {
         text-align: center;
-        font-size: 1rem;
-        color: #333;
-        transition: all 0.3s ease;
+        margin: 40px 0;
     }
-
+    .tech-stack h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .tech-item {
+        margin: 10px;
+        text-align: center;
+        font-size: 1.2rem;
+    }
     .tech-item i {
-        font-size: 1.5rem;
-        margin-right: 0.5rem;
-        color: #0073b1;
-    }
-
-    .tech-item span {
-        font-weight: bold;
-    }
-
-    .tech-item:hover {
-        background: #0073b1;
-        color: white;
-    }
-
-    .tech-item:hover i {
-        color: white;
+        font-size: 2rem;
+        margin-bottom: 5px;
     }
 </style>
+
+<script>
+    const translations = {
+        en: {
+            connectHeading: "Connect with Me",
+            connectText: "If you'd like to connect or collaborate, feel free to reach out through my professional social media profiles or via email.",
+            footerText: "© 2025 Matej Martinović | All rights reserved.",
+            githubLink: "GitHub",
+            techStack: "Tech Stack",
+            techDescription: "Languages and technologies I work with:"
+        },
+        de: {
+            connectHeading: "Verbinde dich mit mir",
+            connectText: "Zögern Sie nicht, mich über meine professionellen Social-Media-Profile oder per E-Mail zu erreichen.",
+            footerText: "© 2025 Matej Martinović | Alle Rechte vorbehalten.",
+            githubLink: "GitHub",
+            techStack: "Technologie-Stack",
+            techDescription: "Sprachen und Technologien, mit denen ich arbeite:"
+        },
+        hr: {
+            connectHeading: "Povežite se sa mnom",
+            connectText: "Slobodno me kontaktirajte putem mojih profesionalnih društvenih mreža ili e-maila.",
+            footerText: "© 2025 Matej Martinović | Sva prava pridržana.",
+            githubLink: "GitHub",
+            techStack: "Tehnički stack",
+            techDescription: "Jezici i tehnologije s kojima radim:"
+        }
+    };
+
+    let currentLang = 'en'; // Default language
+
+    // Function to update content when language changes
+    function updateContent() {
+        document.querySelector('#contact h2').textContent = translations[currentLang].connectHeading;
+        document.querySelector('.connect-text').textContent = translations[currentLang].connectText;
+        document.querySelector('footer .footer-text').textContent = translations[currentLang].footerText;
+        document.querySelector('.github-link').textContent = translations[currentLang].githubLink;
+        document.querySelector('#tech-stack h2').textContent = translations[currentLang].techStack;
+        document.querySelector('#tech-stack p').textContent = translations[currentLang].techDescription;
+    }
+
+    // Function to update the clock and date
+    function updateClock() {
+        const time = new Date().toLocaleTimeString();
+        const date = new Date().toLocaleDateString();
+        document.querySelector('#time').textContent = time;
+        document.querySelector('#date').textContent = date;
+    }
+
+    // Language switch button functionality
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+        if (currentLang === 'en') {
+            currentLang = 'de';
+        } else if (currentLang === 'de') {
+            currentLang = 'hr';
+        } else {
+            currentLang = 'en';
+        }
+        updateContent();
+    });
+
+    // Initialize content in the default language (en)
+    updateContent();
+    setInterval(updateClock, 1000); // Update the clock every second
+</script>
