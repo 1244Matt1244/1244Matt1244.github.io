@@ -1,17 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize emailJS
-    emailjs.init("user_yourEmailJSUserID");
+    emailjs.init("user_yourEmailJSUserID");  // Replace with your emailJS user ID
 
     // Handle form submission and send email using emailJS
     const statusMessage = document.querySelector('.status-message');
     const form = document.querySelector('.contact-form');
+    
     form.addEventListener('submit', function (event) {
         event.preventDefault();
-        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
+        
+        // Send the form data using emailJS
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)  // Replace with your service ID and template ID
             .then(() => {
+                // Success message to the user
                 statusMessage.innerText = 'Message sent successfully!';
                 statusMessage.style.color = 'green';
+                
+                // Optionally reset the form fields
+                form.reset();
             }, (error) => {
+                // Error message if sending fails
                 statusMessage.innerText = 'Failed to send message. Please try again later.';
                 statusMessage.style.color = 'red';
             });
@@ -101,4 +109,3 @@ document.addEventListener('DOMContentLoaded', function () {
         projectListContainer.appendChild(projectCard);
     });
 });
-
