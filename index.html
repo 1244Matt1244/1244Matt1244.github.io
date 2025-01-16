@@ -167,7 +167,7 @@
 
 <section id="about" class="about">
     <h2>About Me</h2>
-       <div class="language-selector">
+    <div class="language-selector">
         <label for="language">Language: </label>
         <select id="language">
             <option value="en">English</option>
@@ -242,40 +242,18 @@
 
 <section id="contact" class="contact">
     <h2>Contact</h2>
-    <form class="contact-form" onsubmit="sendEmail(event)">
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+    <p>If you'd like to get in touch with me, feel free to use the contact form below or email me directly at <strong>matt123.3a@gmail.com</strong></p>
+    <div class="contact-form">
+        <input type="text" placeholder="Your Name" id="name">
+        <input type="email" placeholder="Your Email" id="email">
+        <textarea placeholder="Your Message" id="message"></textarea>
         <button type="submit">Send Message</button>
-    </form>
+    </div>
 </section>
 
 <footer class="footer">
-    <p>© 2025 Matej Martinović. All rights reserved.</p>
+    <p>&copy; 2025 Matej Martinović. All rights reserved.</p>
 </footer>
-
-<script>
-    function sendEmail(event) {
-        event.preventDefault();
-
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
-
-        const templateParams = {
-            name: name,
-            email: email,
-            message: message,
-        };
-
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-            .then(function(response) {
-                alert("Your message has been sent successfully!");
-            }, function(error) {
-                alert("Error sending message. Please try again later.");
-            });
-    }
-</script>
 
 </body>
 </html>
