@@ -17,273 +17,310 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+body {
+    background: linear-gradient(90deg, #F8BBD0, #FF8A80);
+    background-size: 400% 400%;
+    animation: gradient 120s ease infinite;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
 
-<style>
-    body {
-        background: linear-gradient(90deg, #F8BBD0, #FF8A80);
-        background-size: 400% 400%;
-        animation: gradient 120s ease infinite;
-        font-family: 'Open Sans', sans-serif;
-        color: #333;
-        line-height: 1.6;
-        padding: 20px;
-        transition: background-color 0.3s ease;
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    background-color: #FFCDD2;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+}
+
+h1, h2 {
+    color: #D32F2F;
+    font-weight: bold;
+}
+
+.navbar {
+    background-color: #2ecc71;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #F8BBD0;
+}
+
+.language-menu {
+    margin: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.language-menu select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.projects, .about, .contact {
+    margin: 30px 0;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #ffffff;
+    border: 1px solid #f0f0f0;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-card a {
+    text-decoration: none;
+    color: #D32F2F;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.project-card a:hover {
+    color: #2ecc71;
+}
+
+.clock-calendar {
+    margin: 40px 0;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.clock-calendar .time, .clock-calendar .date {
+    font-size: 4rem;
+    color: #D32F2F;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.clock-calendar .time {
+    animation: pulse-time 3s infinite;
+}
+
+.clock-calendar .date {
+    animation: pulse-date 4s infinite;
+}
+
+@keyframes pulse-time {
+    0% {
+        transform: scale(1);
+        color: #FF8A80;
     }
-
-    @keyframes gradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    .alternative-background {
-        background: linear-gradient(90deg, #81C784, #66BB6A);
-        background-size: 400% 400%;
-        animation: gradient 120s ease infinite;
-    }
-
-    header {
-        background-color: #FFCDD2;
-        padding: 10px 0;
-        text-align: center;
-        border-radius: 5px;
-    }
-
-    h1, h2 {
+    50% {
+        transform: scale(1.2);
         color: #D32F2F;
-        font-weight: bold;
     }
+    100% {
+        transform: scale(1);
+        color: #FF8A80;
+    }
+}
 
+@keyframes pulse-date {
+    0% {
+        transform: scale(1);
+        color: #FF8A80;
+    }
+    50% {
+        transform: scale(1.1);
+        color: #F06292;
+    }
+    100% {
+        transform: scale(1);
+        color: #FF8A80;
+    }
+}
+
+.clock-container, .calendar-container {
+    display: inline-block;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+    transform: perspective(600px) rotateX(15deg);
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.clock-container:hover, .calendar-container:hover {
+    transform: perspective(600px) rotateX(0deg);
+    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.calendar-box {
+    background: #F8BBD0;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.calendar-date {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #D32F2F;
+    text-align: center;
+}
+
+.calendar-box:hover {
+    transform: scale(1.05);
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #FFCDD2;
+    border-top: 2px solid #D32F2F;
+    margin-top: 40px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.contact-form button {
+    background-color: #D32F2F;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #C2185B;
+    transform: scale(1.05);
+}
+
+.contact-form .status-message {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #C2185B;
+}
+
+.search-bar input {
+    padding: 12px;
+    width: 60%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.tech-stack {
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.smooth-transition {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #008CBA;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-light {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.btn-dark {
+    background-color: #555;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #333;
+    color: white;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
     .navbar {
-        background-color: #2ecc71;
-        padding: 10px;
-        display: flex;
-        justify-content: space-around;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 18px;
-        padding: 8px;
-        transition: color 0.3s ease;
-    }
-
-    .navbar a:hover {
-        color: #F8BBD0;
-    }
-
-    .language-menu {
-        margin: 20px;
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .language-menu select {
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ddd;
-        font-size: 16px;
-    }
-
-    .projects, .about, .contact {
-        margin: 30px 0;
+        flex-direction: column;
     }
 
     .project-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-    }
-
-    .project-card {
-        background-color: #ffffff;
-        border: 1px solid #f0f0f0;
-        padding: 15px;
-        margin: 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .project-card a {
-        text-decoration: none;
-        color: #D32F2F;
-        font-weight: bold;
-        transition: color 0.3s ease;
-    }
-
-    .project-card a:hover {
-        color: #2ecc71;
-    }
-
-    .logical-tree {
-        margin: 20px 0;
-        padding: 10px;
-        border: 2px solid #FFCDD2;
-        background-color: #F8BBD0;
-        border-radius: 8px;
-    }
-
-    .tree-node {
-        margin-left: 20px;
-    }
-
-    .footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #FFCDD2;
-        border-top: 2px solid #D32F2F;
-        margin-top: 40px;
-    }
-
-    .contact-form input, .contact-form textarea {
-        width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        font-size: 16px;
-    }
-
-    .contact-form button {
-        background-color: #D32F2F;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .contact-form button:hover {
-        background-color: #C2185B;
-        transform: scale(1.05);
-    }
-
-    .contact-form .status-message {
-        margin-top: 10px;
-        font-size: 0.9rem;
-        color: #C2185B;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     }
 
     .search-bar input {
-        padding: 12px;
-        width: 60%;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        font-size: 16px;
-        transition: border-color 0.3s ease;
-    }
-
-    .tech-stack {
-        margin: 20px 0;
-        font-size: 16px;
-    }
-
-    .clock-calendar {
-        margin: 40px 0;
-        text-align: center;
+        width: 80%;
     }
 
     .clock-calendar .time, .clock-calendar .date {
-        font-size: 3.5rem;
-        color: #D32F2F;
-        font-weight: bold;
+        font-size: 2.5rem;
     }
+}
 
-    .smooth-transition {
-        transition: all 0.3s ease-in-out;
-    }
-
-    .btn {
-        padding: 12px 24px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        margin: 10px;
-    }
-
-    .btn-primary {
-        background-color: #4CAF50;
-        color: white;
-    }
-
-    .btn-secondary {
-        background-color: #008CBA;
-        color: white;
-    }
-
-    .btn-danger {
-        background-color: #f44336;
-        color: white;
-    }
-
-    .btn-light {
-        background-color: #f1f1f1;
-        color: #333;
-    }
-
-    .btn-dark {
-        background-color: #555;
-        color: white;
-    }
-
-    .btn:hover {
-        background-color: #333;
-        color: white;
-        transform: scale(1.05);
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-        .navbar {
-            flex-direction: column;
-        }
-
-        .project-list {
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        }
-
-        .search-bar input {
-            width: 80%;
-        }
-
-        .clock-calendar .time, .clock-calendar .date {
-            font-size: 2.5rem;
-        }
-    }
-
-    /* Additional button styles for specific themes */
-    .switch-background-btn {
-        background-color: #FF8A80;
-        color: white;
-    }
-
-    .switch-background-btn:hover {
-        background-color: #F8BBD0;
-    }
-
-    .black-background-btn {
-        background-color: #333;
-        color: white;
-    }
-
-    .black-background-btn:hover {
-        background-color: #444;
-    }
-</style>
 
     <script>
     // Switch background to gradient
@@ -627,15 +664,34 @@
         <li>JavaScript</li>
         <li>SQL</li>
         <li>PHP</li>
-        <li>Machine Learning</li>
+        <li>C# (.NET Framework)</li>
+        <li>Machine Learning (Random Forest Classifier, etc.)</li>
         <li>Docker</li>
         <li>Cloud Computing (AWS, GCP)</li>
+        <li>Kubernetes</li>
+        <li>Redis</li>
+        <li>PostgreSQL & PostGIS</li>
+        <li>Flask</li>
+        <li>Excel VBA (for macro-enabled workbooks)</li>
+        <li>QGIS (Python-based Geographic Information Systems)</li>
+        <li>Swagger (API Documentation)</li>
     </ul>
 </section>
 
 <section class="clock-calendar">
-    <div class="time"></div>
-    <div class="date"></div>
+    <div class="clock-container">
+        <div class="clock-face">
+            <div class="time">12:00</div>
+        </div>
+        <div class="clock-shadow"></div>
+    </div>
+    
+    <div class="calendar-container">
+        <div class="calendar-box">
+            <div class="calendar-date">January 16, 2025</div>
+            <div class="calendar-shadow"></div>
+        </div>
+    </div>
 </section>
 
 </body>
