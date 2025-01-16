@@ -3,100 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Matej Martinović - Software Engineer. Projects, Contact, About Me, and more.">
+    <meta name="keywords" content="software engineer, portfolio, GitHub, projects, cloud computing, DevOps, machine learning, web development">
+    <meta name="author" content="Matej Martinović">
     <title>Matej Martinović - Portfolio</title>
+
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Matej Martinović - Portfolio">
+    <meta property="og:description" content="Portfolio of software engineer Matej Martinović, showcasing various projects and skills.">
+    <meta property="og:image" content="your-image-url.jpg">
+    <meta property="og:url" content="https://1244Matt1244.github.io">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+
+    <!-- SEO Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- Cherry Blossom Background and Aesthetic -->
+    <style>
+        body {
+            background-color: #F8F0F1;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #FFCDD2;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #D32F2F;
+        }
+
+        .navbar {
+            background-color: #F06292;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            border-radius: 5px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .projects, .about, .contact {
+            margin: 30px 0;
+        }
+
+        .project-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .project-card {
+            background-color: #ffffff;
+            border: 1px solid #f0f0f0;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 5px;
+            width: 45%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #FFCDD2;
+            border-top: 2px solid #D32F2F;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .contact-form button {
+            background-color: #D32F2F;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #C2185B;
+        }
+
+        .search-bar {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 60%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .language-selector select {
+            padding: 5px;
+            background-color: #FFCDD2;
+            border: 1px solid #D32F2F;
+            border-radius: 5px;
+        }
+    </style>
+
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <h1>Matej Martinović</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Hi! I'm Matej Martinović, a passionate and versatile software engineer with experience in backend, frontend, cloud technologies, and more.</p>
-            <p>I specialize in creating robust, scalable, and efficient solutions using modern technologies like React, Node.js, Go, and Python.</p>
-        </div>
-    </section>
+<header>
+    <h1>Matej Martinović - Software Engineer</h1>
+    <div class="navbar">
+        <a href="#about">About Me</a>
+        <a href="#projects">My Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="language-selector">
+        <label for="language">Language: </label>
+        <select id="language">
+            <option value="en">English</option>
+            <option value="hr">Hrvatski</option>
+            <option value="de">Deutsch</option>
+        </select>
+    </div>
+</header>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-list">
-                <!-- Project Item 1 -->
-                <div class="project-card">
-                    <a href="https://github.com/1244Matt1244/maze_escape">
-                        <img src="path_to_image_1.jpg" alt="Maze Escape" />
-                        <h3>maze_escape</h3>
-                        <p>A maze generation and solving backend system developed using Java.</p>
-                    </a>
-                </div>
-                <!-- Project Item 2 -->
-                <div class="project-card">
-                    <a href="https://github.com/1244Matt1244/openstack_terraform_generator">
-                        <img src="path_to_image_2.jpg" alt="OpenStack Terraform Generator" />
-                        <h3>openstack_terraform_generator</h3>
-                        <p>A tool for generating Terraform configuration files for OpenStack resources.</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="about" class="about">
+    <h2>About Me</h2>
+    <p>Hi! I'm Matej Martinović (he/him), a passionate and versatile software engineer with extensive experience in both frontend and backend development...</p>
+</section>
 
-    <!-- Technologies Section -->
-    <section id="technologies" class="section">
-        <div class="container">
-            <h2>Technologies I Use</h2>
-            <ul>
-                <li>Frontend: React, JavaScript, HTML, CSS</li>
-                <li>Backend: Node.js, TypeScript, Go, Java, PHP, C#</li>
-                <li>Database: SQL, NoSQL, MariaDB, PostgreSQL</li>
-                <li>Cloud: Azure, OpenStack</li>
-                <li>DevOps: Terraform, Kubernetes</li>
-                <li>Data Science: Python, Scikit-learn</li>
-            </ul>
-        </div>
-    </section>
+<section id="projects" class="projects">
+    <h2>My Projects</h2>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>If you'd like to get in touch, feel free to reach out through the form or on my social media.</p>
-            <form class="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required />
-                <input type="email" name="email" placeholder="Your Email" required />
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+    <div class="project-list">
+        <div class="project-card">
+            <img src="maze_escape-thumbnail.jpg" alt="maze_escape" style="width: 100%; height: auto;">
+            <h3>maze_escape</h3>
+            <p><strong>Backend:</strong> Java Project - A maze generation and solving backend system developed using Java.</p>
         </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Matej Martinović | All rights reserved.</p>
-            <ul>
-                <li><a href="https://github.com/1244Matt1244">GitHub</a></li>
-                <li><a href="https://www.figma.com/">Figma</a></li>
-                <li><a href="https://www.canva.com/">Canva</a></li>
-            </ul>
+        <div class="project-card">
+            <img src="openstack_terraform_generator-thumbnail.jpg" alt="openstack_terraform_generator" style="width: 100%; height: auto;">
+            <h3>openstack_terraform_generator</h3>
+            <p><strong>Language:</strong> Python - A tool for generating Terraform configuration files for OpenStack resources.</p>
         </div>
-    </footer>
+        <div class="project-card">
+            <img src="azure_project-thumbnail.jpg" alt="azure_project" style="width: 100%; height: auto;">
+            <h3>azure_project</h3>
+            <p><strong>Cloud DevOps Assignment (PowerShell):</strong> A cloud-based DevOps solution for managing Azure infrastructure, including deployment scripts and management tools.</p>
+        </div>
+        <div class="project-card">
+            <img src="qrcode_generator-thumbnail.jpg" alt="qrcode_generator" style="width: 100%; height: auto;">
+            <h3>qrcode_generator</h3>
+            <p><strong>Language:</strong> Python - A Python project that generates QR codes with customizable data and settings.</p>
+        </div>
+        <div class="project-card">
+            <img src="rest_api-thumbnail.jpg" alt="rest_api" style="width: 100%; height: auto;">
+            <h3>rest_api</h3>
+            <p><strong>TypeScript | Node.js | Fastify | TypeORM:</strong> A REST API built using Fastify for managing user accounts and delivering metrics.</p>
+        </div>
+        <div class="project-card">
+            <img src="ha-master-slave-setup-with-redis-db-thumbnail.jpg" alt="ha-master-slave-setup-with-redis-db" style="width: 100%; height: auto;">
+            <h3>ha-master-slave-setup-with-redis-db</h3>
+            <p><strong>Shell:</strong> A project focused on creating scripts and resources for local Kubernetes environments with Redis as a service.</p>
+        </div>
+        <div class="project-card">
+            <img src="qgis_project_python-thumbnail.jpg" alt="qgis_project_python" style="width: 100%; height: auto;">
+            <h3>qgis_project_python</h3>
+            <p><strong>Python | QGIS:</strong> A Python project used for processing and analyzing geographic data, focusing on Boulder dimensions using QGIS.</p>
+        </div>
+        <div class="project-card">
+            <img src="bank_system_ERP-thumbnail.jpg" alt="bank_system_ERP" style="width: 100%; height: auto;">
+            <h3>bank_system_ERP</h3>
+            <p><strong>C#:</strong> An ERP system for managing banking operations and services, built using C#.</p>
+        </div>
+        <div class="project-card">
+            <img src="credit_card_fraud_detection-thumbnail.jpg" alt="credit_card_fraud_detection" style="width: 100%; height: auto;">
+            <h3>credit_card_fraud_detection</h3>
+            <p><strong>Python:</strong> A credit card fraud detection system implemented using the Scikit-learn library in Python.</p>
+        </div>
+        <div class="project-card">
+            <img src="small_guestbook_application-thumbnail.jpg" alt="small_guestbook_application" style="width: 100%; height: auto;">
+            <h3>small_guestbook_application</h3>
+            <p><strong>PHP:</strong> A simple PHP-based guestbook application to collect user entries.</p>
+        </div>
+        <div class="project-card">
+            <img src="backend_service_assignment-thumbnail.jpg" alt="backend_service_assignment" style="width: 100%; height: auto;">
+            <h3>Backend Service Assignment</h3>
+            <p><strong>Go:</strong> A backend service that processes and serves MTG cards and camera data.</p>
+        </div>
+    </div>
+</section>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+<section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>If you'd like to get in touch, please feel free to send me a message!</p>
+    <form class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2025 Matej Martinović. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
