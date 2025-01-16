@@ -35,6 +35,12 @@
             100% {background-position: 0% 50%;}
         }
 
+        .alternative-background {
+            background: linear-gradient(90deg, #81C784, #66BB6A);
+            background-size: 400% 400%;
+            animation: gradient 120s ease infinite;
+        }
+
         header {
             background-color: #FFCDD2;
             padding: 10px 0;
@@ -233,6 +239,15 @@
         <a href="#search">Search</a>
     </nav>
 </header>
+
+<!-- Add the background switch button -->
+<button id="toggle-background">Switch Background</button>
+
+<script>
+    document.getElementById('toggle-background').addEventListener('click', function() {
+        document.body.classList.toggle('alternative-background');
+    });
+</script>
 
 <section id="about" class="about">
     <h2>About Me</h2>
