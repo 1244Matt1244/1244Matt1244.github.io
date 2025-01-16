@@ -377,19 +377,19 @@
 <!-- Add the background switch button -->
 <button id="toggle-background">Switch Background</button>
 
-    <div class="language-menu">
+<script>
+    document.getElementById('toggle-background').addEventListener('click', function() {
+        document.body.classList.toggle('alternative-background');
+    });
+</script>
+    
+        <div class="language-menu">
     <select id="language-select" onchange="changeLanguage(this.value)">
         <option value="en">English</option>
         <option value="de">German</option>
         <option value="hr">Croatian</option>
     </select>
 </div>
-
-<script>
-    document.getElementById('toggle-background').addEventListener('click', function() {
-        document.body.classList.toggle('alternative-background');
-    });
-</script>
 
 <section id="about" class="about">
     <h2>About Me</h2>
