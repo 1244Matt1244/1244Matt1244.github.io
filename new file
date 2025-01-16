@@ -1,1 +1,662 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Matej Martinović - Software Engineer. Projects, Contact, About Me, and more.">
+    <meta name="keywords" content="software engineer, portfolio, GitHub, projects, cloud computing, DevOps, machine learning, web development">
+    <meta name="author" content="Matej Martinović">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta property="og:title" content="Matej Martinović - Portfolio">
+    <meta property="og:description" content="Portfolio of software engineer Matej Martinović, showcasing various projects and skills.">
+    <meta property="og:image" content="your-image-url.jpg">
+    <meta property="og:url" content="https://1244Matt1244.github.io">
+    <title>Matej Martinović - Portfolio</title>
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(90deg, #F8BBD0, #FF8A80);
+            background-size: 400% 400%;
+            animation: gradient 120s ease infinite;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .alternative-background {
+            background: linear-gradient(90deg, #81C784, #66BB6A);
+            background-size: 400% 400%;
+            animation: gradient 120s ease infinite;
+        }
+
+        header {
+            background-color: #FFCDD2;
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        h1, h2 {
+            color: #D32F2F;
+            font-weight: bold;
+        }
+
+        .navbar {
+            background-color: #2ecc71;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #F8BBD0;
+        }
+
+        .language-menu {
+            margin: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .language-menu select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .projects, .about, .contact {
+            margin: 30px 0;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #ffffff;
+            border: 1px solid #f0f0f0;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: #D32F2F;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .project-card a:hover {
+            color: #2ecc71;
+        }
+
+        .logical-tree {
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px solid #FFCDD2;
+            background-color: #F8BBD0;
+            border-radius: 8px;
+        }
+
+        .tree-node {
+            margin-left: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #FFCDD2;
+            border-top: 2px solid #D32F2F;
+            margin-top: 40px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            background-color: #D32F2F;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #C2185B;
+            transform: scale(1.05);
+        }
+
+        .contact-form .status-message {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #C2185B;
+        }
+
+        .search-bar {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 12px;
+            width: 60%;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            border-color: #D32F2F;
+        }
+
+        .tech-stack {
+            margin: 20px 0;
+            font-size: 16px;
+        }
+
+        .clock-calendar {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .clock-calendar .time, .clock-calendar .date {
+            font-size: 3.5rem;
+            color: #D32F2F;
+            font-weight: bold;
+        }
+
+        .smooth-transition {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 10px;
+        }
+
+        .btn-primary {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #008CBA;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-light {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        .btn-dark {
+            background-color: #555;
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: #333;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .project-list {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            }
+
+            .search-bar input {
+                width: 80%;
+            }
+
+            .clock-calendar .time, .clock-calendar .date {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Additional button styles for specific themes */
+        .switch-background-btn {
+            background-color: #FF8A80;
+            color: white;
+        }
+
+        .switch-background-btn:hover {
+            background-color: #F8BBD0;
+        }
+
+        .black-background-btn {
+            background-color: #333;
+            color: white;
+        }
+
+        .black-background-btn:hover {
+            background-color: #444;
+        }
+    </style>
+
+    <script>
+        // Switch background to gradient
+        function switchToGradient() {
+            document.body.style.background = "linear-gradient(90deg, #F8BBD0, #FF8A80)";
+        }
+
+        // Switch background to black
+        function switchToBlack() {
+            document.body.style.background = "black";
+        }
+
+        // Event listeners for buttons
+        document.getElementById("switchBackgroundBtn").addEventListener("click", switchToGradient);
+        document.getElementById("blackBackgroundBtn").addEventListener("click", switchToBlack);
+    </script>
+</head>
+<body>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init("user_yourEmailJSUserID");
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const statusMessage = document.querySelector('.status-message');
+            const form = document.querySelector('.contact-form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
+                    .then(() => {
+                        statusMessage.innerText = 'Message sent successfully!';
+                        statusMessage.style.color = 'green';
+                    }, (error) => {
+                        statusMessage.innerText = 'Failed to send message. Please try again later.';
+                        statusMessage.style.color = 'red';
+                    });
+            });
+        });
+
+        function changeLanguage(language) {
+            const texts = {
+                en: {
+                    about: "Hi! I'm Matej Martinović, a passionate and versatile software engineer...",
+                    projects: "Here is a selection of the projects I have worked on...",
+                },
+                de: {
+                    about: "Hallo! Ich bin Matej Martinović, ein leidenschaftlicher und vielseitiger Softwareingenieur...",
+                    projects: "Hier ist eine Auswahl der Projekte, an denen ich gearbeitet habe...",
+                },   
+                hr: {
+                    about: "Bok! Ja sam Matej Martinović, strastveni i svestrani softverski inženjer...",
+                    projects: "Ovdje je izbor projekata na kojima sam radio...",
+                },
+              
+            };
+
+            const languageTexts = texts[language];
+            document.querySelector("#about p").innerText = languageTexts.about;
+            document.querySelector("#projects p").innerText = languageTexts.projects;
+        }
+
+        setInterval(function () {
+            const now = new Date();
+            document.querySelector('.clock-calendar .time').innerText = now.toLocaleTimeString();
+            document.querySelector('.clock-calendar .date').innerText = now.toLocaleDateString();
+        }, 1000);
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to My Portfolio</h1>
+    <nav class="navbar">
+        <h1 style="color: black;">About Me</h1>
+        <h2 style="color: black;">My Projects</h2>
+        <h3 style="color: black;">Contact</h3>
+        <h4 style="color: black;">Search</h4>
+    </nav>
+</header>
+
+<!-- Add the background switch button -->
+<button id="toggle-background">Switch Background</button>
+
+<script>
+    document.getElementById('toggle-background').addEventListener('click', function() {
+        document.body.classList.toggle('alternative-background');
+    });
+</script>
+
+<section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+        Hi! I'm Matej Martinović (he/him), a software engineer passionate about backend development and geospatial data. 
+        My expertise spans various programming languages, including Python, JavaScript, C#, Go, and more. 
+        I thrive on solving complex technical problems, whether it's building APIs, implementing cloud solutions, or working on DevOps pipelines.
+    </p>
+    <p>
+        Over the years, I've contributed to numerous projects that range from maze-solving algorithms and cloud infrastructure automation to credit card fraud detection systems. 
+        My work also focuses heavily on geospatial data processing, utilizing tools like QGIS and PostGIS for location-based analysis.
+    </p>
+    <p>
+        I'm dedicated to writing clean, efficient, and scalable code while continuously improving my knowledge in the ever-evolving tech landscape.
+    </p>
+</section>
+
+<section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <p>
+        My work is centered on backend programming, creating robust and scalable solutions tailored to business needs. 
+        I have a strong interest in geospatial data, where I apply technologies like QGIS and PostGIS to solve real-world problems. 
+        Below is a selection of my projects, ranging from data-driven APIs to tools for automating infrastructure deployments.
+    </p>
+</section>
+
+<section id="contact" class="contact-info">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/matej-martinović-140750265" target="_blank">Matej Martinović</a></p>
+</section>
+
+<section id="search" class="search-bar">
+    <h2>Search</h2>
+    <input type="text" placeholder="Search for a project...">
+</section>
+
+<div class="language-menu">
+    <select id="language-select" onchange="changeLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="de">German</option>
+        <option value="hr">Croatian</option>
+    </select>
+</div>
+
+    <div id="project-list">
+        <ul id="projects-list">
+            <li>maze_escape</li>
+            <li>openstack_terraform_generator</li>
+            <li>azure_project</li>
+            <li>qrcode_generator</li>
+            <li>rest_api</li>
+            <li>ha-master-slave-setup-with-redis-db</li>
+            <li>qgis_project_python</li>
+            <li>bank_system_ERP</li>
+            <li>credit_card_fraud_detection</li>
+            <li>small_guestbook_application</li>
+            <li>backend_service_assignment</li>
+            <li>sql_learning_materials_scripts</li>
+            <li>enhanced_python-code_with_turtle_graphics.py</li>
+            <li>character_frequency_counter</li>
+            <li>python_geometrical_task</li>
+            <li>password_generator</li>
+            <li>quiz_game</li>
+            <li>hello_fastify</li>
+        </ul>
+    </div>
+
+<div class="project-list">
+    <div class="project-card">
+        <h3>maze_escape</h3>
+        <p><strong>Backend:</strong> Java Project - A maze generation and solving backend system developed using Java.</p>
+        <a href="https://github.com/1244Matt1244/maze_escape" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>openstack_terraform_generator</h3>
+        <p><strong>Python:</strong> A tool for generating Terraform configuration files for OpenStack resources.</p>
+        <a href="https://github.com/1244Matt1244/openstack_terraform_generator" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>azure_project</h3>
+        <p><strong>Cloud DevOps Assignment (PowerShell):</strong> A cloud-based DevOps solution for managing Azure infrastructure, including deployment scripts and management tools.</p>
+        <a href="https://github.com/1244Matt1244/azure_project" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>qrcode_generator</h3>
+        <p><strong>Python:</strong> A Python project that generates QR codes with customizable data and settings.</p>
+        <a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>rest_api</h3>
+        <p><strong>TypeScript | Node.js | Fastify | TypeORM:</strong> A REST API built using Fastify for managing user accounts and delivering metrics. Built using TypeScript and Node.js.</p>
+        <a href="https://github.com/1244Matt1244/rest_api" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>ha_master_slave_and_some_tasks_around_redis-db</h3>
+        <p><strong>Shell:</strong> A project focused on creating scripts and resources for local Kubernetes environments with Redis as a service.</p>
+        <a href="https://github.com/1244Matt1244/ha-master-slave-setup-with-redis-db" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>qgis_project_python</h3>
+        <p><strong>Python | QGIS:</strong> A Python project used for processing and analyzing geographic data, focusing on Boulder dimensions using QGIS.</p>
+        <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>bank_system_ERP</h3>
+        <p><strong>C#:</strong> An ERP system for managing banking operations and services, built using C#.</p>
+        <a href="https://github.com/1244Matt1244/bank_system_ERP" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>credit_card_fraud_detection</h3>
+        <p><strong>Python:</strong> A credit card fraud detection system implemented using the Scikit-learn library in Python.</p>
+        <a href="https://github.com/1244Matt1244/credit_card_fraud_detection" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>small_guestbook_application</h3>
+        <p><strong>PHP:</strong> A simple PHP-based guestbook application to collect user entries.</p>
+        <a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>backend_service_assignment</h3>
+        <p><strong>Go:</strong> A backend service for handling data related to cameras and MTG cards, built using Go.</p>
+        <a href="https://github.com/1244Matt1244/Dev-Assignment" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>sql_learning_materials_scripts</h3>
+        <p><strong>SQL:</strong> A collection of SQL scripts for learning and practicing various SQL queries and database concepts.</p>
+        <a href="https://github.com/1244Matt1244/sql_learning_materials_scripts" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>enhanced_python-code_with_turtle_graphics.py</h3>
+        <p><strong>Python:</strong> A Python script using Turtle graphics to create visual representations of algorithms and geometric shapes.</p>
+        <a href="https://github.com/1244Matt1244/enhanced_python-code_with_turtle_graphics.py" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>character_frequency_counter</h3>
+        <p><strong>Python:</strong> A Python program that counts the frequency of characters in a given string or file.</p>
+        <a href="https://github.com/1244Matt1244/character_frequency_counter" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>python_geometrical_task</h3>
+        <p><strong>Python:</strong> A Python script that solves geometric tasks such as area and perimeter calculations.</p>
+        <a href="https://github.com/1244Matt1244/python_geometrical_task" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>password_generator</h3>
+        <p><strong>HTML:</strong> A simple HTML page that generates secure random passwords.</p>
+        <a href="https://github.com/1244Matt1244/password_generator" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>quiz_game</h3>
+        <p><strong>JavaScript:</strong> A quiz game built using JavaScript where users can test their knowledge on various topics.</p>
+        <a href="https://github.com/1244Matt1244/quiz_game" target="_blank">GitHub Repository</a>
+    </div>
+    <div class="project-card">
+        <h3>hello_fastify</h3>
+        <p><strong>Node.js | Fastify:</strong> A Fastify "hello world" template with tests, forked from mcollina's repository.</p>
+        <a href="https://github.com/1244Matt1244/hello_fastify" target="_blank">GitHub Repository</a>
+    </div>
+</div>
+
+<!-- Language Switch Button -->
+<button id="lang-toggle">Switch Language</button>
+
+<section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-text">Feel free to reach out...</div>
+    <form class="contact-form">
+        <input type="text" name="name" placeholder="Your Name">
+        <input type="email" name="email" placeholder="Your Email">
+        <textarea name="message" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2025 Matej Martinović | All rights reserved.</p>
+    <a href="#" class="github-link">GitHub</a>
+</footer>
+
+<script>
+    const translations = {
+        en: {
+            aboutMe: "About Me",
+            projectsHeading: "Projects",
+            contactMe: "Contact Me",
+            contactText: "Feel free to reach out to me through the contact form below or via my social media channels.",
+            contactForm: {
+                name: "Your Name",
+                email: "Your Email",
+                message: "Your Message",
+                sendMessage: "Send Message"
+            },
+            footerText: "© 2025 Matej Martinović | All rights reserved.",
+            githubLink: "GitHub"
+        },
+        de: {
+            aboutMe: "Über mich",
+            projectsHeading: "Projekte",
+            contactMe: "Kontaktieren Sie mich",
+            contactText: "Zögern Sie nicht, mich über das Kontaktformular oder über meine Social-Media-Kanäle zu erreichen.",
+            contactForm: {
+                name: "Ihr Name",
+                email: "Ihre E-Mail",
+                message: "Ihre Nachricht",
+                sendMessage: "Nachricht senden"
+            },
+            footerText: "© 2025 Matej Martinović | Alle Rechte vorbehalten.",
+            githubLink: "GitHub"
+        },
+        hr: {
+            aboutMe: "O meni",
+            projectsHeading: "Projekti",
+            contactMe: "Kontaktirajte me",
+            contactText: "Slobodno me kontaktirajte putem kontakt forme ili mojih društvenih mreža.",
+            contactForm: {
+                name: "Vaše ime",
+                email: "Vaša e-mail adresa",
+                message: "Vaša poruka",
+                sendMessage: "Pošaljite poruku"
+            },
+            footerText: "© 2025 Matej Martinović | Sva prava pridržana.",
+            githubLink: "GitHub"
+        }
+    };
+
+    let currentLang = 'en'; // Default language
+
+    // Event listener for switching languages
+    document.getElementById('lang-toggle').addEventListener('click', function() {
+        // Cycle through languages (en -> de -> hr -> en)
+        currentLang = currentLang === 'en' ? 'de' : currentLang === 'de' ? 'hr' : 'en';
+        updateContent();
+    });
+
+    // Function to update page content based on the selected language
+    function updateContent() {
+        document.querySelector('h2').textContent = translations[currentLang].contactMe;
+        document.querySelector('.contact-text').textContent = translations[currentLang].contactText;
+
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.querySelector('input[name="name"]').placeholder = translations[currentLang].contactForm.name;
+        contactForm.querySelector('input[name="email"]').placeholder = translations[currentLang].contactForm.email;
+        contactForm.querySelector('textarea[name="message"]').placeholder = translations[currentLang].contactForm.message;
+        contactForm.querySelector('button[type="submit"]').textContent = translations[currentLang].contactForm.sendMessage;
+
+        document.querySelector('footer p').textContent = translations[currentLang].footerText;
+        document.querySelector('.github-link').textContent = translations[currentLang].githubLink;
+    }
+
+    // Initialize content in the default language (en)
+    updateContent();
+</script>
+
+<section class="tech-stack">
+    <h2>Tech Stack</h2>
+    <p>Languages and technologies I work with:</p>
+    <ul>
+        <li>Java</li>
+        <li>Python</li>
+        <li>Go</li>
+        <li>JavaScript</li>
+        <li>SQL</li>
+        <li>PHP</li>
+        <li>Machine Learning</li>
+        <li>Docker</li>
+        <li>Cloud Computing (AWS, GCP)</li>
+    </ul>
+</section>
+
+<section class="clock-calendar">
+    <div class="time"></div>
+    <div class="date"></div>
+</section>
+
+</body>
+</html>  
