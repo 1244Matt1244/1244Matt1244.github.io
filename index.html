@@ -125,18 +125,6 @@
             color: #2ecc71;
         }
 
-        .logical-tree {
-            margin: 20px 0;
-            padding: 10px;
-            border: 2px solid #FFCDD2;
-            background-color: #F8BBD0;
-            border-radius: 8px;
-        }
-
-        .tree-node {
-            margin-left: 20px;
-        }
-
         .footer {
             text-align: center;
             padding: 20px;
@@ -273,25 +261,6 @@
                 font-size: 2.5rem;
             }
         }
-
-        /* Additional button styles for specific themes */
-        .switch-background-btn {
-            background-color: #FF8A80;
-            color: white;
-        }
-
-        .switch-background-btn:hover {
-            background-color: #F8BBD0;
-        }
-
-        .black-background-btn {
-            background-color: #333;
-            color: white;
-        }
-
-        .black-background-btn:hover {
-            background-color: #444;
-        }
     </style>
 
     <script>
@@ -312,195 +281,105 @@
 </head>
 <body>
 
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    emailjs.init("user_yourEmailJSUserID");
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const statusMessage = document.querySelector('.status-message');
-        const form = document.querySelector('.contact-form');
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
-                .then(() => {
-                    statusMessage.innerText = 'Message sent successfully!';
-                    statusMessage.style.color = 'green';
-                }, (error) => {
-                    statusMessage.innerText = 'Failed to send message. Please try again later.';
-                    statusMessage.style.color = 'red';
-                });
-        });
-    });
-
-    function changeLanguage(language) {
-        const texts = {
-            en: {
-                about: "Hi! I'm Matej Martinović, a passionate and versatile software engineer...",
-                projects: "Here is a selection of the projects I have worked on...",
-            },
-            de: {
-                about: "Hallo! Ich bin Matej Martinović, ein leidenschaftlicher und vielseitiger Softwareingenieur...",
-                projects: "Hier ist eine Auswahl der Projekte, an denen ich gearbeitet habe...",
-            },
-            hr: {
-                about: "Bok! Ja sam Matej Martinović, strastveni i svestrani softverski inženjer...",
-                projects: "Ovdje je izbor projekata na kojima sam radio...",
-            },
-        };
-
-        const languageTexts = texts[language];
-        document.querySelector("#about p").innerText = languageTexts.about;
-        document.querySelector("#projects p").innerText = languageTexts.projects;
-    }
-
-    setInterval(function () {
-        const now = new Date();
-        document.querySelector('.clock-calendar .time').innerText = now.toLocaleTimeString();
-        document.querySelector('.clock-calendar .date').innerText = now.toLocaleDateString();
-    }, 1000);
-</script>
-</head>
-<body>
-
 <header>
     <h1>Welcome to My Portfolio</h1>
     <nav class="navbar">
-        <h1 style="color: black;">About Me</h1>
-        <h2 style="color: black;">My Projects</h2>
-        <h3 style="color: black;">Contact</h3>
-        <h4 style="color: black;">Search</h4>
+        <a href="#about">About Me</a>
+        <a href="#projects">My Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#search">Search</a>
     </nav>
 </header>
 
-<!-- Add the background switch button -->
-<button id="toggle-background">Switch Background</button>
-
-<script>
-    document.getElementById('toggle-background').addEventListener('click', function() {
-        document.body.classList.toggle('alternative-background');
-    });
-</script>
-
+<!-- Background Switch Buttons -->
 <div class="language-menu">
-    <select id="language-select" onchange="changeLanguage(this.value)">
+    <button id="switchBackgroundBtn" class="btn btn-primary">Switch to Gradient</button>
+    <button id="blackBackgroundBtn" class="btn btn-danger">Switch to Black</button>
+</div>
+
+<!-- Language Selector -->
+<div class="language-menu">
+    <select id="languageSelect">
         <option value="en">English</option>
-        <option value="de">German</option>
         <option value="hr">Croatian</option>
+        <option value="de">German</option>
     </select>
 </div>
 
-<section id="about" class="about">
-    <h2>About Me</h2>
-    <p>
-        Hi! I'm Matej Martinović (he/him), a software engineer passionate about backend development and geospatial data. 
-        My expertise spans various programming languages, including Python, JavaScript, C#, Go, and more. 
-        I thrive on solving complex technical problems, whether it's building APIs, implementing cloud solutions, or working on DevOps pipelines.
-    </p>
-    <p>
-        Over the years, I've contributed to numerous projects that range from maze-solving algorithms and cloud infrastructure automation to credit card fraud detection systems. 
-        My work also focuses heavily on geospatial data processing, utilizing tools like QGIS and PostGIS for location-based analysis.
-    </p>
-    <p>
-        I'm dedicated to writing clean, efficient, and scalable code while continuously improving my knowledge in the ever-evolving tech landscape.
-    </p>
-</section>
-
+<!-- Projects Section -->
 <section id="projects" class="projects">
     <h2>My Projects</h2>
-    <p>
-        My work is centered on backend programming, creating robust and scalable solutions tailored to business needs. 
-        I have a strong interest in geospatial data, where I apply technologies like QGIS and PostGIS to solve real-world problems. 
-        Below is a selection of my projects, ranging from data-driven APIs to tools for automating infrastructure deployments.
-    </p>
+    <div class="project-list">
+        <div class="project-card">
+            <h3>Project One</h3>
+            <p>Description of project one goes here.</p>
+            <a href="#">View Project</a>
+        </div>
+        <div class="project-card">
+            <h3>Project Two</h3>
+            <p>Description of project two goes here.</p>
+            <a href="#">View Project</a>
+        </div>
+        <!-- Add more projects as needed -->
+    </div>
 </section>
 
-<section id="contact" class="contact-info">
+<!-- About Section -->
+<section id="about" class="about">
+    <h2>About Me</h2>
+    <p>This section can contain information about your experience, skills, and background.</p>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/matej-martinović-140750265" target="_blank">Matej Martinović</a></p>
+    <form class="contact-form" id="contactForm">
+        <input type="text" placeholder="Your Name" id="name" required>
+        <input type="email" placeholder="Your Email" id="email" required>
+        <textarea placeholder="Your Message" id="message" required></textarea>
+        <button type="submit">Send Message</button>
+        <p class="status-message" id="statusMessage"></p>
+    </form>
 </section>
 
-<section id="search" class="search-bar">
-    <h2>Search</h2>
-    <input type="text" placeholder="Search for a project...">
+<!-- Clock and Calendar -->
+<section class="clock-calendar">
+    <div class="time" id="clock"></div>
+    <div class="date" id="date"></div>
 </section>
 
-<div id="project-list">
-    <ul id="projects-list">
-        <li>maze_escape</li>
-        <li>openstack_terraform_generator</li>
-        <li>azure_project</li>
-        <li>qrcode_generator</li>
-        <li>rest_api</li>
-        <li>ha-master-slave-setup-with-redis-db</li>
-        <li>qgis_project_python</li>
-        <li>bank_system_ERP</li>
-        <li>credit_card_fraud_detection</li>
-        <li>small_guestbook_application</li>
-        <li>backend_service_assignment</li>
-        <li>sql_learning_materials_scripts</li>
-        <li>enhanced_python-code_with_turtle_graphics.py</li>
-        <li>character_frequency_counter</li>
-        <li>python_geometrical_task</li>
-        <li>password_generator</li>
-        <li>quiz_game</li>
-        <li>hello_fastify</li>
-    </ul>
-</div>
+<!-- Footer -->
+<footer class="footer">
+    <p>© 2025 Matej Martinović. All rights reserved.</p>
+</footer>
 
-<div class="project-list">
-    <div class="project-card">
-        <h3>maze_escape</h3>
-        <p><strong>Backend:</strong> Java Project - A maze generation and solving backend system developed using Java.</p>
-        <a href="https://github.com/1244Matt1244/maze_escape" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>openstack_terraform_generator</h3>
-        <p><strong>Python:</strong> A tool for generating Terraform configuration files for OpenStack resources.</p>
-        <a href="https://github.com/1244Matt1244/openstack_terraform_generator" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>azure_project</h3>
-        <p><strong>Cloud DevOps Assignment (PowerShell):</strong> A cloud-based DevOps solution for managing Azure infrastructure, including deployment scripts and management tools.</p>
-        <a href="https://github.com/1244Matt1244/azure_project" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>qrcode_generator</h3>
-        <p><strong>Python:</strong> A Python project that generates QR codes with customizable data and settings.</p>
-        <a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>rest_api</h3>
-        <p><strong>TypeScript | Node.js | Fastify | TypeORM:</strong> A REST API built using Fastify for managing user accounts and delivering metrics. Built using TypeScript and Node.js.</p>
-        <a href="https://github.com/1244Matt1244/rest_api" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>ha_master_slave_and_some_tasks_around_redis-db</h3>
-        <p><strong>Shell:</strong> A project focused on creating scripts and resources for local Kubernetes environments with Redis as a service.</p>
-        <a href="https://github.com/1244Matt1244/ha-master-slave-setup-with-redis-db" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>qgis_project_python</h3>
-        <p><strong>Python | QGIS:</strong> A Python project used for processing and analyzing geographic data, focusing on Boulder dimensions using QGIS.</p>
-        <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>bank_system_ERP</h3>
-        <p><strong>C#:</strong> An ERP system for managing banking operations and services, built using C#.</p>
-        <a href="https://github.com/1244Matt1244/bank_system_ERP" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>credit_card_fraud_detection</h3>
-        <p><strong>Python:</strong> A credit card fraud detection system implemented using the Scikit-learn library in Python.</p>
-        <a href="https://github.com/1244Matt1244/credit_card_fraud_detection" target="_blank">GitHub Repository</a>
-    </div>
-    <div class="project-card">
-        <h3>small_guestbook_application</h3>
-        <p><strong>PHP:</strong> A small guestbook application for user interactions and messages.</p>
-        <a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">GitHub Repository</a>
-    </div>
-</div>
+<script>
+    // Clock and Date display
+    function updateClock() {
+        const timeElement = document.getElementById("clock");
+        const dateElement = document.getElementById("date");
+        const now = new Date();
+        timeElement.textContent = now.toLocaleTimeString();
+        dateElement.textContent = now.toLocaleDateString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock(); // initial call to show clock immediately
+
+    // Language change functionality
+    document.getElementById("languageSelect").addEventListener("change", function() {
+        const selectedLanguage = this.value;
+        if (selectedLanguage === "hr") {
+            document.querySelector("h1").textContent = "Dobrodošli u moj portfelj";
+            document.querySelector("h2").textContent = "Moji projekti";
+        } else if (selectedLanguage === "de") {
+            document.querySelector("h1").textContent = "Willkommen in meinem Portfolio";
+            document.querySelector("h2").textContent = "Meine Projekte";
+        } else {
+            document.querySelector("h1").textContent = "Welcome to My Portfolio";
+            document.querySelector("h2").textContent = "My Projects";
+        }
+    });
+</script>
 
 </body>
 </html>
