@@ -1,15 +1,25 @@
 <?php
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Collect form data
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $message = htmlspecialchars($_POST['message']);
+    // Collect form data and sanitize inputs
+    $name = htmlspecialchars(trim($_POST['name']));
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    $message = htmlspecialchars(trim($_POST['message']));
+
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email address. Please provide a valid email.";
+        exit;
+    }
 
     // Set up the recipient email and subject
     $to = 'your_email@example.com';
     $subject = 'New Contact Form Submission';
-    $headers = 'From: ' . $email;
+    
+    // Set email headers with additional security measures
+    $headers = 'From: ' . $email . "\r\n" .
+               'Reply-To: ' . $email . "\r\n" .
+               'X-Mailer: PHP/' . phpversion();
 
     // Construct the email body
     $body = "Name: $name\nEmail: $email\nMessage:\n$message";
