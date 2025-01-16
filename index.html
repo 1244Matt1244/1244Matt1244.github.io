@@ -12,12 +12,12 @@
     <meta property="og:description" content="Portfolio of software engineer Matej Martinović, showcasing various projects and skills.">
     <meta property="og:image" content="your-image-url.jpg">
     <meta property="og:url" content="https://1244Matt1244.github.io">
-    <title>Matej Martinović - Portfolio</title>
+      <title>Matej Martinović - Portfolio</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-   <style>
+    <style>
     /* General Body Styling */
     body {
         font-family: 'Open Sans', sans-serif;
@@ -46,11 +46,15 @@
         border-radius: 5px;
     }
 
-    h1, h2 {
+    h1 {
         font-size: 2.5rem;
         color: #D32F2F;
         font-weight: bold;
         display: inline-block;
+    }
+
+    /* Only animate the 'Welcome to Portfolio' text */
+    #welcomeTitle {
         animation: colorChange 2s infinite;
     }
 
@@ -83,20 +87,6 @@
 
     .navbar a:hover {
         color: #F8BBD0;
-    }
-
-    /* Language Menu Styling */
-    .language-menu {
-        margin: 20px;
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .language-menu select {
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ddd;
-        font-size: 16px;
     }
 
     /* Project Card Layout */
@@ -169,69 +159,6 @@
     .project-card:nth-child(4) { animation-delay: 0.4s; }
     .project-card:nth-child(5) { animation-delay: 0.5s; }
 
-    /* Clock & Calendar Styling */
-    .clock-calendar {
-        margin: 40px 0;
-        text-align: center;
-        position: relative;
-    }
-
-    .clock-calendar .time, .clock-calendar .date {
-        font-size: 4rem;
-        color: #D32F2F;
-        font-weight: bold;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-        animation: pulse-time 3s infinite, pulse-date 4s infinite;
-    }
-
-    @keyframes pulse-time {
-        0% { transform: scale(1); color: #FF8A80; }
-        50% { transform: scale(1.2); color: #D32F2F; }
-        100% { transform: scale(1); color: #FF8A80; }
-    }
-
-    @keyframes pulse-date {
-        0% { transform: scale(1); color: #FF8A80; }
-        50% { transform: scale(1.1); color: #F06292; }
-        100% { transform: scale(1); color: #FF8A80; }
-    }
-
-    .clock-container, .calendar-container {
-        display: inline-block;
-        padding: 20px;
-        margin: 20px;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.6);
-        box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
-        transform: perspective(600px) rotateX(15deg);
-        transition: transform 0.4s ease, box-shadow 0.3s ease;
-    }
-
-    .clock-container:hover, .calendar-container:hover {
-        transform: perspective(600px) rotateX(0deg);
-        box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Calendar Box Styling */
-    .calendar-box {
-        background: #F8BBD0;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
-
-    .calendar-date {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #D32F2F;
-        text-align: center;
-    }
-
-    .calendar-box:hover {
-        transform: scale(1.05);
-    }
-
     /* Footer Styling */
     .footer {
         text-align: center;
@@ -239,95 +166,6 @@
         background-color: #FFCDD2;
         border-top: 2px solid #D32F2F;
         margin-top: 40px;
-    }
-
-    /* Contact Form Styling */
-    .contact-form input, .contact-form textarea {
-        width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        font-size: 16px;
-    }
-
-    .contact-form button {
-        background-color: #D32F2F;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .contact-form button:hover {
-        background-color: #C2185B;
-        transform: scale(1.05);
-    }
-
-    .contact-form .status-message {
-        margin-top: 10px;
-        font-size: 0.9rem;
-        color: #C2185B;
-    }
-
-    /* Search Bar Styling */
-    .search-bar input {
-        padding: 12px;
-        width: 60%;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        font-size: 16px;
-        transition: border-color 0.3s ease;
-    }
-
-    /* Tech Stack and Button Styles */
-    .tech-stack {
-        margin: 20px 0;
-        font-size: 16px;
-    }
-
-    .btn {
-        padding: 12px 24px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        margin: 10px;
-    }
-
-    .btn-primary {
-        background-color: #4CAF50;
-        color: white;
-    }
-
-    .btn-secondary {
-        background-color: #008CBA;
-        color: white;
-    }
-
-    .btn-danger {
-        background-color: #f44336;
-        color: white;
-    }
-
-    .btn-light {
-        background-color: #f1f1f1;
-        color: #333;
-    }
-
-    .btn-dark {
-        background-color: #555;
-        color: white;
-    }
-
-    .btn:hover {
-        background-color: #333;
-        color: white;
-        transform: scale(1.05);
     }
 
     /* Responsive Design for smaller screens */
@@ -340,15 +178,11 @@
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
         }
 
-        .search-bar input {
-            width: 80%;
-        }
-
         .clock-calendar .time, .clock-calendar .date {
             font-size: 3rem;
         }
     }
-</style>
+    </style>
 
     <script>
     // Event listeners for buttons
