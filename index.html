@@ -106,11 +106,12 @@
         margin: 10px;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     .project-card a {
@@ -161,11 +162,12 @@
         border-radius: 8px;
         cursor: pointer;
         font-size: 16px;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .contact-form button:hover {
         background-color: #C2185B;
+        transform: scale(1.05);
     }
 
     .contact-form .status-message {
@@ -251,6 +253,44 @@
         background-color: #333;
         color: white;
         transform: scale(1.05);
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+        }
+
+        .project-list {
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        }
+
+        .search-bar input {
+            width: 80%;
+        }
+
+        .clock-calendar .time, .clock-calendar .date {
+            font-size: 2.5rem;
+        }
+    }
+
+    /* Additional button styles for specific themes */
+    .switch-background-btn {
+        background-color: #FF8A80;
+        color: white;
+    }
+
+    .switch-background-btn:hover {
+        background-color: #F8BBD0;
+    }
+
+    .black-background-btn {
+        background-color: #333;
+        color: white;
+    }
+
+    .black-background-btn:hover {
+        background-color: #444;
     }
 </style>
 
