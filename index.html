@@ -677,19 +677,35 @@
 
 <section class="clock-calendar">
     <div class="clock-container">
-        <div class="clock-face">
-            <div class="time">12:00</div>
-        </div>
-        <div class="clock-shadow"></div>
+        <i class="fas fa-clock fa-3x"></i>
+        <div class="time" id="current-time">12:00</div>
     </div>
     
     <div class="calendar-container">
-        <div class="calendar-box">
-            <div class="calendar-date">January 16, 2025</div>
-            <div class="calendar-shadow"></div>
-        </div>
+        <i class="fas fa-calendar-alt fa-3x"></i>
+        <div class="calendar-date" id="current-date">January 16, 2025</div>
     </div>
 </section>
+
+<script>
+    function updateClockAndDate() {
+        const now = new Date();
+        
+        // Format Time
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        document.getElementById('current-time').textContent = `${hours}:${minutes}`;
+
+        // Format Date
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = now.toLocaleDateString('en-US', options);
+        document.getElementById('current-date').textContent = formattedDate;
+    }
+
+    // Update Clock and Date Every Second
+    setInterval(updateClockAndDate, 1000);
+    updateClockAndDate(); // Initial call to set immediately
+</script>
 
 </body>
 </html>  
