@@ -294,6 +294,25 @@
     }
 </style>
 
+    <script>
+    // Switch background to gradient
+    function switchToGradient() {
+        document.body.style.background = "linear-gradient(90deg, #F8BBD0, #FF8A80)";
+    }
+
+    // Switch background to black
+    function switchToBlack() {
+        document.body.style.background = "black";
+    }
+
+    // Event listeners for buttons
+    document.getElementById("switchBackgroundBtn").addEventListener("click", switchToGradient);
+    document.getElementById("blackBackgroundBtn").addEventListener("click", switchToBlack);
+</script>
+
+<button id="switchBackgroundBtn" class="switch-background-btn">Switch to Gradient Background</button>
+<button id="blackBackgroundBtn" class="black-background-btn">Switch to Black Background</button>
+
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         emailjs.init("user_yourEmailJSUserID");
