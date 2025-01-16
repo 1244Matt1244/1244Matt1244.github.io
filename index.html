@@ -3,383 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Matej Martinović - Software Engineer. Projects, Contact, About Me, and more.">
-    <meta name="keywords" content="software engineer, portfolio, GitHub, projects, cloud computing, DevOps, machine learning, web development">
-    <meta name="author" content="Matej Martinović">
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta property="og:title" content="Matej Martinović - Portfolio">
-    <meta property="og:description" content="Portfolio of software engineer Matej Martinović, showcasing various projects and skills.">
-    <meta property="og:image" content="your-image-url.jpg">
-    <meta property="og:url" content="https://1244Matt1244.github.io">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Matej Martinović - Portfolio</title>
-    
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            background: linear-gradient(90deg, #F8BBD0, #FF8A80);
-            background-size: 400% 400%;
-            animation: gradient 120s ease infinite;
-            font-family: 'Open Sans', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            transition: background 1s ease;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .alternative-background {
-            background: linear-gradient(90deg, #81C784, #66BB6A);
-            background-size: 400% 400%;
-            animation: gradient 120s ease infinite;
-        }
-
-        header {
-            background-color: #FFCDD2;
-            padding: 10px 0;
-            text-align: center;
-            border-radius: 5px;
-        }
-
-        h1, h2 {
-            color: #D32F2F;
-            font-weight: bold;
-        }
-
-        .navbar {
-            background-color: #2ecc71;
-            padding: 10px;
-            display: flex;
-            justify-content: space-around;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            padding: 8px;
-            transition: color 0.3s ease;
-        }
-
-        .navbar a:hover {
-            color: #F8BBD0;
-        }
-
-        .language-menu {
-            margin: 20px;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .language-menu select {
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-        }
-
-        .projects, .about, .contact {
-            margin: 30px 0;
-        }
-
-        .project-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .project-card {
-            background-color: #ffffff;
-            border: 1px solid #f0f0f0;
-            padding: 15px;
-            margin: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-card a {
-            text-decoration: none;
-            color: #D32F2F;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .project-card a:hover {
-            color: #2ecc71;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #FFCDD2;
-            border-top: 2px solid #D32F2F;
-            margin-top: 40px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-        }
-
-        .contact-form button {
-            background-color: #D32F2F;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: #C2185B;
-            transform: scale(1.05);
-        }
-
-        .contact-form .status-message {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: #C2185B;
-        }
-
-        .search-bar {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .search-bar input {
-            padding: 12px;
-            width: 60%;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-
-        .search-bar input:focus {
-            border-color: #D32F2F;
-        }
-
-        .tech-stack {
-            margin: 20px 0;
-            font-size: 16px;
-        }
-
-        .clock-calendar {
-            margin: 40px 0;
-            text-align: center;
-        }
-
-        .clock-calendar .time, .clock-calendar .date {
-            font-size: 3.5rem;
-            color: #D32F2F;
-            font-weight: bold;
-        }
-
-        .smooth-transition {
-            transition: all 0.3s ease-in-out;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin: 10px;
-        }
-
-        .btn-primary {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .btn-secondary {
-            background-color: #008CBA;
-            color: white;
-        }
-
-        .btn-danger {
-            background-color: #f44336;
-            color: white;
-        }
-
-        .btn-light {
-            background-color: #f1f1f1;
-            color: #333;
-        }
-
-        .btn-dark {
-            background-color: #555;
-            color: white;
-        }
-
-        .btn:hover {
-            background-color: #333;
-            color: white;
-            transform: scale(1.05);
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-            }
-
-            .project-list {
-                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            }
-
-            .search-bar input {
-                width: 80%;
-            }
-
-            .clock-calendar .time, .clock-calendar .date {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
-
-    <script>
-        // Switch background to gradient
-        function switchToGradient() {
-            document.body.style.background = "linear-gradient(90deg, #F8BBD0, #FF8A80)";
-        }
-
-        // Switch background to black
-        function switchToBlack() {
-            document.body.style.background = "black";
-        }
-
-        // Event listeners for buttons
-        document.getElementById("switchBackgroundBtn").addEventListener("click", switchToGradient);
-        document.getElementById("blackBackgroundBtn").addEventListener("click", switchToBlack);
-    </script>
 </head>
 <body>
 
-<header>
-    <h1>Welcome to My Portfolio</h1>
-    <nav class="navbar">
-        <a href="#about">About Me</a>
-        <a href="#projects">My Projects</a>
-        <a href="#contact">Contact</a>
-        <a href="#search">Search</a>
-    </nav>
-</header>
+    <header>
+        <nav>
+            <ul>
+                <li><button onclick="changeLanguage('en')">EN</button></li>
+                <li><button onclick="changeLanguage('de')">DE</button></li>
+                <li><button onclick="changeLanguage('hr')">HR</button></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- Background Switch Buttons -->
-<div class="language-menu">
-    <button id="switchBackgroundBtn" class="btn btn-primary">Switch to Gradient</button>
-    <button id="blackBackgroundBtn" class="btn btn-danger">Switch to Black</button>
-</div>
+    <main>
+        <section id="about-section">
+            <h2 id="about-title"></h2>
+            <p id="about"></p>
+        </section>
 
-<!-- Language Selector -->
-<div class="language-menu">
-    <select id="languageSelect">
-        <option value="en">English</option>
-        <option value="hr">Croatian</option>
-        <option value="de">German</option>
-    </select>
-</div>
+        <section id="projects-section">
+            <h2 id="projects-title"></h2>
+            <div class="projects-list">
+                <!-- Projects will be injected here by JavaScript -->
+            </div>
+        </section>
 
-<!-- Projects Section -->
-<section id="projects" class="projects">
-    <h2>My Projects</h2>
-    <div class="project-list">
-        <div class="project-card">
-            <h3>Project One</h3>
-            <p>Description of project one goes here.</p>
-            <a href="#">View Project</a>
-        </div>
-        <div class="project-card">
-            <h3>Project Two</h3>
-            <p>Description of project two goes here.</p>
-            <a href="#">View Project</a>
-        </div>
-        <!-- Add more projects as needed -->
-    </div>
-</section>
+        <section id="contact-section">
+            <h2 id="contact-me-title"></h2>
+            <p id="contact-text"></p>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="">
+                <input type="email" name="email" placeholder="">
+                <textarea name="message" placeholder=""></textarea>
+                <button type="submit"></button>
+            </form>
+        </section>
+    </main>
 
-<!-- About Section -->
-<section id="about" class="about">
-    <h2>About Me</h2>
-    <p>This section can contain information about your experience, skills, and background.</p>
-</section>
+    <footer>
+        <p id="footer-text"></p>
+        <a href="https://github.com/1244Matt1244" id="github-link"></a>
+    </footer>
 
-<!-- Contact Section -->
-<section id="contact" class="contact">
-    <h2>Contact</h2>
-    <form class="contact-form" id="contactForm">
-        <input type="text" placeholder="Your Name" id="name" required>
-        <input type="email" placeholder="Your Email" id="email" required>
-        <textarea placeholder="Your Message" id="message" required></textarea>
-        <button type="submit">Send Message</button>
-        <p class="status-message" id="statusMessage"></p>
-    </form>
-</section>
-
-<!-- Clock and Calendar -->
-<section class="clock-calendar">
-    <div class="time" id="clock"></div>
-    <div class="date" id="date"></div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <p>© 2025 Matej Martinović. All rights reserved.</p>
-</footer>
-
-<script>
-    // Clock and Date display
-    function updateClock() {
-        const timeElement = document.getElementById("clock");
-        const dateElement = document.getElementById("date");
-        const now = new Date();
-        timeElement.textContent = now.toLocaleTimeString();
-        dateElement.textContent = now.toLocaleDateString();
-    }
-    setInterval(updateClock, 1000);
-    updateClock(); // initial call to show clock immediately
-
-    // Language change functionality
-    document.getElementById("languageSelect").addEventListener("change", function() {
-        const selectedLanguage = this.value;
-        if (selectedLanguage === "hr") {
-            document.querySelector("h1").textContent = "Dobrodošli u moj portfelj";
-            document.querySelector("h2").textContent = "Moji projekti";
-        } else if (selectedLanguage === "de") {
-            document.querySelector("h1").textContent = "Willkommen in meinem Portfolio";
-            document.querySelector("h2").textContent = "Meine Projekte";
-        } else {
-            document.querySelector("h1").textContent = "Welcome to My Portfolio";
-            document.querySelector("h2").textContent = "My Projects";
-        }
-    });
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
