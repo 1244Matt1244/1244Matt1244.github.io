@@ -412,10 +412,14 @@
 <!-- Language Switch Bar -->
 <div class="language-switcher">
     <button id="lang-toggle" class="lang-btn">Switch Language</button>
+    <div id="lang-dropdown" class="lang-dropdown">
+        <button id="en" class="lang-option">English</button>
+        <button id="de" class="lang-option">Deutsch</button>
+    </div>
 </div>
 
 <section id="contact" class="contact-info">
-    <h2>Contact Me</h2>
+    <h2 class="connect-heading">Contact Me</h2>
     <div class="contact-item">
         <i class="fas fa-envelope"></i>
         <p>Email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
@@ -428,7 +432,6 @@
         <i class="fab fa-github"></i>
         <p>GitHub: <a href="https://github.com/1244Matt1244" target="_blank">1244Matt1244</a></p>
     </div>
-
     <p class="connect-text">If you'd like to connect or collaborate, feel free to reach out through my professional social media profiles or via email.</p>
     <footer>
         <p class="footer-text">© 2025 Matej Martinović | All rights reserved.</p>
@@ -439,7 +442,6 @@
 <section id="tech-stack" class="tech-stack">
     <h2>Tech Stack</h2>
     <p>Languages and technologies I work with:</p>
-    
     <div class="tech-list">
         <div class="tech-item">
             <i class="fab fa-java"></i>
@@ -519,6 +521,7 @@
     <span id="date"></span>
 </div>
 
+<!-- Calendar Section -->
 <div id="calendar" class="calendar-section">
     <div id="calendar-header">
         <button id="prev-month">←</button>
@@ -542,181 +545,180 @@
 </div>
 
 <script>
-// Same calendar JavaScript as before
+// Calendar Update
+function updateClock() {
+    const timeElement = document.getElementById("time");
+    const dateElement = document.getElementById("date");
+    const currentTime = new Date();
+    timeElement.innerText = currentTime.toLocaleTimeString();
+    dateElement.innerText = currentTime.toLocaleDateString();
+}
+
+function updateCalendar() {
+    const currentDate = new Date();
+    const monthYear = document.getElementById("month-year");
+    const calendarBody = document.getElementById("calendar-body");
+    const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+    const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
+    let calendarHTML = "";
+
+    monthYear.innerText = `${currentDate.toLocaleString("default", { month: "long" })} ${currentDate.getFullYear()}`;
+    
+    let day = 1;
+    for (let i = 0; i < 6; i++) {
+        calendarHTML += "<tr>";
+        for (let j = 0; j < 7; j++) {
+            if (i === 0 && j < firstDayOfMonth) {
+                calendarHTML += "<td></td>";
+            } else if (day <= daysInMonth) {
+                calendarHTML += `<td>${day}</td>`;
+                day++;
+            } else {
+                calendarHTML += "<td></td>";
+            }
+        }
+        calendarHTML += "</tr>";
+        if (day > daysInMonth) break;
+    }
+    calendarBody.innerHTML = calendarHTML;
+}
+
+document.getElementById("prev-month").addEventListener("click", () => {
+    const currentDate = new Date();
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    updateCalendar();
+});
+
+document.getElementById("next-month").addEventListener("click", () => {
+    const currentDate = new Date();
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    updateCalendar();
+});
+
+setInterval(updateClock, 1000);
+
+// Language Toggle
+const translations = {
+    en: {
+        connectHeading: "Connect with Me",
+        connectText: "Feel free to reach out through my professional social media profiles or via email.",
+        footerText: "© 2025 Matej Martinović | All rights reserved.",
+        githubLink: "GitHub",
+        techStack: "Tech Stack",
+        techDescription: "Languages and technologies I work with:"
+    },
+    de: {
+        connectHeading: "Verbinde dich mit mir",
+        connectText: "Zögern Sie nicht, mich über meine professionellen Social-Media-Profile oder per E-Mail zu erreichen.",
+        footerText: "© 2025 Matej Martinović | Alle Rechte vorbehalten.",
+        githubLink: "GitHub",
+        techStack: "Technologischer Stack",
+        techDescription: "Sprachen und Technologien, mit denen ich arbeite:"
+    }
+};
+
+let currentLang = 'en';
+
+document.getElementById("lang-toggle").addEventListener("click", () => {
+    const langDropdown = document.getElementById("lang-dropdown");
+    langDropdown.classList.toggle("show");
+});
+
+document.querySelectorAll(".lang-option").forEach(option => {
+    option.addEventListener("click", () => {
+        currentLang = option.id;
+        updateLanguage();
+        document.getElementById("lang-dropdown").classList.remove("show");
+    });
+});
+
+function updateLanguage() {
+    document.querySelector('.connect-heading').innerText = translations[currentLang].connectHeading;
+    document.querySelector('.connect-text').innerText = translations[currentLang].connectText;
+    document.querySelector('.footer-text').innerText = translations[currentLang].footerText;
+    document.querySelector('.github-link').innerText = translations[currentLang].githubLink;
+    document.querySelector('.tech-stack h2').innerText = translations[currentLang].techStack;
+    document.querySelector('.tech-stack p').innerText = translations[currentLang].techDescription;
+}
+
+// Initialize language on page load
+updateLanguage();
 </script>
 
 <style>
-/* Improved Calendar Styling */
-.calendar-section {
+/* Language Dropdown Styling */
+.lang-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.lang-dropdown.show {
+    display: block;
+}
+
+.lang-option {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.lang-option:hover {
+    background-color: #f1f1f1;
+}
+
+/* Calendar Styling */
+#calendar {
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
-    text-align: center;
-    font-family: Arial, sans-serif;
 }
 
 #calendar-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-}
-
-#calendar-header button {
-    padding: 8px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-#calendar-header button:hover {
-    background-color: #45a049;
 }
 
 #calendar-table {
     width: 100%;
-    border-collapse: collapse;
     margin-top: 10px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    border-collapse: collapse;
 }
 
 #calendar-table th,
 #calendar-table td {
-    padding: 12px;
+    padding: 10px;
     text-align: center;
     border: 1px solid #ddd;
 }
 
-#calendar-table td {
-    cursor: pointer;
-}
-
-#calendar-table td:hover {
-    background-color: #f0f0f0;
-}
-</style>
-
-<script>
-// Initialize the clock and calendar
-updateClock();
-updateCalendar();
-setInterval(updateClock, 1000); // Update the clock every second
-</script>
-
-<!-- Add FontAwesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-<style>
-    /* Style for the language switcher */
-  .language-switcher {
-    position: absolute;  /* Fix it to the top-right corner */
-    top: 20px;
-    right: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10; /* Ensure it stays above other elements */
-}
-
-.lang-btn {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 14px; /* Smaller font size */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for better visibility */
-}
-
-.lang-btn:hover {
-    background-color: #0056b3;
-}
-/* Clock Section Styling */
-.clock-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    font-size: 18px;
-    position: fixed; /* Fix the clock section */
-    bottom: 20px; /* Position it at the bottom of the page */
-    left: 50%;
-    transform: translateX(-50%); /* Center it horizontally */
-    z-index: 10; /* Ensure it stays above other elements */
-}
-
-.clock-section i {
-    margin-right: 10px;
-}
-
-/* Tech Stack Section Styling */
+/* Tech Stack Styling */
 .tech-stack {
-    text-align: center;
-    margin: 40px 0;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.tech-stack h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
+
 .tech-list {
     display: flex;
-    justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
 }
+
 .tech-item {
-    text-align: center;
-    font-size: 1.2rem;
-}
-.tech-item i {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-.tech-item p {
-    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 </style>
-
-<script>
-    const translations = {
-        en: {
-            connectHeading: "Connect with Me",
-            connectText: "If you'd like to connect or collaborate, feel free to reach out through my professional social media profiles or via email.",
-            footerText: "© 2025 Matej Martinović | All rights reserved.",
-            githubLink: "GitHub",
-            techStack: "Tech Stack",
-            techDescription: "Languages and technologies I work with:"
-        },
-        de: {
-            connectHeading: "Verbinde dich mit mir",
-            connectText: "Zögern Sie nicht, mich über meine professionellen Social-Media-Profile oder per E-Mail zu erreichen.",
-            footerText: "© 2025 Matej Martinović | Alle Rechte vorbehalten.",
-            githubLink: "GitHub",
-            techStack: "Technologischer Stack",
-            techDescription: "Sprachen und Technologien, mit denen ich arbeite:"
-        }
-    };
-    const langToggleButton = document.getElementById("lang-toggle");
-    let currentLang = 'en';
-
-    langToggleButton.addEventListener('click', () => {
-        currentLang = currentLang === 'en' ? 'de' : 'en';
-        updateLanguage();
-    });
-
-    function updateLanguage() {
-        document.querySelector('.connect-heading').innerText = translations[currentLang].connectHeading;
-        document.querySelector('.connect-text').innerText = translations[currentLang].connectText;
-        document.querySelector('.footer-text').innerText = translations[currentLang].footerText;
-        document.querySelector('.github-link').innerText = translations[currentLang].githubLink;
-        document.querySelector('.tech-stack h2').innerText = translations[currentLang].techStack;
-        document.querySelector('.tech-stack p').innerText = translations[currentLang].techDescription;
-    }
-
-    // Initialize language on page load
-    updateLanguage();
-</script>
-
