@@ -26,8 +26,7 @@ const translations = {
                 link: "https://github.com/1244Matt1244/openstack_terraform_generator",
                 description: "A tool for generating Terraform configuration files for OpenStack resources.",
                 image: "path_to_image_2.jpg"
-            },
-            // Add all project objects here
+            }
         ]
     },
     de: {
@@ -45,9 +44,7 @@ const translations = {
         githubLink: "GitHub",
         about: "Hallo! Ich bin Matej Martinović, ein leidenschaftlicher und vielseitiger Softwareingenieur...",
         projects: "Hier ist eine Auswahl der Projekte, an denen ich gearbeitet habe...",
-        projectsList: [
-            // Translated project objects here
-        ]
+        projectsList: []
     },
     hr: {
         aboutMe: "O meni",
@@ -64,9 +61,7 @@ const translations = {
         githubLink: "GitHub",
         about: "Bok! Ja sam Matej Martinović, strastveni i svestrani softverski inženjer...",
         projects: "Ovdje je izbor projekata na kojima sam radio...",
-        projectsList: [
-            // Translated project objects here
-        ]
+        projectsList: []
     }
 };
 
@@ -120,10 +115,3 @@ function changeLanguage(language) {
 window.onload = function() {
     changeLanguage('en'); // Default to English, or you can set 'hr' or 'de'
 };
-
-// Clock and calendar update (kept as it is)
-setInterval(function () {
-    const now = new Date();
-    document.querySelector('.clock-calendar .time').innerText = now.toLocaleTimeString();
-    document.querySelector('.clock-calendar .date').innerText = now.toLocaleDateString();
-}, 1000);
