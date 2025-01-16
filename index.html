@@ -419,79 +419,38 @@
 <!-- Language Switch Button -->
 <button id="lang-toggle">Switch Language</button>
 
-<section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <p>Feel free to reach out to me through the contact form below or via my social media channels.</p>
-
-    <form id="contactForm" action="YOUR_FORM_URL_HERE" method="POST">
-        <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required placeholder="Enter your name" />
-        </div>
-        <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required placeholder="Enter your email" />
-        </div>
-        <div class="form-group">
-            <label for="phone">Your Phone</label>
-            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number" />
-        </div>
-        <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="4" required placeholder="Enter your message"></textarea>
-        </div>
-        <button type="submit">Send Message</button>
-    </form>
-
-    <div class="status-message" id="statusMessage"></div>
+<section id="connect" class="connect">
+    <h2>Connect with Me</h2>
+    <p>If you'd like to connect or collaborate, feel free to reach out through my professional social media profiles or via email.</p>
+    
+    <div class="social-links">
+        <a href="https://github.com/1244Matt1244" target="_blank" class="social-icon">GitHub</a>
+    </div>
+    
+    <p>You can also reach me by email: <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a></p>
 </section>
 
 <footer>
     <p>© 2025 Matej Martinović | All rights reserved.</p>
-    <a href="#" class="github-link">GitHub</a>
 </footer>
 
 <script>
     const translations = {
         en: {
-            aboutMe: "About Me",
-            projectsHeading: "Projects",
-            contactMe: "About Me",
-            contactText: "Feel free to reach out to me through the contact form below or via my social media channels.",
-            contactForm: {
-                name: "Your Name",
-                email: "Your Email",
-                message: "Your Message",
-                sendMessage: "Send Message"
-            },
+            connectHeading: "Connect with Me",
+            connectText: "Feel free to reach out to me through my professional social media profiles or email.",
             footerText: "© 2025 Matej Martinović | All rights reserved.",
             githubLink: "GitHub"
         },
         de: {
-            aboutMe: "Über mich",
-            projectsHeading: "Projekte",
-            contactMe: "Kontaktieren Sie mich",
-            contactText: "Zögern Sie nicht, mich über das Kontaktformular oder über meine Social-Media-Kanäle zu erreichen.",
-            contactForm: {
-                name: "Ihr Name",
-                email: "Ihre E-Mail",
-                message: "Ihre Nachricht",
-                sendMessage: "Nachricht senden"
-            },
+            connectHeading: "Verbinde dich mit mir",
+            connectText: "Zögern Sie nicht, mich über meine professionellen Social-Media-Profile oder per E-Mail zu erreichen.",
             footerText: "© 2025 Matej Martinović | Alle Rechte vorbehalten.",
             githubLink: "GitHub"
         },
         hr: {
-            aboutMe: "O meni",
-            projectsHeading: "Projekti",
-            contactMe: "Kontaktirajte me",
-            contactText: "Slobodno me kontaktirajte putem kontakt forme ili mojih društvenih mreža.",
-            contactForm: {
-                name: "Vaše ime",
-                email: "Vaša e-mail adresa",
-                message: "Vaša poruka",
-                sendMessage: "Pošaljite poruku"
-            },
+            connectHeading: "Povežite se sa mnom",
+            connectText: "Slobodno me kontaktirajte putem mojih profesionalnih društvenih mreža ili e-maila.",
             footerText: "© 2025 Matej Martinović | Sva prava pridržana.",
             githubLink: "GitHub"
         }
@@ -499,27 +458,14 @@
 
     let currentLang = 'en'; // Default language
 
-    // Event listener for switching languages
-    document.getElementById('lang-toggle').addEventListener('click', function() {
-        // Cycle through languages (en -> de -> hr -> en)
-        currentLang = currentLang === 'en' ? 'de' : currentLang === 'de' ? 'hr' : 'en';
-        updateContent();
-    });
-
-    // Function to update page content based on the selected language
+    // Function to update content when language changes
     function updateContent() {
-        document.querySelector('h2').textContent = translations[currentLang].contactMe;
-        document.querySelector('.contact-text').textContent = translations[currentLang].contactText;
-
-        const contactForm = document.querySelector('.contact-form');
-        contactForm.querySelector('input[name="name"]').placeholder = translations[currentLang].contactForm.name;
-        contactForm.querySelector('input[name="email"]').placeholder = translations[currentLang].contactForm.email;
-        contactForm.querySelector('textarea[name="message"]').placeholder = translations[currentLang].contactForm.message;
-        contactForm.querySelector('button[type="submit"]').textContent = translations[currentLang].contactForm.sendMessage;
-
+        document.querySelector('h2').textContent = translations[currentLang].connectHeading;
+        document.querySelector('.connect-text').textContent = translations[currentLang].connectText;
         document.querySelector('footer p').textContent = translations[currentLang].footerText;
         document.querySelector('.github-link').textContent = translations[currentLang].githubLink;
     }
+</script>
 
     // Initialize content in the default language (en)
     updateContent();
