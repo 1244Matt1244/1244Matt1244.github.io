@@ -168,34 +168,55 @@ header h1 {
     }
 }
 
-/* Clock and Calendar Styling */
-.clock-calendar {
+/* Basic styles */
+.clock-section, .calendar-section {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+}
+
+#clock {
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+}
+
+#time {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#calendar {
+    margin-top: 20px;
+}
+
+#calendar-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#calendar-table th, #calendar-table td {
     padding: 10px;
-    background-color: #FFEBEE;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    border: 1px solid #ddd;
+    width: 14%;
 }
 
-.clock-calendar .time,
-.clock-calendar .date {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #D32F2F;
+button {
     padding: 5px 10px;
+    cursor: pointer;
 }
 
-.clock-calendar .time {
-    color: #007bff;
+button:focus {
+    outline: none;
 }
 
-.clock-calendar .date {
-    color: #388e3c;
-}
 
 /* Inspiration Section */
 #inspiration {
@@ -266,7 +287,7 @@ header h1 {
 /* Tech Stack Styling */
 .tech-stack {
     margin-top: 40px;
-    display: flex;
+    display: grid;
     flex-direction: column;
     align-items: center;
 }
@@ -279,7 +300,7 @@ header h1 {
 }
 
 .tech-item {
-    display: flex;
+    display: grid;
     align-items: center;
     gap: 5px;
     padding: 10px;
