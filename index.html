@@ -341,15 +341,75 @@ header h1 {
 <body>
 
 <header>
-    <h1><i class="fas fa-laptop-code"></i> Welcome to My Portfolio</h1>
+    <h1 class="flying-text"><i class="fas fa-laptop-code"></i> Welcome to My Portfolio</h1>
     <section id="inspiration" style="text-align: center; padding: 20px; background-color: #FFB7C5; margin-top: 20px;">
-        <p style="color: #555; font-size: 18px; font-family: 'Arial', sans-serif;">
+        <p class="flying-message" style="color: #555; font-size: 18px; font-family: 'Arial', sans-serif;">
             Passion fuels innovation, and at the heart of every successful project lies a deep commitment to crafting solutions that make a difference. 
             Every line of code I write reflects my drive to build something meaningful. Embrace the challenges, keep learning, and never stop creating. 
             Let's code for a brighter tomorrow.
         </p>
     </section>
 </header>
+
+/* Animation for Flying Letters */
+@keyframes flyIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Applying the animation to the header */
+.flying-text {
+    display: inline-block;
+    font-size: 2.5rem;
+    color: #D32F2F;
+    font-weight: bold;
+    margin: 0;
+    animation: flyIn 2s ease-out forwards;
+}
+
+/* Applying the animation to each letter of the message */
+.flying-message {
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    color: #555;
+    display: inline-block;
+    line-height: 1.6;
+    animation: flyIn 3s ease-out forwards;
+}
+
+.flying-message span {
+    display: inline-block;
+    opacity: 0;
+    animation: letterFlyIn 0.5s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.flying-message span:nth-child(1) { animation-delay: 0.1s; }
+.flying-message span:nth-child(2) { animation-delay: 0.2s; }
+.flying-message span:nth-child(3) { animation-delay: 0.3s; }
+.flying-message span:nth-child(4) { animation-delay: 0.4s; }
+
+/* Letter by letter flying effect */
+@keyframes letterFlyIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
 <script>
     document.getElementById('toggle-background').addEventListener('click', function() {
