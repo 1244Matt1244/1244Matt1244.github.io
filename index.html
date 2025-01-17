@@ -88,39 +88,41 @@ header h1 {
     margin: 0;
 }
 
-/* Stronger Impact for Project Cards */
+/* Sophisticated Project Cards */
 .project-card {
-    background-color: #FF9800; /* Strong orange background */
+    background: linear-gradient(145deg, #FF6F00, #FF8F00); /* Subtle gradient for depth */
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Softer shadow for a polished look */
     text-align: center;
     transform: translateY(20px);
     opacity: 0;
     animation: fadeInUp 0.6s forwards;
     transition: all 0.3s ease;
-    border: 2px solid #FF5722; /* Darker border for more emphasis */
+    border: 2px solid #FF8F00; /* Border with a refined orange tone */
 }
 
 /* Hover Effect for Project Card */
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
-    background-color: #FF5722; /* Darker orange on hover */
-    border-color: #D32F2F; /* Darker border color */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    background: linear-gradient(145deg, #FF8F00, #FF6F00); /* Slightly darker gradient on hover */
+    border-color: #FF5722; /* Softer darker border for effect */
 }
 
 /* Card Title */
 .project-card h3 {
-    font-size: 1.2rem; /* Slightly bigger font */
+    font-size: 1.25rem; /* Larger font for the title */
     margin: 10px 0;
-    color: #fff; /* White color to contrast with background */
+    color: #fff; /* White for contrast */
+    font-weight: bold; /* Making the title stand out */
 }
 
 /* Card Description */
 .project-card p {
     font-size: 1rem;
-    color: #fff; /* White text to make it readable on the orange background */
+    color: #f1f1f1; /* Light grey text for subtle contrast */
+    margin-bottom: 10px;
 }
 
 /* Link Styling */
@@ -132,7 +134,7 @@ header h1 {
 }
 
 .project-card:hover a {
-    color: #000000; /* Dark color on hover for contrast */
+    color: #D32F2F; /* Red link color for emphasis on hover */
 }
 
 /* Animations */
@@ -146,7 +148,7 @@ header h1 {
         transform: translateY(0);
     }
 }
-        
+
 .project-card:nth-child(1) { animation-delay: 0.1s; }
 .project-card:nth-child(2) { animation-delay: 0.2s; }
 .project-card:nth-child(3) { animation-delay: 0.3s; }
