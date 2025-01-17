@@ -157,12 +157,17 @@ header h1 {
     transform: scale(1.1); /* Slight scale effect for hover interaction */
 }
 
-/* Project Card Layout */
+.container {
+    display: table;
+    width: 100%;
+    border-spacing: 10px; /* Space between cards */
+}
+
 .project-card {
-    display: float */
-    flex: 1 1 calc(25% - 20px); /* Make cards responsive */
-    max-width: calc(25% - 20px); /* Limit card width */
-    box-sizing: border-box; /* Include padding in width/height calculations */
+    display: table-cell;
+    width: 25%; /* Four cards per row */
+    vertical-align: top;
+    background: #333;
 }
 
 /* Golden Orange Project Cards */
