@@ -327,27 +327,55 @@ header h1 {
         </p>
     </section>
 </header>
-
-<style>
-/* Removing flying effect and keeping simple styling */
-.flying-text {
-    font-size: 2.5rem;
-    color: #D32F2F;
-    font-weight: bold;
-    margin: 0;
-}
-
-.flying-message {
-    font-size: 18px;
-    font-family: 'Arial', sans-serif;
-    color: #555;
-    display: inline-block;
-    line-height: 1.6;
-}
-</style>
   
+<!-- Buttons to switch backgrounds -->
+<button id="switchBackgroundBtn">Switch Gradient Background</button>
+<button id="blackBackgroundBtn">Black Background</button>
+
 <script>
-    document.getElementById('toggle-background').addEventListener('click', function() {
+    document.addEventListener('DOMContentLoaded', function () {
+        // Event listeners for buttons
+        const switchBackgroundBtn = document.getElementById("switchBackgroundBtn");
+        const blackBackgroundBtn = document.getElementById("blackBackgroundBtn");
+
+        // Check if the buttons exist before attaching event listeners
+        if (switchBackgroundBtn) {
+            switchBackgroundBtn.addEventListener("click", switchToGradient);
+        }
+
+        if (blackBackgroundBtn) {
+            blackBackgroundBtn.addEventListener("click", switchToBlack);
+        }
+
+        // EmailJS setup
+        const statusMessage = document.querySelector('.status-message');
+        const form = document.querySelector('.contact-form');
+        if (form) {
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
+                    .then(() => {
+                        statusMessage.innerText = 'Message sent successfully!';
+                        statusMessage.style.color = 'green';
+                    }, (error) => {
+                        statusMessage.innerText = 'Failed to send message. Please try again later.';
+                        statusMessage.style.color = 'red';
+                    });
+            });
+        }
+    });
+
+    // Define the functions that are being triggered by buttons
+    function switchToGradient() {
+        document.body.style.background = 'linear-gradient(to right, #ff7e5f, #feb47b)';
+    }
+
+    function switchToBlack() {
+        document.body.style.backgroundColor = 'black';
+    }
+
+    // Example for background toggle button
+    document.getElementById('toggle-background')?.addEventListener('click', function() {
         document.body.classList.toggle('alternative-background');
     });
 </script>
