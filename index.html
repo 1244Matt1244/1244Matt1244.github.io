@@ -258,32 +258,6 @@ button:focus {
     background-color: #f1f1f1;
 }
 
-/* Calendar Styling */
-#calendar {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-#calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#calendar-table {
-    width: 100%;
-    margin-top: 10px;
-    border-collapse: collapse;
-}
-
-#calendar-table th,
-#calendar-table td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-}
-
 /* Tech Stack Styling */
 .tech-stack {
     margin-top: 40px;
@@ -681,33 +655,3 @@ button:focus {
         </div>
     </div>
 </section>
-
-<!-- Clock Section -->
-<div id="clock" class="clock-section">
-    <i class="fas fa-clock"></i> 
-    <span id="time"></span> |
-    <span id="date"></span>
-</div>
-
-<!-- Calendar Section -->
-<div id="calendar" class="calendar-section">
-    <div id="calendar-header">
-        <button id="prev-month">←</button>
-        <span id="month-year"></span>
-        <button id="next-month">→</button>
-    </div>
-    <table id="calendar-table">
-        <thead>
-            <tr>
-                <th>Sun</th>
-                <th>Mon</th>
-                <th>Tue</th>
-                <th>Wed</th>
-                <th>Thu</th>
-                <th>Fri</th>
-                <th>Sat</th>
-            </tr>
-        </thead>
-        <tbody id="calendar-body"></tbody>
-    </table>
-</div>
