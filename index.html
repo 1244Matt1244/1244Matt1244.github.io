@@ -437,15 +437,6 @@ header h1 {
         <a href="https://github.com/1244Matt1244/hello_fastify" target="_blank">GitHub Repository</a>
     </div>
     
-<!-- Language Switch Bar -->
-<div class="language-switcher">
-    <button id="lang-toggle" class="lang-btn">Switch Language</button>
-    <div id="lang-dropdown" class="lang-dropdown">
-        <button id="en" class="lang-option">English</button>
-        <button id="de" class="lang-option">Deutsch</button>
-    </div>
-</div>
-
 <section id="contact" class="contact-info">
     <h2 class="connect-heading">Contact Me</h2>
     <div class="contact-item">
@@ -672,81 +663,3 @@ function updateLanguage() {
 // Initialize language on page load
 updateLanguage();
 </script>
-
-<style>
-/* Language Dropdown Styling */
-.lang-dropdown {
-    display: none;
-    position: absolute;
-    top: 30px;
-    right: 20px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
-
-.lang-dropdown.show {
-    display: block;
-}
-
-.lang-option {
-    padding: 8px 12px;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-}
-
-.lang-option:hover {
-    background-color: #f1f1f1;
-}
-
-/* Calendar Styling */
-#calendar {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-#calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#calendar-table {
-    width: 100%;
-    margin-top: 10px;
-    border-collapse: collapse;
-}
-
-#calendar-table th,
-#calendar-table td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-}
-
-/* Tech Stack Styling */
-.tech-stack {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.tech-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 20px;
-}
-
-.tech-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-</style>
