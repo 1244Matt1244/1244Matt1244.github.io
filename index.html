@@ -24,7 +24,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 20px;
-    background: linear-gradient(90deg, #00BFFF, #87CEEB); /* Azure and Sky Blue */
+    background: linear-gradient(135deg, #00BFFF, #87CEEB, #00FFFF, #4682B4); /* Azure, Sky Blue, Turquoise, Steel Blue */
     background-size: 400% 400%; /* Expanding gradient effect */
     animation: gradient 120s ease infinite; /* Slow transition for the gradient */
     color: #333; /* Text color */
@@ -32,12 +32,18 @@ body {
     transition: background-color 0.3s ease; /* Smooth transition for color change */
 }
 
-/* Azure Gradient Animation */
+/* Dynamic Gradient Animation */
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
     }
+    25% {
+        background-position: 100% 50%;
+    }
     50% {
+        background-position: 0% 50%;
+    }
+    75% {
         background-position: 100% 50%;
     }
     100% {
