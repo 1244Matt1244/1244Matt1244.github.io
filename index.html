@@ -187,32 +187,52 @@ header h1 {
     background: linear-gradient(145deg, #FFB300, #FF9800); /* Reverse gradient on hover */
     border-color: #FF6F00; /* Slightly darker border on hover */
 }
+        
+/* Project Card Container */
+.project-card {
+    width: 300px; /* Increase card width */
+    height: 400px; /* Increase card height for spaciousness */
+    background-color: #333; /* Dark background for contrast */
+    border-radius: 10px; /* Rounded corners for modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin: 20px; /* Space between cards */
+    padding: 15px; /* Inner spacing for content */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: fadeInUp 0.5s ease both;
+}
 
 /* Card Title */
 .project-card h3 {
-    font-size: 0.8rem; /* Larger title font */
+    font-size: 1.5rem; /* Larger title font */
     margin: 10px 0;
     color: #fff; /* White color for contrast */
     font-weight: bold;
+    text-align: center; /* Center align the title */
 }
 
 /* Card Description */
 .project-card p {
-    font-size: 0.8rem;
+    font-size: 1.1rem; /* Slightly larger description font */
     color: #f1f1f1; /* Soft grey text for readability */
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: justify; /* Justify text for better readability */
+    line-height: 1.5; /* Adjust line spacing */
 }
 
 /* Link Styling */
 .project-card a {
     color: #fff; /* White links for contrast */
-    text-decoration: none;
+    text-decoration: underline; /* Add underline for clarity */
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-align: center; /* Center align the link */
 }
 
 .project-card:hover a {
     color: #D32F2F; /* Red link color for emphasis on hover */
+    transform: scale(1.05); /* Slightly enlarge link on hover */
 }
 
 /* Animations */
@@ -227,44 +247,27 @@ header h1 {
     }
 }
 
+/* Animation Delays for Cards */
 .project-card:nth-child(1) { animation-delay: 0.1s; }
 .project-card:nth-child(2) { animation-delay: 0.2s; }
 .project-card:nth-child(3) { animation-delay: 0.3s; }
 .project-card:nth-child(4) { animation-delay: 0.4s; }
 .project-card:nth-child(5) { animation-delay: 0.5s; }
 
-/* Animations */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .project-card {
+        width: 90%; /* Adjust width for smaller screens */
+        height: auto; /* Auto height for responsiveness */
+        margin: 10px auto; /* Center align cards */
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+    .project-card h3 {
+        font-size: 1.2rem; /* Smaller title on smaller screens */
+    }
+    .project-card p {
+        font-size: 1rem; /* Adjust description font size */
     }
 }
-
-.project-card:nth-child(1) { animation-delay: 0.1s; }
-.project-card:nth-child(2) { animation-delay: 0.2s; }
-.project-card:nth-child(3) { animation-delay: 0.3s; }
-.project-card:nth-child(4) { animation-delay: 0.4s; }
-.project-card:nth-child(5) { animation-delay: 0.5s; }
-
-/* Footer Styling */
-.footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #FFCDD2;
-    border-top: 2px solid #D32F2F;
-    margin-top: 40px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
 
     .project-list {
         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
