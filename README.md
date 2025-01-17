@@ -62,7 +62,7 @@ Here is a selection of the projects I have worked on:
    *SQL*  
    A collection of SQL scripts for learning and practicing various SQL queries and database concepts.
 
-### 13. **[enhanced_python-code_with_turtle_graphics.py](https://github.com/1244Matt1244/enhanced_python-code_with_turtle_graphics)**  
+### 13. **[enhanced_python-code_with_turtle_graphics](https://github.com/1244Matt1244/enhanced_python-code_with_turtle_graphics)**  
    *Python*  
    A Python script using Turtle graphics to create visual representations of algorithms and geometric shapes.
 
