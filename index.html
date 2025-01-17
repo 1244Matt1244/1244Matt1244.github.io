@@ -157,23 +157,63 @@ header h1 {
     transform: scale(1.1); /* Slight scale effect for hover interaction */
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Space between cards */
-    padding: 20px;
-    background-color: #f0f0f0; /* Neutral background */
+/* General Section Styles */
+.projects {
+    background-color: #fdfdfd;
+    color: #333;
+    padding: 40px 20px;
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Project Card Styles */
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .project-card {
-    background-color: #ffb84d; /* Softer orange */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     padding: 20px;
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    justify-content: space-between;
-    transition: transform 0.3s, box-shadow 0.3s;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.repo-link {
+    font-size: 1rem;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.repo-link:hover {
+    text-decoration: underline;
 }
 
 /* Golden Orange Project Cards */
