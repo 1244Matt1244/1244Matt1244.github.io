@@ -158,12 +158,11 @@ header h1 {
 }
 
 /* Project Card Layout */
-.project-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    margin: 0;
+.project-card {
+    display: flexbox */
+    flex: 1 1 calc(25% - 20px); /* Make cards responsive */
+    max-width: calc(25% - 20px); /* Limit card width */
+    box-sizing: border-box; /* Include padding in width/height calculations */
 }
 
 /* Golden Orange Project Cards */
