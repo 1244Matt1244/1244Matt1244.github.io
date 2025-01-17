@@ -88,48 +88,70 @@ header h1 {
     margin: 0;
 }
 
+/* Stronger Impact for Project Cards */
 .project-card {
-    background-color: #fff;
+    background-color: #FF9800; /* Strong orange background */
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Stronger shadow */
     text-align: center;
     transform: translateY(20px);
     opacity: 0;
     animation: fadeInUp 0.6s forwards;
     transition: all 0.3s ease;
-    background-color: #FFEBEE;
-    border: 2px solid #FFCDD2;
+    border: 2px solid #FF5722; /* Darker border for more emphasis */
 }
 
+/* Hover Effect for Project Card */
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    background-color: #FFCDD2;
-    border-color: #D32F2F;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    background-color: #FF5722; /* Darker orange on hover */
+    border-color: #D32F2F; /* Darker border color */
 }
 
+/* Card Title */
 .project-card h3 {
-    font-size: 1rem;
+    font-size: 1.2rem; /* Slightly bigger font */
     margin: 10px 0;
-    color: #333;
+    color: #fff; /* White color to contrast with background */
 }
 
+/* Card Description */
 .project-card p {
     font-size: 1rem;
-    color: #555;
+    color: #fff; /* White text to make it readable on the orange background */
 }
 
+/* Link Styling */
 .project-card a {
-    color: #007bff;
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .project-card:hover a {
-    color: #0056b3;
+    color: #000000; /* Dark color on hover for contrast */
 }
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+        
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
 
 /* Animations */
 @keyframes fadeInUp {
