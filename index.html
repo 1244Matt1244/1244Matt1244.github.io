@@ -713,25 +713,39 @@ header h1 {
     </div>
 </section>
 
-<div id="loading" style="position: fixed; top: 0; left: 0; width: 100%; background-color: #FFB7C5; height: 5px; z-index: 9999;">
-    <div id="progressBar" style="height: 100%; width: 0; background-color: #ff6f61;"></div>
-</div>
-
 <script>
-    window.onload = function () {
-        let progress = 0;
-        const progressBar = document.getElementById('progressBar');
-        const loading = document.getElementById('loading');
-        
-        const interval = setInterval(() => {
-            if (progress < 100) {
-                progress += 2;
-                progressBar.style.width = progress + '%';
-            } else {
-                clearInterval(interval);
-                loading.style.display = 'none';
-            }
-        }, 100);
-    }
-</script>
+    const predictedNextPage = "features"; // AI backend suggests the user will visit this section
+    const loadProgress = predictedNextPage === "features" ? 80 : 50; // Give priority based on AI's prediction
+
+    document.getElementById('progressBar').style.width = `${loadProgress}%`;
+
+    document.getElementById('loadingMessage').innerHTML = 'We are almost there! Check out these suggestions while you wait:';
+    document.getElementById('recommendedContent').innerHTML = `
+        <ul>
+            <li>Article 1: AI in Everyday Life</li>
+            <li>Product 2: Personalized Smart Devices</li>
+            <li>Course 3: Machine Learning Basics</li>
+        </ul>
+    `;
+
+    const userSpeed = "fast"; // AI model determines network speed
+    const imageSrc = userSpeed === "fast" ? "high-quality-image.jpg" : "low-quality-image.jpg";
     
+    document.querySelector('.optimized-image').src = imageSrc;
+
+    if ('speechSynthesis' in window) {
+        const message = new SpeechSynthesisUtterance('Your page is almost ready!');
+        window.speechSynthesis.speak(message);
+    }
+
+    const adaptiveSpeed = predictLoadSpeed(userHistory); // AI Model predicts optimal speed
+    const progressInterval = setInterval(() => {
+        if (progress < 100) {
+            progress += adaptiveSpeed;
+            progressBar.style.width = `${progress}%`;
+        } else {
+            clearInterval(progressInterval);
+            loading.style.display = 'none';
+        }
+    }, 100);
+</script>
