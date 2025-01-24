@@ -214,15 +214,19 @@
                 this.setupEventListeners();
             },
 
-            initializeSettings() {
-                try {
-                    const savedTheme = localStorage.getItem('theme');
-                    const validTheme = ['dark', 'light'].includes(savedTheme) ? 
-                                     savedTheme : 'dark';
-                    
-                    this.body.setAttribute('data-theme', validTheme);
-                    this.themeIcon.className = `fas fa-${validTheme === 'dark' ? 
-                
+         initializeSettings() {
+    try {
+        const savedTheme = localStorage.getItem('theme');
+        const validTheme = ['dark', 'light'].includes(savedTheme) ? savedTheme : 'dark';
+        
+        this.body.setAttribute('data-theme', validTheme);
+        this.themeIcon.className = `fas fa-${validTheme === 'dark' ? 'moon' : 'sun'}`;
+    } catch (error) {
+        console.error('Initialization error:', error);
+        this.body.classList.add('bg-style-gradient-1', 'dark');
+    }
+}
+         
 <!-- Projects Section -->
 <section id="projects">
     <h2>All Projects</h2>
