@@ -345,39 +345,51 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2>Contact</h2>
-        <div class="contact-info">
-            <p><i class="fas fa-envelope"></i> matt123.3a@gmail.com</p>
-            <p><i class="fab fa-linkedin"></i> linkedin.com/in/matej-martinović</p>
-            <p><i class="fab fa-github"></i> github.com/1244Matt1244</p>
-        </div>
-    </section>
+    <h2>Contact</h2>
+       <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> 
+            <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a>
+        </p>
+        <p><i class="fab fa-linkedin"></i> 
+            <a href="https://linkedin.com/in/matej-martinović" target="_blank" rel="noopener noreferrer">linkedin.com/in/matej-martinović</a>
+        </p>
+        <p><i class="fab fa-github"></i> 
+            <a href="https://github.com/1244Matt1244" target="_blank" rel="noopener noreferrer">github.com/1244Matt1244</a>
+        </p>
+       </div>
+   </section>
 
-    <script>
-        // Christmas lights effect
-        function randomColor() {
-            return `hsl(${Math.random() * 360}, 100%, 50%)`;
-        }
+   <script>
+    // Christmas lights effect
+    function randomColor() {
+        return `hsl(${Math.random() * 360}, 100%, 50%)`;
+    }
 
-        setInterval(() => {
-            document.querySelector('.flying-text').style.textShadow = `
+    const applyChristmasLights = () => {
+        const flyingText = document.querySelector('.flying-text');
+        if (flyingText) {
+            flyingText.style.textShadow = `
                 0 0 10px ${randomColor()},
                 0 0 20px ${randomColor()},
                 0 0 30px ${randomColor()}
             `;
-        }, 1500);
+        }
+    };
 
-        // 3D card effect
+    setInterval(applyChristmasLights, 1500);
+
+    // 3D card effect
+    const addCardHoverEffect = () => {
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                
+
                 card.style.transform = `
                     perspective(1000px)
-                    rotateX(${(y - rect.height/2)/-20}deg)
-                    rotateY(${(x - rect.width/2)/20}deg)
+                    rotateX(${(y - rect.height / 2) / -20}deg)
+                    rotateY(${(x - rect.width / 2) / 20}deg)
                 `;
             });
 
@@ -385,6 +397,11 @@
                 card.style.transform = 'none';
             });
         });
-    </script>
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        addCardHoverEffect();
+    });
+     </script>
 </body>
 </html>
