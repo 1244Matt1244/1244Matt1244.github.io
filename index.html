@@ -192,22 +192,56 @@
     </button>
 
     <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const body = document.body;
+       // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
 
-        // Load saved theme
+    // Background style configuration
+    const bgStyles = ['bg-style-gradient-1', 'bg-style-gradient-2', 'bg-style-gradient-3', 'bg-style-pattern'];
+    let currentBgIndex = parseInt(localStorage.getItem('bgIndex')) || 0;
+
+    // Load saved settings
+    function initializeSettings() {
+        // Theme initialization
         const savedTheme = localStorage.getItem('theme') || 'dark';
         body.setAttribute('data-theme', savedTheme);
         themeIcon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
 
-        themeToggle.addEventListener('click', () => {
-            const isDark = body.getAttribute('data-theme') === 'dark';
-            body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
-        });
+        // Background style initialization
+        currentBgIndex = Math.max(0, Math.min(currentBgIndex, bgStyles.length - 1));
+        body.className = bgStyles[currentBgIndex];
+    }
+
+    // Theme toggle handler
+    themeToggle.addEventListener('click', () => {
+        const isDark = body.getAttribute('data-theme') === 'dark';
+        body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    });
+
+    // Background style toggle handler
+    document.getElementById('bg-toggle').addEventListener('click', () => {
+        currentBgIndex = (currentBgIndex + 1) % bgStyles.length;
+        body.className = bgStyles[currentBgIndex];
+        localStorage.setItem('bgIndex', currentBgIndex.toString());
+    });
+
+    // Dynamic effects
+    (function initEffects() {
+        // Christmas lights animation
+        let hue = 0;
+        const header = document.querySelector('.flying-text');
+        const updateLights = () => {
+            hue = (hue + 0.5) % 360;
+            header.style.textShadow = `
+                0 0 10px hsl(${hue}, 100%, 50%),
+                0 0 20px hsl(${(hue + 120) % 360}, 100%, 50%),
+                0 0 30px hsl(${(hue + 240) % 360}, 100%, 50%)
+            `;
+            requestAnimationFrame(updateLights);
+        };
 
         // Christmas lights effect
         let hue = 0;
@@ -224,24 +258,37 @@
         };
         updateLights();
 
-        // 3D card effect
-        document.querySelectorAll('.project-card').forEach(card => {
+         // 3D card effect
+         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 card.style.setProperty('--x', `${e.clientX - rect.left}px`);
                 card.style.setProperty('--y', `${e.clientY - rect.top}px`);
             });
         });
+    })();
 
-        // Background style toggle functionality
-        const bgToggle = document.getElementById('bg-toggle');
-        const bgStyles = ['bg-style-gradient-1', 'bg-style-gradient-2', 'bg-style-gradient-3', 'bg-style-pattern'];
-        let currentBgIndex = 0;
+        // Initial setup
+        initializeSettings();
 
-        bgToggle.addEventListener('click', () => {
-            currentBgIndex = (currentBgIndex + 1) % bgStyles.length;
-            body.className = bgStyles[currentBgIndex];
-        });
+     // Modified version with persistence (keep this)
+const bgToggle = document.getElementById('bg-toggle');
+const bgStyles = ['bg-style-gradient-1', 'bg-style-gradient-2', 'bg-style-gradient-3', 'bg-style-pattern'];
+
+// Initialize from localStorage or default to 0
+let currentBgIndex = Math.max(0, Math.min(
+    parseInt(localStorage.getItem('bgIndex')) || 0,
+    bgStyles.length - 1 // Ensure it doesn't exceed array bounds
+));
+
+// Apply stored background on page load
+body.classList.add(bgStyles[currentBgIndex]);
+
+bgToggle.addEventListener('click', () => {
+    currentBgIndex = (currentBgIndex + 1) % bgStyles.length;
+    body.className = bgStyles[currentBgIndex]; // Replace all classes
+    localStorage.setItem('bgIndex', currentBgIndex.toString());
+});
     </script>    
 </body>
 
