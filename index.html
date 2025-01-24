@@ -8,12 +8,14 @@
     <title>Matej Martinović - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Original CSS Structure Preserved */
+        /* Enhanced while preserving original structure */
         :root {
             --primary-glow: #ff0000;
             --secondary-glow: #00ff00;
             --tertiary-glow: #0000ff;
             --bg-gradient: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
+            --card-bg: rgba(255,255,255,0.05);
+            --card-border: rgba(255,255,255,0.1);
         }
 
         body {
@@ -25,49 +27,66 @@
             animation: gradient 15s ease infinite;
             color: #fff;
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         .flying-text {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             text-align: center;
             color: #fff;
             text-shadow: 0 0 10px var(--primary-glow),
                          0 0 20px var(--secondary-glow),
                          0 0 30px var(--tertiary-glow);
             animation: xmas-lights 1.5s infinite alternate;
-            padding: 30px 50px;
+            padding: 2rem 3rem;
             border-radius: 20px;
-            margin: 40px auto;
+            margin: 2rem auto;
             width: fit-content;
+            border: 3px solid rgba(255,215,0,0.5);
             position: relative;
             overflow: hidden;
-            border: 3px solid rgba(255,215,0,0.5);
+            backdrop-filter: blur(10px);
         }
 
         .project-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 40px;
+            gap: 2rem;
+            padding: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .project-card {
-            background: rgba(255,255,255,0.05);
-            padding: 25px;
+            background: var(--card-bg);
+            padding: 1.5rem;
             border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--x) var(--y), 
+                      rgba(255,255,255,0.1) 0%, 
+                      transparent 60%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
         }
 
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 20px;
-            padding: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -75,10 +94,11 @@
         .tech-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 15px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.08);
+            border-radius: 8px;
+            transition: background 0.3s ease;
         }
 
         @keyframes xmas-lights {
@@ -94,13 +114,23 @@
 
         .project-card:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .project-list {
+                padding: 1rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (prefers-color-scheme: dark) {
-            body {
-                background: var(--bg-gradient);
-                color: #fff;
+            :root {
+                --card-bg: rgba(0,0,0,0.2);
+                --card-border: rgba(255,255,255,0.05);
             }
         }
     </style>
@@ -115,6 +145,34 @@
             <p>Passion fuels innovation. Every line of code reflects my commitment to building meaningful solutions.</p>
         </section>
     </header>
+
+    <script>
+        // Enhanced light effect with mouse interaction
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('.flying-text');
+            let hue = 0;
+
+            function updateLights() {
+                hue = (hue + 1) % 360;
+                header.style.textShadow = `
+                    0 0 10px hsl(${hue}, 100%, 50%),
+                    0 0 20px hsl(${(hue + 120) % 360}, 100%, 50%),
+                    0 0 30px hsl(${(hue + 240) % 360}, 100%, 50%)
+                `;
+                requestAnimationFrame(updateLights);
+            }
+            updateLights();
+
+            // Dynamic card hover effect
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+                    card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+                });
+            });
+        });
+    </script>
 
     <!-- Projects Section -->
     <section id="projects">
