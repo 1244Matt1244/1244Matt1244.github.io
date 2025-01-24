@@ -21,11 +21,6 @@
             --card-bg-light: rgba(0,0,0,0.05);
             --card-border-dark: rgba(255,255,255,0.1);
             --card-border-light: rgba(0,0,0,0.1);
-            --primary-glow: #ff4444;
-            --secondary-glow: #44ff44;
-            --tertiary-glow: #4444ff;
-            --animation-duration: 0.4s;
-            --hover-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
             /* Background styles */
             --bg-gradient-1: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
@@ -95,9 +90,6 @@
             border: 1px solid var(--card-border-dark);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            will-change: transform, box-shadow;
-            transform: translateZ(0); /* GPU acceleration */
-            isolation: isolate; /* Contain stacking context */
         }
 
         body[data-theme="light"] .project-card {
@@ -137,13 +129,6 @@
             }
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            .project-card, .flying-text {
-                animation: none !important;
-                transition: opacity 0.3s ease !important;
-            }
-        }
-
         /* Toggle Buttons */
         #theme-toggle, #bg-toggle {
             position: fixed; 
@@ -155,8 +140,7 @@
             cursor: pointer; 
             backdrop-filter: blur(5px);
             z-index: 1000;
-            transition: transform 0.2s var(--hover-easing);
-            outline: 2px solid transparent;
+            transition: transform 0.2s ease;
         }
 
         #theme-toggle { right: 20px; }
@@ -164,11 +148,6 @@
 
         #theme-toggle:hover, #bg-toggle:hover {
             transform: scale(1.1);
-        }
-
-        #theme-toggle:focus-visible,
-        #bg-toggle:focus-visible {
-            outline-color: rgba(255,255,255,0.3);
         }
 
         #theme-icon, #bg-toggle i {
@@ -198,35 +177,76 @@
 
     <script>
         // Theme and Background Management
-        const themeManager = {
-            init() {
-                this.body = document.body;
-                this.themeIcon = document.getElementById('theme-icon');
-                this.bgStyles = ['bg-style-gradient-1', 'bg-style-gradient-2', 
-                               'bg-style-gradient-3', 'bg-style-pattern'];
-                
-           this.currentBgIndex = Math.max(0, Math.min(
-                    parseInt(localStorage.getItem('bgIndex'), 10) || 0,
-                    this.bgStyles.length - 1
-                ));
-
-                this.initializeSettings();
-                this.setupEventListeners();
-            },
-
-         initializeSettings() {
-    try {
-        const savedTheme = localStorage.getItem('theme');
-        const validTheme = ['dark', 'light'].includes(savedTheme) ? savedTheme : 'dark';
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+        const bgStyles = ['bg-style-gradient-1', 'bg-style-gradient-2', 'bg-style-gradient-3', 'bg-style-pattern'];
         
-        this.body.setAttribute('data-theme', validTheme);
-        this.themeIcon.className = `fas fa-${validTheme === 'dark' ? 'moon' : 'sun'}`;
-    } catch (error) {
-        console.error('Initialization error:', error);
-        this.body.classList.add('bg-style-gradient-1', 'dark');
-    }
-}
-         
+        // Initialize settings
+        let currentBgIndex = Math.max(0, Math.min(
+            parseInt(localStorage.getItem('bgIndex')) || 0,
+            bgStyles.length - 1
+        ));
+
+        function initializeSettings() {
+            // Theme
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            body.setAttribute('data-theme', savedTheme);
+            themeIcon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+            
+            // Background
+            body.classList.add(bgStyles[currentBgIndex]);
+        }
+
+        // Theme toggle
+        themeToggle.addEventListener('click', () => {
+            const isDark = body.getAttribute('data-theme') === 'dark';
+            body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        });
+
+        // Background toggle
+        document.getElementById('bg-toggle').addEventListener('click', () => {
+            body.classList.remove(bgStyles[currentBgIndex]);
+            currentBgIndex = (currentBgIndex + 1) % bgStyles.length;
+            body.classList.add(bgStyles[currentBgIndex]);
+            localStorage.setItem('bgIndex', currentBgIndex.toString());
+        });
+
+        // Dynamic Effects
+        (() => {
+            // Animated header
+            let hue = 0;
+            const header = document.querySelector('.flying-text');
+            
+            const updateLights = () => {
+                hue = (hue + 0.5) % 360;
+                header.style.textShadow = `
+                    0 0 10px hsl(${hue}, 100%, 50%),
+                    0 0 20px hsl(${(hue + 120) % 360}, 100%, 50%),
+                    0 0 30px hsl(${(hue + 240) % 360}, 100%, 50%)
+                `;
+                requestAnimationFrame(updateLights);
+            };
+            updateLights();
+
+            // Interactive cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+                    card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+                });
+            });
+        })();
+
+        // Initial setup
+        initializeSettings();
+    </script>
+</body>
+</html>
+
 <!-- Projects Section -->
 <section id="projects">
     <h2>All Projects</h2>
