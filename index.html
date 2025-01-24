@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://1244matt1244.github.io/your-image.jpg">
+    <meta name="theme-color" content="#5D3A42">  
     <title>Matej Martinović - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* Original CSS Structure Preserved */
         :root {
             --primary-glow: #ff0000;
             --secondary-glow: #00ff00;
@@ -69,7 +72,15 @@
             margin: 0 auto;
         }
 
-        /* Animations */
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+
         @keyframes xmas-lights {
             0% { filter: hue-rotate(0deg); }
             100% { filter: hue-rotate(360deg); }
@@ -81,10 +92,16 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Interactive Elements */
         .project-card:hover {
-            transform: translateY(-10px) rotateX(10deg) rotateY(-5deg);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: var(--bg-gradient);
+                color: #fff;
+            }
         }
     </style>
 </head>
