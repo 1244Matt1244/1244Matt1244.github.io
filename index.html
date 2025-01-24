@@ -242,24 +242,10 @@
             `;
             requestAnimationFrame(updateLights);
         };
-
-        // Christmas lights effect
-        let hue = 0;
-        const header = document.querySelector('.flying-text');
-        
-        const updateLights = () => {
-            hue = (hue + 0.5) % 360;
-            header.style.textShadow = `
-                0 0 10px hsl(${hue}, 100%, 50%),
-                0 0 20px hsl(${(hue + 120) % 360}, 100%, 50%),
-                0 0 30px hsl(${(hue + 240) % 360}, 100%, 50%)
-            `;
-            requestAnimationFrame(updateLights);
-        };
         updateLights();
 
-         // 3D card effect
-         document.querySelectorAll('.project-card').forEach(card => {
+        // 3D card effect
+        document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 card.style.setProperty('--x', `${e.clientX - rect.left}px`);
@@ -268,28 +254,9 @@
         });
     })();
 
-        // Initial setup
-        initializeSettings();
-
-     // Modified version with persistence (keep this)
-const bgToggle = document.getElementById('bg-toggle');
-const bgStyles = ['bg-style-gradient-1', 'bg-style-gradient-2', 'bg-style-gradient-3', 'bg-style-pattern'];
-
-// Initialize from localStorage or default to 0
-let currentBgIndex = Math.max(0, Math.min(
-    parseInt(localStorage.getItem('bgIndex')) || 0,
-    bgStyles.length - 1 // Ensure it doesn't exceed array bounds
-));
-
-// Apply stored background on page load
-body.classList.add(bgStyles[currentBgIndex]);
-
-bgToggle.addEventListener('click', () => {
-    currentBgIndex = (currentBgIndex + 1) % bgStyles.length;
-    body.className = bgStyles[currentBgIndex]; // Replace all classes
-    localStorage.setItem('bgIndex', currentBgIndex.toString());
-});
-    </script>    
+    // Initial setup
+    initializeSettings();
+</script>
 </body>
 
 <!-- Projects Section -->
