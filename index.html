@@ -351,82 +351,99 @@
 
 <!-- Add this to your HTML -->
 <section id="contact" style="padding: 2rem; margin: 3rem auto; max-width: 800px;">
-    <h2 style="text-align: center; color: #4CAF50; font-size: 2rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px;">
-        Get in Touch
-    </h2>
+    <h2 class="contact-heading">Get in Touch</h2>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; justify-content: center;">
+    <div class="contact-cards">
         <!-- Email Card -->
-        <a href="mailto:matt123.3a@gmail.com" 
-           style="background: rgba(255, 255, 255, 0.1); 
-                  padding: 1.5rem; 
-                  border-radius: 12px; 
-                  text-decoration: none; 
-                  transition: all 0.3s ease;
-                  border: 1px solid rgba(76, 175, 80, 0.3);
-                  display: flex;
-                  align-items: center;
-                  gap: 1rem;
-                  color: white;
-                  backdrop-filter: blur(5px);"
-           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" 
-           onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
-            <i class="fas fa-envelope" style="font-size: 1.5rem; color: #4CAF50;"></i>
+        <a href="mailto:matt123.3a@gmail.com" class="contact-card email-card">
+            <i class="fas fa-envelope"></i>
             <div>
-                <h3 style="margin: 0; font-size: 1.2rem;">Email</h3>
-                <p style="margin: 0.5rem 0 0; opacity: 0.8;">matt123.3a@gmail.com</p>
+                <h3>Email</h3>
+                <p>matt123.3a@gmail.com</p>
             </div>
         </a>
 
         <!-- LinkedIn Card -->
-        <a href="https://linkedin.com/in/matej-martinović" 
-           target="_blank"
-           style="background: rgba(255, 255, 255, 0.1); 
-                  padding: 1.5rem; 
-                  border-radius: 12px; 
-                  text-decoration: none; 
-                  transition: all 0.3s ease;
-                  border: 1px solid rgba(10, 102, 194, 0.3);
-                  display: flex;
-                  align-items: center;
-                  gap: 1rem;
-                  color: white;
-                  backdrop-filter: blur(5px);"
-           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" 
-           onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
-            <i class="fab fa-linkedin" style="font-size: 1.5rem; color: #0A66C2;"></i>
+        <a href="https://linkedin.com/in/matej-martinović" target="_blank" class="contact-card linkedin-card">
+            <i class="fab fa-linkedin"></i>
             <div>
-                <h3 style="margin: 0; font-size: 1.2rem;">LinkedIn</h3>
-                <p style="margin: 0.5rem 0 0; opacity: 0.8;">Matej Martinović</p>
+                <h3>LinkedIn</h3>
+                <p>Matej Martinović</p>
             </div>
         </a>
 
         <!-- GitHub Card -->
-        <a href="https://github.com/1244Matt1244" 
-           target="_blank"
-           style="background: rgba(255, 255, 255, 0.1); 
-                  padding: 1.5rem; 
-                  border-radius: 12px; 
-                  text-decoration: none; 
-                  transition: all 0.3s ease;
-                  border: 1px solid rgba(24, 23, 23, 0.3);
-                  display: flex;
-                  align-items: center;
-                  gap: 1rem;
-                  color: white;
-                  backdrop-filter: blur(5px);"
-           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" 
-           onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
-            <i class="fab fa-github" style="font-size: 1.5rem; color: #ffffff;"></i>
+        <a href="https://github.com/1244Matt1244" target="_blank" class="contact-card github-card">
+            <i class="fab fa-github"></i>
             <div>
-                <h3 style="margin: 0; font-size: 1.2rem;">GitHub</h3>
-                <p style="margin: 0.5rem 0 0; opacity: 0.8;">1244Matt1244</p>
+                <h3>GitHub</h3>
+                <p>1244Matt1244</p>
             </div>
         </a>
     </div>
 </section>
 
-   <script>
+<style>
+    .contact-heading {
+        text-align: center;
+        color: #4CAF50;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .contact-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .contact-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: white;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-card i {
+        font-size: 1.5rem;
+    }
+
+    .contact-card h3 {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+
+    .contact-card p {
+        margin: 0.5rem 0 0;
+        opacity: 0.8;
+    }
+
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Specific card colors */
+    .email-card { border: 1px solid rgba(76, 175, 80, 0.3); }
+    .linkedin-card { border: 1px solid rgba(10, 102, 194, 0.3); }
+    .github-card { border: 1px solid rgba(24, 23, 23, 0.3); }
+
+    .email-card i { color: #4CAF50; }
+    .linkedin-card i { color: #0A66C2; }
+    .github-card i { color: #ffffff; }
+</style>
+
+<script>
     // Christmas lights effect
     function randomColor() {
         return `hsl(${Math.random() * 360}, 100%, 50%)`;
@@ -443,14 +460,16 @@
         }
     };
 
-    setInterval(applyChristmasLights, 1500);
+    // Apply Christmas lights effect once page is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        setInterval(applyChristmasLights, 1500);
+    });
 
-  
-    // 3D Card Effect (Optimized)
+    // 3D Card Hover Effect
     const addCardHoverEffect = () => {
-        document.querySelectorAll('.project-card').forEach(card => {
+        document.querySelectorAll('.contact-card').forEach(card => {
             let animationFrame;
-            
+
             card.addEventListener('mousemove', (e) => {
                 cancelAnimationFrame(animationFrame);
                 animationFrame = requestAnimationFrame(() => {
@@ -460,10 +479,11 @@
                     
                     card.style.transform = `
                         perspective(1000px)
-                        rotateX(${(y - rect.height/2)/-20}deg)
-                        rotateY(${(x - rect.width/2)/20}deg)
+                        rotateX(${(y - rect.height / 2) / -20}deg)
+                        rotateY(${(x - rect.width / 2) / 20}deg)
                         translateY(-5px)
-                        scale(1.02)`;
+                        scale(1.02)
+                    `;
                 });
             });
 
@@ -473,9 +493,8 @@
         });
     };
 
-    // Remove Christmas lights effect
+    // Initialize functions
     document.addEventListener('DOMContentLoaded', () => {
-        initializeSettings();
         addCardHoverEffect();
     });
 </script>
