@@ -6,78 +6,39 @@
     <title>Matej Martinović - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Christmas Tree Header Animation */
-        .flying-text {
-            font-size: 4rem;
-            text-align: center;
-            color: #fff !important;
-            text-shadow: 0 0 10px #FF0000,
-                         0 0 20px #00FF00,
-                         0 0 30px #0000FF;
-            animation: xmas-lights 1.5s infinite alternate;
-            background: linear-gradient(45deg, #1a0b0e, #0b1a1f);
-            padding: 30px 50px;
-            border-radius: 20px;
-            border: 3px solid goldenrod;
-            margin: 40px auto;
-            width: fit-content;
-            position: relative;
-            overflow: hidden;
+        :root {
+            --primary-glow: #ff0000;
+            --secondary-glow: #00ff00;
+            --tertiary-glow: #0000ff;
+            --bg-gradient: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
         }
 
-        .flying-text::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, 
-                transparent 20%,
-                rgba(255,215,0,0.2) 50%,
-                transparent 80%);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes xmas-lights {
-            0% { 
-                text-shadow: 0 0 10px #FF0000,
-                            0 0 20px #00FF00,
-                            0 0 30px #0000FF;
-                filter: hue-rotate(0deg);
-            }
-            100% {
-                text-shadow: 0 0 20px #00FF00,
-                            0 0 30px #0000FF,
-                            0 0 40px #FF0000;
-                filter: hue-rotate(360deg);
-            }
-        }
-
-        @keyframes shine {
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Original Structure Enhancements */
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 20px;
-            background: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
+            background: var(--bg-gradient);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
             color: #fff;
             line-height: 1.6;
         }
 
-        #inspiration {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(12px);
-            border: 2px solid rgba(255,255,255,0.2);
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 25px;
-            border-radius: 15px;
+        .flying-text {
+            font-size: 4rem;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary-glow),
+                         0 0 20px var(--secondary-glow),
+                         0 0 30px var(--tertiary-glow);
+            animation: xmas-lights 1.5s infinite alternate;
+            padding: 30px 50px;
+            border-radius: 20px;
+            margin: 40px auto;
+            width: fit-content;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(255,215,0,0.5);
         }
 
         .project-list {
@@ -99,136 +60,248 @@
             overflow: hidden;
         }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* COMPLETE CONTENT STRUCTURE */
+        /* Animations */
+        @keyframes xmas-lights {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Interactive Elements */
+        .project-card:hover {
+            transform: translateY(-10px) rotateX(10deg) rotateY(-5deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
     </style>
 </head>
 <body>
-    <!-- HEADER SECTION -->
     <header>
         <h1 class="flying-text">
-            <i class="fas fa-laptop-code"></i>Welcome to My Portfolio
+            <i class="fas fa-laptop-code"></i> Matej Martinović
         </h1>
         
         <section id="inspiration">
-            <p class="flying-message">
-                Passion fuels innovation and the heart of every successful project lies a deep commitment to crafting solutions that make a difference. 
-                Every line of code I write reflects my drive to build something meaningful. Let's code for a bright tomorrow.
-            </p>
+            <p>Passion fuels innovation. Every line of code reflects my commitment to building meaningful solutions.</p>
         </section>
     </header>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="content-section">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <p>Hi! I'm Matej Martinović (he/him), a passionate full-stack developer with expertise in cloud technologies and system architecture...</p>
-            <!-- Full about text here -->
-        </div>
-    </section>
-
-    <!-- PROJECTS GRID -->
+    <!-- Projects Section -->
     <section id="projects">
-        <h2>My Projects</h2>
+        <h2>All Projects</h2>
         <div class="project-list">
-            <!-- MAZE ESCAPE -->
+            <!-- Maze Escape -->
             <div class="project-card">
                 <h3><i class="fab fa-java"></i> Maze Escape</h3>
                 <p>Java-based maze generation system</p>
-                <a href="https://github.com/1244Matt1244/maze_escape" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> View Project
-                </a>
+                <a href="https://github.com/1244Matt1244/maze_escape" target="_blank">View on GitHub</a>
             </div>
 
-            <!-- OPENSTACK TERRAFORM -->
+            <!-- OpenStack Terraform -->
             <div class="project-card">
                 <h3><i class="fab fa-python"></i> OpenStack Generator</h3>
-                <p>Terraform configuration automation tool</p>
-                <a href="https://github.com/1244Matt1244/openstack_terraform_generator" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> DevOps Tools
-                </a>
+                <p>Terraform configuration automation</p>
+                <a href="https://github.com/1244Matt1244/openstack_terraform_generator" target="_blank">View on GitHub</a>
             </div>
 
-            <!-- AZURE PROJECT -->
+            <!-- Azure Project -->
             <div class="project-card">
                 <h3><i class="fab fa-microsoft"></i> Azure DevOps</h3>
                 <p>Cloud infrastructure management</p>
-                <a href="https://github.com/1244Matt1244/azure_project" target="_blank">
-                    <i class="fas fa-cloud"></i> Cloud Solutions
-                </a>
+                <a href="https://github.com/1244Matt1244/azure_project" target="_blank">View on GitHub</a>
             </div>
 
-            <!-- ALL OTHER PROJECTS (17 more cards) -->
-            
+            <!-- QR Code Generator -->
+            <div class="project-card">
+                <h3><i class="fas fa-qrcode"></i> QR Generator</h3>
+                <p>Python QR code customization tool</p>
+                <a href="https://github.com/1244Matt1244/qrcode_generator" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- REST API -->
+            <div class="project-card">
+                <h3><i class="fas fa-server"></i> REST API</h3>
+                <p>TypeScript/Fastify user management API</p>
+                <a href="https://github.com/1244Matt1244/rest_api" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Redis Cluster -->
+            <div class="project-card">
+                <h3><i class="fas fa-database"></i> Redis Cluster</h3>
+                <p>Kubernetes local environment setup</p>
+                <a href="https://github.com/1244Matt1244/ha-master-slave-setup-with-redis-db" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- QGIS Project -->
+            <div class="project-card">
+                <h3><i class="fas fa-map"></i> QGIS Analysis</h3>
+                <p>Geospatial data processing with Python</p>
+                <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Bank ERP -->
+            <div class="project-card">
+                <h3><i class="fas fa-university"></i> Bank ERP</h3>
+                <p>C# banking operations system</p>
+                <a href="https://github.com/1244Matt1244/bank_system_ERP" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Fraud Detection -->
+            <div class="project-card">
+                <h3><i class="fas fa-shield-alt"></i> Fraud Detection</h3>
+                <p>Python/Scikit-learn credit card analysis</p>
+                <a href="https://github.com/1244Matt1244/credit_card_fraud_detection" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Guestbook App -->
+            <div class="project-card">
+                <h3><i class="fab fa-php"></i> Guestbook</h3>
+                <p>PHP-based user entry system</p>
+                <a href="https://github.com/1244Matt1244/small_guestbook_application" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Backend Service -->
+            <div class="project-card">
+                <h3><i class="fab fa-golang"></i> Backend Service</h3>
+                <p>Go camera/MTG data handler</p>
+                <a href="https://github.com/1244Matt1244/backend_service_assignment" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- SQL Learning -->
+            <div class="project-card">
+                <h3><i class="fas fa-database"></i> SQL Learning</h3>
+                <p>Database query collection</p>
+                <a href="https://github.com/1244Matt1244/sql_learning_materials_scripts" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Turtle Graphics -->
+            <div class="project-card">
+                <h3><i class="fas fa-draw-polygon"></i> Turtle Graphics</h3>
+                <p>Python algorithm visualization</p>
+                <a href="https://github.com/1244Matt1244/enhanced_python-code_with_turtle_graphics" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Character Counter -->
+            <div class="project-card">
+                <h3><i class="fas fa-text-width"></i> Character Counter</h3>
+                <p>Python frequency analysis tool</p>
+                <a href="https://github.com/1244Matt1244/character_frequency_counter" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Geometry Tasks -->
+            <div class="project-card">
+                <h3><i class="fas fa-shapes"></i> Geometry Tasks</h3>
+                <p>Python geometric calculations</p>
+                <a href="https://github.com/1244Matt1244/python_geometrical_task" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Password Generator -->
+            <div class="project-card">
+                <h3><i class="fas fa-key"></i> Password Generator</h3>
+                <p>HTML secure password creator</p>
+                <a href="https://github.com/1244Matt1244/password_generator" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Quiz Game -->
+            <div class="project-card">
+                <h3><i class="fas fa-gamepad"></i> Quiz Game</h3>
+                <p>JavaScript knowledge tester</p>
+                <a href="https://github.com/1244Matt1244/quiz_game" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Fastify Template -->
+            <div class="project-card">
+                <h3><i class="fas fa-bolt"></i> Fastify Template</h3>
+                <p>Node.js hello-world template</p>
+                <a href="https://github.com/1244Matt1244/hello_fastify" target="_blank">View on GitHub</a>
+            </div>
         </div>
     </section>
 
-    <!-- TECH STACK -->
+    <!-- Tech Stack Section -->
     <section id="tech-stack">
-        <h2>Technical Expertise</h2>
+        <h2>Technical Stack</h2>
         <div class="tech-grid">
-            <div class="tech-item">
-                <i class="fab fa-java"></i> Java
-            </div>
-            <div class="tech-item">
-                <i class="fab fa-python"></i> Python
-            </div>
-            <!-- All 25+ technologies listed -->
+            <div class="tech-item"><i class="fab fa-java"></i> Java</div>
+            <div class="tech-item"><i class="fab fa-python"></i> Python</div>
+            <div class="tech-item"><i class="fab fa-js"></i> JavaScript</div>
+            <div class="tech-item"><i class="fab fa-golang"></i> Go</div>
+            <div class="tech-item"><i class="fas fa-database"></i> SQL</div>
+            <div class="tech-item"><i class="fab fa-php"></i> PHP</div>
+            <div class="tech-item"><i class="fab fa-microsoft"></i> C#/.NET</div>
+            <div class="tech-item"><i class="fas fa-brain"></i> Machine Learning</div>
+            <div class="tech-item"><i class="fab fa-docker"></i> Docker</div>
+            <div class="tech-item"><i class="fab fa-aws"></i> AWS</div>
+            <div class="tech-item"><i class="fas fa-cloud"></i> GCP</div>
+            <div class="tech-item"><i class="fas fa-network-wired"></i> Kubernetes</div>
+            <div class="tech-item"><i class="fas fa-memory"></i> Redis</div>
+            <div class="tech-item"><i class="fas fa-server"></i> PostgreSQL</div>
+            <div class="tech-item"><i class="fas fa-map-marked-alt"></i> PostGIS</div>
+            <div class="tech-item"><i class="fas fa-flask"></i> Flask</div>
+            <div class="tech-item"><i class="fas fa-file-excel"></i> Excel VBA</div>
+            <div class="tech-item"><i class="fas fa-globe"></i> QGIS</div>
+            <div class="tech-item"><i class="fas fa-code"></i> Swagger</div>
+            <div class="tech-item"><i class="fas fa-terminal"></i> PowerShell</div>
+            <div class="tech-item"><i class="fas fa-cubes"></i> Terraform</div>
+            <div class="tech-item"><i class="fas fa-code-branch"></i> CI/CD</div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- Contact Section -->
     <section id="contact">
-        <h2>Get in Touch</h2>
+        <h2>Contact</h2>
         <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:matt123.3a@gmail.com">matt123.3a@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <i class="fab fa-linkedin"></i>
-                <a href="https://linkedin.com/in/matej-martinović">LinkedIn Profile</a>
-            </div>
-            <div class="contact-item">
-                <i class="fab fa-github"></i>
-                <a href="https://github.com/1244Matt1244">GitHub Profile</a>
-            </div>
+            <p><i class="fas fa-envelope"></i> matt123.3a@gmail.com</p>
+            <p><i class="fab fa-linkedin"></i> linkedin.com/in/matej-martinović</p>
+            <p><i class="fab fa-github"></i> github.com/1244Matt1244</p>
         </div>
     </section>
 
-    <!-- SCRIPTS -->
     <script>
-        // Interactive Elements
+        // Christmas lights effect
+        function randomColor() {
+            return `hsl(${Math.random() * 360}, 100%, 50%)`;
+        }
+
+        setInterval(() => {
+            document.querySelector('.flying-text').style.textShadow = `
+                0 0 10px ${randomColor()},
+                0 0 20px ${randomColor()},
+                0 0 30px ${randomColor()}
+            `;
+        }, 1500);
+
+        // 3D card effect
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('mousemove', e => {
-                const x = e.pageX - card.offsetLeft;
-                const y = e.pageY - card.offsetTop;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
                 card.style.transform = `
                     perspective(1000px)
-                    rotateX(${(y - card.offsetHeight/2)/-20}deg)
-                    rotateY(${(x - card.offsetWidth/2)/20}deg)
+                    rotateX(${(y - rect.height/2)/-20}deg)
+                    rotateY(${(x - rect.width/2)/20}deg)
                 `;
             });
 
             card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                card.style.transform = 'none';
             });
         });
-
-        // Christmas lights randomizer
-        setInterval(() => {
-            const header = document.querySelector('.flying-text');
-            header.style.textShadow = `
-                0 0 ${10+Math.random()*20}px hsl(${Math.random()*360}deg 100% 50%),
-                0 0 ${15+Math.random()*25}px hsl(${Math.random()*360}deg 100% 50%),
-                0 0 ${20+Math.random()*30}px hsl(${Math.random()*360}deg 100% 50%)
-            `;
-        }, 1500);
     </script>
 </body>
 </html>
