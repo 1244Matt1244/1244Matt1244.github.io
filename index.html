@@ -4,43 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="https://1244matt1244.github.io/your-image.jpg">
-    <meta name="theme-color" content="#5D3A42">
+    <meta name="theme-color" content="#5D3A42">  
     <title>Matej Martinović - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Updated CSS with performance improvements */
+        /* Updated CSS with improvements */
         :root {
-            --primary-glow: #ff4444; /* Softer red */
-            --secondary-glow: #44ff44; /* Less intense green */
-            --tertiary-glow: #4444ff; /* Muted blue */
-            --animation-duration: 0.4s; /* New timing variable */
-            
-            /* Existing gradient variables remain unchanged */
+            --primary-glow: #ff0000;
+            --secondary-glow: #00ff00;
+            --tertiary-glow: #0000ff;
+            --bg-gradient-dark: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
+            --bg-gradient-light: linear-gradient(135deg, #f0f4f8, #d9e2ec, #c5d3e0, #b0c4de);
+            --text-dark: #ffffff;
+            --text-light: #2d3748;
+            --card-bg-dark: rgba(255,255,255,0.05);
+            --card-bg-light: rgba(0,0,0,0.05);
+            --card-border-dark: rgba(255,255,255,0.1);
+            --card-border-light: rgba(0,0,0,0.1);
+
+            /* Background styles */
+            --bg-gradient-1: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
+            --bg-gradient-2: linear-gradient(135deg, #2c003e, #4b0082, #6a0dad, #8a2be2);
+            --bg-gradient-3: linear-gradient(135deg, #004d40, #00695c, #00897b, #00bfa5);
+            --bg-pattern: repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.05),
+                rgba(255,255,255,0.05) 10px,
+                rgba(0,0,0,0.05) 10px,
+                rgba(0,0,0,0.05) 20px
+            );
         }
 
-        /* Add will-change for animated elements */
-        .project-card {
-            will-change: transform;
-            transform: translateZ(0); /* Hardware acceleration */
+        /* Background classes with fallback */
+        body.bg-style-gradient-1 { background: var(--bg-gradient-1); }
+        body.bg-style-gradient-2 { background: var(--bg-gradient-2); }
+        body.bg-style-gradient-3 { background: var(--bg-gradient-3); }
+        body.bg-style-pattern { background: var(--bg-pattern), var(--bg-gradient-1); }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: background 0.5s ease, color 0.3s ease, transform 0.3s ease;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            .project-card, .flying-text {
-                animation: none !important;
-                transition: none !important;
-            }
+        body[data-theme="light"] {
+            background: var(--bg-gradient-light);
+            color: var(--text-light);
         }
 
         .flying-text {
-            /* Add fallback for backdrop-filter */
-            background: rgba(0,0,0,0.1);
-            transition: opacity 0.3s ease; /* Smooth state changes */
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary-glow),
+                         0 0 20px var(--secondary-glow),
+                         0 0 30px var(--tertiary-glow);
+            animation: float 3s ease-in-out infinite;
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            margin: 2rem auto;
+            width: fit-content;
+            border: 3px solid rgba(255,215,0,0.5);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
-        /* Enhanced project card interactions */
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--card-bg-dark);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid var(--card-border-dark);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        body[data-theme="light"] .project-card {
+            background: var(--card-bg-light);
+            border: 1px solid var(--card-border-light);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--x) var(--y), 
+                      rgba(255,255,255,0.1) 0%, 
+                      transparent 60%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         .project-card:hover {
-            z-index: 1; /* Bring hovered card forward */
-            transition: transform var(--animation-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .project-list {
+                padding: 1rem;
+            }
         }
 
         /* Toggle Buttons */
@@ -71,8 +157,6 @@
     </style>
 </head>
 <body>
-    <!-- Existing body content remains identical -->
-
     <header>
         <h1 class="flying-text">
             <i class="fas fa-laptop-code"></i> Matej Martinović
@@ -92,92 +176,76 @@
     </button>
 
     <script>
-        // Optimized JavaScript
+        // Theme and Background Management
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const body = document.body;
         const bgStyles = ['bg-style-gradient-1', 'bg-style-gradient-2', 'bg-style-gradient-3', 'bg-style-pattern'];
-
-        // Safer initialization
+        
+        // Initialize settings
         let currentBgIndex = Math.max(0, Math.min(
-            parseInt(localStorage.getItem('bgIndex'), 10) || 0,
+            parseInt(localStorage.getItem('bgIndex')) || 0,
             bgStyles.length - 1
         ));
 
         function initializeSettings() {
-            const savedTheme = localStorage.getItem('theme');
-            const validThemes = ['dark', 'light'];
-            const theme = validThemes.includes(savedTheme) ? savedTheme : 'dark';
+            // Theme
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            body.setAttribute('data-theme', savedTheme);
+            themeIcon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
             
-            body.setAttribute('data-theme', theme);
-            themeIcon.className = `fas fa-${theme === 'dark' ? 'moon' : 'sun'}`;
+            // Background
             body.classList.add(bgStyles[currentBgIndex]);
         }
 
-        // Smoother theme toggle
+        // Theme toggle
         themeToggle.addEventListener('click', () => {
             const isDark = body.getAttribute('data-theme') === 'dark';
-            body.style.transition = 'background 0.5s ease, color 0.3s ease';
             body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            themeIcon.className = `fas fa-${isDark ? 'sun' : 'moon'}`;
+            themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
             localStorage.setItem('theme', isDark ? 'light' : 'dark');
         });
 
-        // Optimized background toggle
+        // Background toggle
         document.getElementById('bg-toggle').addEventListener('click', () => {
-            requestAnimationFrame(() => {
-                body.classList.replace(
-                    bgStyles[currentBgIndex],
-                    bgStyles[(currentBgIndex + 1) % bgStyles.length]
-                );
-                currentBgIndex = (currentBgIndex + 1) % bgStyles.length;
-                localStorage.setItem('bgIndex', currentBgIndex);
-            });
+            body.classList.remove(bgStyles[currentBgIndex]);
+            currentBgIndex = (currentBgIndex + 1) % bgStyles.length;
+            body.classList.add(bgStyles[currentBgIndex]);
+            localStorage.setItem('bgIndex', currentBgIndex.toString());
         });
 
-        // Enhanced animations
+        // Dynamic Effects
         (() => {
-            let animationFrame;
+            // Animated header
+            let hue = 0;
             const header = document.querySelector('.flying-text');
             
             const updateLights = () => {
+                hue = (hue + 0.5) % 360;
                 header.style.textShadow = `
-                    0 0 10px hsl(${(performance.now()/50) % 360}, 80%, 60%),
-                    0 0 20px hsl(${(performance.now()/50 + 120) % 360}, 80%, 60%),
-                    0 0 30px hsl(${(performance.now()/50 + 240) % 360}, 80%, 60%)
+                    0 0 10px hsl(${hue}, 100%, 50%),
+                    0 0 20px hsl(${(hue + 120) % 360}, 100%, 50%),
+                    0 0 30px hsl(${(hue + 240) % 360}, 100%, 50%)
                 `;
-                animationFrame = requestAnimationFrame(updateLights);
+                requestAnimationFrame(updateLights);
             };
-
-            document.addEventListener('visibilitychange', () => {
-                document.hidden ? cancelAnimationFrame(animationFrame) : updateLights();
-            });
-
             updateLights();
 
-            // Optimized card interactions
+            // Interactive cards
             document.querySelectorAll('.project-card').forEach(card => {
-                let frame;
                 card.addEventListener('mousemove', (e) => {
-                    cancelAnimationFrame(frame);
-                    frame = requestAnimationFrame(() => {
-                        const rect = card.getBoundingClientRect();
-                        card.style.setProperty('--x', `${e.clientX - rect.left}px`);
-                        card.style.setProperty('--y', `${e.clientY - rect.top}px`);
-                    });
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+                    card.style.setProperty('--y', `${e.clientY - rect.top}px`);
                 });
             });
         })();
 
-        // Initialize with error handling
-        try {
-            initializeSettings();
-        } catch (error) {
-            console.error('Initialization error:', error);
-            body.classList.add('bg-style-gradient-1', 'dark');
-        }
-      </script>
+        // Initial setup
+        initializeSettings();
+    </script>
 </body>
+</html>
 
 <!-- Projects Section -->
 <section id="projects">
@@ -351,99 +419,82 @@
 
 <!-- Add this to your HTML -->
 <section id="contact" style="padding: 2rem; margin: 3rem auto; max-width: 800px;">
-    <h2 class="contact-heading">Get in Touch</h2>
+    <h2 style="text-align: center; color: #4CAF50; font-size: 2rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px;">
+        Get in Touch
+    </h2>
     
-    <div class="contact-cards">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; justify-content: center;">
         <!-- Email Card -->
-        <a href="mailto:matt123.3a@gmail.com" class="contact-card email-card">
-            <i class="fas fa-envelope"></i>
+        <a href="mailto:matt123.3a@gmail.com" 
+           style="background: rgba(255, 255, 255, 0.1); 
+                  padding: 1.5rem; 
+                  border-radius: 12px; 
+                  text-decoration: none; 
+                  transition: all 0.3s ease;
+                  border: 1px solid rgba(76, 175, 80, 0.3);
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  color: white;
+                  backdrop-filter: blur(5px);"
+           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" 
+           onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+            <i class="fas fa-envelope" style="font-size: 1.5rem; color: #4CAF50;"></i>
             <div>
-                <h3>Email</h3>
-                <p>matt123.3a@gmail.com</p>
+                <h3 style="margin: 0; font-size: 1.2rem;">Email</h3>
+                <p style="margin: 0.5rem 0 0; opacity: 0.8;">matt123.3a@gmail.com</p>
             </div>
         </a>
 
         <!-- LinkedIn Card -->
-        <a href="https://linkedin.com/in/matej-martinović" target="_blank" class="contact-card linkedin-card">
-            <i class="fab fa-linkedin"></i>
+        <a href="https://linkedin.com/in/matej-martinović" 
+           target="_blank"
+           style="background: rgba(255, 255, 255, 0.1); 
+                  padding: 1.5rem; 
+                  border-radius: 12px; 
+                  text-decoration: none; 
+                  transition: all 0.3s ease;
+                  border: 1px solid rgba(10, 102, 194, 0.3);
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  color: white;
+                  backdrop-filter: blur(5px);"
+           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" 
+           onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+            <i class="fab fa-linkedin" style="font-size: 1.5rem; color: #0A66C2;"></i>
             <div>
-                <h3>LinkedIn</h3>
-                <p>Matej Martinović</p>
+                <h3 style="margin: 0; font-size: 1.2rem;">LinkedIn</h3>
+                <p style="margin: 0.5rem 0 0; opacity: 0.8;">Matej Martinović</p>
             </div>
         </a>
 
         <!-- GitHub Card -->
-        <a href="https://github.com/1244Matt1244" target="_blank" class="contact-card github-card">
-            <i class="fab fa-github"></i>
+        <a href="https://github.com/1244Matt1244" 
+           target="_blank"
+           style="background: rgba(255, 255, 255, 0.1); 
+                  padding: 1.5rem; 
+                  border-radius: 12px; 
+                  text-decoration: none; 
+                  transition: all 0.3s ease;
+                  border: 1px solid rgba(24, 23, 23, 0.3);
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  color: white;
+                  backdrop-filter: blur(5px);"
+           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" 
+           onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+            <i class="fab fa-github" style="font-size: 1.5rem; color: #ffffff;"></i>
             <div>
-                <h3>GitHub</h3>
-                <p>1244Matt1244</p>
+                <h3 style="margin: 0; font-size: 1.2rem;">GitHub</h3>
+                <p style="margin: 0.5rem 0 0; opacity: 0.8;">1244Matt1244</p>
             </div>
         </a>
     </div>
 </section>
 
-<style>
-    .contact-heading {
-        text-align: center;
-        color: #4CAF50;
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-
-    .contact-cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        justify-content: center;
-    }
-
-    .contact-card {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 1.5rem;
-        border-radius: 12px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        color: white;
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(0, 0, 0, 0.3);
-    }
-
-    .contact-card i {
-        font-size: 1.5rem;
-    }
-
-    .contact-card h3 {
-        margin: 0;
-        font-size: 1.2rem;
-    }
-
-    .contact-card p {
-        margin: 0.5rem 0 0;
-        opacity: 0.8;
-    }
-
-    .contact-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Specific card colors */
-    .email-card { border: 1px solid rgba(76, 175, 80, 0.3); }
-    .linkedin-card { border: 1px solid rgba(10, 102, 194, 0.3); }
-    .github-card { border: 1px solid rgba(24, 23, 23, 0.3); }
-
-    .email-card i { color: #4CAF50; }
-    .linkedin-card i { color: #0A66C2; }
-    .github-card i { color: #ffffff; }
-</style>
-
-<script>
+   <script>
     // Christmas lights effect
     function randomColor() {
         return `hsl(${Math.random() * 360}, 100%, 50%)`;
@@ -460,31 +511,21 @@
         }
     };
 
-    // Apply Christmas lights effect once page is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-        setInterval(applyChristmasLights, 1500);
-    });
+    setInterval(applyChristmasLights, 1500);
 
-    // 3D Card Hover Effect
+    // 3D card effect
     const addCardHoverEffect = () => {
-        document.querySelectorAll('.contact-card').forEach(card => {
-            let animationFrame;
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
-            card.addEventListener('mousemove', (e) => {
-                cancelAnimationFrame(animationFrame);
-                animationFrame = requestAnimationFrame(() => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    card.style.transform = `
-                        perspective(1000px)
-                        rotateX(${(y - rect.height / 2) / -20}deg)
-                        rotateY(${(x - rect.width / 2) / 20}deg)
-                        translateY(-5px)
-                        scale(1.02)
-                    `;
-                });
+                card.style.transform = `
+                    perspective(1000px)
+                    rotateX(${(y - rect.height / 2) / -20}deg)
+                    rotateY(${(x - rect.width / 2) / 20}deg)
+                `;
             });
 
             card.addEventListener('mouseleave', () => {
@@ -493,10 +534,9 @@
         });
     };
 
-    // Initialize functions
     document.addEventListener('DOMContentLoaded', () => {
         addCardHoverEffect();
     });
-</script>
+     </script>
 </body>
 </html>
