@@ -13,21 +13,30 @@
             --primary-glow: #ff0000;
             --secondary-glow: #00ff00;
             --tertiary-glow: #0000ff;
-            --bg-gradient: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
-            --card-bg: rgba(255,255,255,0.05);
-            --card-border: rgba(255,255,255,0.1);
+            --bg-gradient-dark: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
+            --bg-gradient-light: linear-gradient(135deg, #f0f4f8, #d9e2ec, #c5d3e0, #b0c4de);
+            --text-dark: #ffffff;
+            --text-light: #2d3748;
+            --card-bg-dark: rgba(255,255,255,0.05);
+            --card-bg-light: rgba(0,0,0,0.05);
+            --card-border-dark: rgba(255,255,255,0.1);
+            --card-border-light: rgba(0,0,0,0.1);
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 20px;
-            background: var(--bg-gradient);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            color: #fff;
+            background: var(--bg-gradient-dark);
+            color: var(--text-dark);
             line-height: 1.6;
             min-height: 100vh;
+            transition: background 0.5s ease, color 0.3s ease;
+        }
+
+        body[data-theme="light"] {
+            background: var(--bg-gradient-light);
+            color: var(--text-light);
         }
 
         .flying-text {
@@ -58,12 +67,17 @@
         }
 
         .project-card {
-            background: var(--card-bg);
+            background: var(--card-bg-dark);
             padding: 1.5rem;
             border-radius: 15px;
-            border: 1px solid var(--card-border);
+            border: 1px solid var(--card-border-dark);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
+        }
+
+        body[data-theme="light"] .project-card {
+            background: var(--card-bg-light);
+            border: 1px solid var(--card-border-light);
         }
 
         .project-card::before {
@@ -103,6 +117,26 @@
                 padding: 1rem;
             }
         }
+
+        /* Toggle Button Style */
+        #theme-toggle {
+            position: fixed; 
+            top: 20px; 
+            right: 20px; 
+            background: rgba(255,255,255,0.1); 
+            border: none; 
+            padding: 10px; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+        }
+
+        #theme-icon {
+            color: #fff; 
+            font-size: 1.2rem;
+        }
+
     </style>
 </head>
 <body>
@@ -116,31 +150,50 @@
         </section>
     </header>
 
-    <script>
-        // Original effects with stability improvements
-        document.addEventListener('DOMContentLoaded', () => {
-            // Christmas lights effect
-            let hue = 0;
-            const header = document.querySelector('.flying-text');
-            
-            const updateLights = () => {
-                hue = (hue + 0.5) % 360;
-                header.style.textShadow = `
-                    0 0 10px hsl(${hue}, 100%, 50%),
-                    0 0 20px hsl(${(hue + 120) % 360}, 100%, 50%),
-                    0 0 30px hsl(${(hue + 240) % 360}, 100%, 50%)
-                `;
-                requestAnimationFrame(updateLights);
-            };
-            updateLights();
+    <!-- Add the theme toggle button -->
+    <button id="theme-toggle">
+        <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
 
-            // 3D card effect
-            document.querySelectorAll('.project-card').forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    card.style.setProperty('--x', `${e.clientX - rect.left}px`);
-                    card.style.setProperty('--y', `${e.clientY - rect.top}px`);
-                });
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        body.setAttribute('data-theme', savedTheme);
+        themeIcon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = body.getAttribute('data-theme') === 'dark';
+            body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        });
+
+        // Christmas lights effect
+        let hue = 0;
+        const header = document.querySelector('.flying-text');
+        
+        const updateLights = () => {
+            hue = (hue + 0.5) % 360;
+            header.style.textShadow = `
+                0 0 10px hsl(${hue}, 100%, 50%),
+                0 0 20px hsl(${(hue + 120) % 360}, 100%, 50%),
+                0 0 30px hsl(${(hue + 240) % 360}, 100%, 50%)
+            `;
+            requestAnimationFrame(updateLights);
+        };
+        updateLights();
+
+        // 3D card effect
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+                card.style.setProperty('--y', `${e.clientY - rect.top}px`);
             });
         });
     </script>
