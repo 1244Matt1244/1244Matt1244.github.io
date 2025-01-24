@@ -11,6 +11,8 @@
     <meta name="description" content="Portfolio of Matej Martinović | Full Stack Developer | Showcase of programming projects in Java, Python, JavaScript, and cloud technologies">
     <meta property="og:title" content="Matej Martinović - Software Development Portfolio">
     <meta property="og:description" content="Professional portfolio showcasing software projects and technical expertise">
+    <!-- Add CSP meta tag in head -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval';">   
     
     <!-- Title Structure -->
     <title>Matej Martinović | Software Developer Portfolio</title>
@@ -20,7 +22,14 @@
     <meta property="og:url" content="https://1244matt1244.github.io/">
     <meta property="og:type" content="website">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Preload Font Awesome for improved performance -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </noscript>
+
     <link rel="manifest" href="/site.webmanifest">
     
     <!-- Favicon Recommendation -->
@@ -65,7 +74,9 @@
         color: var(--text-dark);
         line-height: 1.6;
         min-height: 100vh;
-        transition: background 0.5s ease, color 0.3s ease, transform 0.3s ease;
+        transition: background 0.5s ease, 
+                    color 0.3s ease, 
+                    transform 0.3s ease;
     }
 
     body[data-theme="light"] {
@@ -105,7 +116,8 @@
         padding: 1.5rem;
         border-radius: 15px;
         border: 1px solid var(--card-border-dark);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.3s ease, 
+                    box-shadow 0.3s ease;
         position: relative;
         background: 
             linear-gradient(
@@ -146,11 +158,14 @@
     }
 
     .contact-card {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 1.5rem;
-        border-radius: 12px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.3s ease, 
+                    box-shadow 0.3s ease,
+                    background-color 0.2s ease;
     }
+
+    .email-card:hover { background: rgba(76, 175, 80, 0.15); }
+    .linkedin-card:hover { background: rgba(10, 102, 194, 0.15); }
+    .github-card:hover { background: rgba(255, 255, 255, 0.15); }
 
     .contact-card:hover {
         transform: translateY(-5px);
@@ -163,9 +178,13 @@
     }
 
     @media (max-width: 480px) {
-        .project-list {
-            grid-template-columns: 1fr;
-            padding: 0.5rem;
+        .contact-card {
+            padding: 1rem;
+            gap: 0.75rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.25rem;
         }
 
         .tech-grid {
