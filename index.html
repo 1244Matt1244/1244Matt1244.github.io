@@ -37,7 +37,7 @@
             text-shadow: 0 0 10px var(--primary-glow),
                          0 0 20px var(--secondary-glow),
                          0 0 30px var(--tertiary-glow);
-            animation: xmas-lights 1.5s infinite alternate;
+            animation: float 3s ease-in-out infinite;
             padding: 2rem 3rem;
             border-radius: 20px;
             margin: 2rem auto;
@@ -101,6 +101,11 @@
             transition: background 0.3s ease;
         }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
         @keyframes xmas-lights {
             0% { filter: hue-rotate(0deg); }
             100% { filter: hue-rotate(360deg); }
