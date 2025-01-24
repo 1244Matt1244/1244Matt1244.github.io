@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="https://1244matt1244.github.io/your-image.jpg">
-    <meta name="theme-color" content="#5D3A42">
+    <meta name="theme-color" content="#5D3A42">  
     <title>Matej Martinović - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Enhanced CSS with performance optimizations */
+        /* Original CSS with critical fixes */
         :root {
-            --primary-glow: #ff4d4d;
-            --secondary-glow: #4dff4d;
-            --tertiary-glow: #4d4dff;
+            --primary-glow: #ff0000;
+            --secondary-glow: #00ff00;
+            --tertiary-glow: #0000ff;
             --bg-gradient: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
             --card-bg: rgba(255,255,255,0.05);
             --card-border: rgba(255,255,255,0.1);
-            --gold-border: rgba(255,215,0,0.5);
         }
 
         body {
@@ -29,51 +28,57 @@
             color: #fff;
             line-height: 1.6;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        .flying-text {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            text-align: center;
-            color: #fff;
-            padding: 2rem 3rem;
-            border-radius: 20px;
-            margin: 2rem auto;
-            width: fit-content;
-            border: 3px solid var(--gold-border);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Enhanced Contact Section */
+        /* Added contact section styling */
         #contact {
             padding: 2rem;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0,0,0,0.3);
             border-radius: 15px;
             margin: 3rem auto;
             max-width: 800px;
-            backdrop-filter: blur(5px);
         }
 
         .contact-info a {
             color: #4CAF50;
             text-decoration: none;
             display: block;
-            margin: 1.5rem 0;
-            padding: 1rem;
-            transition: all 0.3s ease;
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
+            margin: 1rem 0;
+            padding: 0.8rem;
+            transition: transform 0.3s ease;
         }
 
         .contact-info a:hover {
-            background: rgba(255,255,255,0.1);
             transform: translateX(10px);
         }
 
-        /* Project Cards Enhancements */
+        .flying-text {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary-glow),
+                         0 0 20px var(--secondary-glow),
+                         0 0 30px var(--tertiary-glow);
+            animation: float 3s ease-in-out infinite;
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            margin: 2rem auto;
+            width: fit-content;
+            border: 3px solid rgba(255,215,0,0.5);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .project-card {
             background: var(--card-bg);
             padding: 1.5rem;
@@ -81,19 +86,15 @@
             border: 1px solid var(--card-border);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            cursor: pointer;
-            overflow: hidden;
         }
 
         .project-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(
-                600px circle at var(--x) var(--y),
-                rgba(255,255,255,0.1),
-                transparent 60%
-            );
+            background: radial-gradient(circle at var(--x) var(--y), 
+                      rgba(255,255,255,0.1) 0%, 
+                      transparent 60%);
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -103,10 +104,9 @@
             opacity: 1;
         }
 
-        /* Keyframe optimizations */
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(-1deg); }
-            50% { transform: translateY(-10px) rotate(1deg); }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         @keyframes gradient {
@@ -115,19 +115,13 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Mobile optimizations */
+        .project-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            
-            .flying-text {
-                padding: 1.5rem;
-                margin: 1rem auto;
-            }
-            
-            #contact {
-                margin: 2rem 1rem;
+            .project-list {
                 padding: 1rem;
             }
         }
@@ -144,40 +138,52 @@
         </section>
     </header>
 
+    <!-- Add this contact section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <a href="mailto:matt123.3a@gmail.com">
+                <i class="fas fa-envelope"></i> matt123.3a@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/matej-martinović" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn Profile
+            </a>
+            <a href="https://github.com/1244Matt1244" target="_blank">
+                <i class="fab fa-github"></i> GitHub Profile
+            </a>
+        </div>
+    </section>
+
     <script>
-        // Optimized JavaScript with performance enhancements
+        // Original effects with stability improvements
         document.addEventListener('DOMContentLoaded', () => {
-            // Dynamic header glow effect
-            const header = document.querySelector('.flying-text');
+            // Christmas lights effect
             let hue = 0;
+            const header = document.querySelector('.flying-text');
             
-            const updateGlow = () => {
+            const updateLights = () => {
                 hue = (hue + 0.5) % 360;
                 header.style.textShadow = `
                     0 0 10px hsl(${hue}, 100%, 50%),
                     0 0 20px hsl(${(hue + 120) % 360}, 100%, 50%),
                     0 0 30px hsl(${(hue + 240) % 360}, 100%, 50%)
                 `;
-                requestAnimationFrame(updateGlow);
+                requestAnimationFrame(updateLights);
             };
-            updateGlow();
+            updateLights();
 
-            // Project card interaction
+            // 3D card effect
             document.querySelectorAll('.project-card').forEach(card => {
-                const updateLightPosition = (e) => {
+                card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
                     card.style.setProperty('--x', `${e.clientX - rect.left}px`);
                     card.style.setProperty('--y', `${e.clientY - rect.top}px`);
-                };
-                
-                card.addEventListener('mousemove', updateLightPosition);
-                card.addEventListener('touchmove', (e) => {
-                    e.preventDefault();
-                    updateLightPosition(e.touches[0]);
                 });
             });
         });
     </script>
+    
+</body>
 
     <!-- Projects Section -->
     <section id="projects">
