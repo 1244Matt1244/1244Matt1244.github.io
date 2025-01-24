@@ -202,37 +202,129 @@
     const themeIcon = document.getElementById('theme-icon');
     const body = document.body;
     const bgStyles = ['bg-style-gradient-1', 'bg-style-gradient-2', 'bg-style-gradient-3', 'bg-style-pattern'];
-    
+
     // Initialize settings
-    let currentBgIndex = Math.max(0, Math.min(
-        parseInt(localStorage.getItem('bgIndex')) || 0,
-        bgStyles.length - 1
-    ));
+    let currentBgIndex = Math.max(
+        0,
+        Math.min(parseInt(localStorage.getItem('bgIndex')) || 0, bgStyles.length - 1)
+    );
 
     function initializeSettings() {
-        try {
-            // Theme initialization
-            const validThemes = new Set(['dark', 'light']);
-            const savedTheme = validThemes.has(localStorage.getItem('theme')) 
-                ? localStorage.getItem('theme') 
-                : 'dark';
+        // Feature detection for critical APIs
+        const storageAvailable = (type) => {
+            try {
+                const storage = window[type];
+                const testKey = '__storage_test__';
+                storage.setItem(testKey, testKey);
+                storage.removeItem(testKey);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        };
 
-            body.setAttribute('data-theme', savedTheme);
-            themeIcon.className = `fas fa-${savedTheme === 'dark' ? 'moon' : 'sun'}`;
+        try {
+            // Check storage availability
+            const hasLocalStorage = storageAvailable('localStorage');
+            const hasSessionStorage = storageAvailable('sessionStorage');
+
+            // Theme initialization with system preference fallback
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const validThemes = new Set(['dark', 'light']);
+
+            let savedTheme = 'dark';
+            if (hasLocalStorage) {
+                savedTheme = validThemes.has(localStorage.getItem('theme'))
+                    ? localStorage.getItem('theme')
+                    : systemPrefersDark
+                    ? 'dark'
+                    : 'light';
+            } else if (hasSessionStorage) {
+                savedTheme = validThemes.has(sessionStorage.getItem('theme'))
+                    ? sessionStorage.getItem('theme')
+                    : systemPrefersDark
+                    ? 'dark'
+                    : 'light';
+            }
+
+            // Apply theme
+            requestAnimationFrame(() => {
+                body.setAttribute('data-theme', savedTheme);
+                themeIcon.className = `fas fa-${savedTheme === 'dark' ? 'moon' : 'sun'}`;
+            });
 
             // Background initialization
-            body.classList.add(bgStyles[currentBgIndex]);
+            currentBgIndex = Math.max(
+                0,
+                Math.min(parseInt(localStorage.getItem('bgIndex')) || 0, bgStyles.length - 1)
+            );
 
+            // Apply background style
+            if (CSS.supports('background', bgStyles[currentBgIndex])) {
+                body.classList.add(bgStyles[currentBgIndex]);
+            } else {
+                body.classList.add('bg-style-gradient-1');
+                localStorage.setItem('bgIndex', '0');
+            }
+
+            // Accessibility announcement
+            if ('Announce' in window) {
+                Announce(`Loaded ${savedTheme} theme with ${bgStyles[currentBgIndex]} background`);
+            }
         } catch (error) {
             console.error('Initialization error:', error);
-            // Fallback to default settings
             body.setAttribute('data-theme', 'dark');
             body.classList.add('bg-style-gradient-1');
             themeIcon.className = 'fas fa-moon';
+
+            if (typeof reportError === 'function') {
+                reportError({
+                    type: 'initialization_failure',
+                    message: error.message,
+                    stack: error.stack,
+                });
+            }
+
+            if (error instanceof SecurityError) {
+                throw error;
+            }
+        } finally {
+            if (process.env.NODE_ENV === 'development') {
+                console.debug('Applied settings:', {
+                    theme: body.getAttribute('data-theme'),
+                    background: bgStyles[currentBgIndex],
+                    storage: {
+                        localStorage: !!window.localStorage,
+                        sessionStorage: !!window.sessionStorage,
+                    },
+                });
+            }
         }
     }
 
-    // Theme toggle
+    // Error reporting service (mock implementation)
+    const reportError = (errorData) => {
+        console.warn('Error reported:', errorData);
+    };
+
+    // Accessibility announcer
+    const Announce = (message) => {
+        const ariaLive =
+            document.getElementById('a11y-announcer') ||
+            (() => {
+                const el = document.createElement('div');
+                el.id = 'a11y-announcer';
+                el.setAttribute('aria-live', 'polite');
+                el.style.position = 'absolute';
+                el.style.left = '-9999px';
+                document.body.appendChild(el);
+                return el;
+            })();
+
+        ariaLive.textContent = message;
+    };
+
+    // Theme toggle event listener
     themeToggle.addEventListener('click', () => {
         const isDark = body.getAttribute('data-theme') === 'dark';
         body.setAttribute('data-theme', isDark ? 'light' : 'dark');
@@ -240,7 +332,7 @@
         localStorage.setItem('theme', isDark ? 'light' : 'dark');
     });
 
-    // Background toggle
+    // Background toggle event listener
     document.getElementById('bg-toggle').addEventListener('click', () => {
         body.classList.remove(bgStyles[currentBgIndex]);
         currentBgIndex = (currentBgIndex + 1) % bgStyles.length;
@@ -248,12 +340,12 @@
         localStorage.setItem('bgIndex', currentBgIndex.toString());
     });
 
-    // Dynamic Effects
+    // Dynamic effects
     (() => {
         // Animated header
         let hue = 0;
         const header = document.querySelector('.flying-text');
-        
+
         const updateLights = () => {
             hue = (hue + 0.5) % 360;
             header.style.textShadow = `
@@ -266,7 +358,7 @@
         updateLights();
 
         // Interactive cards
-        document.querySelectorAll('.project-card').forEach(card => {
+        document.querySelectorAll('.project-card').forEach((card) => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 card.style.setProperty('--x', `${e.clientX - rect.left}px`);
@@ -278,8 +370,6 @@
     // Initial setup
     initializeSettings();
 </script>
-</body>
-</html>
 
 <!-- Projects Section -->
 <section id="projects">
