@@ -21,7 +21,25 @@
             --card-bg-light: rgba(0,0,0,0.05);
             --card-border-dark: rgba(255,255,255,0.1);
             --card-border-light: rgba(0,0,0,0.1);
+
+            /* New background styles */
+            --bg-gradient-1: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
+            --bg-gradient-2: linear-gradient(135deg, #2c003e, #4b0082, #6a0dad, #8a2be2);
+            --bg-gradient-3: linear-gradient(135deg, #004d40, #00695c, #00897b, #00bfa5);
+            --bg-pattern: repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.05),
+                rgba(255,255,255,0.05) 10px,
+                rgba(0,0,0,0.05) 10px,
+                rgba(0,0,0,0.05) 20px
+            );
         }
+
+        /* Background style classes */
+        .bg-style-gradient-1 { background: var(--bg-gradient-1) !important; }
+        .bg-style-gradient-2 { background: var(--bg-gradient-2) !important; }
+        .bg-style-gradient-3 { background: var(--bg-gradient-3) !important; }
+        .bg-style-pattern { background: var(--bg-pattern), var(--bg-gradient-1) !important; }
 
         body {
             font-family: 'Open Sans', sans-serif;
@@ -101,12 +119,6 @@
             50% { transform: translateY(-10px); }
         }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         .project-card:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -137,28 +149,24 @@
             font-size: 1.2rem;
         }
 
-        .tech-item {
-           font-size: 1.2rem;
-           margin: 10px;
-           display: inline-block;
-           text-align: center;
-           transition: transform 0.3s ease, color 0.3s ease;
-       }
+        /* Background Style Toggle Button */
+        #bg-toggle {
+            position: fixed; 
+            top: 20px; 
+            right: 70px; /* Adjusted spacing */
+            background: rgba(255,255,255,0.1); 
+            border: none; 
+            padding: 10px; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+        }
 
-       .tech-item i {
-          font-size: 2rem;
-          margin-bottom: 5px;
-          transition: color 0.3s ease;
-       }
-
-      .tech-item:hover {
-         transform: scale(1.1);
-         color: #4CAF50; /* Change to your preferred hover color */
-       }
-
-     .tech-item:hover i {
-        color: #4CAF50;
-      }
+        #bg-toggle i {
+            color: #fff; 
+            font-size: 1.2rem;
+        }
 
     </style>
 </head>
@@ -176,6 +184,11 @@
     <!-- Add the theme toggle button -->
     <button id="theme-toggle">
         <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
+
+    <!-- Add the background style toggle button -->
+    <button id="bg-toggle">
+        <i class="fas fa-palette"></i>
     </button>
 
     <script>
@@ -218,6 +231,16 @@
                 card.style.setProperty('--x', `${e.clientX - rect.left}px`);
                 card.style.setProperty('--y', `${e.clientY - rect.top}px`);
             });
+        });
+
+        // Background style toggle functionality
+        const bgToggle = document.getElementById('bg-toggle');
+        const bgStyles = ['bg-style-gradient-1', 'bg-style-gradient-2', 'bg-style-gradient-3', 'bg-style-pattern'];
+        let currentBgIndex = 0;
+
+        bgToggle.addEventListener('click', () => {
+            currentBgIndex = (currentBgIndex + 1) % bgStyles.length;
+            body.className = bgStyles[currentBgIndex];
         });
     </script>
     
