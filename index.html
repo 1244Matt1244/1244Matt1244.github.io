@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="https://1244matt1244.github.io/your-image.jpg">
     <meta name="theme-color" content="#5D3A42">  
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Matej Martinović - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="manifest" href="/site.webmanifest">
     <style>
         /* Updated CSS with improvements */
         :root {
+            --will-change-transform: transform, opacity;
             --primary-glow: #ff0000;
             --secondary-glow: #00ff00;
             --tertiary-glow: #0000ff;
@@ -143,17 +146,35 @@
             transition: transform 0.2s ease;
         }
 
-        #theme-toggle { right: 20px; }
-        #bg-toggle { right: 70px; }
+        #theme-toggle {
+            right: 20px;
+        }
 
-        #theme-toggle:hover, #bg-toggle:hover {
+        #bg-toggle {
+            right: 70px;
+       }
+
+      /* Hover effect for buttons */
+      #theme-toggle:hover, 
+      #bg-toggle:hover {
             transform: scale(1.1);
-        }
+       }
 
-        #theme-icon, #bg-toggle i {
-            color: #fff; 
-            font-size: 1.2rem;
-        }
+      /* Focus effect for buttons */
+      #theme-toggle:focus, 
+      #bg-toggle:focus {
+           outline: 2px solid var(--primary-glow);
+           outline-offset: 3px;
+      }
+
+      #theme-icon, #bg-toggle i {
+          color: #fff;
+          font-size: 1.2rem;
+      }
+      #theme-icon, #bg-toggle i {
+          color: #fff; 
+          font-size: 1.2rem;
+      }
     </style>
 </head>
 <body>
@@ -243,6 +264,21 @@
 
         // Initial setup
         initializeSettings();
+    try {
+        const validThemes = new Set(['dark', 'light']);
+        const savedTheme = validThemes.has(localStorage.getItem('theme')) 
+            ? localStorage.getItem('theme') 
+            : 'dark';
+
+        this.body.setAttribute('data-theme', savedTheme);
+        this.themeIcon.className = `fas fa-${savedTheme === 'dark' ? 'moon' : 'sun'}`;
+        this.body.classList.add(this.bgStyles[this.currentBgIndex]);
+    } catch (error) {
+        console.error('Initialization error:', error);
+        this.body.classList.add('bg-style-gradient-1', 'dark');
+    }
+}
+
     </script>
 </body>
 </html>
