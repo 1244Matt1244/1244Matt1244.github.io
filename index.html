@@ -513,19 +513,26 @@
 
     setInterval(applyChristmasLights, 1500);
 
-    // 3D card effect
+  
+    // 3D Card Effect (Optimized)
     const addCardHoverEffect = () => {
         document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                card.style.transform = `
-                    perspective(1000px)
-                    rotateX(${(y - rect.height / 2) / -20}deg)
-                    rotateY(${(x - rect.width / 2) / 20}deg)
-                `;
+            let animationFrame;
+            
+            card.addEventListener('mousemove', (e) => {
+                cancelAnimationFrame(animationFrame);
+                animationFrame = requestAnimationFrame(() => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    card.style.transform = `
+                        perspective(1000px)
+                        rotateX(${(y - rect.height/2)/-20}deg)
+                        rotateY(${(x - rect.width/2)/20}deg)
+                        translateY(-5px)
+                        scale(1.02)`;
+                });
             });
 
             card.addEventListener('mouseleave', () => {
@@ -534,9 +541,11 @@
         });
     };
 
+    // Remove Christmas lights effect
     document.addEventListener('DOMContentLoaded', () => {
+        initializeSettings();
         addCardHoverEffect();
     });
-     </script>
+</script>
 </body>
 </html>
