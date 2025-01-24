@@ -207,5 +207,3 @@ To view my portfolio locally:
 
 3. Open the `index.html` file in your browser to explore my portfolio.
 ```
-
----
