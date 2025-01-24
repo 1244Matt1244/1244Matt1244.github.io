@@ -55,8 +55,8 @@
         }
 
         body[data-theme="light"] {
-            background: var(--bg-gradient-light);
-            color: var(--text-light);
+            --text-light: #2d3748; /* Current color */
+            --background-light: #f8f9fa; /* Brighter background */
         }
 
         .flying-text {
@@ -208,6 +208,12 @@
         0,
         Math.min(parseInt(localStorage.getItem('bgIndex')) || 0, bgStyles.length - 1)
     );
+
+    // Add to initializeSettings()
+    document.documentElement.classList.add('loading');
+    window.addEventListener('DOMContentLoaded', () => {
+        document.documentElement.classList.remove('loading');
+    });
 
     function initializeSettings() {
         // Feature detection for critical APIs
@@ -507,9 +513,14 @@
             <h3><i class="fas fa-bolt"></i> Fastify Template</h3>
             <p>Node.js hello-world template</p>
             <a href="https://github.com/1244Matt1244/hello_fastify" target="_blank">View on GitHub</a>
-        </div>
-
-    </div>
+       </div>
+        
+       <!-- QR Code Generator -->
+       <div class="project-card">
+           <h3>QR Code Generator</h3>
+           <p>FastAPI-based QR code generator with Redis caching</p>
+           <a href="https://github.com/1244Matt1244/qrcode_generator">View on GitHub</a>
+      </div>
 </section>
 
 <!-- Tech Stack Section -->
