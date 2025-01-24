@@ -116,6 +116,19 @@
             opacity: 1;
         }
 
+        /* Replace inline contact styles with */
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -126,8 +139,18 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
             .project-list {
+                grid-template-columns: 1fr;
+                padding: 0.5rem;
+            }
+    
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+    
+            .flying-text {
+                font-size: clamp(2rem, 6vw, 3rem);
                 padding: 1rem;
             }
         }
@@ -152,32 +175,29 @@
 
         #bg-toggle {
             right: 70px;
-       }
+        }
 
-      /* Hover effect for buttons */
-      #theme-toggle:hover, 
-      #bg-toggle:hover {
+        /* Hover effect for buttons */
+        #theme-toggle:hover, 
+        #bg-toggle:hover {
             transform: scale(1.1);
-       }
+        }
 
-      /* Focus effect for buttons */
-      #theme-toggle:focus, 
-      #bg-toggle:focus {
-           outline: 2px solid var(--primary-glow);
-           outline-offset: 3px;
-      }
+        /* Focus effect for buttons */
+        #theme-toggle:focus, 
+        #bg-toggle:focus {
+            outline: 2px solid var(--primary-glow);
+            outline-offset: 3px;
+        }
 
-      #theme-icon, #bg-toggle i {
-          color: #fff;
-          font-size: 1.2rem;
-      }
-      #theme-icon, #bg-toggle i {
-          color: #fff; 
-          font-size: 1.2rem;
-      }
+        #theme-icon, #bg-toggle i {
+            color: #fff;
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
+ 
     <header>
         <h1 class="flying-text">
             <i class="fas fa-laptop-code"></i> Matej Martinović
