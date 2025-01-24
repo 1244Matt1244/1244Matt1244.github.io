@@ -558,8 +558,8 @@
 </section>
 
 <!-- Tech Stack Section -->
-<section id="tech-stack">
-    <h2>Technical Stack</h2>
+<section id="tech-stack" role="region" aria-labelledby="tech-stack-heading">
+    <h2 id="tech-stack-heading">Technical Stack</h2>
     <div class="tech-grid">
         <div class="tech-item" title="Java programming language"><i class="fab fa-java"></i> Java</div>
         <div class="tech-item" title="Python programming language"><i class="fab fa-python"></i> Python</div>
@@ -586,82 +586,151 @@
     </div>
 </section>
 
-<!-- Add this to your HTML -->
 <section id="contact" style="padding: 2rem; margin: 3rem auto; max-width: 800px;">
     <h2 style="text-align: center; color: #4CAF50; font-size: 2rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px;">
         Get in Touch
     </h2>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; justify-content: center;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
         <!-- Email Card -->
-        <a href="mailto:matt123.3a@gmail.com" 
-           style="background: rgba(255, 255, 255, 0.1); 
-                  padding: 1.5rem; 
-                  border-radius: 12px; 
-                  text-decoration: none; 
-                  transition: all 0.3s ease;
-                  border: 1px solid rgba(76, 175, 80, 0.3);
-                  display: flex;
-                  align-items: center;
-                  gap: 1rem;
-                  color: white;
-                  backdrop-filter: blur(5px);"
-           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" 
-           onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
-            <i class="fas fa-envelope" style="font-size: 1.5rem; color: #4CAF50;"></i>
-            <div>
-                <h3 style="margin: 0; font-size: 1.2rem;">Email</h3>
-                <p style="margin: 0.5rem 0 0; opacity: 0.8;">matt123.3a@gmail.com</p>
+        <a href="#" 
+           class="contact-card email-card"
+           data-email="matt123[dot]3a[at]gmail[dot]com"
+           aria-label="Send email">
+            <i class="fas fa-envelope contact-icon"></i>
+            <div class="contact-info">
+                <h3>Email</h3>
+                <p class="email-obfuscated">matt123[dot]3a[at]gmail[dot]com</p>
             </div>
         </a>
 
         <!-- LinkedIn Card -->
         <a href="https://linkedin.com/in/matej-martinović" 
+           class="contact-card linkedin-card"
            target="_blank"
-           style="background: rgba(255, 255, 255, 0.1); 
-                  padding: 1.5rem; 
-                  border-radius: 12px; 
-                  text-decoration: none; 
-                  transition: all 0.3s ease;
-                  border: 1px solid rgba(10, 102, 194, 0.3);
-                  display: flex;
-                  align-items: center;
-                  gap: 1rem;
-                  color: white;
-                  backdrop-filter: blur(5px);"
-           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" 
-           onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
-            <i class="fab fa-linkedin" style="font-size: 1.5rem; color: #0A66C2;"></i>
-            <div>
-                <h3 style="margin: 0; font-size: 1.2rem;">LinkedIn</h3>
-                <p style="margin: 0.5rem 0 0; opacity: 0.8;">Matej Martinović</p>
+           rel="noopener noreferrer"
+           aria-label="Visit LinkedIn profile">
+            <i class="fab fa-linkedin contact-icon"></i>
+            <div class="contact-info">
+                <h3>LinkedIn</h3>
+                <p>Matej Martinović</p>
             </div>
         </a>
 
         <!-- GitHub Card -->
         <a href="https://github.com/1244Matt1244" 
+           class="contact-card github-card"
            target="_blank"
-           style="background: rgba(255, 255, 255, 0.1); 
-                  padding: 1.5rem; 
-                  border-radius: 12px; 
-                  text-decoration: none; 
-                  transition: all 0.3s ease;
-                  border: 1px solid rgba(24, 23, 23, 0.3);
-                  display: flex;
-                  align-items: center;
-                  gap: 1rem;
-                  color: white;
-                  backdrop-filter: blur(5px);"
-           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" 
-           onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
-            <i class="fab fa-github" style="font-size: 1.5rem; color: #ffffff;"></i>
-            <div>
-                <h3 style="margin: 0; font-size: 1.2rem;">GitHub</h3>
-                <p style="margin: 0.5rem 0 0; opacity: 0.8;">1244Matt1244</p>
+           rel="noopener noreferrer"
+           aria-label="Visit GitHub profile">
+            <i class="fab fa-github contact-icon"></i>
+            <div class="contact-info">
+                <h3>GitHub</h3>
+                <p>1244Matt1244</p>
             </div>
         </a>
     </div>
 </section>
+
+<style>
+#contact {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+.contact-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid transparent;
+    backdrop-filter: blur(5px);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.contact-info p {
+    margin: 0.5rem 0 0;
+    opacity: 0.8;
+}
+
+/* Specific card colors */
+.email-card {
+    border-color: rgba(76, 175, 80, 0.3);
+}
+
+.email-card .contact-icon {
+    color: #4CAF50;
+}
+
+.linkedin-card {
+    border-color: rgba(10, 102, 194, 0.3);
+}
+
+.linkedin-card .contact-icon {
+    color: #0A66C2;
+}
+
+.github-card {
+    border-color: rgba(24, 23, 23, 0.3);
+}
+
+.github-card .contact-icon {
+    color: #ffffff;
+}
+
+/* Adjustments for reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .contact-card {
+        transition: none;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Function to decode obfuscated email
+    const decodeEmail = (encoded) => 
+        encoded.replace(/\[dot\]/g, '.').replace('[at]', '@');
+
+    const emailCard = document.querySelector('.email-card');
+    if (emailCard) {
+        const realEmail = decodeEmail(emailCard.dataset.email);
+
+        emailCard.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = `mailto:${realEmail}`;
+        });
+
+        const emailObfuscated = emailCard.querySelector('.email-obfuscated');
+        if (emailObfuscated) {
+            emailObfuscated.textContent = realEmail;
+        }
+    }
+});
+</script>
+
 
    <script>
     // Christmas lights effect
