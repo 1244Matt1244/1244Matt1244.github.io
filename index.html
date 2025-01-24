@@ -3,249 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://1244matt1244.github.io/your-image.jpg">
-    <meta name="theme-color" content="#5D3A42">  
-    <title>Matej Martinović - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="description" content="Enhanced project page with theme toggling, background effects, and smooth animations">
+    <meta name="author" content="Your Name">
+    <title>Enhanced Project Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Updated CSS with improvements */
         :root {
-            --primary-glow: #ff0000;
-            --secondary-glow: #00ff00;
-            --tertiary-glow: #0000ff;
-            --bg-gradient-dark: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
-            --bg-gradient-light: linear-gradient(135deg, #f0f4f8, #d9e2ec, #c5d3e0, #b0c4de);
-            --text-dark: #ffffff;
-            --text-light: #2d3748;
-            --card-bg-dark: rgba(255,255,255,0.05);
-            --card-bg-light: rgba(0,0,0,0.05);
-            --card-border-dark: rgba(255,255,255,0.1);
-            --card-border-light: rgba(0,0,0,0.1);
-
-            /* Background styles */
-            --bg-gradient-1: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
-            --bg-gradient-2: linear-gradient(135deg, #2c003e, #4b0082, #6a0dad, #8a2be2);
-            --bg-gradient-3: linear-gradient(135deg, #004d40, #00695c, #00897b, #00bfa5);
-            --bg-pattern: repeating-linear-gradient(
-                45deg,
-                rgba(255,255,255,0.05),
-                rgba(255,255,255,0.05) 10px,
-                rgba(0,0,0,0.05) 10px,
-                rgba(0,0,0,0.05) 20px
-            );
+            --primary-glow: #ff4444;
+            --secondary-glow: #44ff44;
+            --tertiary-glow: #4444ff;
+            --animation-duration: 0.4s;
+            --hover-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-
-        /* Background classes with fallback */
-        body.bg-style-gradient-1 { background: var(--bg-gradient-1); }
-        body.bg-style-gradient-2 { background: var(--bg-gradient-2); }
-        body.bg-style-gradient-3 { background: var(--bg-gradient-3); }
-        body.bg-style-pattern { background: var(--bg-pattern), var(--bg-gradient-1); }
 
         body {
-            font-family: 'Open Sans', sans-serif;
             margin: 0;
-            padding: 20px;
-            color: var(--text-dark);
-            line-height: 1.6;
-            min-height: 100vh;
-            transition: background 0.5s ease, color 0.3s ease, transform 0.3s ease;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f5f5f5;
+            transition: background 0.5s, color 0.5s;
         }
 
-        body[data-theme="light"] {
-            background: var(--bg-gradient-light);
-            color: var(--text-light);
+        [data-theme="light"] {
+            background-color: #f5f5f5;
+            color: #121212;
         }
 
-        .flying-text {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+        header {
             text-align: center;
-            color: #fff;
-            text-shadow: 0 0 10px var(--primary-glow),
-                         0 0 20px var(--secondary-glow),
-                         0 0 30px var(--tertiary-glow);
-            animation: float 3s ease-in-out infinite;
-            padding: 2rem 3rem;
-            border-radius: 20px;
-            margin: 2rem auto;
-            width: fit-content;
-            border: 3px solid rgba(255,215,0,0.5);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .project-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
             padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px var(--primary-glow);
         }
 
-        .project-card {
-            background: var(--card-bg-dark);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 1px solid var(--card-border-dark);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem;
         }
 
-        body[data-theme="light"] .project-card {
-            background: var(--card-bg-light);
-            border: 1px solid var(--card-border-light);
+        .controls button {
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s var(--hover-easing);
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at var(--x) var(--y), 
-                      rgba(255,255,255,0.1) 0%, 
-                      transparent 60%);
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        @media (max-width: 768px) {
-            .project-list {
-                padding: 1rem;
-            }
-        }
-
-        /* Toggle Buttons */
-        #theme-toggle, #bg-toggle {
-            position: fixed; 
-            top: 20px; 
-            background: rgba(255,255,255,0.1); 
-            border: none; 
-            padding: 10px; 
-            border-radius: 50%; 
-            cursor: pointer; 
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            transition: transform 0.2s ease;
-        }
-
-        #theme-toggle { right: 20px; }
-        #bg-toggle { right: 70px; }
-
-        #theme-toggle:hover, #bg-toggle:hover {
+        .controls button:hover {
             transform: scale(1.1);
         }
 
-        #theme-icon, #bg-toggle i {
-            color: #fff; 
-            font-size: 1.2rem;
+        .controls button:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        #theme-toggle {
+            background: #4444ff;
+            color: #fff;
+        }
+
+        #bg-toggle {
+            background: #ff4444;
+            color: #fff;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s var(--hover-easing), box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card h3 {
+            margin: 0.5rem 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1 class="flying-text">
-            <i class="fas fa-laptop-code"></i> Matej Martinović
-        </h1>
-        
-        <section id="inspiration">
-            <p>Passion fuels innovation. Every line of code reflects my commitment to building meaningful solutions.</p>
-        </section>
+        Welcome to My Enhanced Project Page
     </header>
 
-    <button id="theme-toggle" aria-label="Toggle theme">
-        <i id="theme-icon" class="fas fa-moon"></i>
-    </button>
-
-    <button id="bg-toggle" aria-label="Change background style">
-        <i class="fas fa-palette"></i>
-    </button>
-
+    <div class="controls">
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <i id="theme-icon" class="fas fa-moon"></i> Theme
+        </button>
+        <button id="bg-toggle" aria-label="Cycle background">Change Background</button>
+    </div>
+    
     <script>
-        // Theme and Background Management
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const body = document.body;
-        const bgStyles = ['bg-style-gradient-1', 'bg-style-gradient-2', 'bg-style-gradient-3', 'bg-style-pattern'];
-        
-        // Initialize settings
-        let currentBgIndex = Math.max(0, Math.min(
-            parseInt(localStorage.getItem('bgIndex')) || 0,
-            bgStyles.length - 1
-        ));
+        const themeManager = {
+            init() {
+                this.body = document.body;
+                this.themeIcon = document.getElementById('theme-icon');
+                this.bgStyles = ['bg-gradient-1', 'bg-gradient-2', 'bg-pattern', 'bg-solid'];
 
-        function initializeSettings() {
-            // Theme
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            body.setAttribute('data-theme', savedTheme);
-            themeIcon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-            
-            // Background
-            body.classList.add(bgStyles[currentBgIndex]);
-        }
+                this.currentBgIndex = parseInt(localStorage.getItem('bgIndex'), 10) || 0;
+                this.initializeTheme();
+                this.setupListeners();
+            },
 
-        // Theme toggle
-        themeToggle.addEventListener('click', () => {
-            const isDark = body.getAttribute('data-theme') === 'dark';
-            body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
-        });
+            initializeTheme() {
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                this.body.setAttribute('data-theme', savedTheme);
+                this.themeIcon.className = `fas fa-${savedTheme === 'dark' ? 'moon' : 'sun'}`;
+                this.applyBackground();
+            },
 
-        // Background toggle
-        document.getElementById('bg-toggle').addEventListener('click', () => {
-            body.classList.remove(bgStyles[currentBgIndex]);
-            currentBgIndex = (currentBgIndex + 1) % bgStyles.length;
-            body.classList.add(bgStyles[currentBgIndex]);
-            localStorage.setItem('bgIndex', currentBgIndex.toString());
-        });
+            setupListeners() {
+                document.getElementById('theme-toggle').addEventListener('click', () => this.toggleTheme());
+                document.getElementById('bg-toggle').addEventListener('click', () => this.cycleBackground());
+            },
 
-        // Dynamic Effects
-        (() => {
-            // Animated header
-            let hue = 0;
-            const header = document.querySelector('.flying-text');
-            
-            const updateLights = () => {
-                hue = (hue + 0.5) % 360;
-                header.style.textShadow = `
-                    0 0 10px hsl(${hue}, 100%, 50%),
-                    0 0 20px hsl(${(hue + 120) % 360}, 100%, 50%),
-                    0 0 30px hsl(${(hue + 240) % 360}, 100%, 50%)
-                `;
-                requestAnimationFrame(updateLights);
-            };
-            updateLights();
+            toggleTheme() {
+                const isDark = this.body.getAttribute('data-theme') === 'dark';
+                this.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+                this.themeIcon.className = `fas fa-${isDark ? 'sun' : 'moon'}`;
+                localStorage.setItem('theme', isDark ? 'light' : 'dark');
+            },
 
-            // Interactive cards
-            document.querySelectorAll('.project-card').forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    card.style.setProperty('--x', `${e.clientX - rect.left}px`);
-                    card.style.setProperty('--y', `${e.clientY - rect.top}px`);
-                });
-            });
-        })();
+            cycleBackground() {
+                this.currentBgIndex = (this.currentBgIndex + 1) % this.bgStyles.length;
+                this.applyBackground();
+                localStorage.setItem('bgIndex', this.currentBgIndex);
+            },
 
-        // Initial setup
-        initializeSettings();
+            applyBackground() {
+                this.body.className = this.bgStyles[this.currentBgIndex];
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => themeManager.init());
     </script>
 </body>
 </html>
+
 
 <!-- Projects Section -->
 <section id="projects">
