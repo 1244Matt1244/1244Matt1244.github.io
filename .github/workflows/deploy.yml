@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy GitHub Pages
 
 on:
   push:
@@ -9,19 +9,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository code
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Ruby environment
-      - name: Set Up Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          ruby-version: 2.7  # Must match Gemfile
-          bundler-cache: true
+          node-version: '18'
 
-      # Step 3: Cache gems to speed up subsequent builds
-      - name: Cache Gems
-        uses: actions/cache@v3
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Site
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: vendor/b
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist  # Adjust based on your build output directory
