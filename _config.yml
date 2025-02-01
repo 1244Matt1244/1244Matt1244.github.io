@@ -1,0 +1,5 @@
+remote_theme: jekyll-theme-chirpy
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
