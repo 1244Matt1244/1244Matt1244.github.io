@@ -1,0 +1,9 @@
+{
+  "name": "1244matt1244.github.io",
+  "version": "1.0.0",
+  "devDependencies": {
+    "postcss": "^8.4",
+    "autoprefixer": "^10.4",
+    "tailwindcss": "^3.3"
+  }
+}
