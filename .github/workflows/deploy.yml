@@ -2,16 +2,25 @@ name: Deploy
 on:
   push:
     branches: [ main ]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-      - run: npm install
-      - run: bundle install
-      - run: JEKYLL_ENV=production bundle exec jekyll build
+
+      # Only needed if using Jekyll plugins
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+          bundler-cache: true
+
+      - name: Build Site
+        run: |
+          bundle install
+          bundle exec jekyll build
+
       - uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITH_TOKEN }}
           publish_dir: ./_site
