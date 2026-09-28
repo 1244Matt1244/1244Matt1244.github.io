@@ -1,5 +1,52 @@
+# Site settings
+
+title: "Matej Martinović"
+tagline: "Software Development Portfolio"
+description: >-
+Software development portfolio focused on backend development,
+Python, C#/.NET, APIs, databases, automation, data and GIS.
+
+url: "https://1244Matt1244.github.io"
+baseurl: ""
+
+# Repository
+
+github:
+username: 1244Matt1244
+
+social:
+name: Matej Martinović
+links:
+- https://github.com/1244Matt1244
+- https://www.linkedin.com/in/matejmartinovic
+
+# Theme
+
 remote_theme: jekyll-theme-chirpy
+
+# Plugins
+
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
+
+* jekyll-feed
+* jekyll-seo-tag
+* jekyll-sitemap
+
+# Build settings
+
+markdown: kramdown
+highlighter: rouge
+
+# Exclude files from the generated site
+
+exclude:
+
+* Gemfile
+* Gemfile.lock
+* node_modules
+* vendor
+* package.json
+* package-lock.json
+* README.md
+* LICENSE
+* "*.log"
