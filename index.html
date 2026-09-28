@@ -1,204 +1,398 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta charset="UTF-8">
 
-    <meta
-        name="description"
-        content="Matej Martinović — Software Development Portfolio focused on backend development, Python, C#/.NET, SQL, APIs, automation, data and GIS."
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="author"
-        content="Matej Martinović"
-    >
+<title>
+    Matej Martinović | Software & IT Portfolio
+</title>
 
-    <meta
-        name="theme-color"
-        content="#5D3A42"
-    >
+<meta
+    name="description"
+    content="Software and IT portfolio of Matej Martinović, focused on Python, backend development, APIs, databases, automation, GIS and data-oriented projects."
+>
 
-    <meta
-        property="og:type"
-        content="website"
-    >
+<meta
+    name="author"
+    content="Matej Martinović"
+>
 
-    <meta
-        property="og:title"
-        content="Matej Martinović | Software Development Portfolio"
-    >
+<meta
+    name="robots"
+    content="index, follow"
+>
 
-    <meta
-        property="og:description"
-        content="Software development portfolio focused on backend development, Python, C#/.NET, SQL, APIs, automation, data and GIS."
-    >
+<link
+    rel="canonical"
+    href="https://1244Matt1244.github.io/"
+>
 
-    <meta
-        property="og:url"
-        content="https://1244Matt1244.github.io/"
-    >
+<!-- Open Graph -->
 
-    <meta
-        property="og:image"
-        content="https://1244Matt1244.github.io/assets/og-image.png"
-    >
+<meta
+    property="og:title"
+    content="Matej Martinović | Software & IT Portfolio"
+>
 
-    <meta
-        property="og:image:alt"
-        content="Matej Martinović – Software Development Portfolio"
-    >
+<meta
+    property="og:description"
+    content="Software and IT portfolio covering backend development, Python, APIs, databases, automation, GIS and data projects."
+>
 
-    <meta
-        name="twitter:card"
-        content="summary_large_image"
-    >
+<meta
+    property="og:type"
+    content="website"
+>
 
-    <meta
-        name="twitter:title"
-        content="Matej Martinović | Software Development Portfolio"
-    >
+<meta
+    property="og:url"
+    content="https://1244Matt1244.github.io/"
+>
 
-    <meta
-        name="twitter:description"
-        content="Software development portfolio focused on backend development, Python, C#/.NET, SQL, APIs, automation, data and GIS."
-    >
+<!-- Twitter -->
 
-    <meta
-        name="twitter:image"
-        content="https://1244Matt1244.github.io/assets/og-image.png"
-    >
+<meta
+    name="twitter:card"
+    content="summary"
+>
 
-    <title>Matej Martinović | Software Development Portfolio</title>
+<meta
+    name="twitter:title"
+    content="Matej Martinović | Software & IT Portfolio"
+>
 
-    <link
-        rel="stylesheet"
-        href="{{ '/assets/css/portfolio.css' | relative_url }}"
-    >
+<meta
+    name="twitter:description"
+    content="Software and IT portfolio covering backend development, Python, APIs, databases, automation, GIS and data projects."
+>
 
-    <link
-        rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>"
-    >
+<!-- Theme -->
+
+<meta
+    name="theme-color"
+    content="#0f172a"
+>
+
+<!-- Favicon -->
+
+<link
+    rel="icon"
+    href="{{ '/assets/favicon.ico' | relative_url }}"
+>
+
+<!-- Styles -->
+
+<link
+    rel="stylesheet"
+    href="{{ '/assets/css/portfolio.css' | relative_url }}"
+>
+
+{% include head.html %}
+
 </head>
 
 <body>
 
-<header class="portfolio-hero">
-    <div class="portfolio portfolio-hero__content">
+<!-- Navigation -->
 
-        <p class="portfolio-hero__eyebrow">
-            Software Development Portfolio
-        </p>
+<header class="site-header">
 
-        <h1>
-            Matej Martinović
-        </h1>
+    <div class="portfolio">
 
-        <p class="portfolio-hero__subtitle">
-            Backend • Python • C#/.NET • SQL • APIs
-        </p>
-
-        <p class="portfolio-hero__description">
-            A collection of software development projects covering
-            backend development, APIs, databases, automation, data
-            analysis, GIS and infrastructure-related technologies.
-        </p>
-
-        <div class="portfolio-actions">
+        <nav
+            class="site-nav"
+            aria-label="Main navigation"
+        >
 
             <a
-                href="https://github.com/1244Matt1244"
-                class="button"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="{{ '/' | relative_url }}"
+                class="site-nav__brand"
             >
-                GitHub
+                Matej Martinović
             </a>
 
-            <a
-                href="https://www.linkedin.com/in/matejmartinovic"
-                class="button button--secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                LinkedIn
-            </a>
 
-            <a
-                href="#contact"
-                class="button button--secondary"
-            >
-                Contact
-            </a>
+            <div class="site-nav__links">
 
-            <button
-                id="theme-toggle"
-                class="button button--secondary"
-                type="button"
-                aria-label="Switch to dark mode"
-                aria-pressed="false"
-            >
-                🌙 Dark mode
-            </button>
+                <a href="#about">
+                    About
+                </a>
 
-        </div>
+                <a href="#featured-projects">
+                    Projects
+                </a>
+
+                <a href="#approach">
+                    Approach
+                </a>
+
+                <a href="#stack">
+                    Stack
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+                <button
+                    type="button"
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    aria-label="Toggle dark mode"
+                >
+                    Theme
+                </button>
+
+            </div>
+
+        </nav>
 
     </div>
+
 </header>
 
 
 <main>
 
+
+    <!-- Hero -->
+
+    <section
+        id="about"
+        class="portfolio-hero"
+    >
+
+        <div class="portfolio">
+
+            <div class="portfolio-hero__content">
+
+                <p class="portfolio-hero__eyebrow">
+                    SOFTWARE & IT PORTFOLIO
+                </p>
+
+
+                <h1>
+                    Matej Martinović
+                </h1>
+
+
+                <p class="portfolio-hero__role">
+                    Software & IT Developer
+                </p>
+
+
+                <p class="portfolio-hero__description">
+                    Building practical software projects across
+                    backend development, Python, APIs, databases,
+                    automation, GIS and data-oriented applications.
+                </p>
+
+
+                <div class="portfolio-hero__actions">
+
+                    <a
+                        class="button button--primary"
+                        href="#projects"
+                    >
+                        Explore Projects
+                    </a>
+
+
+                    <a
+                        class="button button--secondary"
+                        href="https://github.com/1244Matt1244"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub Profile
+                    </a>
+
+                </div>
+
+
+                <div class="portfolio-hero__links">
+
+                    <a
+                        href="https://github.com/1244Matt1244"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub
+                    </a>
+
+                    <span aria-hidden="true">
+                        ·
+                    </span>
+
+                    <a
+                        href="https://www.linkedin.com/in/matejmartinovic"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LinkedIn
+                    </a>
+
+                    <span aria-hidden="true">
+                        ·
+                    </span>
+
+                    <a
+                        href="mailto:matt123.3a@gmail.com"
+                    >
+                        Email
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
     <!-- Featured Projects -->
 
     <section
         id="featured-projects"
-        class="portfolio-section"
+        class="portfolio-section portfolio-section--featured"
     >
+
         <div class="portfolio">
 
             <div class="portfolio-section__header">
-                <h2>Featured Projects</h2>
+
+                <p class="portfolio-hero__eyebrow">
+                    SELECTED WORK
+                </p>
+
+
+                <h2>
+                    Featured Projects
+                </h2>
+
 
                 <p>
-                    Selected projects representing different areas
-                    of my software development work.
+                    A selection of projects demonstrating
+                    backend development, cloud automation,
+                    data analysis and GIS-oriented programming.
                 </p>
+
             </div>
 
-            <div class="project-grid">
 
-                <article class="project-card">
+            <div class="featured-project-grid">
 
-                    <h3>
-                        REST API
-                    </h3>
 
-                    <p>
-                        User management API developed with
-                        TypeScript, Fastify and TypeORM.
-                    </p>
+                <!-- Vehicle Management -->
 
-                    <div class="project-card__meta">
-                        <span class="project-card__tag">
-                            TypeScript
-                        </span>
+                <article class="featured-project-card">
 
-                        <span class="project-card__tag">
-                            Fastify
-                        </span>
+                    <div class="featured-project-card__content">
 
-                        <span class="project-card__tag">
-                            API
-                        </span>
+                        <p class="project-card__category">
+                            Backend
+                        </p>
+
+
+                        <h3>
+                            Vehicle Management App
+                        </h3>
+
+
+                        <p>
+                            A software project focused on vehicle
+                            management and backend-oriented
+                            application development.
+                        </p>
+
+
+                        <div class="project-card__meta">
+
+                            <span>
+                                C#
+                            </span>
+
+                            <span>
+                                .NET
+                            </span>
+
+                            <span>
+                                SQL
+                            </span>
+
+                            <span>
+                                Docker
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="https://github.com/1244Matt1244/vehicle_management_app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View project →
+                        </a>
+
                     </div>
 
-                    <p>
+                </article>
+
+
+                <!-- REST API -->
+
+                <article class="featured-project-card">
+
+                    <div class="featured-project-card__content">
+
+                        <p class="project-card__category">
+                            Backend & APIs
+                        </p>
+
+
+                        <h3>
+                            REST API
+                        </h3>
+
+
+                        <p>
+                            Backend API project using TypeScript,
+                            Fastify and TypeORM with a structured
+                            REST API architecture.
+                        </p>
+
+
+                        <div class="project-card__meta">
+
+                            <span>
+                                TypeScript
+                            </span>
+
+                            <span>
+                                Fastify
+                            </span>
+
+                            <span>
+                                TypeORM
+                            </span>
+
+                            <span>
+                                REST API
+                            </span>
+
+                        </div>
+
+
                         <a
                             href="https://github.com/1244Matt1244/rest_api"
                             target="_blank"
@@ -206,38 +400,56 @@
                         >
                             View project →
                         </a>
-                    </p>
+
+                    </div>
 
                 </article>
 
 
-                <article class="project-card">
+                <!-- OpenStack Terraform -->
 
-                    <h3>
-                        OpenStack Terraform Generator
-                    </h3>
+                <article class="featured-project-card">
 
-                    <p>
-                        Python project focused on automating
-                        Terraform configuration generation for
-                        OpenStack environments.
-                    </p>
+                    <div class="featured-project-card__content">
 
-                    <div class="project-card__meta">
-                        <span class="project-card__tag">
-                            Python
-                        </span>
+                        <p class="project-card__category">
+                            Cloud & Infrastructure
+                        </p>
 
-                        <span class="project-card__tag">
-                            Terraform
-                        </span>
 
-                        <span class="project-card__tag">
-                            OpenStack
-                        </span>
-                    </div>
+                        <h3>
+                            OpenStack Terraform Generator
+                        </h3>
 
-                    <p>
+
+                        <p>
+                            Python-based automation project for
+                            generating infrastructure configuration
+                            with Terraform and OpenStack.
+                        </p>
+
+
+                        <div class="project-card__meta">
+
+                            <span>
+                                Python
+                            </span>
+
+                            <span>
+                                Terraform
+                            </span>
+
+                            <span>
+                                OpenStack
+                            </span>
+
+                            <span>
+                                Automation
+                            </span>
+
+                        </div>
+
+
                         <a
                             href="https://github.com/1244Matt1244/openstack_terraform_generator"
                             target="_blank"
@@ -245,38 +457,56 @@
                         >
                             View project →
                         </a>
-                    </p>
+
+                    </div>
 
                 </article>
 
 
-                <article class="project-card">
+                <!-- Fraud Detection -->
 
-                    <h3>
-                        Credit Card Fraud Detection
-                    </h3>
+                <article class="featured-project-card">
 
-                    <p>
-                        Machine learning project using Python and
-                        scikit-learn for credit card transaction
-                        analysis and fraud detection.
-                    </p>
+                    <div class="featured-project-card__content">
 
-                    <div class="project-card__meta">
-                        <span class="project-card__tag">
-                            Python
-                        </span>
+                        <p class="project-card__category">
+                            Python & Data
+                        </p>
 
-                        <span class="project-card__tag">
-                            scikit-learn
-                        </span>
 
-                        <span class="project-card__tag">
-                            Data
-                        </span>
-                    </div>
+                        <h3>
+                            Credit Card Fraud Detection
+                        </h3>
 
-                    <p>
+
+                        <p>
+                            Machine learning project exploring
+                            credit card transaction data and
+                            fraud detection techniques.
+                        </p>
+
+
+                        <div class="project-card__meta">
+
+                            <span>
+                                Python
+                            </span>
+
+                            <span>
+                                scikit-learn
+                            </span>
+
+                            <span>
+                                Machine Learning
+                            </span>
+
+                            <span>
+                                Data
+                            </span>
+
+                        </div>
+
+
                         <a
                             href="https://github.com/1244Matt1244/credit_card_fraud_detection"
                             target="_blank"
@@ -284,37 +514,51 @@
                         >
                             View project →
                         </a>
-                    </p>
+
+                    </div>
 
                 </article>
 
 
-                <article class="project-card">
+                <!-- QGIS -->
 
-                    <h3>
-                        QGIS Python Project
-                    </h3>
+                <article class="featured-project-card">
 
-                    <p>
-                        Geospatial data processing and analysis
-                        using Python and QGIS.
-                    </p>
+                    <div class="featured-project-card__content">
 
-                    <div class="project-card__meta">
-                        <span class="project-card__tag">
-                            Python
-                        </span>
+                        <p class="project-card__category">
+                            GIS & Data
+                        </p>
 
-                        <span class="project-card__tag">
-                            QGIS
-                        </span>
 
-                        <span class="project-card__tag">
-                            GIS
-                        </span>
-                    </div>
+                        <h3>
+                            QGIS Python Project
+                        </h3>
 
-                    <p>
+
+                        <p>
+                            Python-based GIS work involving
+                            QGIS and geographic data processing.
+                        </p>
+
+
+                        <div class="project-card__meta">
+
+                            <span>
+                                Python
+                            </span>
+
+                            <span>
+                                QGIS
+                            </span>
+
+                            <span>
+                                GIS
+                            </span>
+
+                        </div>
+
+
                         <a
                             href="https://github.com/1244Matt1244/qgis_project_python"
                             target="_blank"
@@ -322,168 +566,367 @@
                         >
                             View project →
                         </a>
-                    </p>
+
+                    </div>
 
                 </article>
 
+
             </div>
+
         </div>
+
     </section>
 
 
-    <!-- All GitHub Projects -->
+    <!-- Project Explorer -->
 
     <section
         id="projects"
         class="portfolio-section"
     >
+
         <div class="portfolio">
 
             <div class="portfolio-section__header">
-                <h2>All Projects</h2>
+
+                <p class="portfolio-hero__eyebrow">
+                    PROJECT EXPLORER
+                </p>
+
+
+                <h2>
+                    All Projects
+                </h2>
+
 
                 <p>
-                    Public repositories are loaded directly from
-                    GitHub. Forked repositories are excluded.
+                    Browse the complete project portfolio
+                    by category or technology.
                 </p>
+
             </div>
+
+
+            <div class="project-filters">
+
+                <div class="filter-group">
+
+                    <h3>
+                        Category
+                    </h3>
+
+
+                    <div
+                        id="category-filters"
+                        class="filter-list"
+                        aria-label="Filter projects by category"
+                    ></div>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <h3>
+                        Technology
+                    </h3>
+
+
+                    <div
+                        id="technology-filters"
+                        class="filter-list"
+                        aria-label="Filter projects by technology"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-results-header">
+
+                <strong>
+                    Projects
+                </strong>
+
+
+                <span
+                    id="project-count"
+                    aria-live="polite"
+                >
+                    Loading...
+                </span>
+
+            </div>
+
 
             <div
                 id="repo-badges"
+                class="project-grid"
                 aria-live="polite"
                 aria-label="GitHub repositories"
             >
-                <div
-                    class="loading"
-                    role="status"
-                >
-                    Loading repositories...
-                </div>
+
+                <p class="loading">
+                    Loading projects from GitHub...
+                </p>
+
             </div>
 
         </div>
+
     </section>
 
 
     <!-- Development Approach -->
 
     <section
-        id="development-approach"
-        class="portfolio-section"
+        id="approach"
+        class="portfolio-section portfolio-section--muted"
     >
+
         <div class="portfolio">
 
             <div class="portfolio-section__header">
-                <h2>Development Approach</h2>
+
+                <p class="portfolio-hero__eyebrow">
+                    DEVELOPMENT APPROACH
+                </p>
+
+
+                <h2>
+                    How I Work
+                </h2>
+
 
                 <p>
-                    My projects are progressively improved from
-                    working implementations toward more maintainable
-                    and production-oriented solutions.
+                    I focus on understanding the problem first,
+                    then building clear and maintainable solutions.
                 </p>
+
             </div>
 
-            <div class="project-grid">
 
-                <article class="project-card">
-                    <h3>01 — Original</h3>
+            <div class="approach-grid">
+
+
+                <article class="approach-card">
+
+                    <div class="approach-card__number">
+                        01
+                    </div>
+
+
+                    <h3>
+                        Understand
+                    </h3>
+
 
                     <p>
-                        Start with the original implementation and
-                        understand its structure, assumptions and
-                        limitations.
+                        Break the problem into requirements,
+                        data, processes and technical constraints
+                        before implementing a solution.
                     </p>
+
                 </article>
 
 
-                <article class="project-card">
-                    <h3>02 — Refactoring</h3>
+                <article class="approach-card">
+
+                    <div class="approach-card__number">
+                        02
+                    </div>
+
+
+                    <h3>
+                        Build
+                    </h3>
+
 
                     <p>
-                        Improve code organization, readability,
-                        naming, separation of responsibilities and
-                        maintainability.
+                        Develop practical solutions using appropriate
+                        programming languages, frameworks, databases
+                        and development tools.
                     </p>
+
                 </article>
 
 
-                <article class="project-card">
-                    <h3>03 — Alpha</h3>
+                <article class="approach-card">
+
+                    <div class="approach-card__number">
+                        03
+                    </div>
+
+
+                    <h3>
+                        Test & Improve
+                    </h3>
+
 
                     <p>
-                        Add validation, error handling, safer
-                        patterns, testing and clearer interfaces.
+                        Test functionality, identify problems and
+                        refine implementations with maintainability
+                        and reliability in mind.
                     </p>
+
                 </article>
 
 
-                <article class="project-card">
-                    <h3>04 — Production-oriented</h3>
+                <article class="approach-card">
+
+                    <div class="approach-card__number">
+                        04
+                    </div>
+
+
+                    <h3>
+                        Document
+                    </h3>
+
 
                     <p>
-                        Where appropriate, introduce stronger
-                        documentation, security considerations,
-                        automation and deployment practices.
+                        Keep projects understandable through clear
+                        structure, documentation and reproducible
+                        development practices.
                     </p>
+
                 </article>
+
 
             </div>
 
         </div>
+
     </section>
 
 
     <!-- Technical Stack -->
 
     <section
-        id="tech-stack"
+        id="stack"
         class="portfolio-section"
     >
+
         <div class="portfolio">
 
             <div class="portfolio-section__header">
-                <h2>Technical Stack</h2>
+
+                <p class="portfolio-hero__eyebrow">
+                    TECHNICAL STACK
+                </p>
+
+
+                <h2>
+                    Technologies
+                </h2>
+
 
                 <p>
-                    Technologies represented across the projects
-                    in this portfolio.
+                    Technologies and tools represented across
+                    my projects and technical learning.
                 </p>
+
             </div>
 
-            <div class="tech-grid">
 
-                <span class="tech-item">Python</span>
-                <span class="tech-item">C# / .NET</span>
-                <span class="tech-item">Java</span>
-                <span class="tech-item">Go</span>
-                <span class="tech-item">JavaScript</span>
-                <span class="tech-item">TypeScript</span>
-                <span class="tech-item">PHP</span>
+            <div class="technology-grid">
 
-                <span class="tech-item">SQL</span>
-                <span class="tech-item">PostgreSQL</span>
-                <span class="tech-item">Redis</span>
 
-                <span class="tech-item">REST APIs</span>
-                <span class="tech-item">Fastify</span>
-                <span class="tech-item">Swagger / OpenAPI</span>
+                <article class="technology-card">
 
-                <span class="tech-item">Docker</span>
-                <span class="tech-item">Terraform</span>
-                <span class="tech-item">OpenStack</span>
-                <span class="tech-item">Kubernetes</span>
+                    <h3>
+                        Programming
+                    </h3>
 
-                <span class="tech-item">scikit-learn</span>
-                <span class="tech-item">QGIS</span>
-                <span class="tech-item">PostGIS</span>
 
-                <span class="tech-item">PowerShell</span>
-                <span class="tech-item">Excel VBA</span>
-                <span class="tech-item">CI/CD</span>
+                    <p>
+                        Python · JavaScript · TypeScript ·
+                        C# · Java · Go · PHP
+                    </p>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <h3>
+                        Backend
+                    </h3>
+
+
+                    <p>
+                        REST APIs · Fastify · Node.js ·
+                        .NET · TypeORM
+                    </p>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <h3>
+                        Databases
+                    </h3>
+
+
+                    <p>
+                        SQL · PostgreSQL · MySQL · Redis
+                    </p>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <h3>
+                        Cloud & Infrastructure
+                    </h3>
+
+
+                    <p>
+                        Docker · Terraform · OpenStack ·
+                        Azure · Kubernetes
+                    </p>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <h3>
+                        Data & GIS
+                    </h3>
+
+
+                    <p>
+                        Python · scikit-learn · QGIS ·
+                        GIS · Data Processing
+                    </p>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <h3>
+                        Development Tools
+                    </h3>
+
+
+                    <p>
+                        Git · GitHub · Swagger ·
+                        API development · Automation
+                    </p>
+
+                </article>
+
 
             </div>
 
         </div>
+
     </section>
 
 
@@ -491,90 +934,120 @@
 
     <section
         id="contact"
-        class="portfolio-section"
+        class="portfolio-section portfolio-section--contact"
     >
+
         <div class="portfolio">
 
-            <div class="portfolio-section__header">
-                <h2>Get in Touch</h2>
+            <div class="contact-card">
+
+                <p class="portfolio-hero__eyebrow">
+                    CONTACT
+                </p>
+
+
+                <h2>
+                    Let's Connect
+                </h2>
+
 
                 <p>
-                    For software development, IT and technology
-                    opportunities, you can reach me through the
-                    following channels.
+                    I am interested in software development,
+                    backend, IT, data-oriented and technology
+                    roles where I can continue developing my
+                    practical technical skills.
                 </p>
-            </div>
-
-            <div class="contact-grid">
-
-                <a
-                    href="mailto:matt123.3a@gmail.com"
-                    class="contact-card"
-                    aria-label="Send email to Matej Martinović"
-                >
-                    <strong>Email</strong>
-                    <span>
-                        matt123.3a@gmail.com
-                    </span>
-                </a>
 
 
-                <a
-                    href="https://www.linkedin.com/in/matejmartinovic"
-                    class="contact-card"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Visit Matej Martinović on LinkedIn"
-                >
-                    <strong>LinkedIn</strong>
-                    <span>
-                        matejmartinovic
-                    </span>
-                </a>
+                <div class="contact-actions">
+
+                    <a
+                        class="button button--primary"
+                        href="mailto:matt123.3a@gmail.com"
+                    >
+                        Contact Me
+                    </a>
 
 
-                <a
-                    href="https://github.com/1244Matt1244"
-                    class="contact-card"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Visit Matej Martinović on GitHub"
-                >
-                    <strong>GitHub</strong>
-                    <span>
-                        1244Matt1244
-                    </span>
-                </a>
+                    <a
+                        class="button button--secondary"
+                        href="https://github.com/1244Matt1244"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub
+                    </a>
+
+
+                    <a
+                        class="button button--secondary"
+                        href="https://www.linkedin.com/in/matejmartinovic"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LinkedIn
+                    </a>
+
+                </div>
 
             </div>
 
         </div>
+
     </section>
 
 </main>
 
 
-<footer class="portfolio-section">
+<!-- Footer -->
+
+<footer class="site-footer">
+
     <div class="portfolio">
 
-        <p>
-            © 2026 Matej Martinović.
-            Software Development Portfolio.
-        </p>
+        <div class="site-footer__content">
+
+            <p>
+                © 2026 Matej Martinović
+            </p>
+
+
+            <p>
+                Software & IT Portfolio
+            </p>
+
+        </div>
 
     </div>
+
 </footer>
 
+
+<!-- Project metadata -->
+
+<script
+    src="{{ '/scripts/project-data.js' | relative_url }}"
+    defer
+></script>
+
+
+<!-- Theme -->
 
 <script
     src="{{ '/scripts/theme.js' | relative_url }}"
     defer
 ></script>
 
+
+<!-- GitHub repositories -->
+
 <script
     src="{{ '/scripts/repos.js' | relative_url }}"
     defer
 ></script>
+
+
+<!-- Portfolio interactions -->
 
 <script
     src="{{ '/scripts/portfolio.js' | relative_url }}"
@@ -582,5 +1055,5 @@
 ></script>
 
 </body>
-</html>
 
+</html>
