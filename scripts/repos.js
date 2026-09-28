@@ -90,9 +90,7 @@ if (error.name === 'AbortError') {
 throw new Error('GitHub request timed out.');
 }
 
-
 throw error;
-
 
 } finally {
 clearTimeout(timeoutId);
@@ -160,13 +158,11 @@ if (a === 'All') {
 return -1;
 }
 
-
 if (b === 'All') {
   return 1;
 }
 
 return a.localeCompare(b);
-
 
 });
 
@@ -319,7 +315,6 @@ if (metadata.featured) {
 const badge =
 document.createElement('span');
 
-```
 badge.className =
   'project-card__featured';
 
