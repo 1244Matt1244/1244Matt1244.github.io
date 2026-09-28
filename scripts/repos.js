@@ -270,7 +270,6 @@ if (filtered.length === 0) {
 const empty =
 document.createElement('p');
 
-```
 empty.className =
   'empty-state';
 
