@@ -1,4 +1,4 @@
-```javascript
+javascript
 const GITHUB_USERNAME = '1244Matt1244';
 const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
 
@@ -197,4 +197,4 @@ function showErrorState(container, error) {
 
   container.appendChild(errorMessage);
 }
-```
+
