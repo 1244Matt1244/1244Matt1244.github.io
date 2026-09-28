@@ -1,3 +1,4 @@
+```javascript
 const GITHUB_USERNAME = '1244Matt1244';
 const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
 
@@ -5,15 +6,14 @@ const REPOSITORIES_PER_PAGE = 100;
 const REQUEST_TIMEOUT = 8000;
 
 document.addEventListener('DOMContentLoaded', () => {
-  initializeTheme();
   loadRepositories();
 });
 
 /**
- * Loads and displays GitHub repositories.
+ * Loads public, non-forked GitHub repositories.
  */
 async function loadRepositories() {
-  const container = document.getElementById('badges-container');
+  const container = document.getElementById('repo-badges');
 
   if (!container) {
     console.warn('Repository container was not found.');
@@ -27,7 +27,16 @@ async function loadRepositories() {
 
     const publicRepositories = repositories
       .filter(repository => !repository.fork)
-      .sort((a, b) => b.stargazers_count - a.stargazers_count);
+      .sort((a, b) => {
+        if (b.stargazers_count !== a.stargazers_count) {
+          return b.stargazers_count - a.stargazers_count;
+        }
+
+        return (
+          new Date(b.updated_at).getTime() -
+          new Date(a.updated_at).getTime()
+        );
+      });
 
     renderRepositories(container, publicRepositories);
   } catch (error) {
@@ -37,11 +46,14 @@ async function loadRepositories() {
 }
 
 /**
- * Fetches repositories from the GitHub API.
+ * Fetches repositories from GitHub.
  */
 async function fetchRepositories() {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
+
+  const timeoutId = setTimeout(() => {
+    controller.abort();
+  }, REQUEST_TIMEOUT);
 
   try {
     const response = await fetch(
@@ -56,11 +68,17 @@ async function fetchRepositories() {
 
     if (!response.ok) {
       throw new Error(
-        `GitHub API request failed with status ${response.status}`
+        `GitHub API request failed (${response.status}).`
       );
     }
 
-    return await response.json();
+    const repositories = await response.json();
+
+    if (!Array.isArray(repositories)) {
+      throw new Error('Unexpected response from GitHub API.');
+    }
+
+    return repositories;
   } catch (error) {
     if (error.name === 'AbortError') {
       throw new Error('GitHub request timed out.');
@@ -80,8 +98,10 @@ function renderRepositories(container, repositories) {
 
   if (repositories.length === 0) {
     const message = document.createElement('p');
+
     message.className = 'empty-state';
-    message.textContent = 'No repositories found.';
+    message.textContent = 'No public repositories found.';
+
     container.appendChild(message);
     return;
   }
@@ -100,11 +120,13 @@ function renderRepositories(container, repositories) {
  */
 function createRepositoryCard(repository) {
   const card = document.createElement('article');
+
   card.className = 'repo-badge';
 
   const title = document.createElement('h3');
 
   const link = document.createElement('a');
+
   link.href = repository.html_url;
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
@@ -113,17 +135,19 @@ function createRepositoryCard(repository) {
   title.appendChild(link);
 
   const description = document.createElement('p');
+
   description.textContent =
     repository.description || 'No description available.';
 
   const metadata = document.createElement('div');
+
   metadata.className = 'repo-metadata';
 
-  metadata.innerHTML = `
-    <span>⭐ ${repository.stargazers_count}</span>
-    <span>🍴 ${repository.forks_count}</span>
-    <span>${repository.language || 'Code'}</span>
-  `;
+  metadata.append(
+    createMetadataItem('⭐', repository.stargazers_count),
+    createMetadataItem('🍴', repository.forks_count),
+    createMetadataItem('💻', repository.language || 'Code')
+  );
 
   card.append(title, description, metadata);
 
@@ -131,13 +155,27 @@ function createRepositoryCard(repository) {
 }
 
 /**
- * Displays the loading state.
+ * Creates a repository metadata item.
+ */
+function createMetadataItem(icon, value) {
+  const item = document.createElement('span');
+
+  item.textContent = `${icon} ${value}`;
+
+  return item;
+}
+
+/**
+ * Displays loading state.
  */
 function showLoadingState(container) {
   container.replaceChildren();
 
   const loading = document.createElement('div');
+
   loading.className = 'loading';
+  loading.setAttribute('role', 'status');
+  loading.setAttribute('aria-live', 'polite');
   loading.textContent = 'Loading repositories...';
 
   container.appendChild(loading);
@@ -150,42 +188,13 @@ function showErrorState(container, error) {
   container.replaceChildren();
 
   const errorMessage = document.createElement('div');
+
   errorMessage.className = 'error';
+  errorMessage.setAttribute('role', 'alert');
 
   errorMessage.textContent =
-    `Failed to load repositories: ${error.message}`;
+    `Unable to load repositories: ${error.message}`;
 
   container.appendChild(errorMessage);
 }
-
-/**
- * Initializes the dark/light theme.
- */
-function initializeTheme() {
-  const toggle = document.getElementById('dark-toggle');
-
-  if (!toggle) {
-    return;
-  }
-
-  const savedTheme = localStorage.getItem('darkMode');
-
-  const darkModeEnabled = savedTheme === 'true';
-
-  applyTheme(darkModeEnabled);
-  toggle.checked = darkModeEnabled;
-
-  toggle.addEventListener('change', event => {
-    applyTheme(event.target.checked);
-  });
-}
-
-/**
- * Applies and persists the selected theme.
- */
-function applyTheme(isDarkMode) {
-  document.documentElement.dataset.theme =
-    isDarkMode ? 'dark' : 'light';
-
-  localStorage.setItem('darkMode', String(isDarkMode));
-}
+```
