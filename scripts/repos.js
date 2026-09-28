@@ -218,7 +218,6 @@ return repositories.filter(repo => {
 const metadata =
 getProjectMetadata(repo.name);
 
-```
 const categoryMatches =
   activeCategory === 'All' ||
   metadata.category ===
