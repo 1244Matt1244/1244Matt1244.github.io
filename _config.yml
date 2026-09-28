@@ -1,4 +1,4 @@
-```yaml
+yaml
 title: "Matej Martinović"
 tagline: "Software Development Portfolio"
 
@@ -35,4 +35,4 @@ exclude:
   - vendor
   - package.json
   - package-lock.json
-```
+
