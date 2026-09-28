@@ -1,4 +1,4 @@
-```javascript id="w8j3kc"
+javascript id="w8j3kc"
 const THEME_STORAGE_KEY = 'portfolio-theme';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -77,4 +77,3 @@ function updateThemeButton(button, theme) {
   button.textContent =
     isDark ? '☀ Light mode' : '🌙 Dark mode';
 }
-```
