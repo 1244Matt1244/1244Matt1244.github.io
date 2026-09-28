@@ -43,7 +43,6 @@ const currentTheme =
 document.documentElement.dataset.theme ||
 'light';
 
-```
 const nextTheme =
   currentTheme === 'dark'
     ? 'light'
@@ -51,7 +50,6 @@ const nextTheme =
 
 applyTheme(nextTheme);
 updateThemeButton(toggle, nextTheme);
-```
 
 });
 }
