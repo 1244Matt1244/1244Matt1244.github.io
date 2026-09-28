@@ -3,97 +3,96 @@ const GITHUB_USERNAME = '1244Matt1244';
 const GITHUB_API_URL =
 `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
 
-const REPOSITORIES_PER_PAGE = 100;
 const REQUEST_TIMEOUT = 10000;
 
-let allRepositories = [];
+let repositories = [];
 let activeCategory = 'All';
 let activeTechnology = 'All';
 
 document.addEventListener('DOMContentLoaded', () => {
-initializeProjectExplorer();
+initializeProjects();
 });
 
-async function initializeProjectExplorer() {
-const container = document.getElementById('repo-badges');
+async function initializeProjects() {
+const container =
+document.getElementById('repo-badges');
 
 if (!container) {
 return;
 }
 
-showLoadingState(container);
+showLoading(container);
 
 try {
-allRepositories = await fetchRepositories();
+repositories = await fetchRepositories();
+
 
 renderFilters();
-renderRepositories();
+renderProjects();
+
 
 } catch (error) {
-console.error('Failed to load repositories:', error);
-showErrorState(container, error);
+console.error(error);
+showError(container, error);
 }
 }
 
 async function fetchRepositories() {
-const controller = new AbortController();
+const controller =
+new AbortController();
 
-const timeoutId = setTimeout(() => {
-controller.abort();
-}, REQUEST_TIMEOUT);
+const timeout =
+setTimeout(
+() => controller.abort(),
+REQUEST_TIMEOUT
+);
 
 try {
-const response = await fetch(
-`${GITHUB_API_URL}?per_page=${REPOSITORIES_PER_PAGE}&sort=updated`,
+const response =
+await fetch(
+`${GITHUB_API_URL}?per_page=100&sort=updated`,
 {
 headers: {
-Accept: 'application/vnd.github+json'
+Accept:
+'application/vnd.github+json'
 },
 signal: controller.signal
 }
 );
-  
+
 if (!response.ok) {
   throw new Error(
-    `GitHub API request failed (${response.status}).`
+    `GitHub API error: ${response.status}`
   );
 }
 
-const repositories = await response.json();
+const data =
+  await response.json();
 
-if (!Array.isArray(repositories)) {
-  throw new Error('Unexpected GitHub API response.');
-}
-
-return repositories
-  .filter(repository => !repository.fork)
+return data
+  .filter(repo => !repo.fork)
   .sort((a, b) => {
-    const aMeta = getProjectMetadata(a.name);
-    const bMeta = getProjectMetadata(b.name);
+    const aMeta =
+      getProjectMetadata(a.name);
+
+    const bMeta =
+      getProjectMetadata(b.name);
 
     if (
-      Boolean(bMeta.featured) !==
-      Boolean(aMeta.featured)
+      Boolean(aMeta.featured) !==
+      Boolean(bMeta.featured)
     ) {
-      return Number(Boolean(bMeta.featured)) -
-        Number(Boolean(aMeta.featured));
+      return Boolean(bMeta.featured) ? 1 : -1;
     }
 
     return (
-      new Date(b.updated_at).getTime() -
-      new Date(a.updated_at).getTime()
+      new Date(b.updated_at) -
+      new Date(a.updated_at)
     );
   });
 
-} catch (error) {
-if (error.name === 'AbortError') {
-throw new Error('GitHub request timed out.');
-}
-
-throw error;
-
 } finally {
-clearTimeout(timeoutId);
+clearTimeout(timeout);
 }
 }
 
@@ -104,7 +103,9 @@ renderTechnologyFilters();
 
 function renderCategoryFilters() {
 const container =
-document.getElementById('category-filters');
+document.getElementById(
+'category-filters'
+);
 
 if (!container) {
 return;
@@ -113,8 +114,9 @@ return;
 const categories = [
 'All',
 ...new Set(
-allRepositories.map(repository =>
-getProjectMetadata(repository.name).category
+repositories.map(repo =>
+getProjectMetadata(repo.name)
+.category
 )
 )
 ];
@@ -122,25 +124,25 @@ getProjectMetadata(repository.name).category
 container.replaceChildren();
 
 categories.forEach(category => {
-const button = createFilterButton(
+container.appendChild(
+createFilterButton(
 category,
 activeCategory === category,
 () => {
 activeCategory = category;
 renderFilters();
-renderRepositories();
+renderProjects();
 }
+)
 );
-
-
-container.appendChild(button);
-
 });
 }
 
 function renderTechnologyFilters() {
 const container =
-document.getElementById('technology-filters');
+document.getElementById(
+'technology-filters'
+);
 
 if (!container) {
 return;
@@ -149,18 +151,16 @@ return;
 const technologies = [
 'All',
 ...new Set(
-allRepositories.flatMap(repository =>
-getProjectMetadata(repository.name).technologies
+repositories.flatMap(repo =>
+getProjectMetadata(repo.name)
+.technologies
 )
 )
-].sort((a, b) => {
-if (a === 'All') {
-return -1;
-}
+];
 
-if (b === 'All') {
-  return 1;
-}
+technologies.sort((a, b) => {
+if (a === 'All') return -1;
+if (b === 'All') return 1;
 
 return a.localeCompare(b);
 
@@ -169,20 +169,17 @@ return a.localeCompare(b);
 container.replaceChildren();
 
 technologies.forEach(technology => {
-const button = createFilterButton(
+container.appendChild(
+createFilterButton(
 technology,
 activeTechnology === technology,
 () => {
 activeTechnology = technology;
 renderFilters();
-renderRepositories();
+renderProjects();
 }
+)
 );
-
-
-container.appendChild(button);
-
-
 });
 }
 
@@ -191,11 +188,15 @@ label,
 active,
 onClick
 ) {
-const button = document.createElement('button');
+const button =
+document.createElement('button');
 
 button.type = 'button';
+
 button.className =
-`filter-button${active ? ' is-active' : ''}`;
+`filter-button${
+      active ? ' is-active' : ''
+    }`;
 
 button.textContent = label;
 
@@ -204,58 +205,78 @@ button.setAttribute(
 String(active)
 );
 
-button.addEventListener('click', onClick);
+button.addEventListener(
+'click',
+onClick
+);
 
 return button;
 }
 
 function getFilteredRepositories() {
-return allRepositories.filter(repository => {
+return repositories.filter(repo => {
 const metadata =
-getProjectMetadata(repository.name);
+getProjectMetadata(repo.name);
 
+```
 const categoryMatches =
   activeCategory === 'All' ||
-  metadata.category === activeCategory;
+  metadata.category ===
+    activeCategory;
 
 const technologyMatches =
   activeTechnology === 'All' ||
-  metadata.technologies.includes(activeTechnology);
+  metadata.technologies.includes(
+    activeTechnology
+  );
 
-return categoryMatches && technologyMatches;
+return (
+  categoryMatches &&
+  technologyMatches
+);
 
 });
 }
 
-function renderRepositories() {
+function renderProjects() {
 const container =
-document.getElementById('repo-badges');
+document.getElementById(
+'repo-badges'
+);
 
-const countElement =
-document.getElementById('project-count');
+const counter =
+document.getElementById(
+'project-count'
+);
 
 if (!container) {
 return;
 }
 
-const repositories =
+const filtered =
 getFilteredRepositories();
 
 container.replaceChildren();
 
-if (countElement) {
-countElement.textContent =
-`${repositories.length} project${
-        repositories.length === 1 ? '' : 's'
+if (counter) {
+counter.textContent =
+`${filtered.length} ${
+        filtered.length === 1
+          ? 'project'
+          : 'projects'
       }`;
 }
 
-if (repositories.length === 0) {
-const empty = document.createElement('p');
+if (filtered.length === 0) {
+const empty =
+document.createElement('p');
 
-empty.className = 'empty-state';
+```
+empty.className =
+  'empty-state';
+
 empty.textContent =
-  'No projects match the selected filters.';
+  'No projects match these filters.';
 
 container.appendChild(empty);
 
@@ -266,28 +287,24 @@ return;
 const fragment =
 document.createDocumentFragment();
 
-repositories.forEach(repository => {
+filtered.forEach(repo => {
 fragment.appendChild(
-createRepositoryCard(repository)
+createProjectCard(repo)
 );
 });
 
 container.appendChild(fragment);
 }
 
-function createRepositoryCard(repository) {
+function createProjectCard(repo) {
 const metadata =
-getProjectMetadata(repository.name);
+getProjectMetadata(repo.name);
 
 const card =
 document.createElement('article');
 
 card.className =
-'repo-badge project-card';
-
-if (metadata.featured) {
-card.classList.add('is-featured');
-}
+'project-card repo-badge';
 
 const header =
 document.createElement('div');
@@ -301,36 +318,35 @@ document.createElement('h3');
 const link =
 document.createElement('a');
 
-link.href = repository.html_url;
-link.target = '_blank';
-link.rel = 'noopener noreferrer';
+link.href =
+repo.html_url;
+
+link.target =
+'_blank';
+
+link.rel =
+'noopener noreferrer';
+
 link.textContent =
-formatRepositoryName(repository.name);
+formatName(repo.name);
 
 title.appendChild(link);
 
 header.appendChild(title);
 
 if (metadata.featured) {
-const badge =
+const featured =
 document.createElement('span');
 
-badge.className =
+featured.className =
   'project-card__featured';
 
-badge.textContent =
+featured.textContent =
   'Featured';
 
-header.appendChild(badge);
+header.appendChild(featured);
 
 }
-
-const description =
-document.createElement('p');
-
-description.textContent =
-repository.description ||
-'Software development project.';
 
 const category =
 document.createElement('p');
@@ -341,39 +357,46 @@ category.className =
 category.textContent =
 metadata.category;
 
-const technologies =
+const description =
+document.createElement('p');
+
+description.textContent =
+repo.description ||
+'Software development project.';
+
+const tags =
 document.createElement('div');
 
-technologies.className =
-'project-tags';
+tags.className =
+'project-card__meta';
 
-metadata.technologies.forEach(technology => {
+metadata.technologies
+.forEach(technology => {
 const tag =
 document.createElement('button');
 
-tag.type = 'button';
-tag.className = 'project-tag';
-tag.textContent = technology;
+  tag.type = 'button';
 
-tag.addEventListener('click', event => {
-  event.preventDefault();
-  event.stopPropagation();
+  tag.className =
+    'project-card__tag';
 
-  activeTechnology = technology;
+  tag.textContent =
+    technology;
 
-  renderFilters();
-  renderRepositories();
+  tag.addEventListener(
+    'click',
+    event => {
+      event.preventDefault();
 
-  document
-    .getElementById('projects')
-    ?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-});
+      activeTechnology =
+        technology;
 
-technologies.appendChild(tag);
+      renderFilters();
+      renderProjects();
+    }
+  );
 
+  tags.appendChild(tag);
 });
 
 const footer =
@@ -386,20 +409,23 @@ const language =
 document.createElement('span');
 
 language.textContent =
-repository.language || 'Multiple technologies';
+repo.language ||
+'Multiple technologies';
 
 const repositoryLink =
 document.createElement('a');
 
 repositoryLink.href =
-repository.html_url;
+repo.html_url;
 
-repositoryLink.target = '_blank';
+repositoryLink.target =
+'_blank';
+
 repositoryLink.rel =
 'noopener noreferrer';
 
 repositoryLink.textContent =
-'View repository →';
+'View project →';
 
 footer.append(
 language,
@@ -410,22 +436,23 @@ card.append(
 header,
 category,
 description,
-technologies,
+tags,
 footer
 );
 
 return card;
 }
 
-function formatRepositoryName(name) {
+function formatName(name) {
 return name
 .replace(/[-_]+/g, ' ')
-.replace(/\b\w/g, character =>
-character.toUpperCase()
+.replace(
+/\b\w/g,
+char => char.toUpperCase()
 );
 }
 
-function showLoadingState(container) {
+function showLoading(container) {
 container.replaceChildren();
 
 const loading =
@@ -434,33 +461,23 @@ document.createElement('p');
 loading.className =
 'loading';
 
-loading.setAttribute(
-'role',
-'status'
-);
-
 loading.textContent =
 'Loading projects from GitHub...';
 
 container.appendChild(loading);
 }
 
-function showErrorState(
+function showError(
 container,
 error
 ) {
 container.replaceChildren();
 
 const message =
-document.createElement('div');
+document.createElement('p');
 
 message.className =
 'error';
-
-message.setAttribute(
-'role',
-'alert'
-);
 
 message.textContent =
 `Unable to load projects: ${error.message}`;
