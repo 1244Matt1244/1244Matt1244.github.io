@@ -40,7 +40,7 @@
   <section class="portfolio-hero">
     <div class="portfolio">
       <div class="portfolio-hero__content">
-        <p class="portfolio-hero__eyebrow">Software & IT Engineer</p>
+        <p class="portfolio-hero__eyebrow">Software &amp; IT Engineer</p>
         <h1>Matej Martinović</h1>
         <p class="portfolio-hero__role">Full-Stack Developer &amp; Cloud Enthusiast</p>
         <p class="portfolio-hero__description">
@@ -53,7 +53,7 @@
         <div class="portfolio-hero__links">
           <a href="https://github.com/1244Matt1244" target="_blank" rel="noopener">GitHub</a>
           <span>·</span>
-          <a href="https://www.linkedin.com/in/matej-martinović" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
           <span>·</span>
           <a href="mailto:matej@example.com">Email</a>
         </div>
@@ -84,7 +84,7 @@
         </div>
         <div class="featured-project-card">
           <div class="featured-project-card__content">
-            <p class="project-card__category">GIS & Python</p>
+            <p class="project-card__category">GIS &amp; Python</p>
             <h3>Boulder Dimension Calculator</h3>
             <p>Automated boulder dimension extraction from MBES data using QGIS, Python, and Docker. Parallel processing and PCA analysis.</p>
             <div class="project-card__meta">
@@ -104,7 +104,7 @@
     <div class="portfolio">
       <div class="portfolio-section__header">
         <h2>All Projects</h2>
-        <p>Browse my public repositories. Filter by technology or category.</p>
+        <p>Browse my public repositories. Automatically synced from GitHub.</p>
       </div>
 
       <div class="project-filters">
@@ -131,39 +131,11 @@
 
       <div class="project-results-header">
         <strong id="project-count">0 projects</strong>
-        <span>Updated automatically from GitHub</span>
+        <span id="last-sync">Synced from GitHub</span>
       </div>
 
       <div id="repo-badges" class="project-grid">
-        <!-- Fallback static cards (will be replaced by JS) -->
-        <div class="project-card" data-tags="nuxt,typescript,web">
-          <div class="project-card__header">
-            <h3><a href="https://github.com/1244Matt1244/videohub_app" target="_blank" rel="noopener">VideoHub</a></h3>
-          </div>
-          <p>Video platform with premium content, Stripe, and MUX.</p>
-          <div class="project-card__meta">
-            <span>Nuxt 3</span>
-            <span>.NET 9</span>
-          </div>
-          <div class="project-card__footer">
-            <span>Updated recently</span>
-            <a href="https://github.com/1244Matt1244/videohub_app" target="_blank" rel="noopener">GitHub →</a>
-          </div>
-        </div>
-        <div class="project-card" data-tags="python,qgis,gis,tools">
-          <div class="project-card__header">
-            <h3><a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank" rel="noopener">QGIS Python Toolkit</a></h3>
-          </div>
-          <p>Geospatial automation with QGIS and Python.</p>
-          <div class="project-card__meta">
-            <span>Python</span>
-            <span>QGIS</span>
-          </div>
-          <div class="project-card__footer">
-            <span>Updated recently</span>
-            <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank" rel="noopener">GitHub →</a>
-          </div>
-        </div>
+        <div class="loading">Loading repositories…</div>
       </div>
     </div>
   </section>
@@ -215,15 +187,15 @@
           <p>Nuxt 3, Vue, TypeScript, Tailwind CSS, DaisyUI, Pinia, Vite.</p>
         </div>
         <div class="technology-card">
-          <h3>DevOps & Cloud</h3>
+          <h3>DevOps &amp; Cloud</h3>
           <p>Docker, GitHub Actions, Azure, Vercel, SQL Server, PostgreSQL, Linux.</p>
         </div>
         <div class="technology-card">
-          <h3>Data & GIS</h3>
+          <h3>Data &amp; GIS</h3>
           <p>Python, QGIS, GDAL, Pandas, NumPy, Scikit-learn, PCA, MBES processing.</p>
         </div>
         <div class="technology-card">
-          <h3>Payments & Media</h3>
+          <h3>Payments &amp; Media</h3>
           <p>Stripe API, MUX video streaming, webhooks, subscription handling.</p>
         </div>
         <div class="technology-card">
@@ -251,11 +223,15 @@
   <footer class="site-footer">
     <div class="portfolio">
       <div class="site-footer__content">
-        <p>© 2025 Matej Martinović. All rights reserved.</p>
+        <p>© <span id="year"></span> Matej Martinović. All rights reserved.</p>
         <p>Built with HTML, CSS, and JavaScript.</p>
       </div>
     </div>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
   <script>
     (function() {
@@ -276,10 +252,46 @@
       const container = document.getElementById('repo-badges');
       if (!container) return;
 
+      // ---- Ručni opisi (fallback ako GitHub description nije postavljen) ----
+      const repoDescriptions = {
+        'videohub_app': 'Video platforma s premium sadržajem, Stripe plaćanjem i MUX streamingom. Nuxt 3 + .NET 9.',
+        'qgis_project_python': 'Geoprostorna automatizacija s QGIS-om i Pythonom. Obrada MBES podataka i paralelno računanje.',
+        'vehicle_management_app': 'ASP.NET Core aplikacija za upravljanje vozilima s CQRS arhitekturom, Dapperom i Ninject DI.',
+        'vehicle_management_app2': 'Nadograđena verzija vehicle management aplikacije s dodatnim značajkama i testovima.',
+        'python_geometrical_task': 'Python rješenja geometrijskih zadataka s modularnom strukturom i testovima.',
+        'python_geometrical_task2': 'Python geometrijski zadaci – verzija 2 s poboljšanom arhitekturom.',
+        'python_geometrical_task3': 'Python rješenja geometrijskih zadataka s modernim pristupom i CLI sučeljem.',
+        'python_geometrical_task3version': 'Python geometrijski zadaci – finalna verzija s testovima.',
+        'boulder-dimension-calculation': 'Izračun dimenzija gromada iz MBES podataka koristeći QGIS, Python i PCA analizu.',
+        'maze_escape': 'Java igra labirinta s proceduralnom generacijom, MVC arhitekturom i perzistencijom.',
+        'qrcode_generator': 'Python generator QR kodova s CLI sučeljem, podrškom za različite razine greške i testovima.',
+        '1244Matt1244.github.io': 'Osobni portfelj i blog – HTML, CSS, JavaScript, automatska sinkronizacija s GitHubom.',
+        'zadaci-transport-sortiranje': 'Rješenja zadataka: Odoo modul za balansiranje tereta i algoritam minimalnih zamjena.',
+        'geoshapes': 'Python CLI alat za izračun geometrijskih oblika s Click i testovima.',
+        'gis-croatia-map': 'Interaktivna karta Hrvatske s Folium i GeoPandas.',
+      };
+
+      // ---- Ručne kategorije (topics se automatski dodaju) ----
+      const repoCategories = {
+        'videohub_app': 'web',
+        'qgis_project_python': 'tools gis',
+        'vehicle_management_app': 'web',
+        'vehicle_management_app2': 'web',
+        'maze_escape': 'games',
+        'qrcode_generator': 'tools',
+        'boulder-dimension-calculation': 'tools gis',
+        'python_geometrical_task': 'tools',
+        'python_geometrical_task2': 'tools',
+        'python_geometrical_task3': 'tools',
+        'python_geometrical_task3version': 'tools',
+        'zadaci-transport-sortiranje': 'tools',
+        'geoshapes': 'tools',
+        'gis-croatia-map': 'tools gis',
+      };
+
       let activeTech = 'all';
       let activeCategory = 'all';
 
-      // Filter function
       function applyFilters() {
         const cards = document.querySelectorAll('.project-card');
         let visibleCount = 0;
@@ -292,10 +304,9 @@
           if (show) visibleCount++;
         });
         const countEl = document.getElementById('project-count');
-        if (countEl) countEl.textContent = `${visibleCount} projects`;
+        if (countEl) countEl.textContent = `${visibleCount} project${visibleCount === 1 ? '' : 's'}`;
       }
 
-      // Attach filter listeners
       document.querySelectorAll('.filter-button').forEach(button => {
         button.addEventListener('click', function() {
           const filterType = this.closest('.filter-list')?.dataset.filterType;
@@ -304,7 +315,6 @@
           } else if (filterType === 'category') {
             activeCategory = this.dataset.category || 'all';
           }
-          // Update active class within this group
           const group = this.closest('.filter-list');
           if (group) {
             group.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('is-active'));
@@ -314,16 +324,15 @@
         });
       });
 
-      // Fetch GitHub repos and build cards
       container.innerHTML = '<div class="loading">Loading repositories…</div>';
 
       try {
-        const response = await fetch('https://api.github.com/users/1244Matt1244/repos?per_page=100');
-        if (!response.ok) throw new Error('GitHub API error');
+        const response = await fetch('https://api.github.com/users/1244Matt1244/repos?per_page=100&sort=updated');
+        if (!response.ok) throw new Error('GitHub API error: ' + response.status);
         const repos = await response.json();
 
         const filtered = repos
-          .filter(repo => !repo.fork)
+          .filter(repo => !repo.fork && repo.name !== '1244Matt1244.github.io')
           .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
         container.innerHTML = '';
@@ -332,22 +341,28 @@
           const card = document.createElement('div');
           card.className = 'project-card';
 
-          // Build tags from language and topics
+          // Sastavi tagove: jezik + topics + ručne kategorije
+          const manualCat = (repoCategories[repo.name] || '').split(' ').filter(Boolean);
           const tags = [
             repo.language ? repo.language.toLowerCase() : '',
-            ...(repo.topics || [])
+            ...(repo.topics || []),
+            ...manualCat
           ].filter(Boolean).join(',').toLowerCase();
           card.dataset.tags = tags;
 
+          const description = repo.description
+            || repoDescriptions[repo.name]
+            || 'Projekt u izradi – više informacija na GitHubu.';
+
           card.innerHTML = `
             <div class="project-card__header">
-              <h3><a href="${repo.html_url}" target="_blank" rel="noopener">${repo.name}</a></h3>
+              <h3><a href="${repo.html_url}" target="_blank" rel="noopener">${repo.name.replace(/_/g, ' ')}</a></h3>
               ${repo.topics && repo.topics.includes('featured') ? '<span class="project-card__featured">Featured</span>' : ''}
             </div>
-            <p>${repo.description || 'No description provided.'}</p>
+            <p>${description}</p>
             <div class="project-card__meta">
               ${repo.language ? `<span>${repo.language}</span>` : ''}
-              ${repo.topics ? repo.topics.slice(0, 3).map(t => `<span>${t}</span>`).join('') : ''}
+              ${(repo.topics || []).slice(0, 3).map(t => `<span>${t}</span>`).join('')}
             </div>
             <div class="project-card__footer">
               <span>Updated ${new Date(repo.updated_at).toLocaleDateString()}</span>
@@ -357,12 +372,17 @@
           container.appendChild(card);
         });
 
-        // Re-apply filters after dynamic load
+        // Prikaži vrijeme sinkronizacije
+        const syncEl = document.getElementById('last-sync');
+        if (syncEl) {
+          syncEl.textContent = `Synced ${new Date().toLocaleString()}`;
+        }
+
         applyFilters();
 
       } catch (error) {
         console.error('Error loading repos:', error);
-        container.innerHTML = '<p class="error">Failed to load repositories. Please visit my GitHub profile directly.</p>';
+        container.innerHTML = '<p class="error">Failed to load repositories. Please visit <a href="https://github.com/1244Matt1244" target="_blank">my GitHub profile</a> directly.</p>';
       }
     });
   </script>
