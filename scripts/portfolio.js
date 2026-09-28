@@ -1,4 +1,4 @@
-```javascript id="n5w7rx"
+javascript id="n5w7rx"
 document.addEventListener('DOMContentLoaded', () => {
   initializeExternalLinks();
 });
@@ -18,4 +18,4 @@ function initializeExternalLinks() {
     );
   });
 }
-```
+
