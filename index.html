@@ -51,11 +51,11 @@
           <a href="#contact" class="button button--secondary">Get in Touch</a>
         </div>
         <div class="portfolio-hero__links">
-          <a href="https://github.com/1244Matt1244" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/1244Matt1244" target="_blank" rel="noopener noreferrer">GitHub</a>
           <span>·</span>
-          <a href="https://www.linkedin.com/in/matej-martinović-140750265/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/matej-martinovi%C4%87-140750265/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span>·</span>
-          <a href="matt123.3a@gmail.com">Email</a>
+          <a href="mailto:matt123.3a@gmail.com">Email</a>
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@
               <span>Stripe</span>
               <span>MUX</span>
             </div>
-            <a href="https://github.com/1244Matt1244/videohub_app" target="_blank" rel="noopener">View on GitHub →</a>
+            <a href="https://github.com/1244Matt1244/videohub_app" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
           </div>
         </div>
         <div class="featured-project-card">
@@ -93,7 +93,7 @@
               <span>Docker</span>
               <span>PCA</span>
             </div>
-            <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank" rel="noopener">View on GitHub →</a>
+            <a href="https://github.com/1244Matt1244/qgis_project_python" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
           </div>
         </div>
       </div>
@@ -213,8 +213,9 @@
         <h2>Let's build something great</h2>
         <p>I'm open to freelance projects, full-time roles, and collaborations. Feel free to reach out.</p>
         <div class="contact-actions">
-          <a href="mailto:matej@example.com" class="button button--primary">Email Me</a>
-          <a href="https://github.com/1244Matt1244" target="_blank" rel="noopener" class="button button--secondary">GitHub</a>
+          <a href="mailto:matt123.3a@gmail.com" class="button button--primary">Email Me</a>
+          <a href="https://github.com/1244Matt1244" target="_blank" rel="noopener noreferrer" class="button button--secondary">GitHub</a>
+          <a href="https://www.linkedin.com/in/matej-martinovi%C4%87-140750265/" target="_blank" rel="noopener noreferrer" class="button button--secondary">LinkedIn</a>
         </div>
       </div>
     </div>
@@ -356,7 +357,7 @@
 
           card.innerHTML = `
             <div class="project-card__header">
-              <h3><a href="${repo.html_url}" target="_blank" rel="noopener">${repo.name.replace(/_/g, ' ')}</a></h3>
+              <h3><a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name.replace(/_/g, ' ')}</a></h3>
               ${repo.topics && repo.topics.includes('featured') ? '<span class="project-card__featured">Featured</span>' : ''}
             </div>
             <p>${description}</p>
@@ -366,7 +367,7 @@
             </div>
             <div class="project-card__footer">
               <span>Updated ${new Date(repo.updated_at).toLocaleDateString()}</span>
-              <a href="${repo.html_url}" target="_blank" rel="noopener">GitHub →</a>
+              <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">GitHub →</a>
             </div>
           `;
           container.appendChild(card);
@@ -382,7 +383,7 @@
 
       } catch (error) {
         console.error('Error loading repos:', error);
-        container.innerHTML = '<p class="error">Failed to load repositories. Please visit <a href="https://github.com/1244Matt1244" target="_blank">my GitHub profile</a> directly.</p>';
+        container.innerHTML = '<p class="error">Failed to load repositories. Please visit <a href="https://github.com/1244Matt1244" target="_blank" rel="noopener noreferrer">my GitHub profile</a> directly.</p>';
       }
     });
   </script>
